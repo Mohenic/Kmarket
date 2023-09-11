@@ -11,11 +11,11 @@
         *  {
         margin: 0;
         padding: 0;
-        font: normal 12px '돋움';
+        font: normal 12px '고딕';
         }
 
-        a {text-decoration: none; color: #fff;}
-        
+        ul, ol {list-style: none;}
+        a {text-decoration: none; color: #111;}
 
         #admin-container {
             width: 100%;
@@ -26,14 +26,14 @@
             width: 100%;
             height: 120px;
             background: url(../images/admin_bg_header.jpg) repeat-x;
-            border: 1px solid blue;
+
         }
 
         header > div {
             width: 1400px;
             height: 100%;
             margin: 0 auto;
-            border: 1px solid black;
+        
         }
         
 
@@ -43,8 +43,17 @@
             margin-top: 46px;
         }
 
+        header > div > p > a {
+            color: #fff;
+        }
+
         header > div > p > span {
             margin-right: 16px;
+        }
+
+        header > div > .logo {
+            float: left;
+            margin-top: 46px;
         }
 
 
@@ -52,19 +61,46 @@
             width: 1400px;
             height: 767px;
             margin: 0 auto;
-            border: 1px solid pink;
         }
 
         main > aside {
             float: left;
             width: 270px;
-            height: 270px;
-            border: 1px solid #c0c0c0;
+            height: auto;
+            background: url('../images/admin_bg_aside.jpg') repeat-y;
+            border-left: 1px solid #c0c0c0;
             box-sizing: border-box;
         }
 
+
+        #gnb > li {
+            width: 100%;
+            min-height: 66px;
+            border-top: 1px solid #c0c0c0;
+            box-sizing: border-box;
+        }
+
+        #gnb > li:last-child {border-bottom: 1px solid #c0c0c0;}
+
         
 
+        #gnb > li > a {
+            display: block;
+            width: 100%;
+            height: 66px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #222;
+            line-height: 66px;
+            text-indent: 10px;
+        }
+
+        #gnb > li > a > i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        
 
         main > section {
             float: right;
@@ -72,8 +108,183 @@
             min-height: 600px;
             padding: 20px;
             box-sizing: border-box;
-            border: 1px solid red;
         }
+
+        main > section > nav {
+            position: relative;
+            width: 100%;
+            height: 46px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #c0c0c0;
+            box-sizing: border-box;
+        }
+
+
+        main > section > nav > h3 {
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        main h4 {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        main > section > nav > p {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+        }
+
+
+
+        main > section > nav > p > strong {
+            font-weight: bold;
+        }
+
+        main > section > article section {
+            margin-bottom: 16px;
+        }
+        main > section > article section > p {
+            background: #eaeaea;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        main table {
+            width: 100%;
+            border-collapse: collapse;
+        }   
+        
+
+        main table tr > td:nth-child(1) {
+            width: 160px;
+            border-top: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
+            background: #f6f6f6;
+            padding: 10px;    
+            text-align: left;
+        }
+        
+        
+
+        #admin-index > article {
+            width: 1090px;
+            height: auto;
+            overflow: hidden;
+        }
+
+        #admin-index > article > table {
+            width: 100%;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border-collapse: collapse;
+            border-top: 2px solid #8798a3;
+        }
+
+        #admin-index > article > table tr:first-child {
+            background: #fafafa !important;
+        }
+
+        #admin-index > article > table tr > td {
+            width: 20%;
+            border: 1px solid #e5e5e5;
+            padding: 6px 6px 6px 12px;
+            color: #111;
+            text-align: center;
+        }
+
+        
+        #admin-index > article > table tr > td > strong {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            padding-top: 10px;
+        }
+
+        #admin-index > article > table tr > td > span {
+            display: block;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #bc2e13;
+        }
+
+        #admin-index > article > table tr > td > p {
+            padding: 6px;
+            overflow: hidden;
+        }
+
+        #admin-index > article > table tr > td > p > span {
+            font-size: 14px;
+        }         
+
+       
+        
+
+        #admin-index > article > table tr > td > p > span:nth-child(1) {float: left;}
+
+        #admin-index > article > table tr > td > p > span:nth-child(2) {float: right;}
+
+        #admin-index > article > table tr > td > p {
+            padding: 6px;
+            overflow: hidden;
+        }
+
+
+        #admin-index > div > div {
+            width: 49%;
+            height: auto;
+        }
+
+
+        #admin-index > div > div > article {
+            width: 100%;
+            height: 165px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border: 1px solid #e5e5e5;
+            border-top: 2px solid #8798a3;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+
+        #admin-index > div > div > article > p > span {
+            line-height: 26px;
+        }
+
+        #admin-index > div > div:nth-child(1) {
+            float: left;
+        }   
+
+
+        #admin-index > div > div:nth-child(2) {
+            float: right;
+        }   
+
+        #admin-index > div > div > article > p > span:nth-child(1) {
+            float: left;
+            display: block;
+            width: 400px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: left;
+            overflow: hidden;
+        }
+
+
+
+        #admin-index > div > div > article > p > span:nth-child(2) {
+            float: right;
+        }
+
+
+
 
         footer {
             width: 100%;
@@ -88,6 +299,13 @@
             margin: 0 auto;
         }
 
+        footer > div > p {
+            padding-top: 22px;
+            color: #fff;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
 
 
        
@@ -100,7 +318,7 @@
         <header>
             <div>
                 <a href="./index.html" class="logo">
-                    <img src="../images/admin_login_logo.png" alt="admin_login">
+                    <img src="../images/admin_logo.png" alt="admin_logo">
                 </a> 
                 <p>
                     <span>홍길동님 반갑습니다.</span>
@@ -116,31 +334,287 @@
             <aside>
                 <ul id="gnb">
                     <li>
-                        <a href="#">
-                            <i class="fa fa-cogs" aria-hidden="true">
-                                ::before
-                            </i>
-                            "환경설정
-                        </a>
+                        <a href="#"><i class="fa fa-cogs" aria-hidden="true">
+                        </i>환경설정</a>
+                        <ol>
+                           
+                        </ol>
                     </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>
+                        <a href="#"><i class="fas fa-store" aria-hidden="true"></i>상점관리</a>
+                        <ol>
+                           
+                        </ol>
+                    </li>
+                  
+                    <li>
+                        <a href="#"><i class="fa fa-users" aria-hidden="true"></i>회원관리</a>
+                        <ol>
+                           
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-box-open" aria-hidden="true"></i>상품관리</a>
+                    </li>
+                 
+                    <li>
+                        <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>주문관리</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>게시판관리</a>
+                        <ol>
+                           
+                        </ol>
+                    </li>
                 </ul>
             </aside>
             <section id="admin-index">
-                <nav></nav>
-                <article></article>
-                <div></div>
-                <div></div>
+                <nav>
+                    <h3>관리자 메인</h3>
+                    <p>
+                        HOME &gt; <strong>메인</strong>
+                    </p>
+                </nav>
+                <h4>쇼핑몰 운영현황</h4>
+                <article>
+                    <table>
+                        <tr>
+                            <td>
+                                <strong>주문건수(건)</strong>
+                                <span>131</span>
+                            </td>
+                            <td>
+                                <strong>주문금액(원)</strong>
+                                <span>1,130,000</span>
+                            </td>
+                            <td>
+                                <strong>회원가입(명)</strong>
+                                <span>1014</span>
+                            </td>
+                            <td>
+                                <strong>쇼핑몰 방문(명)</strong>
+                                <span>1014</span>
+                            </td>
+                            <td>
+                                <strong>신규게시물(건)</strong>
+                                <span>100</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <span>PC</span>
+                                    <span>60</span>
+                                </p>
+                                <p>
+                                    <span>Mobile</span>
+                                    <span>71</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <span>PC</span>
+                                    <span>60</span>
+                                </p>
+                                <p>
+                                    <span>Mobile</span>
+                                    <span>71</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <span>PC</span>
+                                    <span>60</span>
+                                </p>
+                                <p>
+                                    <span>Mobile</span>
+                                    <span>71</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <span>PC</span>
+                                    <span>60</span>
+                                </p>
+                                <p>
+                                    <span>Mobile</span>
+                                    <span>71</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <span>PC</span>
+                                    <span>60</span>
+                                </p>
+                                <p>
+                                    <span>Mobile</span>
+                                    <span>71</span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <span>어제</span>
+                                    <span>4</span>
+                                </p>
+                                <p>
+                                    <span>주간</span>
+                                    <span>10</span>
+                                </p>
+                                <p>
+                                    <span>월간</span>
+                                    <span>30</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <span>어제</span>
+                                    <span>4</span>
+                                </p>
+                                <p>
+                                    <span>주간</span>
+                                    <span>10</span>
+                                </p>
+                                <p>
+                                    <span>월간</span>
+                                    <span>30</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <span>어제</span>
+                                    <span>4</span>
+                                </p>
+                                <p>
+                                    <span>주간</span>
+                                    <span>10</span>
+                                </p>
+                                <p>
+                                    <span>월간</span>
+                                    <span>30</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <span>어제</span>
+                                    <span>4</span>
+                                </p>
+                                <p>
+                                    <span>주간</span>
+                                    <span>10</span>
+                                </p>
+                                <p>
+                                    <span>월간</span>
+                                    <span>30</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    <span>어제</span>
+                                    <span>4</span>
+                                </p>
+                                <p>
+                                    <span>주간</span>
+                                    <span>10</span>
+                                </p>
+                                <p>
+                                    <span>월간</span>
+                                    <span>30</span>
+                                </p>
+                            </td>		
+                        </tr>
+                    </table>
+                </article>
+                <h4>주문 업무현황</h4>
+                <article>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>입금대기(건)</strong>
+                                    <span>100</span>
+                                </td>
+                                <td>
+                                    <strong>배송준비(건)</strong>
+                                    <span>100</span>
+                                </td>
+                                <td>
+                                    <strong>취소요청(건)</strong>
+                                    <span>100</span>
+                                </td>
+                                <td>
+                                    <strong>교환요청(건)</strong>
+                                    <span>100</span>
+                                </td>
+                                <td>
+                                    <strong>반품요청(건)</strong>
+                                    <span>100</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+                <div>
+                    <div>
+                        <h4>공지사항</h4>
+                        <article>
+                            <p>
+                                <span>[공지] 케이마켓 판매자님들은 주기적인 비밀번호 변경을 하세요.케이마켓 판매자님들은 주기적인 비밀번호 변경을 하세요.</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                            <p>
+                                <span>[공지] 1주년 기념 신규가입 사은품 안내</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                            <p>
+                                <span>[공지] 1주년 기념 신규가입 사은품 안내</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                            <p>
+                                <span>[공지] 1주년 기념 신규가입 사은품 안내</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                            <p>
+                                <span>[공지] 1주년 기념 신규가입 사은품 안내</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                        </article>
+                    </div>
+                    <div>
+                        <h4>고객문의</h4>
+                        <article>
+                            <p>
+                                <span>[문의] 상품이 잘못 왔습니다.</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                            <p>
+                                <span>[문의] 안녕하세요. 주문자 입니다. 구매한 상품에 문제가 있어서 이렇게 문의글을 남깁니다.</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                            <p>
+                                <span>[문의] 상품이 1개 잘못 왔습니다.</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                            <p>
+                                <span>[문의] 상품이 1개 잘못 왔습니다.</span>
+                                <span>20-07-08 12:23</span>
+                            </p>
+                            <p>
+                                <span>[문의] 상품이 1개 잘못 왔습니다.</span>
+                                <span>20-07-08 12:23</span>
+                            </p>                                                                
+                        </article>
+                    </div>
+                </div>
+                
             </section>
         </main>
 
         <footer>
-            <div></div>
+            <div>
+                <p>Copyright ©kmarket.co.kr All rights reserved. KMARKET ADMINISTRATOR Version 5.4.1.2</p>
+            </div>
         </footer>
     </div>
 </body>
