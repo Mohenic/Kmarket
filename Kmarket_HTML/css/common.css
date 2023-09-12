@@ -369,7 +369,7 @@
     background: url("../images/ico_freeshipping.gif") no-repeat;
   }
   
-  /* ë©”ì¸ ì²«ë²ˆì§¸ ì„¹ì…˜ */
+  /* main - section */
   main > section {
     float: right;
     width: 985px;
@@ -478,14 +478,7 @@
     background: #fff;
   }
   
-  main > section > .hit {
-  }
-  main > section > .recommend {
-  }
-  main > section > .new {
-  }
-  main > section > .discount {
-  }
+
   
   /* footer­ */
   footer{
@@ -516,7 +509,6 @@ footer > ul > li {
 footer > ul > li:first-child{
     border-left: 1px solid #d7d7d7;
 }
-footer > ul > li > a{}
 
 footer > div {
     width: 1200px;
