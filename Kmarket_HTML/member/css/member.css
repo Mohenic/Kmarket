@@ -214,6 +214,47 @@ header {
   width: 60px;
 }
 
+/*member-join*/
+#member > .join{
+  width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+#member > .join > .wel{
+  display: block ;
+  margin: 10px auto;
+}
+
+#member > .join > .type{
+  width: 100%;
+  height: 200px;
+  margin: 60px auto;
+}
+#member > .join > .type > div{
+  width: 420px;
+  height: 100%;
+  border: 1px solid #d5d5d5;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#member > .join > .type > div > .text > a{
+  float: right;
+}
+#member > .join > .type > div > .text {
+  padding: 40px;
+}
+#member > .join .nomarl{
+  float: left;
+}
+#member > .join .seller{
+  float: right;
+}
+#member > .join .banner{
+  display: block;
+  margin-bottom: 20px;
+}
+
 
   /*footer*/
 footer{
