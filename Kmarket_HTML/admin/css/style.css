@@ -473,7 +473,7 @@ select {
     box-sizing: border-box;
 }
 
-input {
+#admin-product-register input {
     width: 200px;
     padding: 6px;
     border: 1px solid #959595;
@@ -483,6 +483,7 @@ input {
     vertical-align: middle;
     box-sizing: border-box;
 }
+
 
 #admin-product-register input[type=submit] {
     float: right;

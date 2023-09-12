@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var gnb = $('#gnb > li > a');
+    var gnb = $('#gnb > li > a ');
 
     gnb.click(function(e){
         e.preventDefault();
