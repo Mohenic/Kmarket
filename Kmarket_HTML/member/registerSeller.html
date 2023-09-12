@@ -14,6 +14,9 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./css/member.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="./js/zipcode.js"></script>
 </head>
 
 
@@ -160,6 +163,7 @@
                                 <td>
                                     <div>
                                         <input type="text" name="zip" id="zip" placeholder="우편번호 입력 클릭" readonly>
+                                        <button type="button" class="btnZip" onclick="zipcode()"><img src="./images/btn_post_search.gif" alt="가나다"></button>
                                     </div>
                                     <div>
                                         <input type="text" name="addr1" id="addr1" size="50" placeholder="주소를 검색하세요" readonly>
