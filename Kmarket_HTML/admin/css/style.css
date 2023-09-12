@@ -16,7 +16,7 @@
             header{
                 width: 100%;
                 height: 120px;
-                background: url(/admin/images/admin_bg_header.jpg) repeat-x;
+                background: url(../images/admin_bg_header.jpg) repeat-x;
     
             }
     
@@ -59,7 +59,7 @@
                 float: left;
                 width: 270px;
                 height: auto;
-                background: url('/admin/images/admin_bg_aside.jpg') repeat-y;
+                background: url('../images/admin_bg_aside.jpg') repeat-y;
                 border-left: 1px solid #c0c0c0;
                 box-sizing: border-box;
             }
