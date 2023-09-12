@@ -129,8 +129,9 @@ main > aside > .category > li:first-child {
   color: #fff;
   line-height: 40px;
 }
-main > aside > .category > li:not(:first-child):hover {
+main > aside > .category > li > a:hover {
   background: #2b313f;
+  color: #fff;
 }
 main > aside > .category > li {
   width: 100%;
