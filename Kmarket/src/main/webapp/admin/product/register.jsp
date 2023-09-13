@@ -1,36 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/admin/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
-    <script src="/admin/js/aside.js"></script>
-
-    <style>
-   
-    </style>
-
-</head>
-<body>
-    <div id="admin-container">
-        <header>
-            <div>
-                <a href="./index.html" class="logo">
-                    <img src="/admin/images/admin_logo.png" alt="admin_logo">
-                </a> 
-                <p>
-                    <span>홍길동님 반갑습니다.</span>
-                    <a href="#">HOME |</a>
-                    <a href="#">로그아웃 |</a>
-                    <a href="#">고객센터</a>
-                </p>
-            </div>
-
-        </header>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file ="../_header.jsp" %> 
         <main>
             <aside>
                 <ul id="gnb">
@@ -38,8 +7,8 @@
                         <a href="#"><i class="fa fa-cogs" aria-hidden="true">
                         </i>환경설정</a>
                         <ol style="display: none;">
-                            <li><a href="./config/info.html">기본환경정보</a></li>
-                            <li><a href="./config/banner.html">배너관리</a></li>
+                            <li><a href="./config/info.do">기본환경정보</a></li>
+                            <li><a href="./config/banner.do">배너관리</a></li>
                         </ol>
                     </li>
                     <li>
@@ -95,7 +64,7 @@
                 </nav>
                 <!-- 상품등록 컨텐츠 시작 -->
                 <article>
-                    <form action="#">
+                    <form action="/Kmarket/admin/product/register.do" method="post">
 
                         <!-- 상품분류 -->
                         <section>
@@ -255,11 +224,4 @@
 
         </main>
 
-        <footer>
-            <div>
-                <p>Copyright ©kmarket.co.kr All rights reserved. KMARKET ADMINISTRATOR Version 5.4.1.2</p>
-            </div>
-        </footer>
-    </div>
-</body>
-</html>
+<%@include file ="../_footer.jsp" %> 

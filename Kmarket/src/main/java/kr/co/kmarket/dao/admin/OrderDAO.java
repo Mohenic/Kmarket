@@ -21,9 +21,19 @@ public class OrderDAO extends DBHelper{
 	
 	private OrderDAO() {
 	
-		}
+	}
 	
 	public void insertOrder() {
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(null);
+			psmt.executeUpdate();
+			close();
+			
+		} catch (Exception e) {
+			logger.error("insertOrder()" + e.getMessage());
+		}
 		
 	}
 	
