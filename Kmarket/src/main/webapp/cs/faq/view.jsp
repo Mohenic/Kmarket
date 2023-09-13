@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,15 +34,15 @@
             </div>
         </header>
         <section id="cs">
-            <div class="qna">
+            <div class="faq">
                 <nav>
                     <div>
-                        <p>홈<span>></span>문의하기</p>
+                        <p>홈<span>></span>자주묻는 질문</p>
                     </div>
                 </nav>
                 <section class="view">
                     <aside>
-                        <h2>문의하기</h2>
+                        <h2>자주묻는 질문</h2>
                         <ul>
                             <li class="on"><a href="#">회원</a></li>
                             <li><a href="#">쿠폰/이벤트</a></li>
@@ -54,11 +55,7 @@
                     </aside>
                     <article>
                         <nav>
-                            <h2 class="title">[가입] 가입 문의내용</h2>
-                            <p>
-                                <span>moh***</span>
-                                <span>2022-11-21</span>
-                            </p>
+                            <h2 class="title"><span>Q.</span>개인회원과 법인회원에 차이가 있나요?</h2>
                         </nav>
                         <div class="content">
                             <p>
