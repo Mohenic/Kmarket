@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<property name="NAME" value="Farmstory2"/>	
+	<property name="NAME" value="Kmarket"/>	
 	<property name="LOG_DIR" value="/logs"/>
 	
 	<!-- 콘솔 어펜더 -->
