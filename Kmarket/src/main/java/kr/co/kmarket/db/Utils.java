@@ -1,5 +1,8 @@
 package kr.co.kmarket.db;
 
+
+public class Utils {
+  
 import java.text.DecimalFormat;
 
 public class Utils {
