@@ -1,38 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>케이마켓 고객센터</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <div id="container">
-        <header>
-            <div class="top">
-                <div>
-                    <p>
-                        <a href="#">로그인</a>
-                        <a href="#">회원가입</a>
-                        <a href="#">마이페이지</a>
-                        <a href="#">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            &nbsp;장바구니
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="logo">
-                <div>
-                    <a href="#">
-                        <img src="./images/logo.png" alt="로고">고객센터
-                    </a>
-                </div>
-            </div>
-        </header>
+<%@ include file="./_header.jsp" %>
         <section id="cs">
             <div class="main">
                 <h1 class="title">
@@ -41,7 +8,7 @@
                 <section class="notice">
                     <h1>
                         공지사항
-                        <a href="./notice/list.html">전체보기</a>
+                        <a href="/Kmarket/cs/notice/list.do">전체보기</a>
                     </h1>
                     <ul>
                         <li>
@@ -69,7 +36,7 @@
                 <section class="faq">
                     <h1>
                         자주 묻는 질문
-                        <a href="./faq/list.html">전체보기</a>
+                        <a href="/Kmarket/cs/faq/list.do">전체보기</a>
                     </h1>
                     <ol>
                         <li>
@@ -112,11 +79,11 @@
                 <section class="qna">
                     <h1>
                         문의하기
-                        <a href="#">전체보기</a>
+                        <a href="/Kmarket/cs/qna/list.do">전체보기</a>
                     </h1>
                     <ul>
                         <li>
-                            <a href="./qna/list.html" class="title">[회원] 개인회원과 법인회원에 차이가 있나요?</a>
+                            <a href="/Kmarket/cs/qna/view.do" class="title">[회원] 개인회원과 법인회원에 차이가 있나요?</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
@@ -189,48 +156,4 @@
                 </section>
             </div>
         </section>
-        <footer>
-            <ul>
-                <li>
-                    <a href="#"> 회사소개 </a>
-                </li>
-                <li>
-                    <a href="#"> 서비스이용약관 </a>
-                </li>
-                <li>
-                    <a href="#"> 개인정보처리 방침 </a>
-                </li>
-                <li>
-                    <a href="#"> 전자금융거래약관 </a>
-                </li>                
-            </ul>
-            <div>
-                <p>
-                    <img src="../images/footer_logo.png" alt="">
-                </p>
-                <p>
-                    <strong>(주)KMARKET</strong><br>
-                    부산시 강남구 테헤란로 152 (역삼동 강남파이낸스센터)
-                    <br>
-                    대표이사 : 홍길동
-                    <br>
-                    사업자등록번호 : 220-81-83676 사업자정보확인
-                    <br>
-                    통신판매업신고 : 강남 10630호 Fax : 02-589-8842 
-                </p>
-                <p>
-                    <strong>고객센터</strong><br>
-                    Tel : 1234-5678 (평일 09:00~18:00)
-                    <br>
-                    스마일클럽/SVIP 전용 : 1522-5700 (365일 09:00~18:00)
-                    <br>
-                    경기도 부천시 원미구 부일로 223(상동) 투나빌딩 6층
-                    <br>
-                    Fax : 051-123-4567 | Mail : kmarket@kmarket.co.kr
-                </p>
-            </div>
-
-        </footer>
-    </div>
-</body>
-</html>
+<%@ include file="./_footer.jsp" %>
