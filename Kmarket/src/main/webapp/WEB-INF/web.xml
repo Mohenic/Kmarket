@@ -9,7 +9,7 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  
+ 
   <!-- MVC 보안설정 -->
   <security-constraint>
   	<display-name>Prohibit Model1</display-name>
