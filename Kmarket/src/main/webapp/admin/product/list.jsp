@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/admin/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
-    <script src="/admin/js/aside.js"></script>
-
-    <style>
-
-     
-        
-
-    </style>
-
-</head>
-<body>
-    <div id="admin-container">
-        <header>
-            <div>
-                <a href="./index.html" class="logo">
-                    <img src="/admin/images/admin_logo.png" alt="admin_logo">
-                </a> 
-                <p>
-                    <span>홍길동님 반갑습니다.</span>
-                    <a href="#">HOME |</a>
-                    <a href="#">로그아웃 |</a>
-                    <a href="#">고객센터</a>
-                </p>
-            </div>
-
-        </header>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file ="../_header.jsp" %> 
     <main>
         <aside>
             <ul id="gnb">
@@ -123,7 +90,7 @@
 
                         <tr>
                             <td><input type="checkbox" name="상품코드"></td>
-                            <td><img src="/admin/images/sample_thumb.jpg" class="thumb"></td>
+                            <td><img src="/Kmarket/admin/images/sample_thumb.jpg" class="thumb"></td>
                             <td>201603292</td>
                             <td>FreeMovement BLUEFORCE</td>
                             <td>36,000</td>
@@ -139,7 +106,7 @@
                         </tr>
                         <tr>
                             <td><input type="checkbox" name="상품코드"></td>
-                            <td><img src="/admin/images/sample_thumb.jpg" class="thumb"></td>
+                            <td><img src="/Kmarket/admin/images/sample_thumb.jpg" class="thumb"></td>
                             <td>201603292</td>
                             <td>FreeMovement BLUEFORCE</td>
                             <td>36,000</td>
@@ -155,7 +122,7 @@
                         </tr>
                         <tr>
                             <td><input type="checkbox" name="상품코드"></td>
-                            <td><img src="/admin/images/sample_thumb.jpg" class="thumb"></td>
+                            <td><img src="/Kmarket/admin/images/sample_thumb.jpg" class="thumb"></td>
                             <td>201603292</td>
                             <td>FreeMovement BLUEFORCE</td>
                             <td>36,000</td>
@@ -196,11 +163,4 @@
             </p>
         </section><!--admin-product-list end-->
     </main>
-    <footer>
-        <div>
-            <p>Copyright ©kmarket.co.kr All rights reserved. KMARKET ADMINISTRATOR Version 5.4.1.2</p>
-        </div>
-    </footer>
-    </div>
-</body>
-</html>
+<%@include file ="../_footer.jsp" %> 
