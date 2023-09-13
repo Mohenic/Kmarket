@@ -1,5 +1,5 @@
 package kr.co.kmarket.db;
 
-public class SQL {
+public class SQL_Admin {
 
 }
