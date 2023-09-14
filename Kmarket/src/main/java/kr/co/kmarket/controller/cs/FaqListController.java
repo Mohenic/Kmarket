@@ -28,66 +28,14 @@ public class FaqListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
 		
-		//데이터수신
-		String pg = req.getParameter("pg");
+		List<FaqDTO> faqArticle = service.selectFaqArticles(cate);
 		
-		//페이지 관련 변수
-		int start=0;
-		int currentPage =1;
-		int total=0;
-		int lastPageNum=0;
-		int pageGroupCurrent=1;
-		int pageGroupStart=1;
-		int pageGroupEnd=0;
-		int pageStartNum=0;
-		
-		
-		// 현재페이지계산
-		if(pg!=null){
-			currentPage =Integer.parseInt(pg);
-			
-		}
-		
-		// 전체 상품 갯수
-		total = service.selectCountTotal(cate);
-		
-		//LIMIT 시작값계산
-		start =(currentPage -1)*10;
-
-		if(total%10 == 0){
-			lastPageNum =(total/10);
-		}else{
-			lastPageNum =(total/10)+1;
-		}
-		
-		//페이지 그룹계산
-		pageGroupCurrent=(int) Math.ceil(currentPage/10.0);
-		pageGroupStart=(pageGroupCurrent-1)*10+1;
-		pageGroupEnd=pageGroupCurrent*10;
-		
-		if(pageGroupEnd > lastPageNum){
-			pageGroupEnd=lastPageNum;
-		}
-		
-		//페이지 시작번호 계산
-		pageStartNum = total-start;
-		
-		
-		List<FaqDTO> article = service.selectFaqArticles(cate, start);
-		
-		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);
-		req.setAttribute("article", article);
-		req.setAttribute("currentPage", currentPage);
-		req.setAttribute("total", total);
-		req.setAttribute("lastPageNum", lastPageNum);
-		req.setAttribute("pageGroupCurrent", pageGroupCurrent);
-		req.setAttribute("pageGroupStart", pageGroupStart);
-		req.setAttribute("pageGroupEnd", pageGroupEnd);
+		req.setAttribute("faqArticle", faqArticle);
 		
+	
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/faq/list.jsp");
 		dispatcher.forward(req, resp);

@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=cancle">
+                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=cancel">
                                 <span>취소/반품/교환</span>
                             </a>
                         </li>

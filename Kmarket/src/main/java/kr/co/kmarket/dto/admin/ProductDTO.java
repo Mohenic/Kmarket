@@ -1,7 +1,5 @@
 package kr.co.kmarket.dto.admin;
 
-import kr.co.kmarket.dto.product.productDTO;
-
 public class ProductDTO {
 	
 	private int prodNo;
