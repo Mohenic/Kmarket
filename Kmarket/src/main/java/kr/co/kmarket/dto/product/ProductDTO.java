@@ -41,17 +41,26 @@ public class ProductDTO {
 	public void setProdNo(int prodNo) {
 		this.prodNo = prodNo;
 	}
+	public void setProdNo(String prodNo) {
+		this.prodNo = Integer.parseInt(prodNo);
+	}
 	public int getProdCate1() {
 		return prodCate1;
 	}
 	public void setProdCate1(int prodCate1) {
 		this.prodCate1 = prodCate1;
 	}
+	public void setProdCate1(String prodCate1) {
+		this.prodCate1 = Integer.parseInt(prodCate1);
+	}
 	public int getProdCate2() {
 		return prodCate2;
 	}
 	public void setProdCate2(int prodCate2) {
 		this.prodCate2 = prodCate2;
+	}
+	public void setProdCate2(String prodCate2) {
+		this.prodCate2 = Integer.parseInt(prodCate2);
 	}
 	public String getProdName() {
 		return prodName;
@@ -83,11 +92,17 @@ public class ProductDTO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	public void setPrice(String price) {
+		this.price = Integer.parseInt(price);
+	}
 	public int getDiscount() {
 		return discount;
 	}
 	public void setDiscount(int discount) {
 		this.discount = discount;
+	}
+	public void setDiscount(String discount) {
+		this.discount = Integer.parseInt(discount);
 	}
 	public int getPoint() {
 		return point;
@@ -95,11 +110,17 @@ public class ProductDTO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	public void setPoint(String point) {
+		this.point = Integer.parseInt(point);
+	}
 	public int getStock() {
 		return stock;
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+	public void setStock(String stock) {
+		this.stock = Integer.parseInt(stock);
 	}
 	public int getSold() {
 		return sold;
@@ -112,6 +133,9 @@ public class ProductDTO {
 	}
 	public void setDelivery(int delivery) {
 		this.delivery = delivery;
+	}
+	public void setDelivery(String delivery) {
+		this.delivery = Integer.parseInt(delivery);
 	}
 	public int getHit() {
 		return hit;
@@ -227,4 +251,18 @@ public class ProductDTO {
 	public void setEtc5(String etc5) {
 		this.etc5 = etc5;
 	}
+	
+	@Override
+	public String toString() {
+		return "ProductDTO [prodNo=" + prodNo + ", prodCate1=" + prodCate1 + ", prodCate2=" + prodCate2 + ", prodName="
+				+ prodName + ", descript=" + descript + ", seller=" + seller + ", company=" + company + ", price="
+				+ price + ", discount=" + discount + ", point=" + point + ", stock=" + stock + ", sold=" + sold
+				+ ", delivery=" + delivery + ", hit=" + hit + ", score=" + score + ", review=" + review + ", thumb1="
+				+ thumb1 + ", thumb2=" + thumb2 + ", thumb3=" + thumb3 + ", detail=" + detail + ", status=" + status
+				+ ", duty=" + duty + ", receipt=" + receipt + ", bizType=" + bizType + ", origin=" + origin + ", ip="
+				+ ip + ", rdate=" + rdate + ", etc1=" + etc1 + ", etc2=" + etc2 + ", etc3=" + etc3 + ", etc4=" + etc4
+				+ ", etc5=" + etc5 + "]";
+	}
+	
+	
 }

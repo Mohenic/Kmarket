@@ -1,4 +1,4 @@
-package kr.co.kmarket.controller.cs;
+package kr.co.kmarket.controller;
 
 import java.io.IOException;
 
@@ -9,16 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/cs/index.do")
-public class IndexController extends HttpServlet {
+@WebServlet(value = {"","/index.do"})
+public class IndexController extends HttpServlet{
 
-	private static final long serialVersionUID = 7250034913434587988L;
+	private static final long serialVersionUID = 4770999244181115655L;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/index.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
 		dispatcher.forward(req, resp);
 	}
-
 }
