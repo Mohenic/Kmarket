@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import com.oreilly.servlet.MultipartRequest;
 
 import kr.co.kmarket.dto.product.ProductDTO;
-//import kr.co.kmarket.service.file.FileService;
+import kr.co.kmarket.service.file.FileService;
 import kr.co.kmarket.service.product.ProductService;
 
 @WebServlet("/admin/product/register.do")
