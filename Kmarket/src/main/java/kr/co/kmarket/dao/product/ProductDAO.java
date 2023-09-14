@@ -4,12 +4,12 @@ package kr.co.kmarket.dao.product;
 import java.util.List;
 
 import kr.co.kmarket.db.DBHelper;
-import kr.co.kmarket.db.SQL_product;
+import kr.co.kmarket.db.sql.SQL_product;
 import kr.co.kmarket.dto.product.ProductDTO;
 
 
 public class ProductDAO extends DBHelper{
-
+	
 	private static ProductDAO instace = new ProductDAO();
 	
 	public static ProductDAO getInstance() {

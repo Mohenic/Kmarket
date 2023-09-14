@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.kmarket.service.product.ProductService;
 
-@WebServlet("/product/list.do")
-public class ProductListController extends HttpServlet {
-	
+@WebServlet("/product/complete.do")
+public class ProductCompleteController extends HttpServlet {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7715231998323392840L;
+	private static final long serialVersionUID = -5772880320109292475L;
 	ProductService service = ProductService.INSTANCE;
 
 			@Override
 			protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/product/list.jsp");
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/product/complete.jsp");
 				dispatcher.forward(req, resp);	
 			}
 		}

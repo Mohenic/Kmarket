@@ -1,7 +1,7 @@
 package kr.co.kmarket.dto.product;
 
 public class ProductDTO {
-
+	
 	private int prodNo;
 	private int prodCate1;
 	private int prodCate2;
@@ -35,24 +35,46 @@ public class ProductDTO {
 	private String etc4;
 	private String etc5;
 	
+	public ProductDTO() {
+		
+	}
+	
 	public int getProdNo() {
 		return prodNo;
 	}
+	
 	public void setProdNo(int prodNo) {
 		this.prodNo = prodNo;
 	}
+	
+	public void setProdNo(String prodNo) {
+		this.prodNo = Integer.parseInt(prodNo);
+	}
+	
 	public int getProdCate1() {
 		return prodCate1;
 	}
 	public void setProdCate1(int prodCate1) {
 		this.prodCate1 = prodCate1;
 	}
+	
+	public void setProdCate1(String prodCate1) {
+		this.prodCate1 = Integer.parseInt(prodCate1);
+	}
+	
 	public int getProdCate2() {
 		return prodCate2;
 	}
 	public void setProdCate2(int prodCate2) {
 		this.prodCate2 = prodCate2;
 	}
+	
+	public void setProdCate2(String prodCate2) {
+		this.prodCate2 = Integer.parseInt(prodCate2);
+	}
+	
+	
+	
 	public String getProdName() {
 		return prodName;
 	}
@@ -83,12 +105,22 @@ public class ProductDTO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	public void setPrice(String price) {
+		this.price = Integer.parseInt(price);
+	}
+	
 	public int getDiscount() {
 		return discount;
 	}
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
+	
+	public void setDiscount(String discount) {
+		this.discount = Integer.parseInt(discount);
+	}
+	
 	public int getPoint() {
 		return point;
 	}
@@ -227,4 +259,47 @@ public class ProductDTO {
 	public void setEtc5(String etc5) {
 		this.etc5 = etc5;
 	}
+	public ProductDTO(int prodNo, int prodCate1, int prodCate2, String prodName, String descript, String seller,
+			String company, int price, int discount, int point, int stock, int sold, int delivery, int hit, int score,
+			int review, String thumb1, String thumb2, String thumb3, String detail, String status, String duty,
+			String receipt, String bizType, String origin, String ip, String rdate, int etc1, int etc2, String etc3,
+			String etc4, String etc5) {
+		super();
+		this.prodNo = prodNo;
+		this.prodCate1 = prodCate1;
+		this.prodCate2 = prodCate2;
+		this.prodName = prodName;
+		this.descript = descript;
+		this.seller = seller;
+		this.company = company;
+		this.price = price;
+		this.discount = discount;
+		this.point = point;
+		this.stock = stock;
+		this.sold = sold;
+		this.delivery = delivery;
+		this.hit = hit;
+		this.score = score;
+		this.review = review;
+		this.thumb1 = thumb1;
+		this.thumb2 = thumb2;
+		this.thumb3 = thumb3;
+		this.detail = detail;
+		this.status = status;
+		this.duty = duty;
+		this.receipt = receipt;
+		this.bizType = bizType;
+		this.origin = origin;
+		this.ip = ip;
+		this.rdate = rdate;
+		this.etc1 = etc1;
+		this.etc2 = etc2;
+		this.etc3 = etc3;
+		this.etc4 = etc4;
+		this.etc5 = etc5;
+	}
+	
+	
+	
+	
 }

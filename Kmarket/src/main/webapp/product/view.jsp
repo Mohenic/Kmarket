@@ -24,7 +24,7 @@
             <!-- View 시작 -->
             <article class="info">
                 <div class="image">
-                    <img src="https://via.placeholder.com/460x460" alt="상품이미지"/>
+                    <img src="https://via.placeholder.com/460x460" alt="상품이미지"/> <!-- thumb3출력 -->
                 </div>
                 <div class="summary">
                     <nav>
@@ -34,7 +34,7 @@
                     <nav>
                         <h3>상품명</h3>
                         <p>상품설명 출력</p>
-                        <h5 class="rating star4"><a href="#">상품평보기</a></h5>
+                        <h5 class="rating star4"><a href="Kmarket/product/list.do">상품평보기</a></h5>
                     </nav>
                     <nav>
                         <div class="org_price">
@@ -250,19 +250,19 @@
             <!-- 번호 버튼 -->
             <div class="paging">
                 <span class="prev">
-                    <a href="#">< 이전</a>
+                    <a href="Kmarket/product/list.do">< 이전</a>
                 </span>
                 <span class="num">
-                    <a href="#" class="on">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>	
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">7</a>
+                    <a href="Kmarket/product/list.do" class="on">1</a>
+                    <a href="Kmarket/product/list.do">2</a>
+                    <a href="Kmarket/product/list.do">3</a>	
+                    <a href="Kmarket/product/list.do">4</a>
+                    <a href="Kmarket/product/list.do">5</a>
+                    <a href="Kmarket/product/list.do">6</a>
+                    <a href="Kmarket/product/list.do">7</a>
                 </span>
                 <span class="next">
-                    <a href="#">다음 ></a>
+                    <a href="Kmarket/product/list.do">다음 ></a>
                 </span>
             </div>
             <!-- 상단 이동 버튼 -->
