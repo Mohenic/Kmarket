@@ -25,7 +25,6 @@ public class ProductDAO extends DBHelper{
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_product.INSERT_PRODUCT);
-			psmt.executeUpdate();
 			
 			   	psmt.setInt(1, dto.getProdNo());
 	            psmt.setInt(2, dto.getProdCate1());
@@ -53,12 +52,12 @@ public class ProductDAO extends DBHelper{
 	            psmt.setString(24, dto.getBizType());
 	            psmt.setString(25, dto.getOrigin());
 	            psmt.setString(26, dto.getIp());
-	            psmt.setString(27, dto.getRdate());
-	            psmt.setInt(28, dto.getEtc1());
-	            psmt.setInt(29, dto.getEtc2());
-	            psmt.setString(30, dto.getEtc3());
-	            psmt.setString(31, dto.getEtc4());
-	            psmt.setString(32, dto.getEtc5());
+	            psmt.setInt(27, dto.getEtc1());
+	            psmt.setInt(28, dto.getEtc2());
+	            psmt.setString(29, dto.getEtc3());
+	            psmt.setString(30, dto.getEtc4());
+	            psmt.setString(31, dto.getEtc5());
+	            psmt.executeUpdate();
 	            close();
 	            
 		}catch (Exception e) {

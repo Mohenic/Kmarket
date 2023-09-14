@@ -29,12 +29,12 @@ public class SQL_product {
 												+ "`bizType`=?,"
 												+ "`origin`=?,"
 												+ "`ip`=?,"
-												+ "`rdate`=?,"
 												+ "`etc1`=?,"
 												+ "`etc2`=?,"
 												+ "`etc3`=?,"
 												+ "`etc4`=?,"
-												+ "`etc5`=?";
+												+ "`etc5`=?, "
+												+ "`rdate`=NOW()";
 
 	public final static String SELECT_PRODUCT = "SELECT * FROM `Product` WHERE `prodNo`=?";
 	public final static String SELECT_PRODUCTS = "SELECT * FROM `km_product` WHERE `prodCate1`=? LIMIT ?,10";
