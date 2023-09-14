@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dao.member.MemberTermsDAO;
+import kr.co.kmarket.dto.member.MemberDTO;
 import kr.co.kmarket.dto.member.Member_termsDTO;
 
 public enum MemberTermsService {
@@ -15,6 +16,7 @@ public enum MemberTermsService {
 	public Member_termsDTO selectTerms(String type) {
 		return dao.termsUser(type);
 	}
+
 
 
 }

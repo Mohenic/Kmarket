@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_MEMBER;
+import kr.co.kmarket.db.SQL_MEMBER;
 import kr.co.kmarket.dto.member.MemberDTO;
 
 public class MemberDAO extends DBHelper {
