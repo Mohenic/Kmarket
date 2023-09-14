@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./css/member.css">
+       <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+       <script src="/Kmarket/member/js/zipcode.js"></script>
 </head>
 
 

@@ -15,8 +15,8 @@ import org.slf4j.LoggerFactory;
 import kr.co.kmarket.dto.member.MemberDTO;
 import kr.co.kmarket.service.member.MemberService;
 
-@WebServlet("/member/register.do")
-public class MemberRegisterController extends HttpServlet {
+@WebServlet("/member/registerSeller.do")
+public class MemberRegisterSellerController extends HttpServlet {
 
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class MemberRegisterController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/member/register.jsp");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/member/registerSeller.jsp");
 		dispatcher.forward(req, resp);
 	
 		
@@ -41,13 +41,20 @@ public class MemberRegisterController extends HttpServlet {
 
 		String uid = req.getParameter("uid");
 		String pass = req.getParameter("pass2");
-		String name = req.getParameter("name");
-		String gender = req.getParameter("gender");
 		String email = req.getParameter("email");
-		String hp = req.getParameter("hp");
 		String zip = req.getParameter("zip");
 		String addr1 = req.getParameter("addr1");
 		String addr2 = req.getParameter("addr2");
+		String company = req.getParameter("company");
+		String ceo = req.getParameter("ceo");
+		String bizregnum = req.getParameter("corpReg");
+		String comregnum = req.getParameter("onlineReg");
+		String tel = req.getParameter("tel");
+		String manager = req.getParameter("manager");
+		String managerhp = req.getParameter("managerhp");
+		String fax = req.getParameter("fax");
+
+		
 		String type = req.getParameter("type");
 		String regip = req.getRemoteAddr();
 		
@@ -55,13 +62,18 @@ public class MemberRegisterController extends HttpServlet {
 		MemberDTO dto = new MemberDTO();
 		dto.setUid(uid);
 		dto.setPass(pass);
-		dto.setName(name);
-		dto.setGender(gender);
 		dto.setEmail(email);
-		dto.setHp(hp);
 		dto.setZip(zip);
 		dto.setAddr1(addr1);
 		dto.setAddr2(addr2);
+		dto.setCompany(company);
+		dto.setCeo(ceo);
+		dto.setBizRegNum(bizregnum);
+		dto.setComRegNum(comregnum);
+		dto.setTel(tel);
+		dto.setManager(manager);
+		dto.setManagerHp(managerhp);
+		dto.setFax(fax);
 		dto.setType(type);
 		dto.setRegip(regip);
 		

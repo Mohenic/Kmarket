@@ -9,7 +9,8 @@
                     </h1>
                 </nav> 
                 
-                <form action="#" method="#">
+                <form action="/Kmarket/member/registerSeller.do" method="post">
+                <input type="hidden" name="type" value="2">
                     <section>
                         <table>
                             <caption>필수 정보입력</caption>
@@ -40,7 +41,7 @@
                                     비밀번호 확인
                                 </th>
                                 <td>
-                                    <input type="text" name="pass2" placeholder="비밀번호 재입력" required>
+                                    <input type="password" name="pass2" placeholder="비밀번호 재입력" required>
                                     <span class="mPass">비밀번호 재입력.</span>
                                 </td>
                             </tr>
@@ -144,7 +145,7 @@
                                     이름
                                 </th>
                                 <td>
-                                    <input type="text" name="name" placeholder="이름 입력" required>
+                                    <input type="text" name="manager" placeholder="이름 입력" required>
                                 </td>
                             </tr>
                             <tr>
@@ -153,7 +154,7 @@
                                     휴대폰
                                 </th>
                                 <td>
-                                    <input type="text" name="hp" placeholder="전화번호 입력" required>
+                                    <input type="text" name="managerhp" placeholder="전화번호 입력" required>
                                     <span class="mHp">- 포함 13자리를 입력하세요.  </span>
                                 </td>
                             </tr>
