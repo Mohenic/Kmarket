@@ -1,7 +1,7 @@
 package kr.co.kmarket.dao.member;
 
 import kr.co.kmarket.db.DBHelper;
-import kr.co.kmarket.db.SQL_member;
+import kr.co.kmarket.db.SQL_MEMBER;
 import kr.co.kmarket.dto.member.Member_termsDTO;
 
 public class MemberTermsDAO extends DBHelper{
@@ -19,7 +19,7 @@ public class MemberTermsDAO extends DBHelper{
 			stmt=conn.createStatement();
 			
 			if(type1==1) {
-				rs=stmt.executeQuery(SQL_member.SELECT_TEMRS);
+				rs=stmt.executeQuery(SQL_MEMBER.SELECT_TEMRS);
 			
 					if(rs.next()) {
 						dto.setTerms(rs.getString(1));
@@ -29,7 +29,7 @@ public class MemberTermsDAO extends DBHelper{
 					}
 			
 			}else if (type1==2) {
-				rs=stmt.executeQuery(SQL_member.SELECT_TAX);
+				rs=stmt.executeQuery(SQL_MEMBER.SELECT_TAX);
 				
 				if(rs.next()) {
 					dto.setTax(rs.getString(1));
