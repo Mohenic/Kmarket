@@ -3,17 +3,47 @@ package kr.co.kmarket.dao.cs;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_cs;
 import kr.co.kmarket.dto.cs.FaqDTO;
 
 public class FaqDAO extends DBHelper {
 	
-	public static FaqDAO instance = new FaqDAO();
+	private static FaqDAO instance = new FaqDAO();
 	public static FaqDAO getInstance() {
 		return instance;
 	};
+	private FaqDAO() {
+		
+	}
+	
+	Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 
+	public void insertFaqArticle(FaqDTO dto) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_cs.INSERT_ARTICLE);
+			psmt.setString(1, dto.getCate1());
+			psmt.setString(2, dto.getCate2());
+			psmt.setString(3, dto.getTitle());
+			psmt.setString(4, dto.getContent());
+			psmt.setString(5, dto.getWriter());
+			psmt.setString(6, dto.getRegip());
+			psmt.executeUpdate();
+			
+			close();
+		} catch (Exception e) {
+			logger.debug("insertFaqArticle()..." + e.getMessage());
+		}
+		
+		
+	}
+	
+	
 	public FaqDTO selectFaqArticle(String faqNo) {
 		
 		FaqDTO dto = null;

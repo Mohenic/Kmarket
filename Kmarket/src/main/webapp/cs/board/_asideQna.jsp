@@ -20,4 +20,7 @@
                         </ul>
                     </aside>
                     
-                    
+                      <c:if test="${cate eq 'qnaAll'}"> 
+                            <h1>회원</h1>
+                            <h2>회원관련 문의 내용입니다.</h2>
+                        </c:if>   

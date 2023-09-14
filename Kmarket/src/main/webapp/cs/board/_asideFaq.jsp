@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
         <section id="cs">
-            <div class="qna">
+            <div class="faq">
                 <nav>
                     <div>
-                        <p>홈<span>></span>문의하기</p>
+                        <p>홈<span>></span>자주묻는 질문</p>
                     </div>
                 </nav>
                 <section class="list">
                     <aside>
-                        <h2>문의하기</h2>
+                        <h2>자주묻는 질문</h2>
                         <ul>
                             <li class="on"><a href="#">회원</a></li>
                             <li><a href="#">쿠폰/이벤트</a></li>
@@ -20,4 +20,11 @@
                         </ul>
                     </aside>
                     
-                    
+                      <article>
+                        <nav>
+                        <c:if test="${cate eq 'faq'}"> 
+                            <h1>회원</h1>
+                            <h2>가장 자주 묻는 질문입니다.</h2>
+                        </c:if>     
+                        
+                        </nav>

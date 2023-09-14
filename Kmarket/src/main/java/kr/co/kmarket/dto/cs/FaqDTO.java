@@ -7,8 +7,14 @@ public class FaqDTO {
 	private String cate2;
 	private String title;
 	private String content;
+	private String writer;
+	private String regip;
+	private String rdate;
 	
-	
+	public FaqDTO() {
+
+	}
+
 	public int getFaqNo() {
 		return faqNo;
 	}
@@ -43,11 +49,33 @@ public class FaqDTO {
 		this.content = content;
 	}
 	
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getRegip() {
+		return regip;
+	}
+	public void setRegip(String regip) {
+		this.regip = regip;
+	}
+	public String getRdate() {
+		return rdate;
+	}
+	public void setRdate(String rdate) {
+		this.rdate = rdate;
+	}
+
+
 	@Override
 	public String toString() {
 		return "FaqDTO [faqNo=" + faqNo + ", cate1=" + cate1 + ", cate2=" + cate2 + ", title=" + title + ", content="
-				+ content + "]";
+				+ content + ", writer=" + writer + ", regip=" + regip + ", rdate=" + rdate + "]";
 	}
+	
+
 	
 	
 

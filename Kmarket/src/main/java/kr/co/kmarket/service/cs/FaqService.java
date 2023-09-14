@@ -13,7 +13,11 @@ public enum FaqService {
 	instance;
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	private FaqDAO dao = FaqDAO.instance;
+	private FaqDAO dao = FaqDAO.getInstance();
+	
+	public void insertFaqArticle(FaqDTO dto) {
+		dao.insertFaqArticle(dto);
+	}
 	
 	public FaqDTO selectFaqArticle(String faqNo) {
 		return dao.selectFaqArticle(faqNo);
