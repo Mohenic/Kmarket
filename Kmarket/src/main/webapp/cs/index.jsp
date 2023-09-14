@@ -8,7 +8,7 @@
                 <section class="notice">
                     <h1>
                         공지사항
-                        <a href="/Kmarket/cs/notice/list.do?group=notice&cate=all">전체보기</a>
+                        <a href="/Kmarket/cs/notice/list.do?group=Notice&cate=all">전체보기</a>
                     </h1>
                     <ul>
                         <li>
@@ -36,41 +36,41 @@
                 <section class="faq">
                     <h1>
                         자주 묻는 질문
-                        <a href="/Kmarket/cs/faq/list.do?group=faq&cate=member">전체보기</a>
+                        <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=member">전체보기</a>
                     </h1>
                     <ol>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=member">
+                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=member">
                                 <span>회원</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=event">
+                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=event">
                                 <span>쿠폰/이벤트</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=pay">
+                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=pay">
                                 <span>주문/결제</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=delivery">
+                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=delivery">
                                 <span>배송</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=cancle">
+                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=cancle">
                                 <span>취소/반품/교환</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=travel">
+                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=travel">
                                 <span>여행/숙박/항공</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=safe">
+                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=safe">
                                 <span>안전거래</span>
                             </a>
                         </li>
@@ -79,7 +79,7 @@
                 <section class="qna">
                     <h1>
                         문의하기
-                        <a href="/Kmarket/cs/qna/list.do?group=qna&cate=all">전체보기</a>
+                        <a href="/Kmarket/cs/qna/list.do?group=Qna&cate=all">전체보기</a>
                     </h1>
                     <ul>
                         <li>
@@ -90,28 +90,28 @@
                             </p>
                         </li>
                         <li>
-                            <a href="./qna/list.html" class="title">[쿠폰/이벤트] 스마일포인트는 어디에 사용하나요?</a>
+                            <a href="./qna/list.do" class="title">[쿠폰/이벤트] 스마일포인트는 어디에 사용하나요?</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
                             </p>
                         </li>
                         <li>
-                            <a href="./qna/list.html" class="title">[주문/결제] 신용카드 결제 중 오류가 난 경우 어떻게 하나요?</a>
+                            <a href="./qna/list.do" class="title">[주문/결제] 신용카드 결제 중 오류가 난 경우 어떻게 하나요?</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
                             </p>
                         </li>
                         <li>
-                            <a href="./qna/list.html" class="title">[배송] 주문한 상품은 언제 배송되나요?</a>
+                            <a href="./qna/list.do" class="title">[배송] 주문한 상품은 언제 배송되나요?</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
                             </p>
                         </li>
                         <li>
-                            <a href="./qna/list.html" class="title">[취소/반품/교환] 주문을 취소하고 싶어요.</a>
+                            <a href="./qna/list.do" class="title">[취소/반품/교환] 주문을 취소하고 싶어요.</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
