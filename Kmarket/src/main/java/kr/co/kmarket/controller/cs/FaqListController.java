@@ -22,7 +22,7 @@ public class FaqListController extends HttpServlet {
 	private static final long serialVersionUID = -8774674328679407014L;
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	private FaqService service = FaqService.instance;
+	private FaqService service = FaqService.INSTANCE;
 	
 
 	@Override
@@ -31,6 +31,7 @@ public class FaqListController extends HttpServlet {
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
 		
+		logger.debug("group = " + group);
 		//데이터수신
 		String pg = req.getParameter("pg");
 		
@@ -77,6 +78,8 @@ public class FaqListController extends HttpServlet {
 		
 		
 		List<FaqDTO> article = service.selectFaqArticles(cate, start);
+		req.setAttribute("index", "list");
+		req.setAttribute("class1", "faq");
 		
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);

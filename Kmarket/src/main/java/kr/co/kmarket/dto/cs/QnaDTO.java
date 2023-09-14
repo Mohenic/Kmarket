@@ -5,8 +5,8 @@ public class QnaDTO {
 	private int qnaNo;
 	private int parent;
 	private int comment;
-	private String cate1;
-	private String cate2;
+	private String cate;
+	private String type;
 	private String title;
 	private String content;
 	private String writer;
@@ -31,17 +31,17 @@ public class QnaDTO {
 	public void setComment(int comment) {
 		this.comment = comment;
 	}
-	public String getCate1() {
-		return cate1;
+	public String getCate() {
+		return cate;
 	}
-	public void setCate1(String cate1) {
-		this.cate1 = cate1;
+	public void setCate(String cate) {
+		this.cate = cate;
 	}
-	public String getCate2() {
-		return cate2;
+	public String getType() {
+		return type;
 	}
-	public void setCate2(String cate2) {
-		this.cate2 = cate2;
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getTitle() {
 		return title;
@@ -76,10 +76,12 @@ public class QnaDTO {
 	
 	@Override
 	public String toString() {
-		return "QnaDTO [qnaNo=" + qnaNo + ", parent=" + parent + ", comment=" + comment + ", cate1=" + cate1
-				+ ", cate2=" + cate2 + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regip="
-				+ regip + ", rdate=" + rdate + "]";
+		return "QnaDTO [qnaNo=" + qnaNo + ", parent=" + parent + ", comment=" + comment + ", cate=" + cate + ", type="
+				+ type + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regip=" + regip
+				+ ", rdate=" + rdate + "]";
 	}
+	
+	
 	
 	
 

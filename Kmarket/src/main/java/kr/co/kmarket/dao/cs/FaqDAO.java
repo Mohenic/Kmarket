@@ -26,7 +26,7 @@ public class FaqDAO extends DBHelper {
 	public void insertFaqArticle(FaqDTO dto) {
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL_cs.INSERT_ARTICLE);
+			psmt = conn.prepareStatement(SQL_cs.INSERT_FAQ_ARTICLE);
 			psmt.setString(1, dto.getCate1());
 			psmt.setString(2, dto.getCate2());
 			psmt.setString(3, dto.getTitle());
@@ -94,7 +94,7 @@ public class FaqDAO extends DBHelper {
 			}
 			close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.debug("selectFaqArticles()..." + e.getMessage());
 		}
 		return faqArticles;
 	}
@@ -115,7 +115,7 @@ public class FaqDAO extends DBHelper {
 			}
 			close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.debug("selectCountTotal()..." + e.getMessage());
 		}
 		
 		return total;

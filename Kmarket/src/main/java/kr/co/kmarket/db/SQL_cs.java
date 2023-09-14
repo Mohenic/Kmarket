@@ -13,7 +13,7 @@ public class SQL_cs {
 	
 	
 	
-	public static final String INSERT_ARTICLE = "INSERT INTO `km_qna` SET "
+	public static final String INSERT_FAQ_ARTICLE = "INSERT INTO `km_faq` SET "
 															+ "`cate1` = ? ,"
 															+ "`cate2` = ? ,"
 															+ "`title` = ? , "
@@ -23,5 +23,20 @@ public class SQL_cs {
 															+ "`rdate` = NOW()";
 	
 	
+	public static final String INSERT_QNA_ARTICLE = "INSERT INTO `km_qna` SET "
+															+ "`cate` = ? ,"
+															+ "`type` = ? ,"
+															+ "`title` = ? , "
+															+ "`content` = ? ,"
+															+ "`writer` = ? , "
+															+ "`regip` = ? ,"
+															+ "`rdate` = NOW()";
+	
+	
+	
+	public static final String SELECT_QNA_ARTICLES = "SELECT * FROM `km_qna`"
+														   + "WHERE `cate` = ? "
+														   + "ORDER BY `qnaNo` DESC "
+														   + "LIMIT 0,10";
 	
 }

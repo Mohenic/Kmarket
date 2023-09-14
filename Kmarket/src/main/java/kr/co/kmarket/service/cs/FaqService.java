@@ -10,7 +10,7 @@ import kr.co.kmarket.dto.cs.FaqDTO;
 
 public enum FaqService {
 
-	instance;
+	INSTANCE;
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	private FaqDAO dao = FaqDAO.getInstance();
