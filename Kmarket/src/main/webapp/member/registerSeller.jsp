@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file ="./_header.jsp" %>
+<script src="/Kmarket/member/js/checkUser.js"></script>
+<script src="/Kmarket/member/js/validation.js"></script>
 
         <main id ="member">
             <div class ="registerSeller">
@@ -9,7 +11,8 @@
                     </h1>
                 </nav> 
                 
-                <form action="#" method="#">
+                <form action="/Kmarket/member/register.do" method="post">
+                	<input type ="hidden" name="type" value="${type}">
                     <section>
                         <table>
                             <caption>필수 정보입력</caption>
@@ -20,6 +23,7 @@
                                 </th>
                                 <td>
                                     <input type="text" name="uid" placeholder="아이디를 입력해 주세요" required>
+                                     <button type="button" id="btnCheckUid"><img src="/Kmarket/member/images/chk_id.gif" alt="중복확인"></button>
                                     <span class="mId">영문, 숫자로 4~12자까지 설정해 주세요.</span>
                                 </td>
                             </tr>
@@ -43,6 +47,16 @@
                                     <input type="text" name="pass2" placeholder="비밀번호 재입력" required>
                                     <span class="mPass">비밀번호 재입력.</span>
                                 </td>
+                            </tr>
+                            <tr>
+                            	<td>
+                            		<span class ="resultUid"></span>
+                            	</td>
+                            </tr>
+                            <tr>
+                            	<td>
+                    	        	<span class ="resultPass"></span>
+                            	</td>
                             </tr>
                         </table>
                     </section>
@@ -136,6 +150,7 @@
                         </table>
 
                     </section>
+                    <section>
                         <table>
                             <caption>담당자 정보입력</caption>
                             <tr>
@@ -158,7 +173,7 @@
                                 </td>
                             </tr>
                         </table>
-                    <section>
+                    
 
                     </section>
                     <div>
