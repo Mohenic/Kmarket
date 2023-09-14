@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_Admin;
-import kr.co.kmarket.dto.admin.ProductDTO;
+import kr.co.kmarket.dto.product.ProductDTO;
 
 public class ProductDAO extends DBHelper{
 
@@ -67,7 +67,11 @@ public class ProductDAO extends DBHelper{
 		
 	}
 	public void deleteProduct() {
-		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 }

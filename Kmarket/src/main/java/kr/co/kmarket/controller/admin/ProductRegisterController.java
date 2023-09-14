@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import kr.co.kmarket.dto.admin.ProductDTO;
-import kr.co.kmarket.service.product.productService;
+import kr.co.kmarket.dto.product.ProductDTO;
+import kr.co.kmarket.service.product.ProductService;
 
 @WebServlet("/admin/product/register.do")
 public class ProductRegisterController extends HttpServlet{
 	private static final long serialVersionUID = 6138492371144597779L;
 
-	productService service = productService.INSTANCE;
+	ProductService service = ProductService.INSTANCE;
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
@@ -64,7 +64,26 @@ public class ProductRegisterController extends HttpServlet{
 		dto.setSeller(seller);
 		dto.setCompany(company);
 		dto.setPrice(price);
-		dto.setDiscount(0);
+		dto.setDiscount(discount);
+		dto.setPoint(point);
+		dto.setStock(stock);
+		dto.setDelivery(delivery);
+		dto.setThumb1(thumb1);
+		dto.setThumb2(thumb2);
+		dto.setThumb3(thumb3);
+		dto.setDetail(detail);
+		dto.setStatus(status);
+		dto.setDuty(duty);
+		dto.setReceipt(receipt);
+		dto.setBizType(bizType);
+		dto.setOrigin(origin);
+		dto.setIp(ip);
 		
+		logger.debug(dto.toString());
+		
+		service.insertProduct(dto);
+		
+		resp.sendRedirect("/Kmarket/admin/product/register.do");
+	
 	}
 }

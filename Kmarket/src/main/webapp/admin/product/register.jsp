@@ -65,13 +65,14 @@
                 <!-- 상품등록 컨텐츠 시작 -->
                 <article>
                     <form action="/Kmarket/admin/product/register.do" method="post">
-
+					<input type="text" name="prodNo">
                         <!-- 상품분류 -->
                         <section>
                             <h4>상품분류</h4>
                             <p>
                                 기본분류는 반드시 선택하셔야 합니다. 하나의 상품에 1개의 분류를 지정 합니다.
                             </p>
+                            
                             <table>
                                 <tbody>
                                     <tr>

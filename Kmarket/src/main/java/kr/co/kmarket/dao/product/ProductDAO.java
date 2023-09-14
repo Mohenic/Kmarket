@@ -126,7 +126,13 @@ public class ProductDAO extends DBHelper{
 		
 	}
 	public void deleteProduct(int prodNo) {
-		
+		try {
+			conn = getConnection();
+			
+			
+		} catch (Exception e) {
+			
+		}
 	}
 	
 }
