@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
 <jsp:include page="./_aside${group}.jsp"/>
-                    <article>
-                        <nav>
-                            <h1>회원</h1>
-                            <h2>가장 자주 묻는 질문입니다.</h2>
-                        </nav>
+                    
                         <div>
                             <h3>가입</h3>
                             <ul>

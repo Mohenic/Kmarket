@@ -11,4 +11,17 @@ public class SQL_cs {
 												   + "LIMIT ?,10";
 	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `km_faq` WHERE `cate1` = ?";
 	
+	
+	
+	public static final String INSERT_ARTICLE = "INSERT INTO `km_qna` SET "
+															+ "`cate1` = ? ,"
+															+ "`cate2` = ? ,"
+															+ "`title` = ? , "
+															+ "`content` = ? ,"
+															+ "`writer` = ? , "
+															+ "`regip` = ? ,"
+															+ "`rdate` = NOW()";
+	
+	
+	
 }

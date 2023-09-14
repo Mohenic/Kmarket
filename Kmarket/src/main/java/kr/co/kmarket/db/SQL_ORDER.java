@@ -1,6 +1,6 @@
 package kr.co.kmarket.db;
 
-public class SQL_Admin {
+public class SQL_ORDER {
 	
 	public static final String INSERT_ORDER = "	INSERT INTO `km_product` SET"
 															+ "	`prodCate1` = ? , "
