@@ -30,14 +30,14 @@
                         <td>
                             <ul>
                                 <li>
-                                    <ins class="dis-price">27000</ins>
+                                    <ins class="dis-price">${prod.price}</ins>
                                 </li>
                                 <li>
-                                    <del class="org-price">30000</del>
-                                    <span class="discount">10%</span>
+                                    <del class="org-price">${prod.price}</del>
+                                    <span class="discount">${prod.discount}</span>
                                 </li>
                                 <li>
-                                    <span class="free-delivery">무료배송</span>
+                                    <span class="free-delivery">${prod.delivery}</span>
                                 </li>
                             </ul>
                         </td>
@@ -46,7 +46,7 @@
                                 <i class="fas fa-home" aria-hidden="true"></i>
                                 판매자
                             </h4>
-                            <h5 class="badge power">판매자등급</h5>
+                            <h5 class="badge power">${prod.seller}</h5>
                             <h6 class="rating star1">상품평</h6>
                         </td>
                     </tr>
