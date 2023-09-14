@@ -23,7 +23,7 @@
     				alert('개인정보 취급방침에 동의하셔야 합니다')
     				return;
     			}else {
-    				location.href='/Kmarket/member/register.do'
+    				location.href='/Kmarket/member/register.do?type=1'
     			}
     		}else if (type==2){
     			if(agree1.checked==false){
@@ -36,7 +36,7 @@
     				alert('개인정보 취급방침에 동의하셔야 합니다')
     				return;
     			}else {
-    				location.href='/Kmarket/member/registerSeller.do'
+    				location.href='/Kmarket/member/registerSeller.do?type=2'
     			}
     			
     			

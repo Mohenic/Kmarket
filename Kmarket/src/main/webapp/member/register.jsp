@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file ="./_header.jsp" %>
-
+<script src="/Kmarket/member/js/checkUser.js"></script>
+<script src="/Kmarket/member/js/validation.js"></script>
 
         <main id ="member">
             <div class ="register">
@@ -10,7 +11,7 @@
                     </h1>
                 </nav> 
                 
-                <form action="#" method="#">
+                <form action="/Kmarket/member/register.do" method="post">
                     <section>
                         <table>
                             <caption>필수 정보입력</caption>
@@ -21,6 +22,7 @@
                                 </th>
                                 <td>
                                     <input type="text" name="uid" placeholder="아이디를 입력해 주세요" required>
+                                     <button type="button" id="btnCheckUid"><img src="/Kmarket/member/images/chk_id.gif" alt="중복확인"></button>
                                     <span class="mId">영문, 숫자로 4~12자까지 설정해 주세요.</span>
                                 </td>
                             </tr>
@@ -41,9 +43,19 @@
                                     비밀번호 확인
                                 </th>
                                 <td>
-                                    <input type="text" name="pass2" placeholder="비밀번호 재입력" required>
+                                    <input type="password" name="pass2" placeholder="비밀번호 재입력" required>
                                     <span class="mPass">비밀번호 재입력.</span>
                                 </td>
+                            </tr>
+                            <tr>
+                            	<td>
+                            		<span class ="resultUid"></span>
+                            	</td>
+                            </tr>
+                            <tr>
+                            	<td>
+                    	        	<span class ="resultPass"></span>
+                            	</td>
                             </tr>
                         </table>
                     </section>
@@ -109,6 +121,21 @@
                                         <input type="text" name="addr2" id="addr2" size="50" placeholder="상세주소를 입력하세요" readonly>
                                     </div>
                                 </td>
+                            </tr>
+                             <tr>
+                            	<td>
+                            		<span class ="resultName"></span>
+                            	</td>
+                            </tr>
+                            <tr>
+                            	<td>
+                    	        	<span id ="resultEmail"></span>
+                            	</td>
+                            </tr>
+                            <tr>
+                            	<td>
+                    	        	<span id ="resultHp"></span>
+                            	</td>
                             </tr>                            
                         </table>
 

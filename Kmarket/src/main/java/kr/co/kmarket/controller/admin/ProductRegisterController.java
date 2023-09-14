@@ -1,6 +1,13 @@
 package kr.co.kmarket.controller.admin;
 
+import java.io.File;
 import java.io.IOException;
+
+/*
+ * 작업자 : 손영우
+ * 작업시작일 : 2023/09/13
+ * 작업종료일 : 2023/09/14
+ * */
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,30 +44,34 @@ public class ProductRegisterController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		/* prodNo, seller 는 list,login 구현 후 정확한 값 가져오기 가능
+		 * 현재는 register.jsp 파일내 input text를 이용해서 값 넘겨주는 중*/
+
+		MultipartRequest mr = fService.uploadFile(req);
 		
-		String prodNo = req.getParameter("prodNo");
-		String prodCate1 = req.getParameter("prodCate1");
-		String prodCate2 = req.getParameter("prodCate2");
-		String prodName = req.getParameter("prodName");
-		String descript = req.getParameter("descript");
-		String seller = req.getParameter("seller");
-		String company = req.getParameter("company");
-		String price = req.getParameter("price");
-		String discount = req.getParameter("discount");
-		String point = req.getParameter("point");
-		String stock = req.getParameter("stock");
-		String delivery = req.getParameter("delivery");
-		String thumb1 = req.getParameter("thumb1");
-		String thumb2 = req.getParameter("thumb2");
-		String thumb3 = req.getParameter("req");
-		String detail = req.getParameter("detail");
-		String status = req.getParameter("status");
-		String duty = req.getParameter("duty");
-		String receipt = req.getParameter("receipt");
-		String bizType = req.getParameter("bizType");
-		String origin = req.getParameter("origin");
+		String prodNo = mr.getParameter("prodNo");
+		String prodCate1 = mr.getParameter("prodCate1");
+		String prodCate2 = mr.getParameter("prodCate2");
+		String prodName = mr.getParameter("prodName");
+		String descript = mr.getParameter("descript");
+		String seller = mr.getParameter("seller");
+		String company = mr.getParameter("company");
+		String price = mr.getParameter("price");
+		String discount = mr.getParameter("discount");
+		String point = mr.getParameter("point");
+		String stock = mr.getParameter("stock");
+		String delivery = mr.getParameter("delivery");
+		String thumb1 = mr.getOriginalFileName("thumb1");
+		String thumb2 = mr.getOriginalFileName("thumb2");
+		String thumb3 = mr.getOriginalFileName("thumb3");
+		String detail = mr.getOriginalFileName("detail");
+		String status = mr.getParameter("status");
+		String duty = mr.getParameter("duty");
+		String receipt = mr.getParameter("receipt");
+		String bizType = mr.getParameter("bizType");
+		String origin = mr.getParameter("origin");
 		String ip = req.getRemoteAddr();
-		
+
 		ProductDTO dto = new ProductDTO();
 		dto.setProdNo(prodNo);
 		dto.setProdCate1(prodCate1);
@@ -83,15 +94,23 @@ public class ProductRegisterController extends HttpServlet{
 		dto.setReceipt(receipt);
 		dto.setBizType(bizType);
 		dto.setOrigin(origin);
-		
-		logger.debug(dto.toString());
+		dto.setIp(ip);
 		
 		String path = fService.getPath(req, "/thumb/"+prodCate1+"/"+prodCate2);
-		MultipartRequest mr = fService.uploadFile(req, path);
+		
+		// 폴더 생성
+		File folder = new File(path);
+		if (!folder.exists()) {
+			folder.mkdirs(); // 디렉터리가 존재하지 않으면 생성
+		}
+		
+		
 		
 		pSerivce.insertProduct(dto);
 		
-		resp.sendRedirect("/Kmarket/admin/product/list.do");
+		logger.debug(dto.toString());
+		
+		resp.sendRedirect("/Kmarket/admin/product/list.do?success=200");
 		
 	}
 }

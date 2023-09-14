@@ -25,7 +25,6 @@ public class ProductDAO extends DBHelper{
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_product.INSERT_PRODUCT);
-			psmt.executeUpdate();
 			
 			   	psmt.setInt(1, dto.getProdNo());
 	            psmt.setInt(2, dto.getProdCate1());
@@ -58,7 +57,7 @@ public class ProductDAO extends DBHelper{
 	            psmt.setString(29, dto.getEtc3());
 	            psmt.setString(30, dto.getEtc4());
 	            psmt.setString(31, dto.getEtc5());
-	            psmt.setString(32, dto.getRdate());
+	            psmt.executeUpdate();
 	            close();
 	            
 		}catch (Exception e) {

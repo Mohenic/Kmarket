@@ -4,8 +4,10 @@ public class SQL_MEMBER {
 	
 	public static final String SELECT_TEMRS = "SELECT `terms`,`privacy`,`location`,`finance` FROM `km_member_terms` ";
 	public static final String SELECT_TAX = "SELECT `tax`,`privacy`,`finance` FROM `km_member_terms` ";
-	
-	
+	public static final String SELECT_COUNT_UID="SELECT COUNT(*) FROM `km_member` WHERE `uid`=?";
+	public static final String SELECT_COUNT_EMAIL="SELECT COUNT(*) FROM `km_member` WHERE `email`=?";
+	public static final String SELECT_COUNT_HP="SELECT COUNT(*) FROM `km_member` WHERE `hp`=?";
+	public static final String SELECT_USER="SELECT * FROM `km_member` WHERE `UID`=? AND `PASS`=SHA2(?,256)";
 	//INSERT
 		public static final String INSERT_MEMBER ="INSERT INTO `km_member` SET `uid`=?, `pass`=SHA2(?,256), name=?, gender=?"
 												+ ", hp=? , email=?, type=?, zip=?, addr1=?, addr2=?, regip=?, rdate=NOW()";

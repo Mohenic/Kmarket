@@ -568,3 +568,22 @@ footer p > strong{
     font-size: 12px;
     font-weight: bold;
 }
+#member > .register table tr:last-child td{
+	border-bottom: none;
+}
+#member > .register section:first-child table tr:nth-child(4) td{
+	border-bottom: none;
+}
+#member > .register table tr:nth-child(6) td{
+	border-bottom: none;
+}
+#member > .register table tr:nth-child(7) td{
+	border-bottom: none;
+}
+/*registerSeller 추가*/
+#member > .registerSeller table tr:last-child td{
+	border-bottom: none;
+}
+#member > .registerSeller section:first-child table tr:nth-child(4) td {
+	border-bottom: none;
+}

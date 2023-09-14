@@ -64,7 +64,126 @@ public class MemberDAO extends DBHelper {
 		
 	}
 	
+	public int selectCountUid(String uid) {
+		int result =0;
+		
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_MEMBER.SELECT_COUNT_UID);
+			psmt.setString(1, uid);
+			
+			rs=psmt.executeQuery();
+			
+			if(rs.next()) {
+				result=rs.getInt(1);
+			}
+			
+			close();
+		} catch (Exception e) {
+			logger.error("selectCountUid error : "+ e.getMessage());
+		
+		}
+		
+		
+		return result;
+	}
+	
+	public int selectCountEmail(String email) {
+		int result =0;
+		
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_MEMBER.SELECT_COUNT_EMAIL);
+			psmt.setString(1, email);
+			
+			rs=psmt.executeQuery();
+			
+			if(rs.next()) {
+				result=rs.getInt(1);
+			}
+			
+			close();
+		} catch (Exception e) {
+			logger.error("selectCountEmail error : "+ e.getMessage());
+		
+		}
+		
+		
+		return result;
+	}
 
+	public int selectCountHp(String hp) {
+		int result =0;
+		
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_MEMBER.SELECT_COUNT_HP);
+			psmt.setString(1, hp);
+			
+			rs=psmt.executeQuery();
+			
+			if(rs.next()) {
+				result=rs.getInt(1);
+			}
+			
+			close();
+		} catch (Exception e) {
+			logger.error("selectCountHp error : "+ e.getMessage());
+		
+		}
+		
+		
+		return result;
+	}
+
+	public MemberDTO selectMember(String uid, String pass) {
+		MemberDTO dto = null;
+		try {
+			
+			conn=getConnection();
+			
+			psmt=conn.prepareStatement(SQL_MEMBER.SELECT_USER);
+			psmt.setString(1, uid);
+			psmt.setString(2, pass);
+			
+			rs=psmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				dto = new MemberDTO();
+				dto.setUid(rs.getString(1));
+				dto.setPass(rs.getString(2));
+				dto.setName(rs.getString(3));
+				dto.setGender(rs.getInt(4));			
+				dto.setHp(rs.getString(5));
+				dto.setEmail(rs.getString(6));
+				dto.setType(rs.getInt(7));;
+				dto.setPoint(rs.getInt(8));
+				dto.setLevel(rs.getInt(9));
+				dto.setZip(rs.getString(10));
+				dto.setAddr1(rs.getString(11));
+				dto.setAddr2(rs.getString(12));
+				dto.setCompany(rs.getString(13));
+				dto.setCeo(rs.getString(14));
+				dto.setBizRegNum(rs.getString(15));
+				dto.setComRegNum(rs.getString(16));
+				dto.setTel(rs.getString(17));
+				dto.setManager(rs.getString(18));
+				dto.setManagerHp(rs.getString(19));
+				dto.setFax(rs.getString(20));
+				dto.setRegip(rs.getString(21));
+				dto.setRdate(rs.getString(23));
+
+			}
+			
+			close();
+				
+		} catch (Exception e) {
+			logger.error("selecttUser error : "+e.getMessage());
+		}
+		
+		return dto;
+	}
 	
 	
 }
