@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import com.oreilly.servlet.MultipartRequest;
 
 import kr.co.kmarket.dto.product.ProductDTO;
-import kr.co.kmarket.service.file.FileService;
+//import kr.co.kmarket.service.file.FileService;
 import kr.co.kmarket.service.product.ProductService;
 
 @WebServlet("/admin/product/register.do")
@@ -24,7 +24,7 @@ public class ProductRegisterController extends HttpServlet{
 
 	private ProductService pSerivce = ProductService.INSTANCE;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	private FileService fService = FileService.instance;
+	//private FileService fService = FileService.instance;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -86,8 +86,8 @@ public class ProductRegisterController extends HttpServlet{
 		
 		logger.debug(dto.toString());
 		
-		String path = fService.getPath(req, "/thumb/"+prodCate1+"/"+prodCate2);
-		MultipartRequest mr = fService.uploadFile(req, path);
+		//String path = fService.getPath(req, "/thumb/"+prodCate1+"/"+prodCate2);
+		//MultipartRequest mr = fService.uploadFile(req, path);
 		
 		pSerivce.insertProduct(dto);
 		
