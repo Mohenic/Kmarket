@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <main id="product">
     	<%@ include file="./category.jsp" %>   
         <section class="list">
@@ -8,24 +11,25 @@
                 <p>HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong></p>
             </nav>
             <ul class="sort">
-                <li><a href="Kmarket/product/list.do" class="on">판매많은순</a></li>
-                <li><a href="Kmarket/product/list.do">낮은가격순</a></li>
-                <li><a href="Kmarket/product/list.do">높은가격순</a></li>
-                <li><a href="Kmarket/product/list.do">평점높은순</a></li>
-                <li><a href="Kmarket/product/list.do">후기많은순</a></li>
-                <li><a href="Kmarket/product/list.do">최근등록순</a></li>
+                <li><a href="Kmarket/product/list.do" class="on">${prod.sold}</a></li>
+                <li><a href="Kmarket/product/list.do">${prod.price}</a></li>
+                <li><a href="Kmarket/product/list.do">${prod.price}</a></li>
+                <li><a href="Kmarket/product/list.do">${prod.score}</a></li>
+                <li><a href="Kmarket/product/list.do">${prod.review}</a></li>
+                <li><a href="Kmarket/product/list.do">${prod.rdate}</a></li>
             </ul>
             <table border="0">
+      
                 <tbody>
                     <tr>
                         <td>
-                            <a href="Kmarket/product/list.do?prodNo=${product.prodNo}" class="thumb">
+                            <a href="view.do?prodNo=${prod.prodNo}" class="thumb">
                                 <img src="https://via.placeholder.com/120x120" alt="상품이미지">
                             </a>
                         </td>
                         <td>
-                        	<h3 class="name">상품명</h3>
-                            <a href="Kmarket/product/list.do" class="desc">상품설명</a>
+                        	<h3 class="name">${prod.prodName}</h3>
+                            <a href="view.do" class="desc">상품설명</a>
                         </td>
                         <td>
                             <ul>

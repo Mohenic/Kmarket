@@ -128,6 +128,9 @@ public class ProductDTO {
 	public void setSold(int sold) {
 		this.sold = sold;
 	}
+	public void setSold(String sold) {
+		this.sold = Integer.parseInt(sold);
+	}
 	public int getDelivery() {
 		return delivery;
 	}
@@ -143,17 +146,26 @@ public class ProductDTO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
+	public void setHit(String hit) {
+		this.hit = Integer.parseInt(hit);
+	}
 	public int getScore() {
 		return score;
 	}
 	public void setScore(int score) {
 		this.score = score;
 	}
+	public void setScore(String score) {
+		this.score = Integer.parseInt(score);
+	}
 	public int getReview() {
 		return review;
 	}
 	public void setReview(int review) {
 		this.review = review;
+	}
+	public void setReview(String review) {
+		this.review = Integer.parseInt(review);
 	}
 	public String getThumb1() {
 		return thumb1;
@@ -227,11 +239,17 @@ public class ProductDTO {
 	public void setEtc1(int etc1) {
 		this.etc1 = etc1;
 	}
+	public void setEtc1(String etc1) {
+		this.etc1 = Integer.parseInt(etc1);
+	}
 	public int getEtc2() {
 		return etc2;
 	}
 	public void setEtc2(int etc2) {
 		this.etc2 = etc2;
+	}
+	public void setEtc2(String etc2) {
+		this.etc2 = Integer.parseInt(etc2);
 	}
 	public String getEtc3() {
 		return etc3;
