@@ -14,7 +14,10 @@ import kr.co.kmarket.service.product.ProductService;
 @WebServlet("/product/list.do")
 public class ProductListController extends HttpServlet {
 	
-	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7715231998323392840L;
 	ProductService service = ProductService.INSTANCE;
 
 			@Override

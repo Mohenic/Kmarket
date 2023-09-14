@@ -1,16 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
-    <div id="container">
     <main id="product">
     	<%@ include file="./category.jsp" %>   
         <section class="list">
@@ -30,139 +19,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <a href="Kmarket/product/list.do" class="thumb">
-                                <img src="https://via.placeholder.com/120x120" alt="상품이미지">
-                            </a>
-                        </td>
-                        <td>
-                        	<h3 class="name">상품명</h3>
-                            <a href="Kmarket/product/list.do" class="desc">상품설명</a>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <ins class="dis-price">27000</ins>
-                                </li>
-                                <li>
-                                    <del class="org-price">30000</del>
-                                    <span class="discount">10%</span>
-                                </li>
-                                <li>
-                                    <span class="free-delivery">무료배송</span>
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            <h4 class="seller">
-                                <i class="fas fa-home" aria-hidden="true"></i>
-                                판매자
-                            </h4>
-                            <h5 class="badge power">판매자등급</h5>
-                            <h6 class="rating star1">상품평</h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="Kmarket/product/list.do" class="thumb">
-                                <img src="https://via.placeholder.com/120x120" alt="상품이미지">
-                            </a>
-                        </td>
-                        <td>
-                        	<h3 class="name">상품명</h3>
-                            <a href="Kmarket/product/list.do" class="desc">상품설명</a>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <ins class="dis-price">27000</ins>
-                                </li>
-                                <li>
-                                    <del class="org-price">30000</del>
-                                    <span class="discount">10%</span>
-                                </li>
-                                <li>
-                                    <span class="free-delivery">무료배송</span>
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            <h4 class="seller">
-                                <i class="fas fa-home" aria-hidden="true"></i>
-                                판매자
-                            </h4>
-                            <h5 class="badge power">판매자등급</h5>
-                            <h6 class="rating star1">상품평</h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="Kmarket/product/list.do" class="thumb">
-                                <img src="https://via.placeholder.com/120x120" alt="상품이미지">
-                            </a>
-                        </td>
-                        <td>
-                        	<h3 class="name">상품명</h3>
-                            <a href="Kmarket/product/list.do" class="desc">상품설명</a>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <ins class="dis-price">27000</ins>
-                                </li>
-                                <li>
-                                    <del class="org-price">30000</del>
-                                    <span class="discount">10%</span>
-                                </li>
-                                <li>
-                                    <span class="free-delivery">무료배송</span>
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            <h4 class="seller">
-                                <i class="fas fa-home" aria-hidden="true"></i>
-                                판매자
-                            </h4>
-                            <h5 class="badge power">판매자등급</h5>
-                            <h6 class="rating star1">상품평</h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="Kmarket/product/list.do" class="thumb">
-                                <img src="https://via.placeholder.com/120x120" alt="상품이미지">
-                            </a>
-                        </td>
-                        <td>
-                        	<h3 class="name">상품명</h3>
-                            <a href="Kmarket/product/list.do" class="desc">상품설명</a>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <ins class="dis-price">27000</ins>
-                                </li>
-                                <li>
-                                    <del class="org-price">30000</del>
-                                    <span class="discount">10%</span>
-                                </li>
-                                <li>
-                                    <span class="free-delivery">무료배송</span>
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            <h4 class="seller">
-                                <i class="fas fa-home" aria-hidden="true"></i>
-                                판매자
-                            </h4>
-                            <h5 class="badge power">판매자등급</h5>
-                            <h6 class="rating star1">상품평</h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="Kmarket/product/list.do" class="thumb">
+                            <a href="Kmarket/product/list.do?prodNo=${product.prodNo}" class="thumb">
                                 <img src="https://via.placeholder.com/120x120" alt="상품이미지">
                             </a>
                         </td>
@@ -219,7 +76,6 @@
             <button type="button" id="top">상단이동</button>
         </section>
     </main>
-    </div>
 <%@ include file="./footer.jsp" %>
 </body>
 </html>
