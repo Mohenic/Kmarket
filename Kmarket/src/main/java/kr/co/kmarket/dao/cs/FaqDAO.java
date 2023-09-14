@@ -40,7 +40,7 @@ public class FaqDAO extends DBHelper {
 		return dto;
 	}
 	
-	public List<FaqDTO> selectFaqArticles(String cate, int start){
+	public List<FaqDTO> selectFaqArticles(String cate){
 		
 		List<FaqDTO> faqArticles = new ArrayList<>();
 		
@@ -49,7 +49,6 @@ public class FaqDAO extends DBHelper {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_cs.SELECT_FAQ_ARTICLES);
 			psmt.setString(1, cate);
-			psmt.setInt(2, start);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
@@ -69,14 +68,14 @@ public class FaqDAO extends DBHelper {
 		return faqArticles;
 	}
 	
-	public int selectCountTotal(String cate) {
+	public int selectCountFaq(String cate) {
 		
 		int total = 0;
 		
 		try {
 			
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL_cs.SELECT_COUNT_TOTAL);
+			psmt = conn.prepareStatement(SQL_cs.SELECT_COUNT_FAQ);
 			psmt.setString(1, cate);
 			rs = psmt.executeQuery();
 			

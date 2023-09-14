@@ -19,12 +19,12 @@ public enum FaqService {
 		return dao.selectFaqArticle(faqNo);
 	}
 	
-	public List<FaqDTO> selectFaqArticles(String cate, int start){
-		return dao.selectFaqArticles(cate, start);
+	public List<FaqDTO> selectFaqArticles(String cate){
+		return dao.selectFaqArticles(cate);
 	}
 	
 	public int selectCountTotal(String cate) {
-		return dao.selectCountTotal(cate);
+		return dao.selectCountFaq(cate);
 	}
 	
 }

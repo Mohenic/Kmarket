@@ -13,13 +13,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.admin.ProductDTO;
-import kr.co.kmarket.service.product.productService;
+import kr.co.kmarket.service.product.ProductService;
 
 @WebServlet("/admin/product/register.do")
 public class ProductRegisterController extends HttpServlet{
 	private static final long serialVersionUID = 6138492371144597779L;
 
-	productService service = productService.INSTANCE;
+	ProductService service = ProductService.INSTANCE;
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
