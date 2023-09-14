@@ -6,7 +6,7 @@
                         <p>홈<span>></span>자주묻는 질문</p>
                     </div>
                 </nav>
-                <section class="list">
+                <section class="${index}">
                     <aside>
                         <h2>자주묻는 질문</h2>
                         <ul>

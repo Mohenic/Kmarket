@@ -6,7 +6,7 @@
                         <p>홈<span>></span>문의하기</p>
                     </div>
                 </nav>
-                <section class="list">
+                <section class="${index}">
                     <aside>
                         <h2>문의하기</h2>
                         <ul>

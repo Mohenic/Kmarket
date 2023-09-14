@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
+ <section id="cs">
 <jsp:include page="./_aside${group}.jsp"/>
+                    <article>
                         <nav>
                             <h2 class="title">[가입] 가입 문의내용</h2>
                             <p>
@@ -25,7 +27,7 @@
                                 <br>
                             </p>
                         </div>
-                        <a href="./list.do" class="btnList">목록보기</a>
+                        <a href="./list.do?group=${group}" class="btnList">목록보기</a>
                     </article>
                 </section>
             </div>

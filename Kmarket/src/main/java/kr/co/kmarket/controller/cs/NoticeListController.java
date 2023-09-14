@@ -9,16 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 @WebServlet("/cs/notice/list.do")
 public class NoticeListController extends HttpServlet {
 
 	private static final long serialVersionUID = 6278400394568290614L;
 
+	Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String group = req.getParameter("group");
+		
+		
 		req.setAttribute("group", group);
+		req.setAttribute("index", "list");
+		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/notice/list.jsp");
 		dispatcher.forward(req, resp);
