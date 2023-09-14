@@ -17,8 +17,7 @@
             <nav>
                 <h1>상품보기</h1>
                 <p>
-                    HOME > <span>패션·의류·뷰티</span> > 
-                    <strong>남성의류</strong>
+                    HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong>
                 </p>
             </nav>
             <!-- View 시작 -->
@@ -29,10 +28,10 @@
                 <div class="summary">
                     <nav>
                         <h1>(주)판매자명</h1>
-                        <h2>상품번호&nbsp;:&nbsp;<span>10010118412</span></h2>
+                        <h2>상품번호&nbsp;:&nbsp;<span>${prod.prodNo}</span></h2>
                     </nav>                        
                     <nav>
-                        <h3>상품명</h3>
+                        <h3>${prod.prodName}</h3>
                         <p>상품설명 출력</p>
                         <h5 class="rating star4"><a href="#">상품평보기</a></h5>
                     </nav>
