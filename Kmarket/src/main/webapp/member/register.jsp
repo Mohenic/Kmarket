@@ -10,8 +10,7 @@
                     </h1>
                 </nav> 
                 
-                <form action="/Kmarket/member/register.do" method="post">
-                <input type="hidden" name="type" value="1">
+                <form action="#" method="#">
                     <section>
                         <table>
                             <caption>필수 정보입력</caption>
@@ -42,7 +41,7 @@
                                     비밀번호 확인
                                 </th>
                                 <td>
-                                    <input type="password" name="pass2" placeholder="비밀번호 재입력" required>
+                                    <input type="text" name="pass2" placeholder="비밀번호 재입력" required>
                                     <span class="mPass">비밀번호 재입력.</span>
                                 </td>
                             </tr>
@@ -107,7 +106,7 @@
                                         <input type="text" name="addr1" id="addr1" size="50" placeholder="주소를 검색하세요" readonly>
                                     </div>
                                     <div>
-                                        <input type="text" name="addr2" id="addr2" size="50" placeholder="상세주소를 입력하세요" >
+                                        <input type="text" name="addr2" id="addr2" size="50" placeholder="상세주소를 입력하세요" readonly>
                                     </div>
                                 </td>
                             </tr>                            

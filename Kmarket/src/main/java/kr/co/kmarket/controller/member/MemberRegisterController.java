@@ -13,18 +13,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.member.MemberDTO;
-import kr.co.kmarket.service.member.MemberService;
-
+import kr.co.kmarket.dto.member.Member_termsDTO;
+import kr.co.kmarket.service.member.MemberTermsService;
 @WebServlet("/member/register.do")
 public class MemberRegisterController extends HttpServlet {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7829484824303131209L;
-
-
-	MemberService service = MemberService.INSTANCE;
+	private static final long serialVersionUID = 8447071860548753347L;
+	MemberTermsService service = MemberTermsService.INSTANCE;
 	private Logger logger =LoggerFactory.getLogger(this.getClass());
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -64,6 +62,7 @@ public class MemberRegisterController extends HttpServlet {
 		dto.setAddr2(addr2);
 		dto.setType(type);
 		dto.setRegip(regip);
+
 		
 		service.insertMember(dto);
 		

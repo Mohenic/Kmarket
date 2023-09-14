@@ -1,6 +1,7 @@
 package kr.co.kmarket.dto.member;
 
 public class MemberDTO {
+	
 	private String uid;
 	private String pass;
 	private String name;
@@ -205,5 +206,7 @@ public class MemberDTO {
 	public void setEtc5(String etc5) {
 		this.etc5 = etc5;
 	}
+	
 
+	
 }
