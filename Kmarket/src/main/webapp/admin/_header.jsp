@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- 
+	작업자 : 손영우
+	작업시작일 : 2023/09/14
+	작업종료일 : 2023/09/14
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "../_header.jsp" %> 
 <%@ include file = "../_aside.jsp" %>
+<!-- 
+	작업자 : 손영우
+	작업시작일 : 2023/09/13
+	작업종료일 : 2023/09/14
+ -->
             <section id="admin-product-register">
                 <nav>
                     <h3>상품등록</h3>
@@ -11,7 +16,8 @@
                 <!-- 상품등록 컨텐츠 시작 -->
                 <article>
                     <form action="/Kmarket/admin/product/register.do" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="seller" value="${sessUser.uid}">
+                	<input type="text" name="prodNo" value="">
+                	<input type="text" name="seller" value="">
                         <!-- 상품분류 -->
                         <section>
                             <h4>상품분류</h4>

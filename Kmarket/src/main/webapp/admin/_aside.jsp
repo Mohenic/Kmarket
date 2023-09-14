@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- 
+	작업자 : 손영우
+	작업시작일 : 2023/09/14
+	작업종료일 : 2023/09/14
+ -->
         <main>
             <aside>
                 <ul id="gnb">
