@@ -55,6 +55,10 @@ public class Km_memberDTO {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
+	public void setGender(String gender) {
+		this.gender = Integer.parseInt(gender);
+	}
+	
 	public String getHp() {
 		return hp;
 	}
@@ -72,6 +76,9 @@ public class Km_memberDTO {
 	}
 	public void setType(int type) {
 		this.type = type;
+	}
+	public void setType(String type) {
+		this.type = Integer.parseInt(type);
 	}
 	public int getPoint() {
 		return point;
