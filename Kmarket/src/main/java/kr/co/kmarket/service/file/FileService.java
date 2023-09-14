@@ -1,4 +1,4 @@
-package kr.co.kmarket.controller.admin;
+package kr.co.kmarket.service.file;
 
 import java.io.File;
 import java.io.IOException;
