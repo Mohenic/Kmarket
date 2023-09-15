@@ -3,7 +3,7 @@
  <jsp:include page="./_aside${group}.jsp"/>
                     <article>
                         <form action="/Kmarket/cs/qna/write.do" method="post">
-                        <input type="text" name="writer" >
+                        <input type="text" name="writer">
 				        <input type="text" name="group" value="${group}">
 				        <input type="text" name="cate" value="${cate}">
                             <table>
