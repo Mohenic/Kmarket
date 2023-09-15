@@ -20,16 +20,16 @@ public enum QnaService {
 		dao.insertQnaArticle(dto);
 	}
 	
-	public void selectQnaArticle() {
-		
+	public QnaDTO selectQnaArticle(String qnaNo) {
+		return dao.selectQnaArticle(qnaNo);
 	}
 	
-	public List<QnaDTO> selectQnaArticles(String cate){
-		return dao.selectQnaArticles(cate);
+	public List<QnaDTO> selectQnaArticles(String cate, int start){
+		return dao.selectQnaArticles(cate, start);
 	}
 	
-	public void selectCountTotal() {
-	
+	public int selectCountTotal(String cate) {
+		return dao.selectCountTotal(cate);
 	}
 	
 }

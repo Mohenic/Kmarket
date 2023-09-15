@@ -34,6 +34,9 @@ public class QnaWriteController extends HttpServlet {
 		req.setAttribute("cate", cate);
 		req.setAttribute("index", "write");
 		
+		logger.debug("group = " + group);
+		logger.debug("cate = " + cate);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/qna/write.jsp");
 		dispatcher.forward(req, resp);
 	}
@@ -41,7 +44,7 @@ public class QnaWriteController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String writer = req.getParameter("wrier");
+		String writer = req.getParameter("writer");
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
 		String type = req.getParameter("type");
@@ -50,6 +53,11 @@ public class QnaWriteController extends HttpServlet {
 		String regip = req.getRemoteAddr();
 		
 		logger.debug("writer =" +  writer);
+		logger.debug("cate = " + cate);
+		logger.debug("group = " + group);
+		logger.debug("type = " + type);
+		logger.debug("content = " + content);
+		logger.debug("regip = " + regip);
 		
 		QnaDTO dto = new QnaDTO();
 		dto.setCate(cate);
@@ -58,6 +66,8 @@ public class QnaWriteController extends HttpServlet {
 		dto.setContent(content);
 		dto.setWriter(writer);
 		dto.setRegip(regip);
+		
+		logger.debug(dto.toString());
 		
 		service.insertQnarticle(dto);
 		
