@@ -2,6 +2,8 @@
 <%@ include file ="./_header.jsp" %>
 <script src="/Kmarket/member/js/checkUser.js"></script>
 <script src="/Kmarket/member/js/validation.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="/Kmarket/member/js/zipcode.js"></script>
 
         <main id ="member">
             <div class ="register">
@@ -11,7 +13,8 @@
                     </h1>
                 </nav> 
                 
-                <form action="/Kmarket/member/register.do" method="post">
+                <form action="/Kmarket/member/register.do" id="formMember" method="post">
+                	<input type ="hidden" name="type" value="${type}">
                     <section>
                         <table>
                             <caption>필수 정보입력</caption>
@@ -118,7 +121,7 @@
                                         <input type="text" name="addr1" id="addr1" size="50" placeholder="주소를 검색하세요" readonly>
                                     </div>
                                     <div>
-                                        <input type="text" name="addr2" id="addr2" size="50" placeholder="상세주소를 입력하세요" readonly>
+                                        <input type="text" name="addr2" id="addr2" size="50" placeholder="상세주소를 입력하세요" >
                                     </div>
                                 </td>
                             </tr>

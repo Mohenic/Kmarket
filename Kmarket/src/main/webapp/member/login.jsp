@@ -29,7 +29,7 @@
                         </label>
                         <a href="#">아이디 찾기</a>
                         <a href="#">비밀번호 찾기</a>
-                        <a href="#">회원가입</a>
+                        <a href="./join.do">회원가입</a>
                     </span>
                     <a href="#" class="banner">
                         <img src="./images/member_login_banner.jpg" alt="1만원 쿠폰 할인">
