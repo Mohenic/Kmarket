@@ -6,6 +6,7 @@
 	작업시작일 : 2023/09/13
 	작업종료일 : 2023/09/14
  -->
+
             <section id="admin-product-register">
                 <nav>
                     <h3>상품등록</h3>
@@ -16,7 +17,7 @@
                 <!-- 상품등록 컨텐츠 시작 -->
                 <article>
                         <!-- 상품분류 -->
-		                <form action="/Kmarket/admin/product/register.do" method="post" enctype="multipart/form-data">
+		                <form action="/Kmarket/admin/product/register.do?cate1=11&cate=10" method="post" enctype="multipart/form-data">
 		                <input type="text" name="seller" value="${sessUser.uid}">
                         <section>
                             <h4>상품분류</h4>
