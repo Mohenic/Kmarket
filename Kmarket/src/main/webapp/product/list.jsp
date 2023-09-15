@@ -12,17 +12,17 @@
                 <p>HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong></p>
             </nav>
             <ul class="sort">
-                <li><a href="Kmarket/product/list.do" class="on">${prod.sold}</a></li>
-                <li><a href="Kmarket/product/list.do">${prod.price}</a></li>
-                <li><a href="Kmarket/product/list.do">${prod.price}</a></li>
-                <li><a href="Kmarket/product/list.do">${prod.score}</a></li>
-                <li><a href="Kmarket/product/list.do">${prod.review}</a></li>
-                <li><a href="Kmarket/product/list.do">${prod.rdate}</a></li>
+                <li><a href="Kmarket/product/list.do" class="on">판매많은순</a></li>
+                <li><a href="Kmarket/product/list.do">낮은가격순</a></li>
+                <li><a href="Kmarket/product/list.do">높은가격순</a></li>
+                <li><a href="Kmarket/product/list.do">평점높은순</a></li>
+                <li><a href="Kmarket/product/list.do">후기많은순</a></li>
+                <li><a href="Kmarket/product/list.do">최근등록순</a></li>
             </ul>
             <table border="0">
       
                 <tbody>
-                    <c:forEach var="prod" items="${prod}">
+                    <c:forEach var="prod" items="${list}">
                     <tr>
                         <td>
                             <a href="view.do?prodNo=${prod.prodNo}" class="thumb">
@@ -40,7 +40,7 @@
                                 </li>
                                 <li>
                                     <del class="org-price">${prod.price}</del>
-                                    <span class="discount">${prod.discount}</span>
+                                    <span class="discount">${prod.discount}%</span>
                                 </li>
                                 <li>
                                     <span class="free-delivery">${prod.delivery}</span>
@@ -50,7 +50,7 @@
                         <td>
                             <h4 class="seller">
                                 <i class="fas fa-home" aria-hidden="true"></i>
-                                판매자
+                                ${prod.seller}
                             </h4>
                             <h5 class="badge power">${prod.seller}</h5>
                             <h6 class="rating star1">상품평</h6>

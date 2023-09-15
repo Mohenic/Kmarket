@@ -1,6 +1,7 @@
 package kr.co.kmarket.controller.product;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,13 +22,96 @@ public class ProductViewController extends HttpServlet{
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			
+			String prodNoStr = req.getParameter("prodNo"); // prodNo 파라미터를 받아옵니다.
+
+	        int prodNo = 0;
+	        
+	        if (prodNoStr != null && !prodNoStr.isEmpty()) {
+	            try {
+	                prodNo = Integer.parseInt(prodNoStr);
+	                // prodNo를 int로 변환하여 사용
+	                ProductDTO view = service.selectProduct(prodNo);
+
+	                if (view != null) {
+	                    req.setAttribute("view", view);
+	                }
+	            } catch (NumberFormatException e) {
+	                // prodNo가 숫자로 변환할 수 없는 형식인 경우 예외 처리
+	                // 적절한 오류 처리를 여기에 추가
+	            }
+	        }
+
+	        RequestDispatcher dispatcher = req.getRequestDispatcher("/product/view.jsp");
+	        dispatcher.forward(req, resp);
+	    }
+		@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			super.doPost(req, resp);
+			
 			String prodNo = req.getParameter("prodNo");
+			String prodCate1 = req.getParameter("prodCate1");
+			String prodCate2 = req.getParameter("prodCate2");
 			String prodName = req.getParameter("prodName");
+			String descript = req.getParameter("descript");
+			String seller = req.getParameter("seller");
+			String company = req.getParameter("company");
+			String price = req.getParameter("price");
+			String discount = req.getParameter("discount");
+			String point = req.getParameter("point");
+			String stock = req.getParameter("stock");
+			String sold = req.getParameter("sold");
+			String delivery = req.getParameter("delivery");
+			String hit = req.getParameter("hit");
+			String score = req.getParameter("score");
+			String review = req.getParameter("review");
+			String thumb1 = req.getParameter("thumb1");
+			String thumb2 = req.getParameter("thumb2");
+			String thumb3 = req.getParameter("req");
+			String detail = req.getParameter("detail");
+			String status = req.getParameter("status");
+			String duty = req.getParameter("duty");
+			String receipt = req.getParameter("receipt");
+			String bizType = req.getParameter("bizType");
+			String origin = req.getParameter("origin");
+			String ip = req.getRemoteAddr();
+			String etc1 = req.getParameter("etc1");
+			String etc2 = req.getParameter("etc2");
+			String etc3 = req.getParameter("etc3");
+			String etc4 = req.getParameter("etc4");
+			String etc5 = req.getParameter("etc5");
 			
 			ProductDTO dto = new ProductDTO();
-			req.setAttribute("prod", dto);
+			dto.setProdNo(prodNo);
+			dto.setProdCate1(prodCate1);
+			dto.setProdCate2(prodCate2);
+			dto.setProdName(prodName);
+			dto.setDescript(descript);
+			dto.setSeller(seller);
+			dto.setCompany(company);
+			dto.setPrice(price);
+			dto.setDiscount(discount);
+			dto.setPoint(point);
+			dto.setStock(stock);
+			dto.setSold(sold);
+			dto.setDelivery(delivery);
+			dto.setHit(hit);
+			dto.setScore(score);
+			dto.setReview(review);
+			dto.setThumb1(thumb1);
+			dto.setThumb2(thumb2);
+			dto.setThumb3(thumb3);
+			dto.setDetail(detail);
+			dto.setStatus(status);
+			dto.setDuty(duty);
+			dto.setReceipt(receipt);
+			dto.setBizType(bizType);
+			dto.setOrigin(origin);
+			dto.setIp(ip);
+			dto.setEtc1(etc1);
+			dto.setEtc2(etc2);
+			dto.setEtc3(etc3);
+			dto.setEtc4(etc4);
+			dto.setEtc5(etc5);
 			
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/product/view.jsp");
-			dispatcher.forward(req, resp);	
 		}
-}
+	}
