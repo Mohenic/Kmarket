@@ -3,14 +3,15 @@
  <jsp:include page="./_aside${group}.jsp"/>
                     <article>
                         <form action="/Kmarket/cs/qna/write.do" method="post">
-                        <input type="hidden" name="writer" value = "${sessUser.uid}">
-                        <input type="hidden" name="cate1">
+                        <input type="text" name="writer">
+				        <input type="text" name="group" value="${group}">
+				        <input type="text" name="cate" value="${cate}">
                             <table>
                                 <tbody>
                                     <tr>
                                         <td>문의유형</td>
                                         <td>
-                                            <select name="cate2">
+                                            <select name="type">
                                                 <option value="0">선택</option>
                                                 <option>가입</option>
                                                 <option>탈퇴</option>

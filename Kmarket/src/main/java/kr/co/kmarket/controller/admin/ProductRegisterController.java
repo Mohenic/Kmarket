@@ -47,12 +47,21 @@ public class ProductRegisterController extends HttpServlet{
 		/* prodNo, seller 는 list,login 구현 후 정확한 값 가져오기 가능
 		 * 현재는 register.jsp 파일내 input text를 이용해서 값 넘겨주는 중*/
 
-		MultipartRequest mr = fService.uploadFile(req);
+		// 업로드 경로설정
+		String path = fService.getPath(req,"/thumb");
 		
-		String prodNo = mr.getParameter("prodNo");
+		// 폴더 생성
+		File folder = new File(path);
+		if (!folder.exists()) {
+			folder.mkdirs(); // 디렉터리가 존재하지 않으면 생성
+		}
+		
+		// 파일업로드
+		MultipartRequest mr = fService.uploadFile(req,path);
+		
+		String prodName = mr.getParameter("prodName");
 		String prodCate1 = mr.getParameter("prodCate1");
 		String prodCate2 = mr.getParameter("prodCate2");
-		String prodName = mr.getParameter("prodName");
 		String descript = mr.getParameter("descript");
 		String seller = mr.getParameter("seller");
 		String company = mr.getParameter("company");
@@ -71,9 +80,15 @@ public class ProductRegisterController extends HttpServlet{
 		String bizType = mr.getParameter("bizType");
 		String origin = mr.getParameter("origin");
 		String ip = req.getRemoteAddr();
-
+		
+		logger.debug("prodCate1 : " + prodCate1);
+		logger.debug("prodCate2 : " + prodCate2);
+		logger.debug("prodName : " + prodName);
+		logger.debug("thumb1 : " + thumb1);
+		logger.debug("origin : " + origin);
+		logger.debug("ip : " + ip);
+		
 		ProductDTO dto = new ProductDTO();
-		dto.setProdNo(prodNo);
 		dto.setProdCate1(prodCate1);
 		dto.setProdCate2(prodCate2);
 		dto.setProdName(prodName);
@@ -95,16 +110,6 @@ public class ProductRegisterController extends HttpServlet{
 		dto.setBizType(bizType);
 		dto.setOrigin(origin);
 		dto.setIp(ip);
-		
-		String path = fService.getPath(req, "/thumb/"+prodCate1+"/"+prodCate2);
-		
-		// 폴더 생성
-		File folder = new File(path);
-		if (!folder.exists()) {
-			folder.mkdirs(); // 디렉터리가 존재하지 않으면 생성
-		}
-		
-		
 		
 		pSerivce.insertProduct(dto);
 		

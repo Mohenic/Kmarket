@@ -15,10 +15,9 @@
                 </nav>
                 <!-- 상품등록 컨텐츠 시작 -->
                 <article>
-                    <form action="/Kmarket/admin/product/register.do" method="post" enctype="multipart/form-data">
-                	<input type="text" name="prodNo" value="">
-                	<input type="text" name="seller" value="">
                         <!-- 상품분류 -->
+		                <form action="/Kmarket/admin/product/register.do" method="post" enctype="multipart/form-data">
+		                <input type="text" name="seller" value="${sessUser.uid}">
                         <section>
                             <h4>상품분류</h4>
                             <p>
@@ -26,6 +25,7 @@
                             </p>
                             <table>
                                 <tbody>
+                                
                                     <tr>
                                         <td>1차 분류</td>
                                         <td>

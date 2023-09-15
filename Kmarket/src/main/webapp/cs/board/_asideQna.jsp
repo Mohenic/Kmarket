@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
         <section id="cs">
-            <div class="qna">
+             <div class="${class}">
                 <nav>
                     <div>
                         <p>홈<span>></span>문의하기</p>
@@ -20,7 +20,4 @@
                         </ul>
                     </aside>
                     
-                      <c:if test="${cate eq 'qnaAll'}"> 
-                            <h1>회원</h1>
-                            <h2>회원관련 문의 내용입니다.</h2>
-                        </c:if>   
+                 

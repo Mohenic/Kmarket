@@ -6,7 +6,7 @@
                         <p>홈<span>></span>공지사항</p>
                     </div>
                 </nav>
-                <section class="list">
+                <section class="${index}">
                     <aside>
                         <h2>공지사항</h2>
                         <ul>

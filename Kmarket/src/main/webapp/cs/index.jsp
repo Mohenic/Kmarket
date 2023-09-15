@@ -8,7 +8,7 @@
                 <section class="notice">
                     <h1>
                         공지사항
-                        <a href="/Kmarket/cs/notice/list.do?group=Notice&cate=noticeAll">전체보기</a>
+                        <a href="/Kmarket/cs/notice/list.do?group=Notice&cate=notice">전체보기</a>
                     </h1>
                     <ul>
                         <li>
@@ -36,7 +36,7 @@
                 <section class="faq">
                     <h1>
                         자주 묻는 질문
-                        <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=memberAll">전체보기</a>
+                        <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=member">전체보기</a>
                     </h1>
                     <ol>
                         <li>
@@ -79,46 +79,46 @@
                 <section class="qna">
                     <h1>
                         문의하기
-                        <a href="/Kmarket/cs/qna/list.do?group=Qna&cate=qnaAll">전체보기</a>
+                        <a href="/Kmarket/cs/qna/list.do?group=Qna&cate=qna">전체보기</a>
                     </h1>
                     <ul>
                         <li>
-                            <a href="/Kmarket/cs/qna/view.do" class="title">[회원] 개인회원과 법인회원에 차이가 있나요?</a>
+                            <a href="/Kmarket/cs/qna/view.do?group=${group}" class="title">[회원] 개인회원과 법인회원에 차이가 있나요?</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
                             </p>
                         </li>
                         <li>
-                            <a href="./qna/list.do" class="title">[쿠폰/이벤트] 스마일포인트는 어디에 사용하나요?</a>
+                            <a href="./qna/list.do?group=${group}" class="title">[쿠폰/이벤트] 스마일포인트는 어디에 사용하나요?</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
                             </p>
                         </li>
                         <li>
-                            <a href="./qna/list.do" class="title">[주문/결제] 신용카드 결제 중 오류가 난 경우 어떻게 하나요?</a>
+                            <a href="./qna/list.do?group=${group}" class="title">[주문/결제] 신용카드 결제 중 오류가 난 경우 어떻게 하나요?</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
                             </p>
                         </li>
                         <li>
-                            <a href="./qna/list.do" class="title">[배송] 주문한 상품은 언제 배송되나요?</a>
+                            <a href="./qna/list.do?group=${group}" class="title">[배송] 주문한 상품은 언제 배송되나요?</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
                             </p>
                         </li>
                         <li>
-                            <a href="./qna/list.do" class="title">[취소/반품/교환] 주문을 취소하고 싶어요.</a>
+                            <a href="./qna/list.do?group=${group}" class="title">[취소/반품/교환] 주문을 취소하고 싶어요.</a>
                             <p>
                                 <span class="uid">moh**</span>
                                 <span class="date">22.10.31</span>
                             </p>
                         </li>
                     </ul>
-                    <a href="/Kmarket/cs/qna/write.do" class="ask">문의글 작성 ></a>
+                    <a href="/Kmarket/cs/qna/write.do?group=Qna&cate=qnaAll" class="ask">문의글 작성 ></a>
                 </section>
                 <section class="tel">
                     <h1>1:1 상담이 필요하신가요? </h1>

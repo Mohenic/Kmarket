@@ -10,27 +10,27 @@
                             <h3>가입</h3>
                             <ul>
                                 <li>
-                                    <a href="./view.do">
+                                    <a href="./view.do?group=${group}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./view.do">
+                                    <a href="./view.do?group=${group}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./view.do">
+                                    <a href="./view.do?group=${group}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./view.html">
+                                    <a href="./view.do?group=${group}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./view.html">
+                                    <a href="./view.do?group=${group}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
