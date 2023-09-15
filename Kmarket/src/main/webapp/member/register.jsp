@@ -2,8 +2,8 @@
 <%@ include file ="./_header.jsp" %>
 <script src="/Kmarket/member/js/checkUser.js"></script>
 <script src="/Kmarket/member/js/validation.js"></script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="/Kmarket/member/js/zipcode.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/Kmarket/member/js/zipcode.js"></script>
 
         <main id ="member">
             <div class ="register">
@@ -50,17 +50,10 @@
                                     <span class="mPass">비밀번호 재입력.</span>
                                 </td>
                             </tr>
-                            <tr>
-                            	<td>
-                            		<span class ="resultUid"></span>
-                            	</td>
-                            </tr>
-                            <tr>
-                            	<td>
-                    	        	<span class ="resultPass"></span>
-                            	</td>
-                            </tr>
+
                         </table>
+                        <span class ="resultUid"></span>
+  	        			<span class ="resultPass"></span>
                     </section>
                     <section>
                         <table>
@@ -125,23 +118,11 @@
                                     </div>
                                 </td>
                             </tr>
-                             <tr>
-                            	<td>
-                            		<span class ="resultName"></span>
-                            	</td>
-                            </tr>
-                            <tr>
-                            	<td>
-                    	        	<span id ="resultEmail"></span>
-                            	</td>
-                            </tr>
-                            <tr>
-                            	<td>
-                    	        	<span id ="resultHp"></span>
-                            	</td>
-                            </tr>                            
+                  
                         </table>
-
+                                    <span class ="resultName"></span>
+                    	        	<span id ="resultEmail"></span>
+                    	        	<span id ="resultHp"></span>   
                     </section>
                     <div>
                         <input type="submit" class="join" value="회원가입">
