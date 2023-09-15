@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="./header.jsp" %>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/common.css">
@@ -21,6 +22,7 @@
             <table border="0">
       
                 <tbody>
+                    <c:forEach var="prod" items="${prod}">
                     <tr>
                         <td>
                             <a href="view.do?prodNo=${prod.prodNo}" class="thumb">
@@ -54,6 +56,7 @@
                             <h6 class="rating star1">상품평</h6>
                         </td>
                     </tr>
+                    </c:forEach>
                 </tbody>
             </table>
 

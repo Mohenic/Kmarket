@@ -38,4 +38,5 @@ public class SQL_product {
 
 	public final static String SELECT_PRODUCT = "SELECT * FROM `Product` WHERE `prodNo`=?";
 	public final static String SELECT_PRODUCTS = "SELECT * FROM `km_product` WHERE `prodCate1`=? LIMIT ?,10";
+	public final static String SELECT_PRODUCT_LIST = "SELECT * FROM `Product`";
 }

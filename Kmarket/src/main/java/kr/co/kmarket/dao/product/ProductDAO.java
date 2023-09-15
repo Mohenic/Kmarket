@@ -4,13 +4,17 @@ package kr.co.kmarket.dao.product;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_product;
 import kr.co.kmarket.dto.product.ProductDTO;
 
 
 public class ProductDAO extends DBHelper{
-	
+	private static final Logger logger = LoggerFactory.getLogger(ProductDAO.class);
 	private static ProductDAO instace = new ProductDAO();
 	
 	public static ProductDAO getInstance() {
@@ -117,8 +121,57 @@ public class ProductDAO extends DBHelper{
 	    return dto;
 	}
 	
-	public List<ProductDTO> selectProducts() {
-		return null;
+	public List<ProductDTO> selectProducts(int prod) {
+		
+		List<ProductDTO> products = new ArrayList<>();
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_product.SELECT_PRODUCT_LIST);
+			psmt.setInt(1, prod);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+	            ProductDTO dto = new ProductDTO();
+	            dto.setProdNo(rs.getInt("prodNo"));
+	            dto.setProdCate1(rs.getInt("prodCate1"));
+	            dto.setProdCate2(rs.getInt("prodCate2"));
+	            dto.setProdName(rs.getString("prodName"));
+	            dto.setDescript(rs.getString("descript"));
+	            dto.setSeller(rs.getString("seller"));
+	            dto.setCompany(rs.getString("company"));
+	            dto.setPrice(rs.getInt("price"));
+	            dto.setDiscount(rs.getInt("discount"));
+	            dto.setPoint(rs.getInt("point"));
+	            dto.setStock(rs.getInt("stock"));
+	            dto.setSold(rs.getInt("sold"));
+	            dto.setDelivery(rs.getInt("delivery"));
+	            dto.setHit(rs.getInt("hit"));
+	            dto.setScore(rs.getInt("score"));
+	            dto.setReview(rs.getInt("review"));
+	            dto.setThumb1(rs.getString("thumb1"));
+	            dto.setThumb2(rs.getString("thumb2"));
+	            dto.setThumb3(rs.getString("thumb3"));
+	            dto.setDetail(rs.getString("detail"));
+	            dto.setStatus(rs.getString("status"));
+	            dto.setDuty(rs.getString("duty"));
+	            dto.setReceipt(rs.getString("receipt"));
+	            dto.setBizType(rs.getString("bizType"));
+	            dto.setOrigin(rs.getString("origin"));
+	            dto.setIp(rs.getString("ip"));
+	            dto.setRdate(rs.getString("rdate"));
+	            dto.setEtc1(rs.getInt("etc1"));
+	            dto.setEtc2(rs.getInt("etc2"));
+	            dto.setEtc3(rs.getString("etc3"));
+	            dto.setEtc4(rs.getString("etc4"));
+	            dto.setEtc5(rs.getString("etc5"));
+	            products.add(dto);
+	        }
+			close();
+			
+		}catch (Exception e) {
+			logger.debug("selectProductList()..." + e.getMessage());
+	    }
+	    return products;
 		
 	}
 	
