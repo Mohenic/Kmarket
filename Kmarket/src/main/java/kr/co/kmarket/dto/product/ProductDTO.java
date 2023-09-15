@@ -1,5 +1,8 @@
 package kr.co.kmarket.dto.product;
 
+import java.io.File;
+import java.util.UUID;
+
 public class ProductDTO {
 
 	private int prodNo;
@@ -34,7 +37,14 @@ public class ProductDTO {
 	private String etc3;
 	private String etc4;
 	private String etc5;
+	private String path;
 	
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
 	public int getProdNo() {
 		return prodNo;
 	}
@@ -173,11 +183,17 @@ public class ProductDTO {
 	public void setThumb1(String thumb1) {
 		this.thumb1 = thumb1;
 	}
+	public void setThumb1ForRename(String thumb1) {
+		this.thumb1 = fileRename(thumb1);
+	}
 	public String getThumb2() {
 		return thumb2;
 	}
 	public void setThumb2(String thumb2) {
 		this.thumb2 = thumb2;
+	}
+	public void setThumb2ForRename(String thumb2) {
+		this.thumb1 = fileRename(thumb2);
 	}
 	public String getThumb3() {
 		return thumb3;
@@ -185,11 +201,17 @@ public class ProductDTO {
 	public void setThumb3(String thumb3) {
 		this.thumb3 = thumb3;
 	}
+	public void setThumb3ForRename(String thumb3) {
+		this.thumb1 = fileRename(thumb3);
+	}
 	public String getDetail() {
 		return detail;
 	}
 	public void setDetail(String detail) {
 		this.detail = detail;
+	}
+	public void setDetailForRename(String detail) {
+		this.detail = fileRename(detail);
 	}
 	public String getStatus() {
 		return status;
@@ -268,6 +290,20 @@ public class ProductDTO {
 	}
 	public void setEtc5(String etc5) {
 		this.etc5 = etc5;
+	}
+	
+	public String fileRename(String thumb) {
+		int i = thumb.lastIndexOf(".");
+		String ext = thumb.substring(i);
+		
+		String uuid = UUID.randomUUID().toString();
+		String sName = uuid + ext;
+		
+		File f1 = new File(path + "/" + thumb);
+		File f2 = new File(path + "/" + sName);
+		f1.renameTo(f2);
+		
+		return sName;
 	}
 	
 	@Override

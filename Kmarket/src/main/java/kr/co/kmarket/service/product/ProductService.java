@@ -20,13 +20,17 @@ public enum ProductService {
     public ProductDTO selectProduct(int prodNo) {
         return dao.selectProduct(prodNo);
     }
-    public List<ProductDTO> selectProducts() {
-        return dao.selectProducts();
+    public List<ProductDTO> selectProducts(int start) {
+        return dao.selectProducts(start);
     }
     public void updateProduct(ProductDTO dto) {
         dao.updateProduct(dto);
     }
     public void deleteProduct(int prodNo) {
         dao.deleteProduct(prodNo);
+    }
+    
+    public int selectCountProductTotal() {
+    	return dao.selectCountProductTotal();
     }
 }
