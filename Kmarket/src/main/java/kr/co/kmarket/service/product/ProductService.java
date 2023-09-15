@@ -20,6 +20,7 @@ public enum ProductService {
     public ProductDTO selectProduct(int prodNo) {
         return dao.selectProduct(prodNo);
     }
+
     public List<ProductDTO> selectProducts(int start) {
         return dao.selectProducts(start);
     }

@@ -4,13 +4,17 @@ package kr.co.kmarket.dao.product;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_product;
 import kr.co.kmarket.dto.product.ProductDTO;
 
 
 public class ProductDAO extends DBHelper{
-	
+	private static final Logger logger = LoggerFactory.getLogger(ProductDAO.class);
 	private static ProductDAO instace = new ProductDAO();
 	
 	public static ProductDAO getInstance() {
@@ -116,8 +120,9 @@ public class ProductDAO extends DBHelper{
 	    return dto;
 	}
 	
+
 	public List<ProductDTO> selectProducts(int start) {
-		
+	
 		List<ProductDTO> products = new ArrayList<>();
 		
 		try {
