@@ -19,6 +19,11 @@ public class QnaDTO {
 	public void setQnaNo(int qnaNo) {
 		this.qnaNo = qnaNo;
 	}
+	
+	public void setQnaNo(String qnaNo) {
+		this.qnaNo = Integer.parseInt(qnaNo);
+	}
+	
 	public int getParent() {
 		return parent;
 	}
@@ -73,6 +78,19 @@ public class QnaDTO {
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
+	
+	public void setRdateYYMMDD(String rdate) {
+		this.rdate = rdate.substring(2, 10);
+	}
+	
+	public String maskWriter(String writer) {
+        if (writer!= null && writer.length() > 2) {
+            String maskedUserId = writer.substring(0, 2) + "**";
+            return maskedUserId;
+        }
+        return writer;
+    }
+	
 	
 	@Override
 	public String toString() {
