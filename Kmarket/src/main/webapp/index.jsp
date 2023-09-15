@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/20962f3e4b.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/timeout.js"></script>
     <style>
       #bannerTop {
         display: none;
@@ -76,6 +77,7 @@
           		<a herf="#">${sessUser.name }</a>
           	</c:if>
           	<c:if test="${sessUser.type == 2 }">
+          		<a herf="#">${sessUser.company}</a>
           		<a herf="/Kmarket/admin/index.do">관리자</a>
           	</c:if>
             	<a href="#">마이페이지</a>
@@ -106,10 +108,10 @@
               <li><a href="#">할인상품</a></li>
             </ul>
             <ul>
-              <li><a href="#">공지사항</a></li>
-              <li><a href="#">자주묻는질문</a></li>
-              <li><a href="#">문의하기</a></li>
-              <li><a href="#">고객센터</a></li>
+              <li><a href="/Kmarket/cs/notice/list.do?group=Notice&cate=notice">공지사항</a></li>
+              <li><a href="/Kmarket/cs/faq/list.do?group=Faq&cate=member">자주묻는질문</a></li>
+              <li><a href="/Kmarket/cs/qna/list.do?group=Qna&cate=qna">문의하기</a></li>
+              <li><a href="/Kmarket/cs/index.do">고객센터</a></li>
             </ul>
           </div>
         </div>
@@ -275,27 +277,27 @@
             <ul>
               <li>
                 <a href="#"
-                  ><img src="https://via.placeholder.com/985x447" alt="item1"
+                  ><img src="/Kmarket/images/mainBanner11.jpg" alt="item1"
                 /></a>
               </li>
               <li>
                 <a href="#"
-                  ><img src="https://via.placeholder.com/985x447" alt="item2"
+                  ><img src="/Kmarket/images/mainBanner2.jpg" alt="item2"
                 /></a>
               </li>
               <li>
                 <a href="#"
-                  ><img src="https://via.placeholder.com/985x447" alt="item3"
+                  ><img src="/Kmarket/images/mainBanner3.jpg" alt="item3"
                 /></a>
               </li>
               <li>
                 <a href="#"
-                  ><img src="https://via.placeholder.com/985x447" alt="item4"
+                  ><img src="/Kmarket/images/mainBanner4 .jpg" alt="item4"
                 /></a>
               </li>
               <li>
                 <a href="#"
-                  ><img src="https://via.placeholder.com/985x447" alt="item5"
+                  ><img src="/Kmarket/images/mainBanner5 .jpg" alt="item5"
                 /></a>
               </li>
             </ul>
