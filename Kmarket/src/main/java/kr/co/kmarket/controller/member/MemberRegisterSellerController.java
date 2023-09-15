@@ -29,6 +29,9 @@ public class MemberRegisterSellerController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String type =req.getParameter("type");
+		
+		req.setAttribute("type", type);
 
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/member/registerSeller.jsp");
 		dispatcher.forward(req, resp);
@@ -50,13 +53,31 @@ public class MemberRegisterSellerController extends HttpServlet {
 		String bizregnum = req.getParameter("corpReg");
 		String comregnum = req.getParameter("onlineReg");
 		String tel = req.getParameter("tel");
-		String manager = req.getParameter("manager");
-		String managerhp = req.getParameter("managerhp");
+		String manager = req.getParameter("name");
+		String managerhp = req.getParameter("hp");
 		String fax = req.getParameter("fax");
-
-		
+	
 		String type = req.getParameter("type");
 		String regip = req.getRemoteAddr();
+		
+		
+		logger.info(uid);
+		logger.info(pass);
+		logger.info(email);
+		logger.info(zip);
+		logger.info(addr1);
+		logger.info(addr2);
+		logger.info(company);
+		logger.info(ceo);
+		logger.info(bizregnum);
+		logger.info(ceo);
+		logger.info(tel);
+		logger.info(fax);
+		logger.info(manager);
+		logger.info(managerhp);
+		logger.info(fax);
+		logger.info(type);
+		logger.info(regip);
 		
 		
 		MemberDTO dto = new MemberDTO();

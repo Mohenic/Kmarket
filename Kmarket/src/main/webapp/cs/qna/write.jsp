@@ -4,6 +4,7 @@
                     <article>
                         <form action="/Kmarket/cs/qna/write.do" method="post">
                         <input type="text" name="writer" value="${sessUser.uid }">
+                          
 				        <input type="text" name="group" value="${group}">
 				        <input type="text" name="cate" value="${cate}">
                             <table>
