@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../_header.jsp" %>
 <jsp:include page="./_aside${group}.jsp"/>
+<%-- <jsp:include page="../board/_aside${group}.jsp"/>  --%>
+
                     <article>
                         <nav>
                             <h1>회원</h1>

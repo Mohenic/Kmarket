@@ -26,39 +26,40 @@ import kr.co.kmarket.service.file.FileService;
 import kr.co.kmarket.service.product.ProductService;
 
 @WebServlet("/admin/product/register.do")
-public class ProductRegisterController extends HttpServlet{
+public class ProductRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 6138492371144597779L;
 
 	private ProductService pSerivce = ProductService.INSTANCE;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	private FileService fService = FileService.instance;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/product/register.jsp");
 		dispatcher.forward(req, resp);
 	}
-	
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		/* prodNo, seller 는 list,login 구현 후 정확한 값 가져오기 가능
-		 * 현재는 register.jsp 파일내 input text를 이용해서 값 넘겨주는 중*/
+
+		/*
+		 * prodNo, seller 는 list,login 구현 후 정확한 값 가져오기 가능 현재는 register.jsp 파일내 input
+		 * text를 이용해서 값 넘겨주는 중
+		 */
 
 		// 업로드 경로설정
-		String path = fService.getPath(req,"/thumb");
-		
+		String path = fService.getPath(req, "/thumb/");
+
 		// 폴더 생성
 		File folder = new File(path);
 		if (!folder.exists()) {
 			folder.mkdirs(); // 디렉터리가 존재하지 않으면 생성
 		}
-		
+
 		// 파일업로드
-		MultipartRequest mr = fService.uploadFile(req,path);
-		
+		MultipartRequest mr = fService.uploadFile(req, path);
+
 		String prodName = mr.getParameter("prodName");
 		String prodCate1 = mr.getParameter("prodCate1");
 		String prodCate2 = mr.getParameter("prodCate2");
@@ -80,14 +81,14 @@ public class ProductRegisterController extends HttpServlet{
 		String bizType = mr.getParameter("bizType");
 		String origin = mr.getParameter("origin");
 		String ip = req.getRemoteAddr();
-		
+
 		logger.debug("prodCate1 : " + prodCate1);
 		logger.debug("prodCate2 : " + prodCate2);
 		logger.debug("prodName : " + prodName);
 		logger.debug("thumb1 : " + thumb1);
 		logger.debug("origin : " + origin);
 		logger.debug("ip : " + ip);
-		
+
 		ProductDTO dto = new ProductDTO();
 		dto.setProdCate1(prodCate1);
 		dto.setProdCate2(prodCate2);
@@ -110,12 +111,12 @@ public class ProductRegisterController extends HttpServlet{
 		dto.setBizType(bizType);
 		dto.setOrigin(origin);
 		dto.setIp(ip);
-		
+
 		pSerivce.insertProduct(dto);
-		
+
 		logger.debug(dto.toString());
-		
+
 		resp.sendRedirect("/Kmarket/admin/product/list.do?success=200");
-		
+
 	}
 }

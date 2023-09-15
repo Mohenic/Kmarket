@@ -846,6 +846,10 @@
             background-image: url("../images/cs_sprites.png");
             background-position: -628px -652px;
         }
+        
+         #cs > .qna  article .qna_button{
+            text-align: center;
+        }
 
         /* qna view */
 
@@ -906,7 +910,7 @@
         }
     
         #cs > .qna > .write > article table select {
-            width: 100px;
+            width: 140px;
             height: 40px;
             font-size: 16px;
             box-sizing: border-box;
@@ -931,6 +935,10 @@
             font-size: 16px;
             padding: 10px;
             box-sizing: border-box;
+        }
+        
+         #cs > .qna  article .qna_button{
+            text-align: center;
         }
 
         /* footer part */

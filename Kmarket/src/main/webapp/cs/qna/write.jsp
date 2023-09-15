@@ -12,6 +12,14 @@
                                     <tr>
                                         <td>문의유형</td>
                                         <td>
+                                         <select name="cate">
+                                                <option>선택</option>
+                                                <option selected>회원</option>
+                                                <option>쿠폰/이벤트</option>
+                                                <option>주문/결제</option>
+                                                <option>배송</option>
+                                            </select>
+                                            
                                             <select name="type">
                                                 <option>선택</option>
                                                 <option selected>가입</option>
@@ -33,7 +41,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div>
+                            <div class="qna_button">
                                 <a href="./list.do" class="btnList">취소하기</a>
                                 <input type="submit" class="btnSubmit" value="등록하기">
                             </div>
