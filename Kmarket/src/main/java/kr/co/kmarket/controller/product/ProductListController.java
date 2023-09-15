@@ -1,6 +1,7 @@
 package kr.co.kmarket.controller.product;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +24,13 @@ public class ProductListController extends HttpServlet {
 
 			@Override
 			protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+				
+				int start=0;
+				
+				List<ProductDTO> list = service.selectProducts(start);
+				
+				req.setAttribute("list", list);
+				
 				RequestDispatcher dispatcher = req.getRequestDispatcher("/product/list.jsp");
 				dispatcher.forward(req, resp);	
 			}

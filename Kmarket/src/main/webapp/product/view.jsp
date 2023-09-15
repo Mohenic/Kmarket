@@ -1,51 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="./header.jsp" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
-    <div id="container">
-    	<main id="product">
-        <%@ include file="./category.jsp" %>
-        <section class="view">
+    <main id="product">
+    	<%@ include file="./category.jsp" %>   
+        <section class="list">
             <nav>
                 <h1>상품보기</h1>
-                <p>
-                    HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong>
-                </p>
+                <p>HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong></p>
             </nav>
+            <ul class="sort">
+                <li><a href="Kmarket/product/list.do" class="on">판매많은순</a></li>
+                <li><a href="Kmarket/product/list.do">낮은가격순</a></li>
+                <li><a href="Kmarket/product/list.do">높은가격순</a></li>
+                <li><a href="Kmarket/product/list.do">평점높은순</a></li>
+                <li><a href="Kmarket/product/list.do">후기많은순</a></li>
+                <li><a href="Kmarket/product/list.do">최근등록순</a></li>
+            </ul>
+            <table border="0">
+            
             <!-- View 시작 -->
+            <c:if test="${not empty view}">
             <article class="info">
                 <div class="image">
                     <img src="https://via.placeholder.com/460x460" alt="상품이미지"/>
                 </div>
                 <div class="summary">
                     <nav>
-                        <h1>(주)판매자명</h1>
-                        <h2>상품번호&nbsp;:&nbsp;<span>${prod.prodNo}</span></h2>
+                        <h1>${view.prodName}</h1>
+                        <h2>상품번호&nbsp;:&nbsp;<span>${view.prodNo}</span></h2>
                     </nav>                        
                     <nav>
-                        <h3>${prod.prodName}</h3>
-                        <p>상품설명 출력</p>
+                        <h3>${view.prodName}</h3>
+                        <p>${view.descript}</p>
                         <h5 class="rating star4"><a href="#">상품평보기</a></h5>
                     </nav>
                     <nav>
                         <div class="org_price">
-                            <del>30,000</del>
-                            <span>10%</span>
+                            <del>${view.price}</del>
+                            <span>${view.discount}%</span>
                         </div>
                         <div class="dis_price">
-                            <ins>27,000</ins>
+                            <ins>${view.price}</ins>
                         </div>
                     </nav>
                     <nav>
-                        <span class="delivery">무료배송</span>
+                        <span class="delivery">배송비${view.delivery}원</span>
                         <span class="arrival">모레(금) 7/8 도착예정</span>
                         <span class="desc">본 상품은 국내배송만 가능합니다.</span>
                     </nav>
@@ -54,7 +56,7 @@
                         <span class="card cardadd"><i>아이콘</i>카드추가혜택</span>
                     </nav>
                     <nav>
-                        <span class="origin">원산지-상세설명 참조</span>
+                        <span class="origin">원산지-${view.origin}</span>
                     </nav>
                     <img src="./images/vip_plcc_banner.png" alt="100원만 결제해도 1만원 적립!" class="banner" />
                     
@@ -75,7 +77,7 @@
                     </div>
                 </div>
             </article>
-
+            </c:if>
             <!-- 상품 정보 -->
             <article class="detail">
                 <nav>
