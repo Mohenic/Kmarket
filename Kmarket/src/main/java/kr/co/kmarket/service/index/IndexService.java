@@ -14,7 +14,21 @@ public enum IndexService {
 	private Logger logger =LoggerFactory.getLogger(this.getClass());
 	private IndexDAO dao =IndexDAO.getInstance();
 
-	public List<ProductDTO> selectProducts(){
-		return dao.selectProducts();
+	public List<ProductDTO> selectProductsSold(){
+		return dao.selectProductsSold();
 	}
+	
+	public List<ProductDTO> selectProductsScore(){
+		return dao.selectProductsScore();
+	}
+	
+	public List<ProductDTO> selectProductsNew(){
+		return dao.selectProductsNew();
+	}
+	
+	public List<ProductDTO> selectProductsDiscount(){
+		return dao.selectProductsDiscount();
+	}
+	
+	
 }
