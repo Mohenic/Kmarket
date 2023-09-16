@@ -24,8 +24,8 @@ public class SQL_cs {
 															+ "`regip` = ? ,"
 															+ "`rdate` = NOW()";
 	
-	
-	public static final String INSERT_QNA_ARTICLE = "INSERT INTO `km_qna` SET "
+	//문의사항 글쓰기
+	public static final String INSERT_ARTICLE = "INSERT INTO `km_article` SET "
 															+ "`cate` = ? ,"
 															+ "`type` = ? ,"
 															+ "`title` = ? , "
@@ -35,13 +35,13 @@ public class SQL_cs {
 															+ "`rdate` = NOW()";
 	
 	//게시글 보기
-	public static final String SELECT_QNA_ARTICLE = "SELECT * FROM `km_qna` WHERE `qnaNo` = ?";
+	public static final String SELECT_ARTICLE = "SELECT * FROM `km_article` WHERE `no` = ?";
 	
 	//게시글 출력하기(1차...진행중(페이지 처리할 때 부분 수정이 필요할 거 같음.)) 
-	public static final String SELECT_QNA_ARTICLES = "SELECT * FROM `km_qna`"
+	public static final String SELECT_ARTICLES = "SELECT * FROM `km_article`"
 														   + "WHERE `cate` = ? "
-														   + "ORDER BY `qnaNo` DESC "
+														   + "ORDER BY `no` DESC "
 														   + "LIMIT ?,10";
 	//cate별 전체 게시글 총 갯수 출력(페이지 처리)
-	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `km_qna` WHERE `cate` = ?";
+	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `km_article` WHERE `cate` = ?";
 }

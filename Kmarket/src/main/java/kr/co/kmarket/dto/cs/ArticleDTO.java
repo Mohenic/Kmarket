@@ -1,8 +1,8 @@
 package kr.co.kmarket.dto.cs;
 
-public class QnaDTO {
+public class ArticleDTO {
 	
-	private int qnaNo;
+	private int no;
 	private int parent;
 	private int comment;
 	private String cate;
@@ -10,20 +10,15 @@ public class QnaDTO {
 	private String title;
 	private String content;
 	private String writer;
+	private int hit;
 	private String regip;
 	private String rdate;
-	
-	public int getQnaNo() {
-		return qnaNo;
+	public int getNo() {
+		return no;
 	}
-	public void setQnaNo(int qnaNo) {
-		this.qnaNo = qnaNo;
+	public void setNo(int no) {
+		this.no = no;
 	}
-	
-	public void setQnaNo(String qnaNo) {
-		this.qnaNo = Integer.parseInt(qnaNo);
-	}
-	
 	public int getParent() {
 		return parent;
 	}
@@ -66,6 +61,12 @@ public class QnaDTO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	public String getRegip() {
 		return regip;
 	}
@@ -79,10 +80,12 @@ public class QnaDTO {
 		this.rdate = rdate;
 	}
 	
+	//날짜 재설정
 	public void setRdateYYMMDD(String rdate) {
 		this.rdate = rdate.substring(2, 10);
 	}
 	
+	//아이디 마스킹 처리
 	public String maskWriter(String writer) {
         if (writer!= null && writer.length() > 2) {
             String maskedUserId = writer.substring(0, 2) + "**";
@@ -91,14 +94,12 @@ public class QnaDTO {
         return writer;
     }
 	
-	
 	@Override
 	public String toString() {
-		return "QnaDTO [qnaNo=" + qnaNo + ", parent=" + parent + ", comment=" + comment + ", cate=" + cate + ", type="
-				+ type + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regip=" + regip
-				+ ", rdate=" + rdate + "]";
+		return "ArticleDTO [no=" + no + ", parent=" + parent + ", comment=" + comment + ", cate=" + cate + ", type="
+				+ type + ", title=" + title + ", content=" + content + ", writer=" + writer + ", hit=" + hit
+				+ ", regip=" + regip + ", rdate=" + rdate + "]";
 	}
-	
 	
 	
 	

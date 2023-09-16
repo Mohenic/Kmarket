@@ -8,7 +8,7 @@
                 <section class="notice">
                     <h1>
                         공지사항
-                        <a href="/Kmarket/cs/notice/list.do?group=Notice&cate=notice">전체보기</a>
+                        <a href="/Kmarket/cs/notice/list.do?group=notice&cate=noticeAll">전체보기</a>
                     </h1>
                     <ul>
                         <li>
@@ -36,41 +36,41 @@
                 <section class="faq">
                     <h1>
                         자주 묻는 질문
-                        <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=member">전체보기</a>
+                        <a href="/Kmarket/cs/faq/list.do?group=faq&cate=f_member">전체보기</a>
                     </h1>
                     <ol>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=member">
+                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=f_member">
                                 <span>회원</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=event">
+                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=f_event">
                                 <span>쿠폰/이벤트</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=pay">
+                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=f_pay">
                                 <span>주문/결제</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=delivery">
+                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=f_delivery">
                                 <span>배송</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=cancle">
+                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=f_cancel">
                                 <span>취소/반품/교환</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=travel">
+                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=f_travel">
                                 <span>여행/숙박/항공</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=Faq&cate=safe">
+                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=f_safe">
                                 <span>안전거래</span>
                             </a>
                         </li>
@@ -79,7 +79,7 @@
                 <section class="qna">
                     <h1>
                         문의하기
-                        <a href="/Kmarket/cs/qna/list.do?group=Qna&cate=qna">전체보기</a>
+                        <a href="/Kmarket/cs/qna/list.do?group=qna&cate=q_member">전체보기</a>
                     </h1>
                     <ul>
                         <li>
@@ -118,7 +118,7 @@
                             </p>
                         </li>
                     </ul>
-                    <a href="/Kmarket/cs/qna/write.do?group=Qna&cate=qnaAll" class="ask">문의글 작성 ></a>
+                    <a href="/Kmarket/cs/qna/write.do?group=qna" class="ask">문의글 작성 ></a>
                 </section>
                 <section class="tel">
                     <h1>1:1 상담이 필요하신가요? </h1>

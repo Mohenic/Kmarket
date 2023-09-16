@@ -22,8 +22,14 @@ public class NoticeViewController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String group = req.getParameter("group");
+		String cate = req.getParameter("cate");
+		
 		req.setAttribute("group", group);
+		req.setAttribute("cate", cate);
 		req.setAttribute("index", "view");
+		
+		logger.debug("group = " + group);
+		logger.debug("cate = " + cate);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/notice/view.jsp");
 		dispatcher.forward(req, resp);

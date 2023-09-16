@@ -79,7 +79,6 @@ public class FaqListController extends HttpServlet {
 		
 		List<FaqDTO> article = service.selectFaqArticles(cate, start);
 		req.setAttribute("index", "list");
-		req.setAttribute("class1", "faq");
 		
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);

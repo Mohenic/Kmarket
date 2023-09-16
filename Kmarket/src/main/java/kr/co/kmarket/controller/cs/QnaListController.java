@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import kr.co.kmarket.dto.cs.QnaDTO;
-import kr.co.kmarket.service.cs.QnaService;
+import kr.co.kmarket.dto.cs.ArticleDTO;
+import kr.co.kmarket.service.cs.ArticleService;
 
 @WebServlet("/cs/qna/list.do")
 public class QnaListController extends HttpServlet {
 
 	private static final long serialVersionUID = 3797589361217869280L;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	QnaService service = QnaService.INSTANCE;
+	ArticleService service = ArticleService.INSTANCE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -75,7 +75,7 @@ public class QnaListController extends HttpServlet {
 		pageStartNum = total-start;
 		
 		//게시글 출력
-		List<QnaDTO> articles = service.selectQnaArticles(cate, start);
+		List<ArticleDTO> articles = service.selectArticles(cate, start);
 		
 		logger.debug("group = " + group);
 		logger.debug("cate = " + cate);

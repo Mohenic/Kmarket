@@ -13,15 +13,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.cs.FaqDTO;
-import kr.co.kmarket.dto.cs.QnaDTO;
+import kr.co.kmarket.dto.cs.ArticleDTO;
 import kr.co.kmarket.service.cs.FaqService;
-import kr.co.kmarket.service.cs.QnaService;
+import kr.co.kmarket.service.cs.ArticleService;
 
 @WebServlet("/cs/qna/write.do")
 public class QnaWriteController extends HttpServlet {
 
 	private static final long serialVersionUID = 8562356067027527812L;
-	private QnaService service = QnaService.INSTANCE;
+	private ArticleService service = ArticleService.INSTANCE;
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
@@ -59,7 +59,7 @@ public class QnaWriteController extends HttpServlet {
 		logger.debug("content = " + content);
 		logger.debug("regip = " + regip);
 		
-		QnaDTO dto = new QnaDTO();
+		ArticleDTO dto = new ArticleDTO();
 		dto.setCate(cate);
 		dto.setType(type);
 		dto.setTitle(title);
@@ -69,7 +69,7 @@ public class QnaWriteController extends HttpServlet {
 		
 		logger.debug(dto.toString());
 		
-		service.insertQnarticle(dto);
+		service.insertArticle(dto);
 		
 		
 		resp.sendRedirect("/Kmarket/cs/qna/list.do?group="+group+"&cate="+cate);

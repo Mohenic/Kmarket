@@ -9,25 +9,25 @@ import org.slf4j.LoggerFactory;
 import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_cs;
 import kr.co.kmarket.dto.cs.FaqDTO;
-import kr.co.kmarket.dto.cs.QnaDTO;
+import kr.co.kmarket.dto.cs.ArticleDTO;
 
-public class QnaDAO extends DBHelper{
+public class ArticleDAO extends DBHelper{
 	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
-	private static QnaDAO instance = new QnaDAO();
+	private static ArticleDAO instance = new ArticleDAO();
 	
-	public static QnaDAO getInstance() {
+	public static ArticleDAO getInstance() {
 		return instance;
 	};
 	
-	private QnaDAO() {
+	private ArticleDAO() {
 		
 	}
 	
-	public void insertQnaArticle(QnaDTO dto) {
+	public void insertArticle(ArticleDTO dto) {
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL_cs.INSERT_QNA_ARTICLE);
+			psmt = conn.prepareStatement(SQL_cs.INSERT_ARTICLE);
 			psmt.setString(1, dto.getCate());
 			psmt.setString(2, dto.getType());
 			psmt.setString(3, dto.getTitle());
@@ -43,20 +43,20 @@ public class QnaDAO extends DBHelper{
 		
 	}
 	
-	public QnaDTO selectQnaArticle(String qnaNo) {
+	public ArticleDTO selectArticle(String qnaNo) {
 			
-		QnaDTO dto = null;
+		ArticleDTO dto = null;
 			
 			try {
 				
 				conn = getConnection();
-				psmt = conn.prepareStatement(SQL_cs.SELECT_QNA_ARTICLE);
+				psmt = conn.prepareStatement(SQL_cs.SELECT_ARTICLE);
 				psmt.setString(1, qnaNo);
 				rs = psmt.executeQuery();
 				
 				if(rs.next()) {
-					dto = new QnaDTO();
-					dto.setQnaNo(rs.getInt(1));
+					dto = new ArticleDTO();
+					dto.setNo(rs.getInt(1));
 					dto.setParent(rs.getInt(2));
 					dto.setComment(rs.getInt(3));
 					dto.setCate(rs.getString(4));
@@ -64,8 +64,9 @@ public class QnaDAO extends DBHelper{
 					dto.setTitle(rs.getString(6));
 					dto.setContent(rs.getString(7));
 					dto.setWriter(rs.getString(8));
-					dto.setRegip(rs.getString(9));
-					dto.setRdate(rs.getString(10));
+					dto.setHit(rs.getInt(9));
+					dto.setRegip(rs.getString(10));
+					dto.setRdate(rs.getString(11));
 				}
 				close();
 			} catch (Exception e) {
@@ -76,21 +77,21 @@ public class QnaDAO extends DBHelper{
 	
 	
 	
-	public List<QnaDTO> selectQnaArticles(String cate, int start){
+	public List<ArticleDTO> selectArticles(String cate, int start){
 		
-		List<QnaDTO> qnaArticles = new ArrayList<>();
+		List<ArticleDTO> qnaArticles = new ArrayList<>();
 		
 		try {
 			
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL_cs.SELECT_QNA_ARTICLES);
+			psmt = conn.prepareStatement(SQL_cs.SELECT_ARTICLES);
 			psmt.setString(1, cate);
 			psmt.setInt(2, start);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				QnaDTO dto = new QnaDTO();
-				dto.setQnaNo(rs.getInt(1));
+				ArticleDTO dto = new ArticleDTO();
+				dto.setNo(rs.getInt(1));
 				dto.setParent(rs.getInt(2));
 				dto.setComment(rs.getInt(3));
 				dto.setCate(rs.getString(4));
@@ -98,8 +99,9 @@ public class QnaDAO extends DBHelper{
 				dto.setTitle(rs.getString(6));
 				dto.setContent(rs.getString(7));
 				dto.setWriter(rs.getString(8));
-				dto.setRegip(rs.getString(9));
-				dto.setRdateYYMMDD(rs.getString(10));
+				dto.setHit(rs.getInt(9));
+				dto.setRegip(rs.getString(10));
+				dto.setRdateYYMMDD(rs.getString(11));
 				
 				qnaArticles.add(dto);
 			}
