@@ -4,51 +4,53 @@
 	window.addEventListener('load', function() {
 		
 		// 1차 카테고리 선택시 2차 불러오게하는 함수
-	    function updateProdCate2Options() {
-			
-	        var prodCate1Select = document.querySelector('select[name="prodCate1"]');
-	        var prodCate2Select = document.querySelector('select[name="prodCate2"]');
-	        
-	        // 1차 카테값 가져오기
-	        var selectedCate1Value = prodCate1Select.value;
+		function updateProdCate2Options() {
+		    var prodCate1Select = document.querySelector('select[name="prodCate1"]');
+		    var prodCate2Select = document.querySelector('select[name="prodCate2"]');
+		    
+		    // 1차 카테값 가져오기
+		    var selectedCate1Value = prodCate1Select.value;
 
-	        // 2차 카테값 초기화
-	        prodCate2Select.innerHTML = '';
+		    // 2차 카테값 초기화
+		    prodCate2Select.innerHTML = '';
 
-	        // 1차 카테값에 2차 카테값 나오게하는거
-	        if (selectedCate1Value === '11') { 
-	            var options = [
-	                { text: '2차 분류 선택', value: '' },
-	                { text: '남성의류', value: '10' },
-	                { text: '여성의류', value: '11' },
-	                { text: '잡화', value: '12' },
-	                { text: '뷰티', value: '13' }
-	            ];
-	        } else if (selectedCate1Value === '15') {
-	            var options = [
-	                { text: '2차 분류 선택', value: '' },
-	                { text: '스마트폰', value: '20' },
-	                { text: '노트북', value: '21' },
-	                { text: '가전제품', value: '22' }
-	            ];
-	        } // 나중에 전체 카테 추가
+		    // 1차 카테값에 따라 options 초기화
+		    var options;
+		    if (selectedCate1Value === '11') { 
+		        options = [
+		            { text: '2차 분류 선택', value: '' },
+		            { text: '남성의류', value: '10' },
+		            { text: '여성의류', value: '11' },
+		            { text: '잡화', value: '12' },
+		            { text: '뷰티', value: '13' }
+		        ];
+		    } else if (selectedCate1Value === '15') {
+		        options = [
+		            { text: '2차 분류 선택', value: '' },
+		            { text: '스마트폰', value: '20' },
+		            { text: '노트북', value: '21' },
+		            { text: '가전제품', value: '22' }
+		        ];
+		    } // 나중에 전체 카테고리 추가
 
-	        // 2차 카테 업데이트
-	        options.forEach(function(optionData) {
-	            var option = document.createElement('option');
-	            option.value = optionData.value;
-	            option.text = optionData.text;
-	            prodCate2Select.appendChild(option);
-	        });
-	    }
+		    // 2차 카테 업데이트
+		    options.forEach(function(optionData) {
+		        var option = document.createElement('option');
+		        option.value = optionData.value;
+		        option.text = optionData.text;
+		        prodCate2Select.appendChild(option);
+		    });
+		}
+		// 1차 카테 바뀔때 업데이트
+		document.querySelector('select[name="prodCate1"]').addEventListener('change', updateProdCate2Options);
 
-	    // 1차 카테 바뀔때 업데이트
-	    document.querySelector('select[name="prodCate1"]').addEventListener('change', updateProdCate2Options);
-
-	    // 1차 카테 선택후 2차 업데이트
-	    updateProdCate2Options();
+		// 1차 카테 선택후 2차 업데이트
+		updateProdCate2Options();
+	});
+	
 		
 	    
+	window.addEventListener('load', function() {
 		// prodCate1 , prodCate2 값 경로에 저장하는 스크립트
 	    function updateFormAction() {
 	        // prodCate1, prodCate2 값 선택
