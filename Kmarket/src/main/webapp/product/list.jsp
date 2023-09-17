@@ -12,12 +12,30 @@
                 <p>HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong></p>
             </nav>
             <ul class="sort">
-                <li><a href="Kmarket/product/list.do" class="on">판매많은순</a></li>
-                <li><a href="Kmarket/product/list.do">낮은가격순</a></li>
-                <li><a href="Kmarket/product/list.do">높은가격순</a></li>
-                <li><a href="Kmarket/product/list.do">평점높은순</a></li>
-                <li><a href="Kmarket/product/list.do">후기많은순</a></li>
-                <li><a href="Kmarket/product/list.do">최근등록순</a></li>
+				<li>
+				    <c:set var="sortOption" value="selling"/>
+				    <a href="Kmarket/product/list.do?sort=${#}" class="on">판매많은순</a>
+				</li>
+				<li>
+				    <c:set var="sortOption" value="lowprice"/>
+				    <a href="Kmarket/product/list.do?sort=${#}" class="">낮은가격순</a>
+				</li>
+               <li>
+				    <c:set var="sortOption" value="highprice"/>
+				    <a href="Kmarket/product/list.do?sort=${#}" class="">높은가격순</a>
+				</li>
+				<li>
+				    <c:set var="sortOption" value="highrating"/>
+				    <a href="Kmarket/product/list.do?sort=${#}" class="">평점높은순</a>
+				</li>
+				<li>
+				    <c:set var="sortOption" value="manyreviews"/>
+				    <a href="Kmarket/product/list.do?sort=${#}" class="">후기많은순</a>
+				</li>
+				<li>
+				    <c:set var="sortOption" value="recent"/>
+				    <a href="Kmarket/product/list.do?sort=${#}" class="">최근등록순</a>
+				</li>
             </ul>
             <table border="0">
       
