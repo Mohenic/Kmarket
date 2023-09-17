@@ -828,3 +828,7 @@ main > section {
     position: relative;
     left: -6px;
 }
+.prod-thumb1{
+	width: 120px;
+	height: 120px;
+}

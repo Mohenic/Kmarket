@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="./header.jsp" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
-    <div id="container">
         <main id="product">
         <%@ include file="./category.jsp" %>
     <!-- 장바구니 페이지 -->
@@ -40,60 +35,26 @@
                     <tr class="empty">
                         <td colspan="7">장바구니에 상품이 없습니다.</td>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox" name=""></td>
-                        <td>
-                        <article>
-                            <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
-                            <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                            </div>
-                        </article>
-                        </td>
-                        <td>1</td>
-                        <td>27,000</td>
-                        <td>5%</td>
-                        <td>270</td>
-                        <td>무료배송</td>
-                        <td>27,000</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name=""></td>
-                        <td>
-                        <article>
-                            <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
-                            <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                            </div>
-                        </article>
-                        </td>
-                        <td>1</td>
-                        <td>27,000</td>
-                        <td>5%</td>
-                        <td>270</td>
-                        <td>무료배송</td>
-                        <td>27,000</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name=""></td>
-                        <td>
-                        <article>
-                            <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
-                            <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                            </div>
-                        </article>
-                        </td>
-                        <td>1</td>
-                        <td>27,000</td>
-                        <td>5%</td>
-                        <td>270</td>
-                        <td>무료배송</td>
-                        <td>27,000</td>
-                    </tr>
+                    <c:forEach var="list" items="${list}">
+		            <tr>
+		              <td><input type="checkbox" name=""></td>
+		              <td>
+		                <article>
+		                  <a href="/Kmartek/product/list.do"><img src="https://via.placeholder.com/120x120" alt=""></a>
+		                  <div>
+		                    <h2><a href="/Kmartek/product/list.do">${list.prodName}</a></h2>
+		                    <p>${list.descript}</p>
+		                  </div>
+		                </article>
+		              </td>
+		              <td>${list.count}</td>
+		              <td>${list.price}</td>
+		              <td>${list.discount}%</td>
+		              <td>${list.point}</td>
+		              <td>${list.delivery}</td>
+		              <td>${list.total}</td>
+		            </tr>
+		          	</c:forEach>
                     </tbody>
                 </table>
                 <input type="button" name="del" value="선택삭제">
@@ -135,7 +96,6 @@
                 <button type="button" id="top">상단이동</button>
             </section>
         </main>
-    </div>
 <%@ include file="./footer.jsp" %>
 </body>
 </html>
