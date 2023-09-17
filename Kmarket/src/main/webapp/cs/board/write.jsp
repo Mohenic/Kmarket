@@ -12,13 +12,13 @@
                                         <td>
                                          <select name="cate">
                                                 <option>선택</option>
-                                                <option selected value="q_member">회원</option>
-                                                <option value="q_event">쿠폰/이벤트</option>
-                                                <option value="q_pay">주문/결제</option>
-                                                <option value="q_delivery">배송</option>
-                                                <option value="q_cancel">취소/반품/교환</option>
-                                                <option value="q_travel">여행/숙박/항공</option>
-                                                <option value="q_safe">안전거래</option>
+                                                <option selected value="member">회원</option>
+                                                <option value="event">쿠폰/이벤트</option>
+                                                <option value="pay">주문/결제</option>
+                                                <option value="delivery">배송</option>
+                                                <option value="cancel">취소/반품/교환</option>
+                                                <option value="travel">여행/숙박/항공</option>
+                                                <option value="safe">안전거래</option>
                                             </select>
                                             
                                             <select name="type">

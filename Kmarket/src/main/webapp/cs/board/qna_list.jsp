@@ -10,17 +10,7 @@
                             <c:forEach var="article" items="${articles}">
                                 <tr>
                                     <td><a href="/Kmarket/cs/qna/view.do?group=${group}&cate=${article.cate}&no=${article.no}">[${article.type}] ${article.title}</a></td>                                    
-                                     <td>
-                                     <c:if test="${article.writer ne null}">
-								      <!-- 아이디의 앞 3자리까지 보여 주고 -->
-								      ${fn:substring(article.writer,0,3) }
-								    </c:if>
-								      <!-- 4자리부터 id의 길이만큼 *를 찍어줌 -->
-								      <c:forEach begin="4" end="${fn:length(article.writer)}" step="1">
-								        *
-								      </c:forEach>
-									</td>
-                                   
+                                    <td>${article.writer}</td>
                                     <td>${article.rdate}</td>
                                 </tr>
                             </c:forEach>

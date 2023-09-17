@@ -1,36 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
-<jsp:include page="./_aside${group}.jsp"/>
-                    <article>
-                        <nav>
-                            <h1>회원</h1>
-                            <h2>가장 자주 묻는 질문입니다.</h2>
-                        </nav>
+<c:import url="./aside${group}.jsp" />
+
                         <div>
                             <h3>가입</h3>
                             <ul>
                                 <li>
-                                    <a href="./view.do?group=${group}">
+                                    <a href="./view.do?group=${group}&cate=${cate}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./view.do?group=${group}">
+                                    <a href="./view.do?group=${group}&cate=${cate}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./view.do?group=${group}">
+                                    <a href="./view.do?group=${group}&cate=${cate}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./view.do?group=${group}">
+                                    <a href="./view.do?group=${group}&cate=${cate}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./view.do?group=${group}">
+                                    <a href="./view.do?group=${group}&cate=${cate}">
                                     <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
                                     </a>
                                 </li>

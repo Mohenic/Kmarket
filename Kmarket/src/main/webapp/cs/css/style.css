@@ -428,7 +428,23 @@
             padding: 26px;
             box-sizing: border-box;
         }
-    
+        
+        /* 모듈화를 위해 추가한 부분*/
+        #cs > .notice .view article nav:nth-child(1){
+            border-style: none;
+            margin: 0
+        }
+
+        #cs > .notice .view article nav:nth-child(1) > h2{
+            font-size: 15px;
+            color: darkgray;
+            margin-top: 10px;
+        }
+        
+        #cs > .notice .view article nav:nth-child(2) > h2{
+            color: black;
+        }
+    /*-----------------------------------------------*/
     
         #cs > .notice > .list > article > table {
             width: 100%;
@@ -574,7 +590,22 @@
         border-right: 1px solid #e9e9e9;
         box-sizing: border-box;
         }
-    
+        /* 모듈화를 위해 추가한 부분*/
+        #cs > .faq .view article nav:nth-child(1){
+            border-style: none;
+            margin: 0
+        }
+
+        #cs > .faq .view article nav:nth-child(1) > h2{
+            font-size: 15px;
+            color: darkgray;
+            margin-top: 10px;
+        }
+        
+        #cs > .faq .view article nav:nth-child(2) > h2{
+            color: black;
+        }
+    	 /*--------------------*/
         #cs > .faq > section > aside > h2 {
             font-size: 24px;
             font-weight: bold;
@@ -715,6 +746,29 @@
             border-bottom: 1px solid #e9e9e9;
             box-sizing: border-box;
         }
+        
+        /* ---------모듈화를 위해 추가한 부분--------- */
+       #cs > .qna .view article nav:nth-child(1){
+            border-style: none;
+            margin: 0
+        }
+
+        #cs > .qna .view article nav:nth-child(1) > h2{
+            font-size: 15px;
+            color: darkgray;
+            margin-top: 10px;
+        }
+        
+        #cs > .qna .view article nav:nth-child(2) > h2{
+            color: black;
+        }
+        
+        #cs > div > section > article > nav > h2 {
+            font-size: 15px;
+            margin-top: 10px;
+            color:darkgray;
+        }
+    	 /* -------- */
     
         #cs > .qna > nav > div {
             width: 1200px;
