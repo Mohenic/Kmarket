@@ -37,7 +37,7 @@
                         <c:forEach var="product" items="${requestScope.products}">
                         <tr>
                             <td><input type="checkbox" name="상품코드"></td>
-                            <td><img src="/thumb/${product.thumb1}" class="thumb"></td>
+                            <td><img src="/thumb/${product.prodCate1}/${product.prodCate2}/${product.thumb1}" class="thumb"></td>
                             <td>${product.prodNo}</td>
                             <td>${product.prodName}</td>
                             <td>${product.price}</td>
@@ -56,21 +56,21 @@
                 </table>
                 <input type="button" value="선택삭제">
                 <div class="paging">
+                <c:if test="${pageGroupStart > 1}">
                     <span class="prev">
-                        <a href="#">&lt;&nbsp;이전</a>
+                        <a href="/Kmarket/admin/product/list.do?pg=${pageGroupStart - 1}">&lt;&nbsp;이전</a>
                     </span>
+                </c:if>
+                <c:forEach var="i" begin="${pageGroupStart}" end="${pageGroupEnd}">
                     <span class="num">
-                        <a href="#" class="on">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
+                        <a href="/Kmarket/admin/product/list.do?pg=${i}" class="num ${currentPage==i ? 'current' : '' }">${i}</a>
                     </span>
+                </c:forEach>
+                <c:if test="${pageGroupEnd < lastPageNum}">
                     <span class="next">
-                        <a href="#">다음&nbsp;&gt;</a>
+                        <a href="/Kmarket/admin/product/list.do?pg=${pageGrouEnd + 1}">다음&nbsp;&gt;</a>
                     </span>
+                </c:if>
                     </div>
             </section> <!--table end-->
             <p class="ico info">

@@ -193,7 +193,7 @@ public class ProductDTO {
 		this.thumb2 = thumb2;
 	}
 	public void setThumb2ForRename(String thumb2) {
-		this.thumb1 = fileRename(thumb2);
+		this.thumb2 = fileRename(thumb2);
 	}
 	public String getThumb3() {
 		return thumb3;
@@ -202,7 +202,7 @@ public class ProductDTO {
 		this.thumb3 = thumb3;
 	}
 	public void setThumb3ForRename(String thumb3) {
-		this.thumb1 = fileRename(thumb3);
+		this.thumb3 = fileRename(thumb3);
 	}
 	public String getDetail() {
 		return detail;
