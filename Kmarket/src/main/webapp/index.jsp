@@ -180,94 +180,25 @@
           <article class="best">
             <h1><i class="fas fa-crown"></i>베스트상품</h1>
             <ol>
+            <c:set var ="i" value="0"/>
+            <c:forEach var="product5" items="${requestScope.products5 }">
               <li>
                 <a href="#">
                   <div class="thumb">
-                    <i>1</i>
-                    <img src="https://via.placeholder.com/230" alt="item1" />
+                    <i>${i+1}</i>
+                    <img class="thumb3" src="/Kmarket/thumb/${product5.prodCate1}/${product5.prodCate2}/${product5.thumb2}" alt="item1" />
                   </div>
-                  <h2>상품명</h2>
+                  <h2>${product5.prodName }</h2>
                   <div class="org_price">
-                    <del>30,000</del>
-                    <span>10%</span>
+                    <del>${product5.price}</del>
+                    <span>${product5.discount }%</span>
                   </div>
                   <div class="dis_price">
                     <ins>27,000</ins>
                   </div>
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  <div class="thumb">
-                    <i>2</i>
-                    <img src="https://via.placeholder.com/50" alt="item1" />
-                  </div>
-                  <article>
-                    <h2>상품명</h2>
-                    <div class="org_price">
-                      <del>30,000</del>
-                      <span>10%</span>
-                    </div>
-                    <div class="dis_price">
-                      <ins>27,000</ins>
-                    </div>
-                  </article>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="thumb">
-                    <i>3</i>
-                    <img src="https://via.placeholder.com/50" alt="item1" />
-                  </div>
-                  <article>
-                    <h2>상품명</h2>
-                    <div class="org_price">
-                      <del>30,000</del>
-                      <span>10%</span>
-                    </div>
-                    <div class="dis_price">
-                      <ins>27,000</ins>
-                    </div>
-                  </article>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="thumb">
-                    <i>4</i>
-                    <img src="https://via.placeholder.com/50" alt="item1" />
-                  </div>
-                  <article>
-                    <h2>상품명</h2>
-                    <div class="org_price">
-                      <del>30,000</del>
-                      <span>10%</span>
-                    </div>
-                    <div class="dis_price">
-                      <ins>27,000</ins>
-                    </div>
-                  </article>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="thumb">
-                    <i>5</i>
-                    <img src="https://via.placeholder.com/50" alt="item1" />
-                  </div>
-                  <article>
-                    <h2>상품명</h2>
-                    <div class="org_price">
-                      <del>30,000</del>
-                      <span>10%</span>
-                    </div>
-                    <div class="dis_price">
-                      <ins>27,000</ins>
-                    </div>
-                  </article>
-                </a>
-              </li>
+             </c:forEach>
             </ol>
           </article>
         </aside>
@@ -309,7 +240,7 @@
             <article>
               <a href="#">
                 <div class="thumb">
-                  <img src="https://via.placeholder.com/230x230" alt="t1" />
+                  <img class="thumb2" src="/Kmarket/thumb/${product1.prodCate1}/${product1.prodCate2}/${product1.thumb2}"  alt="t1" />
                 </div>
                 <h2>${product1.prodName }</h2>
                 <p>${product1.descript }</p>
@@ -333,7 +264,7 @@
             <article>
               <a href="#">
                 <div class="thumb">
-                  <img src="https://via.placeholder.com/230x230" alt="t1" />
+                  <img class="thumb2" src="/Kmarket/thumb/${product2.prodCate1}/${product2.prodCate2}/${product2.thumb2}" alt="t1" />
                 </div>
                 <h2>${product2.prodName }</h2>
                 <p>${product2.descript }</p>
@@ -356,7 +287,7 @@
             <article>
               <a href="#">
                 <div class="thumb">
-                  <img src="https://via.placeholder.com/230x230" alt="t1" />
+                  <img class="thumb2" src="/Kmarket/thumb/${product3.prodCate1}/${product3.prodCate2}/${product3.thumb2}" alt="t1" />
                 </div>
                 <h2>${product3.prodName }</h2>
                 <p>${product3.descript }</p>
@@ -379,7 +310,7 @@
             <article>
               <a href="#">
                 <div class="thumb">
-                  <img src="https://via.placeholder.com/230x230" alt="t1" />
+                  <img class="thumb2" src="/Kmarket/thumb/${product4.prodCate1}/${product4.prodCate2}/${product4.thumb2}" alt="t1" />
                 </div>
                 <h2>${product4.prodName }</h2>
                 <p>${product4.descript }</p>
