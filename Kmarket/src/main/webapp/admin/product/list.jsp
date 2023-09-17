@@ -37,7 +37,7 @@
                         <c:forEach var="product" items="${requestScope.products}">
                         <tr>
                             <td><input type="checkbox" name="상품코드"></td>
-                            <td><img src="/thumb/${product.prodCate1}/${product.prodCate2}/${product.thumb1}" class="thumb"></td>
+                            <td><img src="/Kmarket/thumb/${product.prodCate1}/${product.prodCate2}/${product.thumb1}" class="thumb"></td>
                             <td>${product.prodNo}</td>
                             <td>${product.prodName}</td>
                             <td>${product.price}</td>
