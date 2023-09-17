@@ -84,9 +84,11 @@ public class ProductRegisterController extends HttpServlet {
 		String ip = req.getRemoteAddr();
 
 		logger.debug("prodCate1 : " + prodCate1);
-		logger.debug("prodCate1 : " + prodCate2);
+		logger.debug("prodCate2 : " + prodCate2);
 		logger.debug("prodName : " + prodName);
 		logger.debug("thumb1 : " + thumb1);
+		logger.debug("thumb2 : " + thumb2);
+		logger.debug("thumb3 : " + thumb3);
 		logger.debug("origin : " + origin);
 		logger.debug("ip : " + ip);
 
@@ -102,10 +104,10 @@ public class ProductRegisterController extends HttpServlet {
 		dto.setPoint(point);
 		dto.setStock(stock);
 		dto.setDelivery(delivery);
-		dto.setThumb1(thumb1);
-		dto.setThumb2(thumb2);
-		dto.setThumb3(thumb3);
-		dto.setDetail(detail);
+		dto.setThumb1ForRename(thumb1);
+		dto.setThumb2ForRename(thumb2);
+		dto.setThumb3ForRename(thumb3);
+		dto.setDetailForRename(detail);
 		dto.setStatus(status);
 		dto.setDuty(duty);
 		dto.setReceipt(receipt);
