@@ -47,9 +47,12 @@ public class ProductRegisterController extends HttpServlet {
 		 * prodNo, seller 는 list,login 구현 후 정확한 값 가져오기 가능 현재는 register.jsp 파일내 input
 		 * text를 이용해서 값 넘겨주는 중
 		 */
-
+		
+		String prodCate1 = req.getParameter("cate1");
+		String prodCate2 = req.getParameter("cate2");
+		
 		// 업로드 경로설정
-		String path = fService.getPath(req, "/thumb/");
+		String path = fService.getPath(req, "/thumb/"+prodCate1+"/"+prodCate2);
 
 		// 폴더 생성
 		File folder = new File(path);
@@ -61,8 +64,6 @@ public class ProductRegisterController extends HttpServlet {
 		MultipartRequest mr = fService.uploadFile(req, path);
 
 		String prodName = mr.getParameter("prodName");
-		String prodCate1 = mr.getParameter("prodCate1");
-		String prodCate2 = mr.getParameter("prodCate2");
 		String descript = mr.getParameter("descript");
 		String seller = mr.getParameter("seller");
 		String company = mr.getParameter("company");
@@ -83,7 +84,7 @@ public class ProductRegisterController extends HttpServlet {
 		String ip = req.getRemoteAddr();
 
 		logger.debug("prodCate1 : " + prodCate1);
-		logger.debug("prodCate2 : " + prodCate2);
+		logger.debug("prodCate1 : " + prodCate2);
 		logger.debug("prodName : " + prodName);
 		logger.debug("thumb1 : " + thumb1);
 		logger.debug("origin : " + origin);

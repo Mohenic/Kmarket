@@ -1,12 +1,81 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "../_header.jsp" %> 
+	<script>
+	window.addEventListener('load', function() {
+		
+		// 1차 카테고리 선택시 2차 불러오게하는 함수
+	    function updateProdCate2Options() {
+			
+	        var prodCate1Select = document.querySelector('select[name="prodCate1"]');
+	        var prodCate2Select = document.querySelector('select[name="prodCate2"]');
+	        
+	        // 1차 카테값 가져오기
+	        var selectedCate1Value = prodCate1Select.value;
+
+	        // 2차 카테값 초기화
+	        prodCate2Select.innerHTML = '';
+
+	        // 1차 카테값에 2차 카테값 나오게하는거
+	        if (selectedCate1Value === '11') { 
+	            var options = [
+	                { text: '2차 분류 선택', value: '' },
+	                { text: '남성의류', value: '10' },
+	                { text: '여성의류', value: '11' },
+	                { text: '잡화', value: '12' },
+	                { text: '뷰티', value: '13' }
+	            ];
+	        } else if (selectedCate1Value === '15') {
+	            var options = [
+	                { text: '2차 분류 선택', value: '' },
+	                { text: '스마트폰', value: '20' },
+	                { text: '노트북', value: '21' },
+	                { text: '가전제품', value: '22' }
+	            ];
+	        } // 나중에 전체 카테 추가
+
+	        // 2차 카테 업데이트
+	        options.forEach(function(optionData) {
+	            var option = document.createElement('option');
+	            option.value = optionData.value;
+	            option.text = optionData.text;
+	            prodCate2Select.appendChild(option);
+	        });
+	    }
+
+	    // 1차 카테 바뀔때 업데이트
+	    document.querySelector('select[name="prodCate1"]').addEventListener('change', updateProdCate2Options);
+
+	    // 1차 카테 선택후 2차 업데이트
+	    updateProdCate2Options();
+		
+	    
+		// prodCate1 , prodCate2 값 경로에 저장하는 스크립트
+	    function updateFormAction() {
+	        // prodCate1, prodCate2 값 선택
+	        var prodCate1Value = document.querySelector('select[name="prodCate1"]').value;
+	        var prodCate2Value = document.querySelector('select[name="prodCate2"]').value;
+	        
+	        console.log("prodCate1Value: " + prodCate1Value);
+	        console.log("prodCate2Value: " + prodCate2Value);
+	
+	        // form 요소 선택
+	        var form = document.forms["cateForm"];
+	        
+	        // action 안에 경로값 변경
+	        form.action = '/Kmarket/admin/product/register.do?cate1=' + prodCate1Value + '&cate2=' + prodCate2Value;
+	    }
+	
+	    // 경로값 변경 적용
+	    document.querySelector('select[name="prodCate1"]').addEventListener('change', updateFormAction);
+	    document.querySelector('select[name="prodCate2"]').addEventListener('change', updateFormAction);
+	});
+	</script>
 <%@ include file = "../_aside.jsp" %>
 <!-- 
 	작업자 : 손영우
 	작업시작일 : 2023/09/13
 	작업종료일 : 2023/09/14
  -->
-
             <section id="admin-product-register">
                 <nav>
                     <h3>상품등록</h3>
@@ -17,7 +86,7 @@
                 <!-- 상품등록 컨텐츠 시작 -->
                 <article>
                         <!-- 상품분류 -->
-		                <form action="/Kmarket/admin/product/register.do?cate1=11&cate=10" method="post" enctype="multipart/form-data">
+		                <form action="/Kmarket/admin/product/register.do" name="cateForm"method="post" enctype="multipart/form-data">
 		                <input type="text" name="seller" value="${sessUser.uid}">
                         <section>
                             <h4>상품분류</h4>
