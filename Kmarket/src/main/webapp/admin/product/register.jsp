@@ -1,77 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file = "../_header.jsp" %> 
-	<script>
-	window.addEventListener('load', function() {
-		
-		// 1차 카테고리 선택시 2차 불러오게하는 함수
-		function updateProdCate2Options() {
-		    var prodCate1Select = document.querySelector('select[name="prodCate1"]');
-		    var prodCate2Select = document.querySelector('select[name="prodCate2"]');
-		    
-		    // 1차 카테값 가져오기
-		    var selectedCate1Value = prodCate1Select.value;
-
-		    // 2차 카테값 초기화
-		    prodCate2Select.innerHTML = '';
-
-		    // 1차 카테값에 따라 options 초기화
-		    var options;
-		    if (selectedCate1Value === '11') { 
-		        options = [
-		            { text: '2차 분류 선택', value: '' },
-		            { text: '남성의류', value: '10' },
-		            { text: '여성의류', value: '11' },
-		            { text: '잡화', value: '12' },
-		            { text: '뷰티', value: '13' }
-		        ];
-		    } else if (selectedCate1Value === '15') {
-		        options = [
-		            { text: '2차 분류 선택', value: '' },
-		            { text: '스마트폰', value: '20' },
-		            { text: '노트북', value: '21' },
-		            { text: '가전제품', value: '22' }
-		        ];
-		    } // 나중에 전체 카테고리 추가
-
-		    // 2차 카테 업데이트
-		    options.forEach(function(optionData) {
-		        var option = document.createElement('option');
-		        option.value = optionData.value;
-		        option.text = optionData.text;
-		        prodCate2Select.appendChild(option);
-		    });
-		}
-		// 1차 카테 바뀔때 업데이트
-		document.querySelector('select[name="prodCate1"]').addEventListener('change', updateProdCate2Options);
-
-		// 1차 카테 선택후 2차 업데이트
-		updateProdCate2Options();
-	});
-	
-		
-	    
-	window.addEventListener('load', function() {
-		// prodCate1 , prodCate2 값 경로에 저장하는 스크립트
-	    function updateFormAction() {
-	        // prodCate1, prodCate2 값 선택
-	        var prodCate1Value = document.querySelector('select[name="prodCate1"]').value;
-	        var prodCate2Value = document.querySelector('select[name="prodCate2"]').value;
-	        
-	        console.log("prodCate1Value: " + prodCate1Value);
-	        console.log("prodCate2Value: " + prodCate2Value);
-	
-	        // form 요소 선택
-	        var form = document.forms["cateForm"];
-	        
-	        // action 안에 경로값 변경
-	        form.action = '/Kmarket/admin/product/register.do?cate1=' + prodCate1Value + '&cate2=' + prodCate2Value;
-	    }
-	
-	    // 경로값 변경 적용
-	    document.querySelector('select[name="prodCate1"]').addEventListener('change', updateFormAction);
-	    document.querySelector('select[name="prodCate2"]').addEventListener('change', updateFormAction);
-	});
-	</script>
+<script src="/Kmarket/admin/product/js/cateValue.js"></script>
+<%@ include file = "../_header.jsp" %>
 <%@ include file = "../_aside.jsp" %>
 <!-- 
 	작업자 : 손영우
@@ -103,10 +32,15 @@
                                         <td>
                                             <select name="prodCate1">
                                                 <option>1차 분류 선택</option>
-                                                <option value="11">패션·의류·뷰티</option>
-                                                <option value="15">가전·디지털</option>
-                                                <option value="13">식품·생필품</option>
-                                                <option value="14">홈·문구·취미</option>                                                
+                                                <option value="10">브랜드패션</option>
+                                                <option value="11">패션의류/잡화/뷰티</option>
+                                                <option value="12">유아동</option>
+                                                <option value="13">식품/생필품</option>                                              
+                                                <option value="14">홈데코/취미/반려</option>                                             
+                                                <option value="15">컴퓨터/디지털/가전</option>                                              
+                                                <option value="16">스포츠/건강/렌탈</option>                                              
+                                                <option value="17">자동차/공구</option>                                              
+                                                <option value="18">여행/도서/티켓/쿠폰</option>                                              
                                             </select>
                                         </td>
                                     </tr>

@@ -337,6 +337,9 @@
   main > aside > .best > ol > li > a .org_price > del::after {
     content: "원";
   }
+    main > aside > .best > ol > li > a .org_price > div::after {
+    content: "원";
+  }
   main > aside > .best > ol > li > a .org_price > ins::after {
     content: "원";
   }
@@ -344,6 +347,12 @@
     font-size: 10px;
     color: #aaa;
   }
+  
+  main > aside > .best > ol > li > a .org_price > div {
+    font-size: 10px;
+    color: #aaa;
+  }
+  
   main > aside > .best > ol > li > a .org_price > span {
     color: #eb000a;
     font-size: 10px;
@@ -454,12 +463,20 @@
   main > section > section > article del::after {
     content: "원";
   }
+    main > section > section > article .none::after {
+    content: "원";
+  }
+  
   main > section > section > article ins::after {
     content: "원";
   }
   main > section > section > article .org_price > del {
     color: #aaa;
   }
+    main > section > section > article .org_price > div{
+    color: #aaa;
+  }
+  
   main > section > section > article .org_price > span {
     color: #eb000a;
   }

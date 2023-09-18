@@ -93,6 +93,7 @@ public class ProductRegisterController extends HttpServlet {
 		logger.debug("ip : " + ip);
 
 		ProductDTO dto = new ProductDTO();
+		dto.setPath(path);
 		dto.setProdCate1(prodCate1);
 		dto.setProdCate2(prodCate2);
 		dto.setProdName(prodName);

@@ -32,27 +32,29 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <c:if test="${list eq null }">
                     <tr class="empty">
                         <td colspan="7">장바구니에 상품이 없습니다.</td>
                     </tr>
-                    <c:forEach var="list" items="${list}">
+                    </c:if>
+                    <c:forEach var="list1" items="${requestScope.list}">
 		            <tr>
 		              <td><input type="checkbox" name=""></td>
 		              <td>
 		                <article>
 		                  <a href="/Kmartek/product/list.do"><img src="https://via.placeholder.com/120x120" alt=""></a>
 		                  <div>
-		                    <h2><a href="/Kmartek/product/list.do">${list.prodName}</a></h2>
-		                    <p>${list.descript}</p>
+		                    <h2><a href="/Kmartek/product/list.do"></a></h2>
+		                    <p>${list1.descript}</p>
 		                  </div>
 		                </article>
 		              </td>
-		              <td>${list.count}</td>
-		              <td>${list.price}</td>
-		              <td>${list.discount}%</td>
-		              <td>${list.point}</td>
-		              <td>${list.delivery}</td>
-		              <td>${list.total}</td>
+		              <td>${list1.count}</td>
+		              <td>${list1.price}</td>
+		              <td>${list1.discount}%</td>
+		              <td>${list1.point}</td>
+		              <td>${list1.delivery}</td>
+		              <td>${list1.total}</td>
 		            </tr>
 		          	</c:forEach>
                     </tbody>

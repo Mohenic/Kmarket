@@ -27,7 +27,7 @@ public enum ProductService {
     public void updateProduct(ProductDTO dto) {
         dao.updateProduct(dto);
     }
-    public void deleteProduct(int prodNo) {
+    public void deleteProduct(String prodNo) {
         dao.deleteProduct(prodNo);
     }
     

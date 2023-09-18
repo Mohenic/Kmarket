@@ -74,11 +74,11 @@
           </c:if>
           <c:if test="${sessUser ne null }">
           	<c:if test="${sessUser.name ne null}">
-          		<a herf="#">${sessUser.name }</a>
+          		<a href="#">${sessUser.name }</a>
           	</c:if>
           	<c:if test="${sessUser.type == 2 }">
-          		<a herf="#">${sessUser.company}</a>
-          		<a herf="/Kmarket/admin/index.do">관리자</a>
+          		<a href="#">${sessUser.company}</a>
+          		<a href="/Kmarket/admin/index.do">관리자</a>
           	</c:if>
             	<a href="#">마이페이지</a>
             	<a href="/Kmarket/member/logout.do">로그아웃</a>
@@ -91,7 +91,7 @@
         </div>
         <div class="logo">
           <div>
-            <a href="#"><img src="./images/header_logo.png" alt="로고" /></a>
+            <a href="/Kmarket"><img src="./images/header_logo.png" alt="로고" /></a>
             <form action="#">
               <input type="text" name="search" />
               <button><i class="fa fa-search"></i></button>
@@ -180,21 +180,27 @@
           <article class="best">
             <h1><i class="fas fa-crown"></i>베스트상품</h1>
             <ol>
-            <c:set var ="i" value="0"/>
+            
             <c:forEach var="product5" items="${requestScope.products5 }">
+
               <li>
                 <a href="#">
                   <div class="thumb">
-                    <i>${i+1}</i>
+                    <i>1</i>
                     <img class="thumb3" src="/Kmarket/thumb/${product5.prodCate1}/${product5.prodCate2}/${product5.thumb2}" alt="item1" />
                   </div>
                   <h2>${product5.prodName }</h2>
                   <div class="org_price">
-                    <del>${product5.price}</del>
-                    <span>${product5.discount }%</span>
+	                <c:if test="${product5.discount == 0}">
+	                  <div class="none">${product5.getPriceWithComma()}</div>
+	                </c:if>  
+	                <c:if test="${product5.discount > 0}">
+	                  <del>${product5.getPriceWithComma()}</del>
+	                  <span>${product5.discount }%</span>
+	                 </c:if>
                   </div>
                   <div class="dis_price">
-                    <ins>27,000</ins>
+                    <ins>${product5.getDiscount(product5.price,product5.discount) }</ins>
                   </div>
                 </a>
               </li>
@@ -245,11 +251,16 @@
                 <h2>${product1.prodName }</h2>
                 <p>${product1.descript }</p>
                 <div class="org_price">
-                  <del>${product1.price }</del>
-                  <span>${product1.discount }%</span>
+	                <c:if test="${product1.discount == 0}">
+	                  <div class="none">${product1.getPriceWithComma()}</div>
+	                </c:if>  
+	                <c:if test="${product1.discount > 0}">
+	                  <del>${product1.getPriceWithComma()}</del>
+	                  <span>${product1.discount }%</span>
+	                 </c:if>
                 </div>
                 <div class="dis_price">
-                  <ins>27,000</ins>
+                  <ins>${product1.getDiscount(product1.price,product1.discount) }</ins>
                   <span class="free">무료배송</span>
                 </div>
               </a>
@@ -269,12 +280,17 @@
                 <h2>${product2.prodName }</h2>
                 <p>${product2.descript }</p>
                 <div class="org_price">
-                  <del>${product2.price }</del>
+                <c:if test="${product2.discount == 0}">
+                  <div class="none">${product2.getPriceWithComma()}</div>
+                </c:if>  
+                <c:if test="${product2.discount > 0}">
+                  <del>${product2.getPriceWithComma()}</del>
                   <span>${product2.discount }%</span>
+                 </c:if>
                 </div>
                 <div class="dis_price">
-                  <ins>27,000</ins>
-                  <span class="free">${product2.delivery}</span>
+                  <ins>${product2.getDiscount(product2.price,product2.discount) }</ins>
+                  <span class="free">${product2.getDeliveryWithComma()}</span>
                 </div>
               </a>
             </article>
@@ -292,12 +308,18 @@
                 <h2>${product3.prodName }</h2>
                 <p>${product3.descript }</p>
                 <div class="org_price">
-                  <del>${product3.price }</del>
+                <c:if test="${product3.discount == 0}">
+                  <div class="none">${product3.getPriceWithComma()}</div>
+                </c:if>  
+                <c:if test="${product3.discount > 0}">
+                  <del>${product3.getPriceWithComma()}</del>
                   <span>${product3.discount }%</span>
+                </c:if>
+                  
                 </div>
                 <div class="dis_price">
-                  <ins>27,000</ins>
-                  <span class="free">${product3.delivery}</span>
+                  <ins>${product3.getDiscount(product3.price,product3.discount) }</ins>
+                  <span class="free">${product3.getDeliveryWithComma()}</span>
                 </div>
               </a>
             </article>
@@ -315,12 +337,17 @@
                 <h2>${product4.prodName }</h2>
                 <p>${product4.descript }</p>
                 <div class="org_price">
-                  <del>${product4.price }</del>
-                  <span>${product4.discount }%</span>
+                 <c:if test="${product4.discount == 0}">
+	                  <div class="none">${product4.getPriceWithComma()}</div>
+	                </c:if>  
+	                <c:if test="${product4.discount > 0}">
+	                  <del>${product4.getPriceWithComma()}</del>
+	                  <span>${product4.discount }%</span>
+	                 </c:if>
                 </div>
                 <div class="dis_price">
-                  <ins>27,000</ins>
-                  <span class="free">${product4.delivery}</span>
+                  <ins>${product4.getDiscount(product4.price,product4.discount) }</ins>
+                  <span class="free">${product4.getDeliveryWithComma()}</span>
                 </div>
               </a>
             </article>

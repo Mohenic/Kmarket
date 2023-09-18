@@ -1,9 +1,15 @@
 package kr.co.kmarket.dto.product;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ProductDTO {
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private int prodNo;
 	private int prodCate1;
@@ -38,6 +44,7 @@ public class ProductDTO {
 	private String etc4;
 	private String etc5;
 	private String path;
+	
 	
 	public String getPath() {
 		return path;
@@ -292,12 +299,16 @@ public class ProductDTO {
 		this.etc5 = etc5;
 	}
 	
+
+	
 	public String fileRename(String thumb) {
 		int i = thumb.lastIndexOf(".");
 		String ext = thumb.substring(i);
 		
 		String uuid = UUID.randomUUID().toString();
 		String sName = uuid + ext;
+		
+		logger.debug("path : " + path);
 		
 		File f1 = new File(path + "/" + thumb);
 		File f2 = new File(path + "/" + sName);
@@ -318,5 +329,29 @@ public class ProductDTO {
 				+ ", etc5=" + etc5 + "]";
 	}
 	
+	public String getPriceWithComma() {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(price);
+	}
+	
+	public String getDeliveryWithComma() {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(delivery);
+	}
+	
+	public int getDiscountPrice(int price, int discount) {
+		int discountPrice=0;
+		
+		discountPrice=(int)(price-(price*(discount*0.01)));
+		
+		return discountPrice;
+	}
+	public String getDiscount(int price, int discount) {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(getDiscountPrice(price, discount));
+	}
 	
 }

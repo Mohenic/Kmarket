@@ -4,6 +4,58 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script>
+
+$(function(){
+	
+	
+	
+	// 장바구니 담기 ajax
+	$('#btnCart').click(function(e){
+		e.preventDefault();
+		
+		const uid = $('input[name=uid]').val();
+		const prodNo = ${view.prodNo};
+		const price = ${view.price};
+		const point = ${view.point};
+		const discount = ${view.discount};
+		const delivery = ${view.delivery};
+		const count = $('input[name=num]').val();
+		  			
+		const jsonData = {
+			"uid": uid,
+			"prodNo": prodNo,
+			"price": price,
+			"point": point,
+			"discount": discount,
+			"delivery": delivery,
+			"count": count
+			
+		};
+		console.log(jsonData);
+		
+		$.ajax({
+			url:'/Kmarket/product/cart.do',
+			type:'POST',
+			data: jsonData,
+			dataType:'json',
+			success:function(data){
+				if(data.result >= 1){
+					alert('장바구니에 담았습니다!');			
+				}else{
+					alert('통신오류 다시 시도해주세요');
+				}
+			}
+		});
+		
+	});
+})
+
+
+
+
+</script>
+    
     <main id="product">
     	<%@ include file="./category.jsp" %>   
         <section class="list">
@@ -11,9 +63,10 @@
                 <h1>상품보기</h1>
                 <p>HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong></p>
             </nav>
-            <table border="0">
             
-            <!-- View 시작 -->
+            <form action="#" method="post">
+           	<input type="hidden" name="uid" value="${sessUser.uid}">
+            <!-- View 시작 -->       
             <c:if test="${not empty view}">
             <article class="info">
                 <div class="image">
@@ -54,7 +107,7 @@
                     
                     <div class="count">
                         <button class="decrease">-</button>
-                        <input type="text" name="num" value="1" readonly/>
+                        <input type="number" name="num" value="1" readonly/>
                         <button class="increase">+</button>
                     </div>
                     
@@ -64,12 +117,13 @@
                     </div>
 
                     <div class="button">
-                        <input type="button" class="cart"  value="장바구니"/>
-                        <input type="button" class="order" value="구매하기"/>
+                        <input type="button" class="cart" id="btnCart" value="장바구니"/>
+                        <input type="button" class="order" id="btnOrder" value="구매하기"/>
                     </div>
                 </div>
             </article>
             </c:if>
+            </form>
             <!-- 상품 정보 -->
             <article class="detail">
                 <nav>

@@ -50,5 +50,7 @@ public class SQL_product {
 	public static final String SELECT_PRODUCTS_HIGHRATING = "SELECT * FROM `km_product` ORDER BY score DESC LIMIT ?, 5";
 	public static final String SELECT_PRODUCTS_MANYREVIEWS = "SELECT * FROM `km_product` ORDER BY review DESC LIMIT ?, 5";
 	public static final String SELECT_PRODUCTS_RECENT = "SELECT * FROM `km_product` ORDER BY rdate DESC LIMIT ?, 5";
+	
+	public static final String DELETE_PRODUCT = "DELETE FROM `km_product` WHERE `prodNo` = ?";
 
 }

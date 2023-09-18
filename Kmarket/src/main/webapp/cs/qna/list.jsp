@@ -9,7 +9,7 @@
                             <tbody>
                             <c:forEach var="article" items="${articles}">
                                 <tr>
-                                    <td><a href="/Kmarket/cs/qna/view.do?group=${group}&cate=${article.cate}&no=${article.no}">[${article.type}] ${article.title}</a></td>                                    
+                                    <td><a href="/Kmarket/cs/qna/view.do?group=${group}&cate=${article.cate}&no=${article.no}">[${article.typeName}] ${article.title}</a></td>                                    
                                      <td>
                                      <c:if test="${article.writer ne null}">
 								      <!-- 아이디의 앞 3자리까지 보여 주고 -->

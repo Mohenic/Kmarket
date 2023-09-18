@@ -180,7 +180,19 @@ public class ProductDAO extends DBHelper{
 	public void updateProduct(ProductDTO dto) {
 		
 	}
-	public void deleteProduct(int prodNo) {
+	public void deleteProduct(String prodNo) {
+		
+		try {
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_product.DELETE_PRODUCT);
+			psmt.setString(1, prodNo);
+			psmt.executeUpdate();
+			close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
