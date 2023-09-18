@@ -2,6 +2,8 @@ package kr.co.kmarket.service.file;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -90,4 +92,5 @@ public enum FileService {
 		
 		return mr;
 	}
+		
 }

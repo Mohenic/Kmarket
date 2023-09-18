@@ -1,6 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "../_header.jsp" %> 
+<script>
+	$(function(){
+		
+		$('input[name=all]').change(function(){
+			const isChecked = $(this).is(':checked');
+			
+			if(isChecked){
+				// 전체선택
+				$('input[name=chk]').prop('checked', true);
+			}else{
+				// 전체해제
+				$('input[name=chk]').prop('checked', false);
+			}
+		});
+		
+		$('.productDelete').click(function(e){
+			e.preventDefault();
+			$('#formCheck').submit();
+		});
+	});
+</script>
 <%@ include file = "../_aside.jsp" %>
+
         <section id="admin-product-list">
             <nav>
                 <h3>상품목록</h3>
@@ -19,6 +41,7 @@
                     <input type="text" name="search">
                 </div>
                 <table>
+	            <form id="formCheck" action="/Kmarket/admin/product/delete.do" method="get">
                     <tbody>
                         <tr>
                             <th><input type="checkbox" name="all"></th>
@@ -36,16 +59,16 @@
                         
                         <c:forEach var="product" items="${requestScope.products}">
                         <tr>
-                            <td><input type="checkbox" name="상품코드"></td>
+                            <td class="chk"><input type="checkbox" name ="chk" value="${product.prodNo}"></td>
                             <td><img src="/Kmarket/thumb/${product.prodCate1}/${product.prodCate2}/${product.thumb1}" class="thumb"></td>
-                            <td>${product.prodNo}</td>
-                            <td>${product.prodName}</td>
-                            <td>${product.price}</td>
-                            <td>${product.discount}</td>
-                            <td>${product.point}</td>
-                            <td>${product.stock}</td>
-                            <td>${product.seller}</td>
-                            <td>${product.hit}</td>
+                            <td class="prodNo">${product.prodNo}</td>
+                            <td class="prodName">${product.prodName}</td>
+                            <td class="price">${product.price}</td>
+                            <td class="discount">${product.discount}</td>
+                            <td class="point">${product.point}</td>
+                            <td class="stock">${product.stock}</td>
+                            <td class="seller">${product.seller}</td>
+                            <td class="hit">${product.hit}</td>
                             <td>
                                 <a href="#">[삭제]</a>
                                 <a href="#">[수정]</a>
@@ -54,7 +77,8 @@
                         </c:forEach>
                     </tbody>
                 </table>
-                <input type="button" value="선택삭제">
+                </form>
+                <input type="button" class="productDelete" value="선택삭제">
                 <div class="paging">
                 <c:if test="${pageGroupStart > 1}">
                     <span class="prev">
