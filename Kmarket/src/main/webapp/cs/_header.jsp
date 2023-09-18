@@ -18,8 +18,8 @@
                 <div>
                     <p>
 			          <c:if test="${sessUser eq null }">
-			            <a href="./member/login.do">로그인</a>
-			            <a href="./member/join.do">회원가입</a>
+			            <a href="/Kmarket/member/login.do">로그인</a>
+			            <a href="/Kmarket/member/join.do">회원가입</a>
 			          </c:if>
 			          <c:if test="${sessUser ne null }">
 			          	<c:if test="${sessUser.name ne null}">
