@@ -38,7 +38,7 @@ public class ProductListController extends HttpServlet {
 			protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				super.doPost(req, resp);
 				
-				/*String prodNo = req.getParameter("prodNo");
+				String prodNo = req.getParameter("prodNo");
 				String prodCate1 = req.getParameter("prodCate1");
 				String prodCate2 = req.getParameter("prodCate2");
 				String prodName = req.getParameter("prodName");
@@ -101,7 +101,7 @@ public class ProductListController extends HttpServlet {
 				dto.setEtc2(etc2);
 				dto.setEtc3(etc3);
 				dto.setEtc4(etc4);
-				dto.setEtc5(etc5);*/
+				dto.setEtc5(etc5);
 				
 			}
 		}
