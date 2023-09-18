@@ -27,7 +27,7 @@
                     <img src="/Kmarket/admin/images/admin_logo.png" alt="admin_logo">
                 </a> 
                 <p>
-                    <span>홍길동님 반갑습니다.</span>
+                    <span>${sessUser.manager}님 반갑습니다.</span>
                     <a href="/Kmarket/index.do">HOME |</a>
                     <a href="/Kmarket/member/logout.do">로그아웃 |</a>
                     <a href="/Kmarket/cs/index.do">고객센터</a>
