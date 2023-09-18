@@ -54,4 +54,10 @@ public enum ProductService {
 	public List<ProductDTO> selectProductsRecent(int sort) {
 		return dao.selectProductsRecent(sort);
 	}
+	
+	//category
+	public List<ProductDTO> getProductsByCategory(int category1, int category2) {
+	    return dao.selectProductsByCategory(category1, category2);
+	}
+
 }

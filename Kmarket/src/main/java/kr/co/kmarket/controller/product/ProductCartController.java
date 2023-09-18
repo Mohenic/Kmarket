@@ -23,11 +23,12 @@ import kr.co.kmarket.service.product.ProductCartService;
 public class ProductCartController extends HttpServlet {
 
 	private static final long serialVersionUID = -5012485570172792300L;
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-		ProductCartService service = ProductCartService.INSTANCE;
 
-			@Override
-			protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
+		@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 				String uid =req.getParameter("uid");
 				
@@ -77,6 +78,8 @@ public class ProductCartController extends HttpServlet {
 				PrintWriter writer = resp.getWriter();
 				writer.print(json.toString());				
 			
-				
-			}
+			
+		
+			
 		}
+	}

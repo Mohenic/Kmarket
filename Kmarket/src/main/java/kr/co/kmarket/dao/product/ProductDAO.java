@@ -1,6 +1,9 @@
 package kr.co.kmarket.dao.product;
 
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -283,4 +286,29 @@ public class ProductDAO extends DBHelper{
 	    return selectProductsByOption(sqlQuery, start);
 	}
 	
+	//category
+	public List<ProductDTO> selectProductsByCategory(int category1, int category2) {
+	    List<ProductDTO> products = new ArrayList<>();
+
+	    try {
+	        conn = getConnection();
+
+	        psmt = conn.prepareStatement(SQL_product.SELECT_PRODUCT_CATE);
+	        psmt.setInt(1, category1);
+	        psmt.setInt(2, category2);
+
+	        rs = psmt.executeQuery();
+
+	        while (rs.next()) {
+	            ProductDTO dto = new ProductDTO();
+	            dto.setProdNo(rs.getInt("prodNo"));
+	            dto.setProdName(rs.getString("prodName"));
+	            products.add(dto);
+	        }
+    	        close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	}
+		return products;
+}
 }
