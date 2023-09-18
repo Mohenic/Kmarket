@@ -302,7 +302,23 @@ public class ProductDAO extends DBHelper{
 	        while (rs.next()) {
 	            ProductDTO dto = new ProductDTO();
 	            dto.setProdNo(rs.getInt("prodNo"));
+	            dto.setProdCate1(rs.getInt("prodCate1"));
+	            dto.setProdCate2(rs.getInt("prodCate2"));
 	            dto.setProdName(rs.getString("prodName"));
+	            dto.setDescript(rs.getString("descript"));
+	            dto.setSeller(rs.getString("seller"));
+	            dto.setCompany(rs.getString("company"));
+	            dto.setPrice(rs.getInt("price"));
+	            dto.setDiscount(rs.getInt("discount"));
+	            dto.setSold(rs.getInt("sold"));
+	            dto.setDelivery(rs.getInt("delivery"));
+	            dto.setHit(rs.getInt("hit"));
+	            dto.setScore(rs.getInt("score"));
+	            dto.setReview(rs.getInt("review"));
+	            dto.setThumb1(rs.getString("thumb1"));
+	            dto.setDetail(rs.getString("detail"));
+	            dto.setReceipt(rs.getString("receipt"));
+	            dto.setRdate(rs.getString("rdate"));
 	            products.add(dto);
 	        }
     	        close();
