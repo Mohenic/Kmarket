@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file ="./_header.jsp" %>
-    <script>
-	function checkCapsLock(event)  {
-		  if (event.getModifierState("CapsLock")) {
-		    document.getElementById("pass").innerText 
-		      = "Caps Lock이 켜져 있습니다."
-		  }else {
-		    document.getElementById("pass").innerText 
-		      = ""
-		  }//capslock on/off 구분용도 
-		}
-</script>
+
         <main id ="member">
             <div class="login">
                 <nav>
@@ -22,14 +12,15 @@
                             <td>아이디</td>
                             <td>
                                 <input type="text" name="uid" placeholder="아이디를 입력해주세요">
-                                <div></div>
                             </td>
                         </tr>
                         <tr>
                             <td>비밀번호</td>
                             <td>
-                                <input type="password" name="pass" placeholder="비밀번호를 입력해주세요">
+                            	<input type="password" name="pass" onkeyup="checkCapsLock(event)" placeholder="비밀번호 입력">
+                            	<div id="pass"></div><!-- caps lock on/off 문구출력 -->                           	
                             </td>
+                            
                         </tr>
                     </table>
                     <input type="submit" value="로그인">

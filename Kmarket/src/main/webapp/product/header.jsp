@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 <body>
 <header>
@@ -11,7 +12,7 @@
                     <a href="#">로그인</a>
                     <a href="#">회원가입</a>
                     <a href="#">마이페이지</a>
-                    <a href="cart.do"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;장바구니</a>
+                    <a href="/Kmarket/product/cart.do?uid=${sessUser.uid}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;장바구니</a>
                 </div>
             </div>
             <div class="logo">

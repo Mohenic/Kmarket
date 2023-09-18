@@ -11,16 +11,16 @@ import kr.co.kmarket.dto.product.ProductCartDTO;
 	private ProductCartDAO dao = ProductCartDAO.getInstance();
 	
 	
-	public void insertCart(ProductCartDTO dto) {
-		dao.insertCart(dto);
+	public int insertCart(ProductCartDTO dto) {
+		return dao.insertCart(dto);
 	}
 	
 	public ProductCartDTO selectCart(String cartNo) {
 		return dao.selectCart(cartNo);
 	}
 	
-	public List<ProductCartDTO> selectCarts() {
-		return dao.selectCarts();
+	public List<ProductCartDTO> selectCarts(String uid) {
+		return dao.selectCarts(uid);
 	}
 	
 	public void updateCart(ProductCartDTO dto) {
