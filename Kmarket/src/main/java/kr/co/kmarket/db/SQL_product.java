@@ -40,4 +40,11 @@ public class SQL_product {
 	public final static String SELECT_PRODUCTS = "SELECT * FROM `km_product` LIMIT ?,10";
 	public final static String SELECT_COUNT_PRODUCT_TOTAL = "SELECT COUNT(*) FROM `km_product`";
 
+	public static final String SELECT_PRODUCTS_SELLING = "SELECT * FROM `km_product` ORDER BY sold DESC LIMIT ?, 5";
+	public static final String SELECT_PRODUCTS_LOWPRICE = "SELECT * FROM `km_product` ORDER BY price ASC LIMIT ?, 5";
+	public static final String SELECT_PRODUCTS_HIGHPRICE = "SELECT * FROM `km_product` ORDER BY price DESC LIMIT ?, 5";
+	public static final String SELECT_PRODUCTS_HIGHRATING = "SELECT * FROM `km_product` ORDER BY score DESC LIMIT ?, 5";
+	public static final String SELECT_PRODUCTS_MANYREVIEWS = "SELECT * FROM `km_product` ORDER BY review DESC LIMIT ?, 5";
+	public static final String SELECT_PRODUCTS_RECENT = "SELECT * FROM `km_product` ORDER BY rdate DESC LIMIT ?, 5";
+
 }

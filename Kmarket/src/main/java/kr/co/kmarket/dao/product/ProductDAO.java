@@ -122,11 +122,9 @@ public class ProductDAO extends DBHelper{
 	
 
 	public List<ProductDTO> selectProducts(int start) {
-	
 		List<ProductDTO> products = new ArrayList<>();
 		
 		try {
-			
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_product.SELECT_PRODUCTS);
 			psmt.setInt(1, start);
@@ -204,6 +202,73 @@ public class ProductDAO extends DBHelper{
 		}
 		
 		return total;
+	}
+	
+	//상품 분류 (판매량,리뷰수 등)
+	public List<ProductDTO> selectProductsByOption(String sqlQuery, int start) {
+	    List<ProductDTO> products = new ArrayList<>();
+	    
+	    try {
+	        conn = getConnection();
+	        psmt = conn.prepareStatement(sqlQuery);
+	        psmt.setInt(1, start);
+	        rs = psmt.executeQuery();
+	        
+	        while (rs.next()) {
+	            ProductDTO dto = new ProductDTO();
+	            dto.setProdNo(rs.getInt(1));
+	            dto.setProdCate1(rs.getInt(2));
+	            dto.setProdCate2(rs.getInt(3));
+	            dto.setProdName(rs.getString(4));
+	            dto.setDescript(rs.getString(5));
+	            dto.setSeller(rs.getString(6));
+	            dto.setCompany(rs.getString(7));
+	            dto.setPrice(rs.getInt(8));
+	            dto.setDiscount(rs.getInt(9));
+	            dto.setSold(rs.getInt(10));
+	            dto.setHit(rs.getInt(11));
+	            dto.setScore(rs.getInt(12));
+	            dto.setReview(rs.getInt(13));
+	            dto.setThumb1(rs.getString(14));
+	            dto.setDetail(rs.getString(15));
+	            dto.setReceipt(rs.getString(16));
+	            dto.setRdate(rs.getString(17));
+	            products.add(dto);
+	        }
+	        close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return products;
+	}
+	public List<ProductDTO> selectProductsSelling(int start) {
+	    String sqlQuery = SQL_product.SELECT_PRODUCTS_SELLING;
+	    return selectProductsByOption(sqlQuery, start);
+	}
+
+	public List<ProductDTO> selectProductsLowprice(int start) {
+	    String sqlQuery = SQL_product.SELECT_PRODUCTS_LOWPRICE;
+	    return selectProductsByOption(sqlQuery, start);
+	}
+
+	public List<ProductDTO> selectProductsHighprice(int start) {
+	    String sqlQuery = SQL_product.SELECT_PRODUCTS_HIGHPRICE;
+	    return selectProductsByOption(sqlQuery, start);
+	}
+
+	public List<ProductDTO> selectProductsHighrating(int start) {
+	    String sqlQuery = SQL_product.SELECT_PRODUCTS_HIGHRATING;
+	    return selectProductsByOption(sqlQuery, start);
+	}
+
+	public List<ProductDTO> selectProductsManyreviews(int start) {
+	    String sqlQuery = SQL_product.SELECT_PRODUCTS_MANYREVIEWS;
+	    return selectProductsByOption(sqlQuery, start);
+	}
+
+	public List<ProductDTO> selectProductsRecent(int start) {
+	    String sqlQuery = SQL_product.SELECT_PRODUCTS_RECENT;
+	    return selectProductsByOption(sqlQuery, start);
 	}
 	
 }
