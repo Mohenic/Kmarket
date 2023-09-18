@@ -1,5 +1,7 @@
 package kr.co.kmarket.db;
 
+import java.text.DecimalFormat;
+
 public class Util {
 
 	public String maskUserId(String userId) {
@@ -9,4 +11,16 @@ public class Util {
         }
         return userId;
     }
+	
+	public static String comma(String number) {
+		int parsedNumber = Integer.parseInt(number);
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(parsedNumber);
+	}
+	
+	public static String comma(int number) {
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(number);
+	}
+	
 }
