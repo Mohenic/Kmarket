@@ -15,7 +15,7 @@ import kr.co.kmarket.service.product.ProductService;
 
 @WebServlet("/product/category.do")
 public class ProductCateController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 651635643245641L;
     private ProductService service = ProductService.INSTANCE;
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class ProductCateController extends HttpServlet {
 
         List<ProductDTO> productList = service.getProductsByCategory(category1, category2);
 
-        req.setAttribute("productList", productList);
+        req.setAttribute("list", productList);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/product/list.jsp");
         dispatcher.forward(req, resp);
