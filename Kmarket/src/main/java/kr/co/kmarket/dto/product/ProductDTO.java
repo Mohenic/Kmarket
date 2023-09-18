@@ -3,7 +3,12 @@ package kr.co.kmarket.dto.product;
 import java.io.File;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ProductDTO {
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private int prodNo;
 	private int prodCate1;
@@ -298,6 +303,8 @@ public class ProductDTO {
 		
 		String uuid = UUID.randomUUID().toString();
 		String sName = uuid + ext;
+		
+		logger.debug("path : " + path);
 		
 		File f1 = new File(path + "/" + thumb);
 		File f2 = new File(path + "/" + sName);
