@@ -17,7 +17,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./css/member.css">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-
+	<script>
+	function checkCapsLock(event)  {
+		  if (event.getModifierState("CapsLock")) {
+		    document.getElementById("pass").innerText 
+		      = "Caps Lock이 켜져 있습니다."
+		  }else {
+		    document.getElementById("pass").innerText 
+		      = ""
+		  }//capslock on/off 구분용도 
+	}
+	</script>
 </head>
 
 

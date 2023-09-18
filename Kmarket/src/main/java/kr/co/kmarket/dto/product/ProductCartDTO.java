@@ -12,7 +12,22 @@ public class ProductCartDTO {
 		private int delivery;
 		private int total;
 		private String rdate;
+		private String prodName;
+		private String descript;
 		
+		
+		public String getDescript() {
+			return descript;
+		}
+		public void setDescript(String descript) {
+			this.descript = descript;
+		}
+		public String getProdName() {
+			return prodName;
+		}
+		public void setProdName(String prodName) {
+			this.prodName = prodName;
+		}
 		public int getCartNo() {
 			return cartNo;
 		}

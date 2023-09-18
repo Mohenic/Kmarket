@@ -74,11 +74,11 @@
           </c:if>
           <c:if test="${sessUser ne null }">
           	<c:if test="${sessUser.name ne null}">
-          		<a herf="#">${sessUser.name }</a>
+          		<a href="#">${sessUser.name }</a>
           	</c:if>
           	<c:if test="${sessUser.type == 2 }">
-          		<a herf="#">${sessUser.company}</a>
-          		<a herf="/Kmarket/admin/index.do">관리자</a>
+          		<a href="#">${sessUser.company}</a>
+          		<a href="/Kmarket/admin/index.do">관리자</a>
           	</c:if>
             	<a href="#">마이페이지</a>
             	<a href="/Kmarket/member/logout.do">로그아웃</a>
@@ -91,7 +91,7 @@
         </div>
         <div class="logo">
           <div>
-            <a href="#"><img src="./images/header_logo.png" alt="로고" /></a>
+            <a href="/Kmarket"><img src="./images/header_logo.png" alt="로고" /></a>
             <form action="#">
               <input type="text" name="search" />
               <button><i class="fa fa-search"></i></button>
@@ -191,8 +191,13 @@
                   </div>
                   <h2>${product5.prodName }</h2>
                   <div class="org_price">
-                    <del>${product5.getPriceWithComma()}</del>
-                    <span>${product5.discount }%</span>
+	                <c:if test="${product5.discount == 0}">
+	                  <div class="none">${product5.getPriceWithComma()}</div>
+	                </c:if>  
+	                <c:if test="${product5.discount > 0}">
+	                  <del>${product5.getPriceWithComma()}</del>
+	                  <span>${product5.discount }%</span>
+	                 </c:if>
                   </div>
                   <div class="dis_price">
                     <ins>${product5.getDiscount(product5.price,product5.discount) }</ins>
@@ -246,8 +251,13 @@
                 <h2>${product1.prodName }</h2>
                 <p>${product1.descript }</p>
                 <div class="org_price">
-                  <del>${product1.getPriceWithComma()}</del>
-                  <span>${product1.discount }%</span>
+	                <c:if test="${product1.discount == 0}">
+	                  <div class="none">${product1.getPriceWithComma()}</div>
+	                </c:if>  
+	                <c:if test="${product1.discount > 0}">
+	                  <del>${product1.getPriceWithComma()}</del>
+	                  <span>${product1.discount }%</span>
+	                 </c:if>
                 </div>
                 <div class="dis_price">
                   <ins>${product1.getDiscount(product1.price,product1.discount) }</ins>
@@ -270,8 +280,13 @@
                 <h2>${product2.prodName }</h2>
                 <p>${product2.descript }</p>
                 <div class="org_price">
-                  <del>${product2.getPriceWithComma() }</del>
+                <c:if test="${product2.discount == 0}">
+                  <div class="none">${product2.getPriceWithComma()}</div>
+                </c:if>  
+                <c:if test="${product2.discount > 0}">
+                  <del>${product2.getPriceWithComma()}</del>
                   <span>${product2.discount }%</span>
+                 </c:if>
                 </div>
                 <div class="dis_price">
                   <ins>${product2.getDiscount(product2.price,product2.discount) }</ins>
@@ -293,8 +308,14 @@
                 <h2>${product3.prodName }</h2>
                 <p>${product3.descript }</p>
                 <div class="org_price">
-                  <del>${product3.getPriceWithComma() }</del>
+                <c:if test="${product3.discount == 0}">
+                  <div class="none">${product3.getPriceWithComma()}</div>
+                </c:if>  
+                <c:if test="${product3.discount > 0}">
+                  <del>${product3.getPriceWithComma()}</del>
                   <span>${product3.discount }%</span>
+                </c:if>
+                  
                 </div>
                 <div class="dis_price">
                   <ins>${product3.getDiscount(product3.price,product3.discount) }</ins>
@@ -316,8 +337,13 @@
                 <h2>${product4.prodName }</h2>
                 <p>${product4.descript }</p>
                 <div class="org_price">
-                  <del>${product4.getPriceWithComma() }</del>
-                  <span>${product4.discount }%</span>
+                 <c:if test="${product4.discount == 0}">
+	                  <div class="none">${product4.getPriceWithComma()}</div>
+	                </c:if>  
+	                <c:if test="${product4.discount > 0}">
+	                  <del>${product4.getPriceWithComma()}</del>
+	                  <span>${product4.discount }%</span>
+	                 </c:if>
                 </div>
                 <div class="dis_price">
                   <ins>${product4.getDiscount(product4.price,product4.discount) }</ins>

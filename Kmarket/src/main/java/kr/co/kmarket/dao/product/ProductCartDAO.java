@@ -24,11 +24,11 @@ public class ProductCartDAO extends DBHelper{
 	private ProductCartDAO() {}
 
 	// 기본 CRUD
-	public void insertCart(ProductCartDTO dto) {
-		conn = getConnection();
+	public int insertCart(ProductCartDTO dto) {
+		int result=0;
 
 		try {
-		
+			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_Cart.INSERT_PRODUCT_CART);
 			psmt.setString(1, dto.getUid());
 			psmt.setInt(2, dto.getProdNo());
@@ -37,29 +37,30 @@ public class ProductCartDAO extends DBHelper{
 			psmt.setInt(5, dto.getDiscount());
 			psmt.setInt(6, dto.getPoint());
 			psmt.setInt(7, dto.getDelivery());
-			psmt.setInt(8, dto.getTotal());
 			
-			psmt.executeUpdate();
+			result =psmt.executeUpdate();
 			
 			close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.error("insertERROR : "+e.getMessage());
 		}
+		return result;
 		
 		
 	}
 	
-	public ProductCartDTO selectCart(String cartNo) {
+	public ProductCartDTO selectCart(String uid) {
 		return null;
 	}
 	
-	public List<ProductCartDTO> selectCarts() {
-		conn = getConnection();
+	public List<ProductCartDTO> selectCarts(String uid) {
+		
 		ProductCartDTO dto = null;
 		List<ProductCartDTO> list = new ArrayList<>();
 		try {
-		
+			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_Cart.SELECT_CARTS);
+			psmt.setString(1, uid);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				dto = new ProductCartDTO();
@@ -73,6 +74,8 @@ public class ProductCartDAO extends DBHelper{
 				dto.setDelivery(rs.getInt(8));
 				dto.setTotal(rs.getInt(9));
 				dto.setRdate(rs.getString(10));
+				dto.setProdName(rs.getString(11));
+				dto.setDescript(rs.getString(12));
 				list.add(dto);
 			}
 			
