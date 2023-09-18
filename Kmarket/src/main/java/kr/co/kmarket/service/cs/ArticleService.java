@@ -32,4 +32,7 @@ public enum ArticleService {
 		return dao.selectCountTotal(group ,cate);
 	}
 	
+	public List<ArticleDTO> selectArticleLatest(String group, int end) {
+		return dao.selectArticleLatest(group, end);
+	}
 }

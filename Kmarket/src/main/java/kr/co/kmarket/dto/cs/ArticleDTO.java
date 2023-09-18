@@ -133,7 +133,15 @@ public class ArticleDTO {
 	}
 	
 	//아이디 마스킹 처리
-	public String maskWriter(String writer) {
+	public void setMaskWriter(String writer) {
+        if (writer!= null && writer.length() > 2) {
+            String maskedUserId = writer.substring(0, 2) + "***";
+            this.writer = maskedUserId;
+        } 
+    }
+	
+	//아이디 마스킹 처리
+	public String maskWrite(String writer) {
         if (writer!= null && writer.length() > 2) {
             String maskedUserId = writer.substring(0, 2) + "**";
             return maskedUserId;
@@ -145,8 +153,11 @@ public class ArticleDTO {
 	public String toString() {
 		return "ArticleDTO [no=" + no + ", parent=" + parent + ", comment=" + comment + ", group=" + group + ", cate="
 				+ cate + ", type=" + type + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", hit=" + hit + ", regip=" + regip + ", rdate=" + rdate + "]";
+				+ ", hit=" + hit + ", regip=" + regip + ", rdate=" + rdate + ", typeName=" + typeName + "]";
 	}
+
+	
+	
 	
 	
 	
