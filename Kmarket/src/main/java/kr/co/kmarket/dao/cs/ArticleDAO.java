@@ -28,12 +28,13 @@ public class ArticleDAO extends DBHelper{
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_cs.INSERT_ARTICLE);
-			psmt.setString(1, dto.getCate());
-			psmt.setString(2, dto.getType());
-			psmt.setString(3, dto.getTitle());
-			psmt.setString(4, dto.getContent());
-			psmt.setString(5, dto.getWriter());
-			psmt.setString(6, dto.getRegip());
+			psmt.setString(1, dto.getGroup());
+			psmt.setString(2, dto.getCate());
+			psmt.setInt(3, dto.getType());
+			psmt.setString(4, dto.getTitle());
+			psmt.setString(5, dto.getContent());
+			psmt.setString(6, dto.getWriter());
+			psmt.setString(7, dto.getRegip());
 			psmt.executeUpdate();
 			
 			close();
@@ -59,14 +60,16 @@ public class ArticleDAO extends DBHelper{
 					dto.setNo(rs.getInt(1));
 					dto.setParent(rs.getInt(2));
 					dto.setComment(rs.getInt(3));
-					dto.setCate(rs.getString(4));
-					dto.setType(rs.getString(5));
-					dto.setTitle(rs.getString(6));
-					dto.setContent(rs.getString(7));
-					dto.setWriter(rs.getString(8));
-					dto.setHit(rs.getInt(9));
-					dto.setRegip(rs.getString(10));
-					dto.setRdate(rs.getString(11));
+					dto.setGroup(rs.getString(4));
+					dto.setCate(rs.getString(5));
+					dto.setType(rs.getInt(6));
+					dto.setTitle(rs.getString(7));
+					dto.setContent(rs.getString(8));
+					dto.setWriter(rs.getString(9));
+					dto.setHit(rs.getInt(10));
+					dto.setRegip(rs.getString(11));
+					dto.setRdate(rs.getString(12));
+					dto.setTypeName(rs.getString(13));
 				}
 				close();
 			} catch (Exception e) {
@@ -77,7 +80,7 @@ public class ArticleDAO extends DBHelper{
 	
 	
 	
-	public List<ArticleDTO> selectArticles(String cate, int start){
+	public List<ArticleDTO> selectArticles(String group, String cate, int start){
 		
 		List<ArticleDTO> qnaArticles = new ArrayList<>();
 		
@@ -85,8 +88,9 @@ public class ArticleDAO extends DBHelper{
 			
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_cs.SELECT_ARTICLES);
-			psmt.setString(1, cate);
-			psmt.setInt(2, start);
+			psmt.setString(1, group);
+			psmt.setString(2, cate);
+			psmt.setInt(3, start);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
@@ -94,33 +98,36 @@ public class ArticleDAO extends DBHelper{
 				dto.setNo(rs.getInt(1));
 				dto.setParent(rs.getInt(2));
 				dto.setComment(rs.getInt(3));
-				dto.setCate(rs.getString(4));
-				dto.setType(rs.getString(5));
-				dto.setTitle(rs.getString(6));
-				dto.setContent(rs.getString(7));
-				dto.setWriter(rs.getString(8));
-				dto.setHit(rs.getInt(9));
-				dto.setRegip(rs.getString(10));
-				dto.setRdateYYMMDD(rs.getString(11));
+				dto.setGroup(rs.getString(4));
+				dto.setCate(rs.getString(5));
+				dto.setType(rs.getInt(6));
+				dto.setTitle(rs.getString(7));
+				dto.setContent(rs.getString(8));
+				dto.setWriter(rs.getString(9));
+				dto.setHit(rs.getInt(10));
+				dto.setRegip(rs.getString(11));
+				dto.setRdateYYMMDD(rs.getString(12));
+				dto.setTypeName(rs.getString(13));
 				
 				qnaArticles.add(dto);
 			}
 			close();
 		} catch (Exception e) {
-			logger.debug("selectFaqArticles()..." + e.getMessage());
+			logger.debug("selectArticles()..." + e.getMessage());
 		}
 		return qnaArticles;
 	}
 	
 	
-	public int selectCountTotal(String cate) {
+	public int selectCountTotal(String group,String cate) {
 			
 		int total = 0;
 		
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL_cs.SELECT_COUNT_TOTAL);
-			psmt.setString(1, cate);
+			psmt.setString(1, group);
+			psmt.setString(2, cate);
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {

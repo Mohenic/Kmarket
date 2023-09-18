@@ -51,7 +51,7 @@ public class QnaListController extends HttpServlet {
 		}
 		
 		// 전체 상품 갯수
-		total = service.selectCountTotal(cate);
+		total = service.selectCountTotal(group,cate);
 		
 		//LIMIT 시작값계산
 		start =(currentPage -1)*10;
@@ -75,7 +75,7 @@ public class QnaListController extends HttpServlet {
 		pageStartNum = total-start;
 		
 		//게시글 출력
-		List<ArticleDTO> articles = service.selectArticles(cate, start);
+		List<ArticleDTO> articles = service.selectArticles(group ,cate ,start);
 		
 		logger.debug("group = " + group);
 		logger.debug("cate = " + cate);

@@ -24,12 +24,12 @@ public enum ArticleService {
 		return dao.selectArticle(qnaNo);
 	}
 	
-	public List<ArticleDTO> selectArticles(String cate, int start){
-		return dao.selectArticles(cate, start);
+	public List<ArticleDTO> selectArticles(String group ,String cate, int start){
+		return dao.selectArticles(group ,cate, start);
 	}
 	
-	public int selectCountTotal(String cate) {
-		return dao.selectCountTotal(cate);
+	public int selectCountTotal(String group,String cate) {
+		return dao.selectCountTotal(group ,cate);
 	}
 	
 }

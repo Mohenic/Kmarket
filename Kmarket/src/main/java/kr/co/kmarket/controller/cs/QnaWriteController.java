@@ -60,6 +60,7 @@ public class QnaWriteController extends HttpServlet {
 		logger.debug("regip = " + regip);
 		
 		ArticleDTO dto = new ArticleDTO();
+		dto.setGroup(group);
 		dto.setCate(cate);
 		dto.setType(type);
 		dto.setTitle(title);

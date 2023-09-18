@@ -4,7 +4,7 @@
 <c:import url="./aside${group}.jsp" />
     
                         <nav>
-                            <h2 class="title">[${article.type}] ${article.title}</h2>
+                            <h2 class="title">[${article.typeName}] ${article.title}</h2>
                         </nav>
                         <div class="content">
                             <p>
