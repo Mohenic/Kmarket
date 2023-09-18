@@ -59,37 +59,37 @@
                 </table>
                 <input type="button" name="del" value="선택삭제">
 
-                <!-- 장바구니 전체합계 -->
-                <div class="total">
-                    <h2>전체합계</h2>
-                    <table border="0">
-                    <tr>
-                        <td>상품수</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>상품금액</td>
-                        <td>27,000</td>
-                    </tr>
-                    <tr>
-                        <td>할인금액</td>
-                        <td>-1,000</td>
-                    </tr>
-                    <tr>
-                        <td>배송비</td>
-                        <td>0</td>
-                    </tr>              
-                    <tr>
-                        <td>포인트</td>
-                        <td>260</td>
-                    </tr>
-                    <tr>
-                        <td>전체주문금액</td>
-                        <td>26,000</td>
-                    </tr>
-                    </table>
-                    <input type="submit" name="" value="주문하기">    
-                </div>
+				<!-- 장바구니 전체합계 -->
+				<div class="total">
+				    <h2>전체합계</h2>
+				    <table border="0">
+				        <tr>
+				            <td>상품수</td>
+				            <td>${itemCount}</td>
+				        </tr>
+				        <tr>
+				            <td>상품금액</td>
+				            <td>${totalPrice}</td>
+				        </tr>
+				        <tr>
+				            <td>할인금액</td>
+				            <td>${discountAmount}</td>
+				        </tr>
+				        <tr>
+				            <td>배송비</td>
+				            <td>${shippingFee}</td>
+				        </tr>
+				        <tr>
+				            <td>포인트</td>
+				            <td>${pointAmount}</td>
+				        </tr>
+				        <tr>
+				            <td>전체주문금액</td>
+				            <td>${totalOrderAmount}</td>
+				        </tr>
+				    </table>
+				    <input type="submit" name="" value="주문하기">    
+				</div>
                 </form>
                 
                 <!-- 상단이동 버튼 -->

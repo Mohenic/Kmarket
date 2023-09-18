@@ -90,5 +90,35 @@ public class ProductCartDAO extends DBHelper{
 	public void deleteCart(String cartNo) {
 		
 	}
-	
-}
+	 public List<ProductCartDTO> selectCartsByUid(String uid) {
+		return null;
+	        // uid에 해당하는 사용자의 장바구니 상품 목록을 데이터베이스에서 가져오는 로직을 구현하세요.
+	        // 예: SELECT * FROM cart WHERE uid = ?
+	        // 결과를 List<ProductCartDTO>로 반환합니다.
+	    }
+
+	    // 전체합계 계산 메서드
+	    public int calculateTotal(List<ProductCartDTO> cartList) {
+	        int itemCount = 0;
+	        int totalPrice = 0;
+	        int discountAmount = 0;
+	        int shippingFee = 0;
+	        int pointAmount = 0;
+
+	        // 장바구니에 있는 각 상품 정보를 반복하여 전체합계 계산
+	        for (ProductCartDTO cartItem : cartList) {
+	            itemCount += cartItem.getCount();
+	            totalPrice += cartItem.getTotal();
+	            discountAmount += (cartItem.getPrice() - cartItem.getDiscount()) * cartItem.getCount();
+	            shippingFee += cartItem.getDelivery();
+	            pointAmount += cartItem.getPoint();
+	        }
+
+	        // 전체주문금액 계산
+	        int totalOrderAmount = totalPrice + shippingFee - discountAmount;
+
+	        // 각 항목의 값을 리턴
+	        // 이 값을 JSP 페이지에서 ${} 표현식으로 사용할 수 있습니다.
+	        return totalOrderAmount;
+	    }
+	}

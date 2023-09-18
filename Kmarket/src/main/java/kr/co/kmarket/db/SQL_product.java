@@ -39,7 +39,11 @@ public class SQL_product {
 	public final static String SELECT_PRODUCT = "SELECT * FROM `km_product` WHERE `prodNo`=?";
 	public final static String SELECT_PRODUCTS = "SELECT * FROM `km_product` LIMIT ?,10";
 	public final static String SELECT_COUNT_PRODUCT_TOTAL = "SELECT COUNT(*) FROM `km_product`";
+	
+	// category
+	public final static String SELECT_PRODUCT_CATE = "SELECT * FROM `km_product` WHERE `prodCate1`=? AND `prodCate2`=?";
 
+	// 상품 분류
 	public static final String SELECT_PRODUCTS_SELLING = "SELECT * FROM `km_product` ORDER BY sold DESC LIMIT ?, 5";
 	public static final String SELECT_PRODUCTS_LOWPRICE = "SELECT * FROM `km_product` ORDER BY price ASC LIMIT ?, 5";
 	public static final String SELECT_PRODUCTS_HIGHPRICE = "SELECT * FROM `km_product` ORDER BY price DESC LIMIT ?, 5";

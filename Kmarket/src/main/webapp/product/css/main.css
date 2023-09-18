@@ -118,7 +118,7 @@ main > section {
     vertical-align: text-bottom;
     width: 55px;
     height: 13px;
-    background: url("./images/ico_free_delivery.gif") no-repeat;
+    background: url("../images/ico_free_delivery.gif") no-repeat;
     margin-top: 4px;
 }
 #product > .list > table tr > td:nth-child(4) {
@@ -132,7 +132,7 @@ main > section {
     font-weight: 900;
 }
 #product .badge.power {
-    background-image: url("./images/ico_power_dealer.gif");
+    background-image: url("../images/ico_power_dealer.gif");
 }
 #product .badge {
     font-size: 0;
@@ -145,7 +145,7 @@ main > section {
 }
 #product h6.rating {
     font-size: 11px;
-    background-image: url("./images/rating_star.png");
+    background-image: url("../images/rating_star.png");
     background-repeat: no-repeat;
     background-position: 36px 0px;
     background-size: auto 100%;

@@ -49,7 +49,7 @@
                         </td>
                         <td>
                         	<h3 class="name">${prod.prodName}</h3>
-                            <a href="view.do" class="desc">상품설명</a>
+                            <a href="view.do" class="desc">${prod.descript}</a>
                         </td>
                         <td>
                             <ul>
@@ -64,7 +64,14 @@
                         <td>
                             <h4 class="seller"><i class="fas fa-home"></i>${prod.seller}</h4>
                             <h5 class="badge power">${prod.seller}</h5>
-                            <h6 class="rating star1">상품평</h6>
+                            <h6 class="rating">${prod.score}</h6>
+                            <script>
+						        var score = parseInt('${prod.score}');
+						        if (!isNaN(score) && score >= 1 && score <= 5) {
+						            var ratingElement = document.querySelector('.rating');
+						            ratingElement.classList.add('star' + score);
+						        }
+						    </script>
                         </td>
                     </tr>
                     </c:forEach>
