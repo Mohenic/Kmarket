@@ -50,6 +50,31 @@ public class SQL_cs {
 													+ "WHERE `group` = ? AND a.`cate` = ?"
 													+ "ORDER BY `no` DESC "
 													+ "LIMIT ?,10 ";
+	
+	
+	
+	public static final String SELECT_NOTICE_ARTICLES = "SELECT a.* , b.`typeName` "
+															+ "FROM `km_article` AS a "
+															+ "JOIN `km_article_type` AS b " 
+															+ "ON a.cate = b.cate  AND a.`type` = b.`type` "
+															+ "WHERE `group` = ? AND a.`cate` = ? AND  a.`type` = ? "
+															+ "ORDER BY `no` DESC "
+															+ "LIMIT 0,10 " ;
+	
+	
+	
 	//cate별 전체 게시글 총 갯수 출력(페이지 처리)
 	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `km_article` WHERE `group`= ? AND `cate` = ?";
+
+	//최신글 조회
+	public static final String SELECT_ARTICLE_LATEST = "SELECT `no`, b.`typeName`, a.`title`, a.`writer`,a.`rdate` "
+															+ "FROM `km_article` AS a "
+															+ "JOIN `km_article_type` AS b "
+															+ "ON a.`cate` = b.`cate` AND b.`type` = a.`type` "
+															+ "WHERE `parent` = 0 AND a.`group` = ? "
+															+ "Order BY `no` DESC LIMIT 0, ? " ;
+
+
+
+	
 }

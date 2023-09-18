@@ -82,41 +82,15 @@
                         <a href="/Kmarket/cs/qna/list.do?group=qna&cate=member">전체보기</a>
                     </h1>
                     <ul>
+                    <c:forEach var="qanLate" items="${qnaLates}">
                         <li>
-                            <a href="/Kmarket/cs/qna/view.do?group=${group}" class="title">[회원] 개인회원과 법인회원에 차이가 있나요?</a>
+                            <a href="/Kmarket/cs/qna/view.do?group=qna&no=${qanLate.no}" class="title">[${qanLate.typeName}] ${qanLate.title} </a>
                             <p>
-                                <span class="uid">moh**</span>
-                                <span class="date">22.10.31</span>
+                                <span class="uid">${qanLate.writer}</span>
+                                <span class="date">${qanLate.rdate}</span>
                             </p>
                         </li>
-                        <li>
-                            <a href="./qna/list.do?group=${group}" class="title">[쿠폰/이벤트] 스마일포인트는 어디에 사용하나요?</a>
-                            <p>
-                                <span class="uid">moh**</span>
-                                <span class="date">22.10.31</span>
-                            </p>
-                        </li>
-                        <li>
-                            <a href="./qna/list.do?group=${group}" class="title">[주문/결제] 신용카드 결제 중 오류가 난 경우 어떻게 하나요?</a>
-                            <p>
-                                <span class="uid">moh**</span>
-                                <span class="date">22.10.31</span>
-                            </p>
-                        </li>
-                        <li>
-                            <a href="./qna/list.do?group=${group}" class="title">[배송] 주문한 상품은 언제 배송되나요?</a>
-                            <p>
-                                <span class="uid">moh**</span>
-                                <span class="date">22.10.31</span>
-                            </p>
-                        </li>
-                        <li>
-                            <a href="./qna/list.do?group=${group}" class="title">[취소/반품/교환] 주문을 취소하고 싶어요.</a>
-                            <p>
-                                <span class="uid">moh**</span>
-                                <span class="date">22.10.31</span>
-                            </p>
-                        </li>
+                     </c:forEach>   
                     </ul>
                     <a href="/Kmarket/cs/qna/write.do?group=qna" class="ask">문의글 작성 ></a>
                 </section>

@@ -5,31 +5,13 @@
                         <div>
                             <h3>가입</h3>
                             <ul>
+                            <c:forEach var="article" items="${articles}">
                                 <li>
                                     <a href="./view.do?group=${group}&cate=${cate}">
-                                    <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
+                                    <span>Q.</span>${article.title}
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="./view.do?group=${group}&cate=${cate}">
-                                    <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./view.do?group=${group}&cate=${cate}">
-                                    <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./view.do?group=${group}&cate=${cate}">
-                                    <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./view.do?group=${group}&cate=${cate}">
-                                    <span>Q.</span>개인회원과 법인회원에 차이가 있나요?
-                                    </a>
-                                </li>
+                            </c:forEach>  
                                 <li class="more">
                                     <a href="#">더보기</a>
                                 </li>
