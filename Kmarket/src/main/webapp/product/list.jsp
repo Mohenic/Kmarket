@@ -48,8 +48,10 @@
                             </a>
                         </td>
                         <td>
+                        <a href="view.do?prodNo=${prod.prodNo}">
                         	<h3 class="name">${prod.prodName}</h3>
-                            <a href="view.do" class="desc">${prod.descript}</a>
+                        	</a>
+                            <p class="desc">${prod.descript}</p>
                         </td>
                         <td>
                             <ul>
@@ -64,14 +66,8 @@
                         <td>
                             <h4 class="seller"><i class="fas fa-home"></i>${prod.seller}</h4>
                             <h5 class="badge power">${prod.seller}</h5>
-                            <h6 class="rating">${prod.score}</h6>
-                            <script>
-						        var score = parseInt('${prod.score}');
-						        if (!isNaN(score) && score >= 1 && score <= 5) {
-						            var ratingElement = document.querySelector('.rating');
-						            ratingElement.classList.add('star' + score);
-						        }
-						    </script>
+                            <h6 class="rating ${prod.score == 0 ? 'star0' : (prod.score >= 1 ? 'star1' : (prod.score >= 2 ? 'star2' : (prod.score >= 3 ? 'star3' : (prod.score >= 4 ? 'star4' : 'star5')))) }">
+                            ${prod.score}</h6> <!-- 스코어값 화면에서 어떻게 지우지 -->
                         </td>
                     </tr>
                     </c:forEach>

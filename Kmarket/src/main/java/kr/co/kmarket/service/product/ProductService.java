@@ -45,7 +45,7 @@ public enum ProductService {
 	public List<ProductDTO> selectProductsHighprice(int sort) {
 		return dao.selectProductsHighprice(sort);
 	}
-	public List<ProductDTO> selectProductsHigtrating(int sort) {
+	public List<ProductDTO> selectProductsHighrating(int sort) {
 		return dao.selectProductsHighrating(sort);
 	}
 	public List<ProductDTO> selectProductsManyreviews(int sort) {

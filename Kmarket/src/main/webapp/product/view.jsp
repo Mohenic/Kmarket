@@ -74,7 +74,7 @@ $(function(){
                 </div>
                 <div class="summary">
                     <nav>
-                        <h1>${view.prodName}</h1>
+                        <h1>${view.company}</h1>
                         <h2>상품번호&nbsp;:&nbsp;<span>${view.prodNo}</span></h2>
                     </nav>                        
                     <nav>
