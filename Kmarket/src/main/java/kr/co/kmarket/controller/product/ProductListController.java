@@ -18,18 +18,25 @@ import kr.co.kmarket.service.product.ProductService;
 
 @WebServlet("/product/list.do")
 public class ProductListController extends HttpServlet {
-	
     private static final long serialVersionUID = -7715231998323392840L;
-    ProductService service = ProductService.INSTANCE;
+    private ProductService service = ProductService.INSTANCE;
     private static final Logger logger = LoggerFactory.getLogger(ProductListController.class);
 
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String sortOption = req.getParameter("sort");
+        String category1Param = req.getParameter("prodCate1");
+        String category2Param = req.getParameter("prodCate2");
+
         int start = 0;
         List<ProductDTO> list;
 
-        String sortOption = req.getParameter("sort");
-        if (sortOption != null && !sortOption.isEmpty()) {
+        if (category1Param != null && category2Param != null) {
+            int category1 = Integer.parseInt(category1Param);
+            int category2 = Integer.parseInt(category2Param);
+
+            list = service.getProductsByCategory(category1, category2);
+            logger.info("카테고리별로 상품 목록 조회");
+        } else if (sortOption != null && !sortOption.isEmpty()) {
             if ("selling".equals(sortOption)) {
                 list = service.selectProductsSelling(start);
                 logger.info("판매량 높은 순서대로 상품 목록 조회");
@@ -40,7 +47,7 @@ public class ProductListController extends HttpServlet {
                 list = service.selectProductsHighprice(start);
                 logger.info("높은 가격 순서대로 상품 목록 조회");
             } else if ("highrating".equals(sortOption)) {
-                list = service.selectProductsHigtrating(start);
+                list = service.selectProductsHighrating(start);
                 logger.info("평점 높은 순서대로 상품 목록 조회");
             } else if ("manyreviews".equals(sortOption)) {
                 list = service.selectProductsManyreviews(start);
@@ -48,12 +55,12 @@ public class ProductListController extends HttpServlet {
             } else if ("recent".equals(sortOption)) {
                 list = service.selectProductsRecent(start);
                 logger.info("최근 등록 순서대로 상품 목록 조회");
-            } else {	
+            } else {
                 list = service.selectProducts(start);
                 logger.info("기본 조회");
             }
         } else {
-            list = service.selectProducts(start); // 기본 조회
+            list = service.selectProducts(start);
             logger.info("기본 조회");
         }
 
