@@ -832,3 +832,7 @@ main > section {
 	width: 120px;
 	height: 120px;
 }
+
+#product .hidden{
+	display: none;
+}

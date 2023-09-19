@@ -19,8 +19,8 @@ import com.google.gson.JsonObject;
 import kr.co.kmarket.dto.product.ProductCartDTO;
 import kr.co.kmarket.service.product.ProductCartService;
 
-@WebServlet("/product/cart.do")
-public class ProductCartController extends HttpServlet {
+@WebServlet("/product/delete.do")
+public class ProductDeleteController extends HttpServlet {
 
 	private static final long serialVersionUID = -5012485570172792300L;
 
@@ -41,44 +41,7 @@ public class ProductCartController extends HttpServlet {
 			@Override
 			protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
-				
-				String uid = req.getParameter("uid");
-				String prodNo = req.getParameter("prodNo");
-				String price = req.getParameter("price");
-				String point = req.getParameter("point");
-				String discount = req.getParameter("discount");
-				String delivery = req.getParameter("delivery");
-				String count = req.getParameter("count");
-				
-				logger.info("uid : "+uid);
-				logger.info("prodNo : "+prodNo);
-				logger.info("price : "+price);
-				logger.info("point : "+point);
-				logger.info("discount : "+discount);
-				logger.info("delivery : "+delivery);
-				logger.info("count : "+count);
-				
-				ProductCartDTO dto = new ProductCartDTO();
-				dto.setUid(uid);
-				dto.setProdNo(prodNo);
-				dto.setCount(count);
-				dto.setPrice(price);
-				dto.setDiscount(discount);
-				dto.setPoint(point);
-				dto.setDelivery(delivery);
-				
-				int result =service.insertCart(dto);
-				
-				JsonObject json = new JsonObject();
 
-				json.addProperty("result", result);
-
-				
-				// Json 출력
-				PrintWriter writer = resp.getWriter();
-				writer.print(json.toString());				
-			
-			
 		
 			
 		}
