@@ -11,6 +11,14 @@
                              	${article.content}
                             </p>
                         </div>
+                      
+                        <nav>[답변]가입문의 내용</nav>
+                        <div>
+                        	<p>
+                        		안녕안녕
+                        	</p>
+                        </div>
+                        
                         <a href="./list.do?group=${group}&cate=${cate}" class="btnList">목록보기</a>
                     </article>
                 </section>

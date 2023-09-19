@@ -12,17 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import kr.co.kmarket.dto.cs.ArticleDTO;
+import kr.co.kmarket.service.cs.ArticleService;
+
 @WebServlet("/cs/faq/view.do")
 public class FaqViewController extends HttpServlet {
 
 	private static final long serialVersionUID = 2080015003574951494L;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	ArticleService service = ArticleService.INSTANCE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
+		String no = req.getParameter("no");
 		//모듈화
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);
@@ -30,6 +35,11 @@ public class FaqViewController extends HttpServlet {
 		
 		logger.debug("group = " + group);
 		
+		//글보기 
+		ArticleDTO article = service.selectArticle(no);
+		
+		logger.debug(article.toString());
+		req.setAttribute("article", article);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/faq/view.jsp");
 		dispatcher.forward(req, resp);
