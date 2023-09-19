@@ -129,10 +129,10 @@
                 ></i
               ></a>
               <ol>
-                <li><a href="#">남성의류</a></li>
-                <li><a href="#">여성의류</a></li>
-                <li><a href="#">잡화</a></li>
-                <li><a href="#">뷰티</a></li>
+                <li><a href="/Kmarket/product/category.do?prodCate1=11&prodCate2=11">남성의류</a></li>
+                <li><a href="/Kmarket/product/category.do?prodCate1=11&prodCate2=10">여성의류</a></li>
+                <li><a href="/Kmarket/product/category.do?prodCate1=11&prodCate2=14">잡화</a></li>
+                <li><a href="/Kmarket/product/category.do?prodCate1=11&prodCate2=16">뷰티</a></li>
               </ol>
             </li>
             <li>
@@ -142,10 +142,10 @@
                 ></i
               ></a>
               <ol>
-                <li><a href="#">노트북/PC</a></li>
-                <li><a href="#">가전</a></li>
-                <li><a href="#">휴대폰</a></li>
-                <li><a href="#">기타</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=15&prodCate2=10">노트북</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=15&prodCate2=16">가전</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=15&prodCate2=13">휴대폰</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=15&prodCate2=12">기타</a></li>
               </ol>
             </li>
             <li>
@@ -155,10 +155,10 @@
                 ></i
               ></a>
               <ol>
-                <li><a href="#">신선식품</a></li>
-                <li><a href="#">가공식품</a></li>
-                <li><a href="#">건강식품</a></li>
-                <li><a href="#">생필품</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=13&prodCate2=10">신선식품</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=13&prodCate2=11">가공식품</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=13&prodCate2=12">건강식품</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=13&prodCate2=14">생필품</a></li>
               </ol>
             </li>
             <li>
@@ -168,10 +168,10 @@
                 ></i
               ></a>
               <ol>
-                <li><a href="#">가구/DIY</a></li>
-                <li><a href="#">침구·커튼</a></li>
-                <li><a href="#">생활용품</a></li>
-                <li><a href="#">사무용품</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=14&prodCate2=10">가구/DIY</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=14&prodCate2=11">침구·커튼</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=14&prodCate2=13">생활용품</a></li>
+                    <li><a href="/Kmarket/product/category.do?prodCate1=14&prodCate2=16">사무용품</a></li>
               </ol>
             </li>
           </ul>

@@ -9,6 +9,116 @@
         <main id="product">
         <%@ include file="./category.jsp" %>
     <!-- 장바구니 페이지 -->
+    <script>
+    	$(function(){
+			$('input[name=all]').change(function(){
+				
+				const isChecked =$(this).is(':checked');
+				
+				if(isChecked){
+					$('input[name=chk]').prop('checked',true)
+				}else {
+					$('input[name=chk]').prop('checked',false)
+				}
+				
+			});
+		})
+    
+    
+    	$(function(){
+			var itemCount=0;
+			var itemPrice=0;
+			var itemDiscount=0;
+			var itemDelivery=0;
+			var itemPoint=0;
+			var itemTotal=0;
+			const seller =[];
+    		//체크시 하단 주문정보변경
+    		$('input[name=chk]').on("change",function(){
+    			const tr =$(this).parent().parent();
+
+	    			if($(this).prop('checked')==true){
+	    				
+	    				itemCount += parseInt(tr.find('.count').text());
+	    				itemPrice += parseInt(tr.find('.price').text());
+	    				itemDiscount += parseInt(tr.find('.price').text())-(parseInt(tr.find('.price').text())*(parseInt(tr.find('.discount').text())*0.01));
+	    				
+	    				if(!seller.includes(tr.find('.seller').text())){
+	    					seller.push(tr.find('.seller').text());
+	    					itemDelivery += parseInt(tr.find('.delivery').text());
+	    					console.log(seller)
+	    				}else {
+	    					seller.push(tr.find('.seller').text());
+	    				}
+	    				itemPoint += parseInt(tr.find('.point').text());
+	    				itemTotal += parseInt(tr.find('.total').text());
+	    				
+	    			}else if($(this).prop('checked')==false){
+	    				const findindex =seller.indexOf(tr.find('.seller').text());
+	    				console.log(findindex)
+	    				seller.splice(findindex, 1);
+	    				console.log(seller);
+	    				itemCount -= parseInt(tr.find('.count').text());
+	    				itemPrice -= parseInt(tr.find('.price').text());
+	    				itemDiscount -= parseInt(tr.find('.price').text())-(parseInt(tr.find('.price').text())*(parseInt(tr.find('.discount').text())*0.01));
+	    				if(!seller.includes(tr.find('.seller').text())){
+	    					
+	    					itemDelivery -= parseInt(tr.find('.delivery').text());
+
+	    				}  				
+	    				itemPoint -= parseInt(tr.find('.point').text());
+	    				itemTotal -= parseInt(tr.find('.total').text());
+	    				
+	    			}
+    			$('.itemCount').text(itemCount);
+    			$('.itemPrice').text(itemPrice);
+    			$('.itemDiscount').text(itemDiscount);
+    			$('.itemDelivery').text(itemDelivery);
+    			$('.itemPoint').text(itemPoint);
+    			$('.itemTotal').text(itemTotal);
+    			$('.itemseller').text(seller);
+    		})
+    		
+
+    		
+    	
+    	
+    	})
+    	
+/*	$(function(){
+		$('#del').click(function(e){
+			e.preventDefault();
+			
+			const cartNo =$('input[name=chk]').val();
+			
+			const jsonData = {
+					"cartNo": cartNo
+					
+				};
+				console.log(jsonData);
+				
+				$.ajax({
+					url:'/Kmarket/product/delete.do',
+					type:'GET',
+					data: jsonData,
+					dataType:'json',
+					success:function(data){
+						if(data.result >= 1){
+							alter('장바구니에서 삭제했습니다');
+						}else{
+							alter('장바구니에서 삭제 실패했습니다.')
+						}
+					}
+				});
+			
+		})
+		
+	})*/
+    	
+    	
+    	
+    	
+    </script>
             <section class="cart">
                 <nav>
                 <h1>장바구니</h1>
@@ -16,7 +126,7 @@
                     HOME > <span>패션·의류·뷰티</span> > <strong>장바구니</strong>
                 </p>
                 </nav>
-                <form action="#">
+                <form action="/Kmarket/product/order.do" method="post">
                 <!-- 장바구니 목록 -->
                 <table>
                     <thead>
@@ -38,8 +148,8 @@
                     </tr>
                     </c:if>
                     <c:forEach var="list1" items="${requestScope.list}">
-		            <tr>
-		              <td><input type="checkbox" name=""></td>
+		            <tr class ="info">
+		              <td><input type="checkbox" name="chk" value="${list1.cartNo}"></td>
 		              <td>
 		                <article>
 		                  <a href="/Kmartek/product/list.do"><img src="https://via.placeholder.com/120x120" alt=""></a>
@@ -49,48 +159,52 @@
 		                  </div>
 		                </article>
 		              </td>
-		              <td>${list1.count}</td>
-		              <td>${list1.price}</td>
-		              <td>${list1.discount}%</td>
-		              <td>${list1.point}</td>
-		              <td>${list1.delivery}</td>
-		              <td>${list1.total}</td>
+		              <td class="hidden seller">${list1.seller}</td>
+		              <td class="count">${list1.count}</td>
+		              <td class="price">${list1.price}</td>
+		              <td class="discount">${list1.discount}%</td>
+		              <td class="point">${list1.point}</td>
+		              <td class="delivery">${list1.delivery}</td>
+		              <td class="total">${list1.total}</td>
 		            </tr>
 		          	</c:forEach>
                     </tbody>
                 </table>
-                <input type="button" name="del" value="선택삭제">
-
+                <input type="button" name="del" id="del" value="선택삭제">
 				<!-- 장바구니 전체합계 -->
 				<div class="total">
 				    <h2>전체합계</h2>
 				    <table border="0">
+				    	<tr class="hidden">
+				    		<td class="hidden itemseller"></td>
+				    		<td class="hidden itemprodNo"></td>
+				    	</tr>
 				        <tr>
 				            <td>상품수</td>
-				            <td>${itemCount}</td>
+				            <td class="itemCount">선택된 상품이 없습니다</td>
 				        </tr>
 				        <tr>
 				            <td>상품금액</td>
-				            <td>${totalPrice}</td>
+				            <td class="itemPrice">선택된 상품이 없습니다</td>
 				        </tr>
 				        <tr>
 				            <td>할인금액</td>
-				            <td>${discountAmount}</td>
+				            <td class="itemDiscount">선택된 상품이 없습니다</td>
 				        </tr>
 				        <tr>
 				            <td>배송비</td>
-				            <td>${shippingFee}</td>
+				            <td class="itemDelivery">선택된 상품이 없습니다</td>
 				        </tr>
 				        <tr>
 				            <td>포인트</td>
-				            <td>${pointAmount}</td>
+				            <td class="itemPoint">선택된 상품이 없습니다</td>
 				        </tr>
 				        <tr>
 				            <td>전체주문금액</td>
-				            <td>${totalOrderAmount}</td>
+				            <td class="itemTotal">선택된 상품이 없습니다</td>
 				        </tr>
 				    </table>
-				    <input type="submit" name="" value="주문하기">    
+				    <input type="submit" name="btnOrder" value="주문하기">    
 				</div>
                 </form>
                 

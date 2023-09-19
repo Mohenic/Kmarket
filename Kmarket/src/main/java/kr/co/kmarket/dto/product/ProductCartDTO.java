@@ -14,8 +14,15 @@ public class ProductCartDTO {
 		private String rdate;
 		private String prodName;
 		private String descript;
+		private String seller;
 		
 		
+		public String getSeller() {
+			return seller;
+		}
+		public void setSeller(String seller) {
+			this.seller = seller;
+		}
 		public String getDescript() {
 			return descript;
 		}
