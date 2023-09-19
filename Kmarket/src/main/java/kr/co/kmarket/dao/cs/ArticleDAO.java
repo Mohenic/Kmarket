@@ -118,6 +118,67 @@ public class ArticleDAO extends DBHelper{
 		return qnaArticles;
 	}
 	
+	public List<ArticleDTO> selectFaqArticleLists(String cate){
+		
+		List<ArticleDTO> lists = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_cs.select_Faq_ArticleList);
+			psmt.setString(1, cate);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ArticleDTO dto = new ArticleDTO();
+				dto.setCate(rs.getString(1));
+				dto.setType(rs.getInt(2));
+				dto.setTypeName(rs.getString(3));
+				lists.add(dto);
+			}
+			close();
+		} catch (Exception e) {
+			logger.debug("selectFaqArticleList..." + e.getMessage());
+		}
+		return lists;
+	}
+	
+	//Faq게시글 출력
+	public List<ArticleDTO> selectFaqArticles(String group, String cate) {
+		
+		List<ArticleDTO> FaqArticles = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_cs.SELECT_Faq_ARTICLES);
+			psmt.setString(1, group);
+			psmt.setString(2, cate);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ArticleDTO dto = new ArticleDTO();
+				dto.setNo(rs.getInt(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setGroup(rs.getString(4));
+				dto.setCate(rs.getString(5));
+				dto.setType(rs.getInt(6));
+				dto.setTitle(rs.getString(7));
+				dto.setContent(rs.getString(8));
+				dto.setWriter(rs.getString(9));
+				dto.setHit(rs.getInt(10));
+				dto.setRegip(rs.getString(11));
+				dto.setRdateYYMMDD(rs.getString(12));
+				dto.setTypeName(rs.getString(13));
+				FaqArticles.add(dto);
+			}
+			close();
+		} catch (Exception e) {
+			logger.debug("selectFaqArticles()..." + e.getMessage());
+		}
+		
+		return FaqArticles;
+	}
+	
 	
 	public int selectCountTotal(String group,String cate) {
 			

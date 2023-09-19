@@ -52,14 +52,19 @@ public class SQL_cs {
 													+ "LIMIT ?,10 ";
 	
 	
-	
-	public static final String SELECT_NOTICE_ARTICLES = "SELECT a.* , b.`typeName` "
+	//faq type별 리스트 출력 
+	public static final String SELECT_Faq_ARTICLES = "SELECT a.* , b.`typeName` "
 															+ "FROM `km_article` AS a "
 															+ "JOIN `km_article_type` AS b " 
 															+ "ON a.cate = b.cate  AND a.`type` = b.`type` "
-															+ "WHERE `group` = ? AND a.`cate` = ? AND  a.`type` = ? "
-															+ "ORDER BY `no` DESC "
+															+ "WHERE `group` = ? AND a.`cate` = ?  "
+															+ "ORDER BY `type` DESC, `no` DESC "
 															+ "LIMIT 0,10 " ;
+	
+	
+	public static final String select_Faq_ArticleList = "SELECT * FROM `km_article_type` "
+															+ "WHERE `cate` = ? "
+															+ "ORDER BY `type` ";
 	
 	
 	

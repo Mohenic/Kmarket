@@ -1,5 +1,7 @@
 package kr.co.kmarket.dto.cs;
 
+import java.util.List;
+
 public class ArticleDTO {
 	
 	private int no;
@@ -17,6 +19,15 @@ public class ArticleDTO {
 	
 	//추가필드
 	private String typeName;
+	private List<ArticleDTO> articles;
+	
+	public List<ArticleDTO> getArticles() {
+		return articles;
+	}
+	
+	public void setArticles(List<ArticleDTO> articles) {
+		this.articles = articles;
+	}
 	
 
 	public int getNo() {
