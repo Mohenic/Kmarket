@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<script src="/Kmarket/admin/product/js/cateValue.js"></script>
 <%@ include file = "../_header.jsp" %>
 <%@ include file = "../_aside.jsp" %>
+<script src="/Kmarket/admin/product/js/cateValue.js"></script>
 <!-- 
 	작업자 : 손영우
 	작업시작일 : 2023/09/13
