@@ -67,6 +67,8 @@ public class SQL_cs {
 															+ "ORDER BY `type` ";
 	
 	
+	//notice 전체게시글 출력
+	public static final String SELECT_COUNT_NOTICE_TOTAL = "SELECT COUNT(*) FROM `km_article` WHERE `group`= ? ";
 	
 	//cate별 전체 게시글 총 갯수 출력(페이지 처리)
 	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `km_article` WHERE `group`= ? AND `cate` = ?";
@@ -79,7 +81,24 @@ public class SQL_cs {
 															+ "WHERE `parent` = 0 AND a.`group` = ? "
 															+ "Order BY `no` DESC LIMIT 0, ? " ;
 
-
-
 	
+	//공지사항 전체 출력
+	public static final String SELECT_NOTICE_Article_ALL = "SELECT a.* , b.`cateName` "
+															+ "FROM `km_article` AS a "
+															+ "JOIN `km_article_cate` AS b "
+															+ "ON a.cate = b.cate  "
+															+ "WHERE `group` = ? "
+															+ "ORDER BY `no` DESC "
+															+ "LIMIT ?,10 ";
+	
+	//공지사항 카테별 출력
+	public static final String SELECT_NOTICE_Article_TYPE = "SELECT a.* , b.`cateName` "
+															+ "FROM `km_article` AS a "
+															+ "JOIN `km_article_cate` AS b "
+															+ "ON a.cate = b.cate  "
+															+ "WHERE `group` = ? AND a.`cate` = ? "
+															+ "ORDER BY `no` DESC "
+															+ "LIMIT ?,10 ";		
+
+	public static final String SELECT_ANSWER_ARTICLE_ = "SELECT * FROM `km_article` WHERE parent = ? ";
 }

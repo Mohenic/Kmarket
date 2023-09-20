@@ -42,6 +42,13 @@ public enum ArticleService {
 	
 	public List<ArticleDTO> selectFaqArticleLists(String cate){
 		return dao.selectFaqArticleLists(cate);
-		
+	}
+	
+	public ArticleDTO selectAnswerArticle(String parent) {
+		return dao.selectAnswerArticle(parent);
+	}
+	
+	public List<ArticleDTO> selectNoticeArticles(String group, String cate, int start) {
+		return dao.selectNoticeArticles(group, cate, start);
 	}
 }

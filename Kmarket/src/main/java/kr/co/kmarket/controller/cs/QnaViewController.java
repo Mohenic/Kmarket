@@ -44,8 +44,12 @@ public class QnaViewController extends HttpServlet {
 		//글보기 
 		ArticleDTO article = service.selectArticle(no);
 		
+		//답글 보기
+		ArticleDTO answer = service.selectAnswerArticle(no);
+		
 		logger.debug(article.toString());
 		req.setAttribute("article", article);
+		req.setAttribute("answer", answer);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/qna/view.jsp");
 		dispatcher.forward(req, resp);

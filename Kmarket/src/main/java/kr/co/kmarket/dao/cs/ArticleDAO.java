@@ -65,10 +65,10 @@ public class ArticleDAO extends DBHelper{
 					dto.setType(rs.getInt(6));
 					dto.setTitle(rs.getString(7));
 					dto.setContent(rs.getString(8));
-					dto.setWriter(rs.getString(9));
+					dto.setMaskWriter(rs.getString(9));
 					dto.setHit(rs.getInt(10));
 					dto.setRegip(rs.getString(11));
-					dto.setRdate(rs.getString(12));
+					dto.setRdateYYMMDD2(rs.getString(12));
 					dto.setTypeName(rs.getString(13));
 				}
 				close();
@@ -178,6 +178,53 @@ public class ArticleDAO extends DBHelper{
 		
 		return FaqArticles;
 	}
+	//notice 종류별로 뽑기
+	public List<ArticleDTO> selectNoticeArticles(String group, String cate, int start) {
+		
+		List<ArticleDTO> articles = new ArrayList<>();
+		
+		try {
+			conn = getConnection();
+			if(cate.equals("0")) {
+				psmt  = conn.prepareStatement(SQL_cs.SELECT_NOTICE_Article_ALL);				
+				psmt.setString(1, group);
+				psmt.setInt(2, start);
+				
+			}else {
+				psmt  = conn.prepareStatement(SQL_cs.SELECT_NOTICE_Article_TYPE);
+				psmt.setString(1, group);
+				psmt.setString(2, cate);
+				psmt.setInt(3, start);
+			}
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ArticleDTO dto = new ArticleDTO();
+				dto.setNo(rs.getInt(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setGroup(rs.getString(4));
+				dto.setCate(rs.getString(5));
+				dto.setType(rs.getInt(6));
+				dto.setTitle(rs.getString(7));
+				dto.setContent(rs.getString(8));
+				dto.setWriter(rs.getString(9));
+				dto.setHit(rs.getInt(10));
+				dto.setRegip(rs.getString(11));
+				dto.setRdateYYMMDD(rs.getString(12));
+				dto.setTypeName(rs.getString(13));
+				articles.add(dto);
+				articles.add(dto);
+			}
+			close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return articles;
+	}
 	
 	
 	public int selectCountTotal(String group,String cate) {
@@ -186,9 +233,16 @@ public class ArticleDAO extends DBHelper{
 		
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL_cs.SELECT_COUNT_TOTAL);
-			psmt.setString(1, group);
-			psmt.setString(2, cate);
+			if(cate.equals("0")) {
+				psmt = conn.prepareStatement(SQL_cs.SELECT_COUNT_NOTICE_TOTAL);
+				psmt.setString(1, group);
+				
+			}else {
+				psmt = conn.prepareStatement(SQL_cs.SELECT_COUNT_TOTAL);
+				psmt.setString(1, group);
+				psmt.setString(2, cate);
+			}
+			
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
@@ -230,6 +284,40 @@ public class ArticleDAO extends DBHelper{
 			logger.error("selectArteicleLateste() error : " + e.getMessage());
 		}
 		return latest;
+	}
+	
+	//답글 보기
+	public ArticleDTO selectAnswerArticle(String parent) {
+		ArticleDTO dto = null;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_cs.SELECT_ANSWER_ARTICLE_);
+			psmt.setString(1, parent);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new ArticleDTO();
+				dto.setNo(rs.getInt(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setGroup(rs.getString(4));
+				dto.setCate(rs.getString(5));
+				dto.setType(rs.getInt(6));
+				dto.setTitle(rs.getString(7));
+				dto.setContent(rs.getString(8));
+				dto.setWriter(rs.getString(9));
+				dto.setHit(rs.getInt(10));
+				dto.setRegip(rs.getString(11));
+				dto.setRdateYYMMDD(rs.getString(12));
+			}
+			
+			close();
+			
+		} catch (Exception e) {
+			logger.debug("selectAnswer()..." + e.getMessage());
+		}
+		return dto;
 	}
 
 

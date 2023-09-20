@@ -37,6 +37,10 @@ public class ArticleDTO {
 	public void setNo(int no) {
 		this.no = no;
 	}
+	
+	public void setNo(String no) {
+		this.no = Integer.parseInt(no);
+	}
 
 	public int getParent() {
 		return parent;
@@ -44,6 +48,10 @@ public class ArticleDTO {
 
 	public void setParent(int parent) {
 		this.parent = parent;
+	}
+	
+	public void setParent(String parent) {
+		this.parent = Integer.parseInt(parent);
 	}
 
 	public int getComment() {
@@ -141,6 +149,11 @@ public class ArticleDTO {
 	//날짜 재설정
 	public void setRdateYYMMDD(String rdate) {
 		this.rdate = rdate.substring(2, 10);
+	}
+	
+	//날짜 재설정
+	public void setRdateYYMMDD2(String rdate) {
+		this.rdate = rdate.substring(0, 10);
 	}
 	
 	//아이디 마스킹 처리
