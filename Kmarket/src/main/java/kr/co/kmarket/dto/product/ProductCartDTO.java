@@ -1,5 +1,7 @@
 package kr.co.kmarket.dto.product;
 
+import java.text.DecimalFormat;
+
 public class ProductCartDTO {
 
 		private int cartNo;
@@ -15,8 +17,28 @@ public class ProductCartDTO {
 		private String prodName;
 		private String descript;
 		private String seller;
+		private int prodCate1;
+		private int prodCate2;
+		private String thumb1;
 		
-		
+		public int getProdCate1() {
+			return prodCate1;
+		}
+		public void setProdCate1(int prodCate1) {
+			this.prodCate1 = prodCate1;
+		}
+		public int getProdCate2() {
+			return prodCate2;
+		}
+		public void setProdCate2(int prodCate2) {
+			this.prodCate2 = prodCate2;
+		}
+		public String getThumb1() {
+			return thumb1;
+		}
+		public void setThumb1(String thumb1) {
+			this.thumb1 = thumb1;
+		}
 		public String getSeller() {
 			return seller;
 		}
@@ -115,6 +137,39 @@ public class ProductCartDTO {
 		}
 		public void setRdate(String rdate) {
 			this.rdate = rdate;
+		}
+		
+		public String getPriceWithComma() {
+			
+			DecimalFormat df = new DecimalFormat("###,###");
+			return df.format(price);
+		}
+		
+		public String getDeliveryWithComma() {
+			
+			DecimalFormat df = new DecimalFormat("###,###");
+			return df.format(delivery);
+		}
+		
+		public int getDiscountPrice(int price, int discount) {
+			int discountPrice=0;
+			
+			discountPrice=(int)(price-(price*(discount*0.01)));
+			
+			return discountPrice;
+		}
+		public String getDiscount(int price, int discount) {
+			
+			DecimalFormat df = new DecimalFormat("###,###");
+			return df.format(getDiscountPrice(price, discount));
+		}
+		
+		public int getDiscountPrice2(int price, int discount) {
+			int discountPrice=0;
+			
+			discountPrice=(int)(price*(discount*0.01));
+			
+			return discountPrice;
 		}
 		
 	}

@@ -77,6 +77,10 @@ public class ProductCartDAO extends DBHelper{
 				dto.setProdName(rs.getString(11));
 				dto.setDescript(rs.getString(12));
 				dto.setSeller(rs.getString(13));
+				dto.setProdCate1(rs.getInt(14));
+				dto.setProdCate2(rs.getInt(15));
+				dto.setThumb1(rs.getString(16));
+				dto.setProdName(rs.getString(17));
 				list.add(dto);
 			}
 			
@@ -91,8 +95,20 @@ public class ProductCartDAO extends DBHelper{
 		
 	}
 	
-	public void deleteCart(String cartNo) {
-		
+	public int deleteCart(String cartNo) {
+		int result=0;
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_Cart.DELETE_CART);
+			psmt.setString(1, cartNo);
+			
+			result =psmt.executeUpdate();
+			
+			close();
+		} catch (Exception e) {
+			logger.error("delete error : "+e.getMessage());
+		}
+		return result;
 	}
 	 public List<ProductCartDTO> selectCartsByUid(String uid) {
 		return null;

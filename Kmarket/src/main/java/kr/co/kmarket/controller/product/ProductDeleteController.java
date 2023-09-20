@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 
 import com.google.gson.JsonObject;
 
-import kr.co.kmarket.dto.product.ProductCartDTO;
 import kr.co.kmarket.service.product.ProductCartService;
 
 @WebServlet("/product/delete.do")
@@ -29,18 +28,34 @@ public class ProductDeleteController extends HttpServlet {
 
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-				String uid =req.getParameter("uid");
 				
-				List<ProductCartDTO> list = service.selectCarts(uid);
-				req.setAttribute("list", list);
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/product/cart.jsp");
-				dispatcher.forward(req, resp);	
+				String cartNo[]=req.getParameterValues("cartNo");
+				
+				logger.info("cartNo :" + cartNo);
+				
+				int result=0;
+				
+				for(String cartNos : cartNo){
+					result=service.deleteCart(cartNos);
+					if(result==0) {
+						break;
+					}
+				}
+				
+				JsonObject json = new JsonObject();
+
+				json.addProperty("result", result );
+
+				
+				// Json 출력
+				PrintWriter writer = resp.getWriter();
+				writer.print(json.toString());
+			
 			}
 			
-			@Override
-			protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-				
+		@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			
 
 		
 			
