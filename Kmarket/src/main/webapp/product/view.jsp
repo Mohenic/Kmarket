@@ -55,10 +55,81 @@ $(function(){
 
 
 </script>
-    
+<script>
+	//상품 리뷰로 스크롤 이동    
+    document.querySelector('a[href="#productReviews"]').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const productReviewsSection = document.getElementById('productReviews');
+        if (productReviewsSection) {
+            productReviewsSection.scrollIntoView({ behavior: 'smooth' }); // 부드럽게 스크롤합니다.
+        }
+    });
+</script>
+<!-- 상품 개수 지정 구현중
+<script>
+    // 초기 상품 가격, 할인 및 배송비 가져오기
+    const initialPrice = ${view.price};
+    const initialDiscount = ${view.discount};
+    const initialDelivery = ${view.delivery};
+
+    // 현재 수량 변수 초기화
+    let currentQuantity = 1;
+
+    // 수량을 감소시키는 함수
+    function decreaseValue() {
+        if (currentQuantity > 1) {
+            currentQuantity--;
+            updateQuantityAndTotal();
+        }
+    }
+
+    // 수량을 증가시키는 함수
+    function increaseValue() {
+        currentQuantity++;
+        updateQuantityAndTotal();
+    }
+
+    // 수량과 총 상품금액 업데이트 함수
+    function updateQuantityAndTotal() {
+        const numInput = document.getElementById("num");
+        numInput.value = currentQuantity;
+
+        // 현재 수량을 기반으로 총 상품금액을 계산
+        const total = getTotalPrice(currentQuantity, initialPrice, initialDiscount, initialDelivery);
+
+        // 총 상품금액 업데이트
+        const totalElement = document.querySelector(".total span");
+        totalElement.textContent = total;
+    }
+
+    // 총 상품금액 계산 함수
+    function getTotalPrice(quantity, price, discount, delivery) {
+        // 할인된 가격 계산
+        const discountedPrice = price - (price * discount / 100);
+        
+        // 총 상품금액 계산 (가격 * 수량 + 배송비)
+        const totalPrice = (discountedPrice * quantity) + delivery;
+
+        return totalPrice;
+    }
+
+    // 초기화
+    updateQuantityAndTotal();
+</script>
+ -->
+
+<script>
+	//상단 이동 버튼
+	$(document).ready(function(){
+	    $("#top").click(function(){
+	        $("html, body").animate({scrollTop: 0}, "fast");
+	    });
+	});
+</script>
     <main id="product">
     	<%@ include file="./category.jsp" %>   
-        <section class="list">
+        <section class="view">
             <nav>
                 <h1>상품보기</h1>
                 <p>HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong></p>
@@ -78,41 +149,65 @@ $(function(){
                         <h2>상품번호&nbsp;:&nbsp;<span>${view.prodNo}</span></h2>
                     </nav>                        
                     <nav>
-                        <h3>${view.prodName}</h3>
+                        <h3>${view.prodName}</h3>	
                         <p>${view.descript}</p>
-                        <h5 class="rating star4"><a href="#">상품평보기</a></h5>
+                        <h5 class="rating star${view.score}"><a href="#productReviews">상품평보기</a></h5>
                     </nav>
                     <nav>
+                        <c:if test="${view.discount != 0}">
                         <div class="org_price">
                             <del>${view.price}</del>
                             <span>${view.discount}%</span>
                         </div>
+                        </c:if>
                         <div class="dis_price">
-                            <ins>${view.price}</ins>
+                        	<ins>${view.getDiscount(view.price,view.discount)}</ins>
                         </div>
                     </nav>
                     <nav>
-                        <span class="delivery">배송비${view.delivery}원</span>
-                        <span class="arrival">모레(금) 7/8 도착예정</span>
+                        <span class="delivery">
+                            <c:choose>
+						        <c:when test="${view.delivery == 0}">
+						            배송비 무료
+						        </c:when>
+						        <c:otherwise>
+						            배송비 ${view.delivery}원
+						        </c:otherwise>
+					    	</c:choose>
+                        </span>
+                        
+                        <span class="arrival" id="arrivalDate"> 도착예정</span>
+						<script>
+						    const dt = new Date();
+						    dt.setDate(dt.getDate() + 3);
+						    const year = dt.getFullYear().toString().substr(2, 4);
+						    const month = dt.getMonth() + 1;
+						    const date = dt.getDate();
+						    const dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"][dt.getDay()];
+						    const arrivalDateElement = document.getElementById("arrivalDate");
+						    arrivalDateElement.innerHTML ="모레(" + dayOfWeek + ") " + month + "/" + date + " 도착예정";
+						</script>
+						
                         <span class="desc">본 상품은 국내배송만 가능합니다.</span>
                     </nav>
                     <nav>
+                    <!-- 이미지 파일 없음, 다운로드 예정 -->
                         <span class="card cardfree"><i>아이콘</i>무이자할부</span>&nbsp;&nbsp;
                         <span class="card cardadd"><i>아이콘</i>카드추가혜택</span>
                     </nav>
                     <nav>
-                        <span class="origin">원산지-${view.origin}</span>
+                        <span class="origin">원산지 - ${view.origin}</span>
                     </nav>
                     <img src="./images/vip_plcc_banner.png" alt="100원만 결제해도 1만원 적립!" class="banner" />
                     
                     <div class="count">
-                        <button class="decrease">-</button>
-                        <input type="number" name="num" value="1" readonly/>
-                        <button class="increase">+</button>
+                        <button class="decrease" onclick="decreaseValue()">-</button>
+						<input type="number" id="num" name="num" value="1" readonly/>
+						<button class="increase" onclick="increaseValue()">+</button>
                     </div>
                     
                     <div class="total">
-                        <span>35,000</span>
+                        <span>${view.getTotal(view.price,view.discount,view.delivery)}</span>
                         <em>총 상품금액</em>
                     </div>
 
@@ -226,7 +321,7 @@ $(function(){
                 </p>
             </article>
             <!-- 상품 리뷰 내용 -->
-            <article class="review">
+            <article class="review" id="productReviews">
                 <nav>
                     <h1>상품리뷰</h1>
                 </nav>

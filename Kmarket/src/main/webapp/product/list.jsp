@@ -55,10 +55,12 @@
                         </td>
                         <td>
                             <ul>
-                                <li><ins class="dis-price">${prod.price}</ins></li>
+                                <li><ins class="dis-price">${prod.getDiscount(prod.price,prod.discount)}</ins></li>
+                            	<c:if test="${prod.discount != 0}">
                                 <li>
                                     <del class="org-price">${prod.price}</del>
                                     <span class="discount">${prod.discount}%</span>
+                                </c:if>
                                 </li>
                                 <li><span class="free-delivery">${prod.delivery}</span></li>
                             </ul>
