@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/admin/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
+    <script src="/admin/js/aside.js"></script>
+
+</head>
+<style>
+#admin-cs-notice-list >  section > div > select {
+    width: 150px;
+    padding: 6px;
+    border: 1px solid #959595;
+    font-size: 13px;
+    background-color: #fefefe;
+    color: #333;
+    box-sizing: border-box;
+}
+
+#admin-cs-notice-list > section > div > input {
+    width: 200px;
+    padding: 7px;
+    border: 1px solid rgb(149, 149, 149);
+    font-size: 13px;
+    background-color: rgb(254, 254, 254);
+    color: rgb(51, 51, 51);
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+#admin-cs-notice-list > section > table tr > th {
+    padding: 10px 0;
+    background: #f6f6f6;
+    border-top: 2px solid rgb(135, 152, 163);
+}
+
+
+main table tr > td:nth-child(1) {
+    width: 20px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    background: #f6f6f6;
+    padding: 10px;
+    text-align: left;
+}
+
+main table tr > td {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px;
+    text-align: left;
+}
+
+
+
+#admin-cs-notice-list > section > table tr > td {
+    background: rgb(255, 255, 255);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#admin-cs-notice-list > section > table tr > td:nth-child(1) {width: 20px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(2) {width: 100px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(3) {width: 120px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(4) {width: auto;text-align: left;}
+#admin-cs-notice-list > section > table tr > td:nth-child(5) {width: 100px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(6) {width: 100px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(7) {width: 100px;}
+
+#admin-cs-notice-list > section > table img.thumb {
+    width: 60px
+}
+
+#admin-cs-notice-list > section > table tr > td {
+    text-align: center;
+}
+
+#admin-cs-notice-list > section input[type=button] {
+    width: 100px;
+    margin-top: 10px;
+    padding: 6px;
+    border: 1px solid #959595;
+    font-size: 13px;
+    background-color: #fefefe;
+    color: #333;
+}
+
+#admin-cs-notice-list .paging > .num > a {
+    display: inline-block;
+    min-width: 14px;
+    margin: 0 2px;
+    padding: 8px 9px;
+    border: 1px solid #c4c4c4;
+    color: #000;
+    font-family: Tahoma;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#admin-cs-notice-list .paging {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+}
+
+#admin-cs-notice-list .paging > span > a {
+    color: rgb(119, 119, 119);
+    font-family: 돋움, Dotum, Tahoma, sans-serif;
+    font-size: 11px;
+    letter-spacing: -1px;
+}
+
+.btnDelete {
+            display: inline-block;
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(191, 191, 191);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+.btnWrite {
+            display: inline-block;
+            float: right;
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(142, 180, 227);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        
+
+</style>
+<body>
+    <div id="admin-container">
+        <header>
+            <div>
+                <a href="/Kmarket/admin/index.do" class="logo">
+                    <img src="/Kmarket/admin/images/admin_logo.png" alt="admin_logo">
+                </a> 
+                <p>
+                    <span>${sessUser.manager}님 반갑습니다.</span>
+                    <a href="/Kmarket/index.do">HOME |</a>
+                    <a href="/Kmarket/member/logout.do">로그아웃 |</a>
+                    <a href="/Kmarket/cs/index.do">고객센터</a>
+                </p>
+            </div>
+        </header>
+        <main>
+            <aside>
+                <ul id="gnb">
+                    <li>
+                        <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>환경설정</a>
+                        <ol style="display: none;">
+                            <li><a href="/Kmarket/admin/config/info.do">기본환경정보</a></li>
+                            <li><a href="/Kmarket/admin/config/banner.do">배너관리</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-store" aria-hidden="true"></i>상점관리</a>
+                        <ol style="display: none;">
+                            <li><a href="#">판매자현황</a></li>
+                            <li><a href="#">재고관리</a></li>
+                        </ol>
+                    </li>
+                  
+                    <li>
+                        <a href="#"><i class="fa fa-users" aria-hidden="true"></i>회원관리</a>
+                        <ol style="display: none;">
+                            <li><a href="#">회원현황</a></li>
+                            <li><a href="#">포인트관리</a></li>
+                            <li><a href="#">비회원관리</a></li>
+                            <li><a href="#">접속자관리</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-box-open" aria-hidden="true"></i>상품관리</a>
+                        <ol style="display: none;">
+                            <li><a href="/Kmarket/admin/product/list.do">상품현황</a></li>
+                            <li><a href="/Kmarket/admin/product/register.do">상품등록</a></li>
+                            <li><a href="#">재고관리</a></li>
+                        </ol>
+                    </li>
+                 
+                    <li>
+                        <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>주문관리</a>
+                        <ol style="display: none;">
+                            <li><a href="#">주문현황</a></li>
+                            <li><a href="#">매출현황</a></li>
+                            <li><a href="#">결제관리</a></li>
+                            <li><a href="#">배송관리</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>게시판관리</a>
+                        <ol style="display: none;">
+                            <li><a href="#">게시판현황</a></li>
+                            <li><a href="#">고객문의</a></li>
+                        </ol>
+                    </li>
+                </ul>
+            </aside>
+        <section id="admin-cs-notice-list">
+            <nav>
+                <h3>공지사항 목록</h3>
+                <p>
+                    HOME &gt; 고객센터 &gt; <strong>공지사항</strong>
+                </p>
+            </nav>
+            <section>
+                <div>
+                    <select name="">
+                        <option value="">유형선택</option>
+                        <option value="">고객서비스</option>
+                        <option value="">이벤트당첨</option>
+                        <option value="">안전거래</option>                                    
+                    </select>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th><input type="checkbox" name="all"></th>
+                            <th>번호</th>
+                            <th>유형</th>
+                            <th>제목</th>
+                            <th>조회</th>
+                            <th>날짜</th>
+                            <th>관리</th>
+                        </tr>
+                        <tr>
+                            <td class="chk"><input type="checkbox"></td>
+                            <td class="no">1</td>
+                            <td class="type">고객서비스</td>
+                            <td class="title">[안내] 해외결제 사칭 문자 주의</td>
+                            <td class="hit">1</td>
+                            <td class="rdate">2023.09.19</td>
+                            <td>
+                                <a href="#">[삭제]</a>
+                                <a href="#">[수정]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="chk"><input type="checkbox"></td>
+                            <td class="no">2</td>
+                            <td class="type">안전결제</td>
+                            <td class="title">[안내] 해외결제 사칭 문자 주의</td>
+                            <td class="hit">12</td>
+                            <td class="rdate">2023.09.19</td>
+                            <td>
+                                <a href="#">[삭제]</a>
+                                <a href="#">[수정]</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#" class="btnDelete">선택삭제</a>
+                <a href="#" class="btnWrite">작성하기</a>
+                <div class="paging">
+                    <span class="prev">
+                        <a href="#">&lt;&nbsp;이전</a>
+                    </span>
+                    <span class="num">
+                        <a href="#" class="on">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                    </span>
+                    <span class="next">
+                        <a href="#">다음&nbsp;&gt;</a>
+                    </span>
+                </div>
+            </section> <!--table end-->
+        </section><!--admin-product-list end-->
+    </main>
+     <footer>
+            <div>
+                <p>Copyright ©kmarket.co.kr All rights reserved. KMARKET ADMINISTRATOR Version 5.4.1.2</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

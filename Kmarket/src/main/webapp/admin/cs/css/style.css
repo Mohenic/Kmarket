@@ -1,0 +1,167 @@
+
+/* notice list */
+
+#admin-cs-notice-list >  section > div > select {
+    width: 150px;
+    padding: 6px;
+    border: 1px solid #959595;
+    font-size: 13px;
+    background-color: #fefefe;
+    color: #333;
+    box-sizing: border-box;
+}
+
+#admin-cs-notice-list > section > div > input {
+    width: 200px;
+    padding: 7px;
+    border: 1px solid rgb(149, 149, 149);
+    font-size: 13px;
+    background-color: rgb(254, 254, 254);
+    color: rgb(51, 51, 51);
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+#admin-cs-notice-list > section > table tr > th {
+    padding: 10px 0;
+    background: #f6f6f6;
+    border-top: 2px solid rgb(135, 152, 163);
+}
+
+
+main table tr > td:nth-child(1) {
+    width: 20px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    background: #f6f6f6;
+    padding: 10px;
+    text-align: left;
+}
+
+main table tr > td {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px;
+    text-align: left;
+}
+
+
+
+#admin-cs-notice-list > section > table tr > td {
+    background: rgb(255, 255, 255);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#admin-cs-notice-list > section > table tr > td:nth-child(1) {width: 20px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(2) {width: 100px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(3) {width: 120px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(4) {width: auto;text-align: left;}
+#admin-cs-notice-list > section > table tr > td:nth-child(5) {width: 100px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(6) {width: 100px;}
+#admin-cs-notice-list > section > table tr > td:nth-child(7) {width: 100px;}
+
+#admin-cs-notice-list > section > table img.thumb {
+    width: 60px
+}
+
+#admin-cs-notice-list > section > table tr > td {
+    text-align: center;
+}
+
+#admin-cs-notice-list > section input[type=button] {
+    width: 100px;
+    margin-top: 10px;
+    padding: 6px;
+    border: 1px solid #959595;
+    font-size: 13px;
+    background-color: #fefefe;
+    color: #333;
+}
+
+#admin-cs-notice-list .paging > .num > a {
+    display: inline-block;
+    min-width: 14px;
+    margin: 0 2px;
+    padding: 8px 9px;
+    border: 1px solid #c4c4c4;
+    color: #000;
+    font-family: Tahoma;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* paging */
+
+#admin-notice-list .paging {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+}
+
+#admin-notice-list .paging > span > a {
+    color: rgb(119, 119, 119);
+    font-family: 돋움, Dotum, Tahoma, sans-serif;
+    font-size: 11px;
+    letter-spacing: -1px;
+}
+
+#admin-cs-notice-list .paging {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+}
+
+#admin-cs-notice-list .paging > span > a {
+    color: rgb(119, 119, 119);
+    font-family: 돋움, Dotum, Tahoma, sans-serif;
+    font-size: 11px;
+    letter-spacing: -1px;
+}
+
+#admin-notice-list .paging > .num > a.on {
+    color: #fe434c;
+    font-weight: bold;
+}
+
+#admin-notice-list .paging > .num > a:hover {
+    border: 1px solid #454c5f;
+    text-decoration: none;
+}
+
+/* notice list button */
+
+.btnDelete {
+            display: inline-block;
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(191, 191, 191);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+.btnWrite {
+            display: inline-block;
+            float: right;
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(142, 180, 227);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+/* notice view */
+
+

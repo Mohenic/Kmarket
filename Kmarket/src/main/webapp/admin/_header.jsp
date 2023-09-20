@@ -14,9 +14,11 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/Kmarket/admin/css/style.css">
+    <link rel="stylesheet" href="/Kmarket/admin/cs/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
     <script src="/Kmarket/admin/js/aside.js"></script>
+    <script src="/Kmarket/admin/cs/js/listEachCate.js"></script>
 
 </head>
 <body>
