@@ -84,16 +84,23 @@
     	
     	
     	})
+
     	
-/*	$(function(){
+	$(function(){
 		$('#del').click(function(e){
 			e.preventDefault();
 			
-			const cartNo =$('input[name=chk]').val();
+			var cartNo =[];
+			
+			$('input[name=chk]:checked').each(function(i){//체크된 리스트 저장
+				cartNo.push($(this).val());
+				console.log($(this).val());
+            });
+			
+			console.log(cartNo)
 			
 			const jsonData = {
 					"cartNo": cartNo
-					
 				};
 				console.log(jsonData);
 				
@@ -102,20 +109,27 @@
 					type:'GET',
 					data: jsonData,
 					dataType:'json',
+					 traditional: true, //배열로 넘길때에는 반드시 이값을 줘야함
 					success:function(data){
-						if(data.result >= 1){
-							alter('장바구니에서 삭제했습니다');
+						if(data.result >=1){
+							alert("장바구니에서 삭제했습니다")
+							location.reload(true);//새로고침
 						}else{
-							alter('장바구니에서 삭제 실패했습니다.')
+							alert("통신오류")
 						}
+					
+					},
+					error:function(request,error){
+						alert("통신오류")
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 					}
 				});
 			
 		})
 		
-	})*/
+	})
     	
-    	
+
     	
     	
     </script>
@@ -126,7 +140,7 @@
                     HOME > <span>패션·의류·뷰티</span> > <strong>장바구니</strong>
                 </p>
                 </nav>
-                <form action="/Kmarket/product/order.do" method="post">
+                <form action="/Kmarket/product/order.do" id="formOrder" method="get">
                 <!-- 장바구니 목록 -->
                 <table>
                     <thead>
@@ -152,9 +166,9 @@
 		              <td><input type="checkbox" name="chk" value="${list1.cartNo}"></td>
 		              <td>
 		                <article>
-		                  <a href="/Kmartek/product/list.do"><img src="https://via.placeholder.com/120x120" alt=""></a>
+		                  <a href="/Kmartek/product/list.do"><img src="/Kmarket/thumb/${list1.prodCate1}/${list1.prodCate2}/${lsit1.thumb1}" alt="상품 썸네일 1"></a>
 		                  <div>
-		                    <h2><a href="/Kmartek/product/list.do"></a></h2>
+		                    <h2><a href="/Kmartek/product/list.do"></a>${list1.prodName }</h2>
 		                    <p>${list1.descript}</p>
 		                  </div>
 		                </article>
@@ -166,6 +180,8 @@
 		              <td class="point">${list1.point}</td>
 		              <td class="delivery">${list1.delivery}</td>
 		              <td class="total">${list1.total}</td>
+					<input type="hidden" name="type" value="cart"/>
+					<input type="hidden" name="uid" value="${list1.uid}"/>
 		            </tr>
 		          	</c:forEach>
                     </tbody>

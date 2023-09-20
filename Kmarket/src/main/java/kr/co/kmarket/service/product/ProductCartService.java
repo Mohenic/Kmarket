@@ -27,7 +27,7 @@ import kr.co.kmarket.dto.product.ProductCartDTO;
 		dao.updateCart(dto);
 	}
 	
-	public void deleteCart(String cartNo) {
-		dao.deleteCart(cartNo);
+	public int deleteCart(String cartNo) {
+		return dao.deleteCart(cartNo);
 	}
 }

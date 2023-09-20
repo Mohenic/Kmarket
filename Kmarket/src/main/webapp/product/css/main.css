@@ -641,7 +641,14 @@ main > section {
     border: 1px solid #999;
     box-sizing: border-box;
 }
-.order > form > .delivery > table input[type=button] {
+.order > form button {
+    color: #555;
+    padding: 2px 0;
+    border: 1px solid #999;
+    box-sizing: border-box;
+}
+
+.order > form > .delivery > table button[type=button] {
     padding: 4px 6px;
     border: 1px solid #ccc;
     background-color: #F0F4F9;

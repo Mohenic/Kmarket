@@ -8,7 +8,104 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="/Kmarket/product/JS/zipcode.js"></script>
+    
 </head>
+<script>
+	$(function(){
+		let countRe=0;
+		let deliveryRe=0;
+		let priceRe=0;
+		let totalRe=0;
+		let discountRe=0;
+		
+		let count = $(".count").map(function() {
+			  return $(this).text();
+			}).get();
+			console.log(count);
+		
+		let price = $(".price").map(function() {
+			  return $(this).text();
+			}).get();
+			console.log(price);
+
+
+		$.each(count,function(index,value){
+			countRe +=parseInt(value,10);
+		})
+		$.each(price,function(index,value){
+			priceRe +=parseInt(value,10);
+		})
+
+
+
+		console.log(countRe);
+		$('.countRe').text(countRe+"건");
+		$('.priceRe').text(priceRe+"원");
+		$('.priceRe1').text(priceRe);
+
+	
+		let seller = $(".seller").map(function() {
+			return $(this).text();
+			  if(!seller.include($(this).text())){
+				  
+			  }
+			}).get();
+		console.log(seller)
+		
+		let delivery = $(".delivery1").map(function() {
+
+			return $(this).text();
+			}).get();
+			console.log(delivery);
+		
+		$.each(delivery,function(index,value){
+				deliveryRe +=parseInt(value,10);
+		})
+			
+		$('.deliveryRe').text(deliveryRe+"원");
+		
+		let discount = $(".discount1").map(function() {
+
+			return $(this).text();
+			}).get();
+			console.log(discount);
+		
+		$.each(discount,function(index,value){
+				discountRe +=parseInt(value,10);
+		})
+			
+		$('.discountRe').text("-"+discountRe+"원");
+		
+		var total = priceRe+deliveryRe-discountRe
+		$('.totalRe').text(total+"원")
+		
+	
+		$('input[name=select]').click(function(e){
+			e.preventDefault();
+			
+			var point = $('input[name=point]').val();
+			console.log(point)
+			$('.point').text("-"+point+"원");
+			var total = priceRe+deliveryRe-discountRe-point
+			$('.totalRe').text(total+"원")
+		})
+		
+		
+	})
+	
+	$(function(){
+
+		
+		
+		
+	})
+		
+	
+	
+	
+</script>
 <body>
     <div id="container">
         <main id="product">
@@ -22,7 +119,7 @@
                     HOME > 장바구니 > <strong>주문결제</strong>
                 </p>
                 </nav>
-                <form action="#">
+                <form action="/Kmarket/product/order.do" method="post">
                 <!-- 주문 상품 목록 -->                  
                 <table>
                     <thead>
@@ -35,83 +132,66 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="empty">
-                        <td colspan="7">장바구니에 상품이 없습니다.</td>
-                    </tr>
+                    <c:if test="${type eq 'cart'}">
+                    <c:forEach var="carts" items="${list}">
                     <tr>
                         <td>
                         <article>
-                            <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
+                            <a href="#"><img src="/Kmarket/thumb/${carts.prodCate1}/${carts.prodCate2}/${carts.thumb1}" alt=""></a>
                             <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                            </div>
+			                    <h2><a href="/Kmartek/product/list.do"></a>${carts.prodName }</h2>
+			                    <p>${carts.descript}</p>
+		                  </div>
                         </article>
                         </td>
-                        <td>1</td>
-                        <td>27,000</td>
-                        <td>무료배송</td>
-                        <td>27,000</td>
+                        <td class="hidden count">1</td>
+                        <td class="hidden seller">${carts.seller}</td>
+                        <td >${carts.count }</td>
+                        <td class="price">${carts.price }</td>
+                        <td class="delivery1">${carts.delivery }</td>
+                        <td class="total">${carts.total }</td>
+                        <td class="hidden discount1">${carts.getDiscountPrice2(carts.price,carts.discount) }</td>
+
                     </tr>
-                    <tr>
-                        <td>
-                        <article>
-                            <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
-                            <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                            </div>
-                        </article>
-                        </td>
-                        <td>1</td>
-                        <td>27,000</td>
-                        <td>무료배송</td>
-                        <td>27,000</td>
-                    </tr>
-                    <tr>
-                        <td>
-                        <article>
-                            <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
-                            <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                            </div>
-                        </article>
-                        </td>
-                        <td>1</td>
-                        <td>27,000</td>
-                        <td>무료배송</td>
-                        <td>27,000</td>
-                    </tr>                    
+                    </c:forEach>
+                    </c:if>
                     </tbody>
                 </table>                 
                 <!-- 최종 결제 정보 -->
                 <div class="final">
                     <h2>최종결제 정보</h2>
                     <table border="0">
+                    <input type="hidden" name="price" class="priceRe1"/>
+                    <input type="hidden" name="discount" class="priceRe1"/>
+                    <input type="hidden" name="delivery" class="priceRe1"/>
+                    <input type="hidden" name="point" class="priceRe1"/>
+                    <input type="hidden" name="total" class="priceRe1"/>
+                    <input type="hidden" name="price" class="priceRe1"/>
                     <tr>
                         <td>총</td>
-                        <td>2 건</td>
+                        <td class="countRe"></td>
+                       	
                     </tr>
                     <tr>
                         <td>상품금액</td>
-                        <td>27,000</td>
+                        <td class="priceRe">27,000</td>
+                        
                     </tr>
                     <tr>
                         <td>할인금액</td>
-                        <td>-1,000</td>
+                        <td class="discountRe">-1,000</td>
                     </tr>
                     <tr>
                         <td>배송비</td>
-                        <td>0</td>
+                        <td class="deliveryRe">0</td>
                     </tr>
                     <tr>
                         <td>포인트 할인</td>
-                        <td>-1000</td>
+                        <td class="point">0원</td>
                     </tr>
                     <tr>
                         <td>전체주문금액</td>
-                        <td>25,000</td>
+                        <td class="totalRe">25,000</td>
                     </tr>                            
                     </table>
                     <input type="button" name="" value="결제하기">              
@@ -123,32 +203,33 @@
                     <table>
                     <tr>
                         <td>주문자</td>
-                        <td><input type="text" name="orderer" /></td>
+                        <td><input type="text" name="orderer" value="${sessUser.name }" /></td>
                     </tr>
                     <tr>
                         <td>휴대폰</td>
                         <td>
-                        <input type="text" name="hp" />
+                        <input type="text" name="hp" value="${sessUser.hp }" />
                         <span>- 포함 입력</span>
                         </td>
                     </tr>
                     <tr>
                         <td>우편번호</td>
                         <td>
-                        <input type="text" name="zip"/>
-                        <input type="button" value="검색"/>
+                        <input type="text" name="zip" value="${sessUser.zip }"/>
+                        
+                        <button type="button" class="btnZip" onclick="zipcode()">검색</button>
                         </td>
                     </tr>
                     <tr>
                         <td>기본주소</td>
                         <td>
-                        <input type="text" name="addr1"/>
+                        <input type="text" name="addr1" value="${sessUser.addr1 }"/>
                         </td>
                     </tr>
                     <tr>
                         <td>상세주소</td>
                         <td>
-                        <input type="text" name="addr2"/>
+                        <input type="text" name="addr2" value="${sessUser.addr2 }"/>
                         </td>
                     </tr>
                     </table>
@@ -157,10 +238,10 @@
                 <article class="discount">
                     <h1>할인정보</h1>
                     <div>
-                    <p>현재 포인트 : <span>7200</span>점</p>
+                    <p>현재 포인트 : <span>${sessUser.point}</span>점</p>
                     <label>
-                        <input type="text" name="point" />점
-                        <input type="button" value="적용"/>
+                        <input type="text" name="point"/>점
+                        <input type="button" name="select" value="적용"/>
                     </label>
                     <span>포인트 5,000점 이상이면 현금처럼 사용 가능합니다.</span>
                     </div>
@@ -193,6 +274,7 @@
                         </p>
                     </div>
                 </article>
+           
                 <!-- 경고 -->
                 <article class="alert">
                     <ul>
