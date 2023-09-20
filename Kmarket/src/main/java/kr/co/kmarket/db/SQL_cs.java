@@ -47,7 +47,7 @@ public class SQL_cs {
 													+ "FROM `km_article` AS a "
 													+ "JOIN `km_article_type` AS b  "
 													+ "ON a.cate = b.cate  AND a.`type` = b.`type` "
-													+ "WHERE `group` = ? AND a.`cate` = ?"
+													+ "WHERE `group` = ? AND a.`cate` = ? "
 													+ "ORDER BY `no` DESC "
 													+ "LIMIT ?,10 ";
 	
