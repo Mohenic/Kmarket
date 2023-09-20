@@ -15,10 +15,11 @@
 <script>
 	$(function(){
 		let countRe=0;
-		let deliveryRe=0;
+		let deliveryRe=${delivery};
 		let priceRe=0;
 		let totalRe=0;
 		let discountRe=0;
+		let pointRe2=0;
 		
 		let count = $(".count").map(function() {
 			  return $(this).text();
@@ -29,6 +30,15 @@
 			  return $(this).text();
 			}).get();
 			console.log(price);
+			
+		let addpoint = $(".addpoint").map(function() {
+			  return $(this).text();
+			}).get();
+			console.log(addpoint)			
+
+		$.each(addpoint,function(index,value){
+			pointRe2 +=parseInt(value,10);
+		})
 
 
 		$.each(count,function(index,value){
@@ -44,27 +54,8 @@
 		$('.countRe').text(countRe+"건");
 		$('.priceRe').text(priceRe+"원");
 		$('.priceRe1').text(priceRe);
-
-	
-		let seller = $(".seller").map(function() {
-			return $(this).text();
-			  if(!seller.include($(this).text())){
-				  
-			  }
-			}).get();
-		console.log(seller)
-		
-		let delivery = $(".delivery1").map(function() {
-
-			return $(this).text();
-			}).get();
-			console.log(delivery);
-		
-		$.each(delivery,function(index,value){
-				deliveryRe +=parseInt(value,10);
-		})
-			
-		$('.deliveryRe').text(deliveryRe+"원");
+		$('.priceRe2').text(priceRe);
+		$('.pointRe2').text(pointRe2);
 		
 		let discount = $(".discount1").map(function() {
 
@@ -85,9 +76,10 @@
 		$('input[name=select]').click(function(e){
 			e.preventDefault();
 			
-			var point = $('input[name=point]').val();
+			var point =$('input[name=point]').val();
 			console.log(point)
 			$('.point').text("-"+point+"원");
+			$('.point2').val(point);
 			var total = priceRe+deliveryRe-discountRe-point
 			$('.totalRe').text(total+"원")
 		})
@@ -144,6 +136,7 @@
 		                  </div>
                         </article>
                         </td>
+                        <td class="hidden addpoint">${carts.point }</td>
                         <td class="hidden count">1</td>
                         <td class="hidden seller">${carts.seller}</td>
                         <td >${carts.count }</td>
@@ -161,12 +154,14 @@
                 <div class="final">
                     <h2>최종결제 정보</h2>
                     <table border="0">
-                    <input type="hidden" name="price" class="priceRe1"/>
-                    <input type="hidden" name="discount" class="priceRe1"/>
-                    <input type="hidden" name="delivery" class="priceRe1"/>
-                    <input type="hidden" name="point" class="priceRe1"/>
-                    <input type="hidden" name="total" class="priceRe1"/>
-                    <input type="hidden" name="price" class="priceRe1"/>
+                    <input type="hidden" name="losepoint" class="point2"/>
+                    <input type="hidden" name="addpoint" class="pointRe2"/>
+                    <input type="hidden" name="count" class="countRe"/>
+                    <input type="hidden" name="uid" value="${sessUser.uid}"/>
+                    <input type="hidden" name="price" class="priceRe2"/>
+                    <input type="hidden" name="discount" class="discountRe"/>
+                    <input type="hidden" name="delivery" class="deliveryRe"/>                  
+                    <input type="hidden" name="total" class="totalRe"/>
                     <tr>
                         <td>총</td>
                         <td class="countRe"></td>
@@ -183,7 +178,7 @@
                     </tr>
                     <tr>
                         <td>배송비</td>
-                        <td class="deliveryRe">0</td>
+                        <td class="deliveryRe">${delivery }</td>
                     </tr>
                     <tr>
                         <td>포인트 할인</td>

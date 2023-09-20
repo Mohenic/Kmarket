@@ -41,7 +41,7 @@
 	    				
 	    				itemCount += parseInt(tr.find('.count').text());
 	    				itemPrice += parseInt(tr.find('.price').text());
-	    				itemDiscount += parseInt(tr.find('.price').text())-(parseInt(tr.find('.price').text())*(parseInt(tr.find('.discount').text())*0.01));
+	    				itemDiscount += parseInt(parseInt(tr.find('.price').text())*(parseInt(tr.find('.discount').text())*0.01));
 	    				
 	    				if(!seller.includes(tr.find('.seller').text())){
 	    					seller.push(tr.find('.seller').text());
@@ -74,6 +74,7 @@
     			$('.itemPrice').text(itemPrice);
     			$('.itemDiscount').text(itemDiscount);
     			$('.itemDelivery').text(itemDelivery);
+    			$('.itemDelivery2').val(itemDelivery);
     			$('.itemPoint').text(itemPoint);
     			$('.itemTotal').text(itemTotal);
     			$('.itemseller').text(seller);
@@ -182,6 +183,7 @@
 		              <td class="total">${list1.total}</td>
 					<input type="hidden" name="type" value="cart"/>
 					<input type="hidden" name="uid" value="${list1.uid}"/>
+					<input type="hidden" name="cartNo" value="${list1.cartNo}"/>
 		            </tr>
 		          	</c:forEach>
                     </tbody>
@@ -220,6 +222,7 @@
 				            <td class="itemTotal">선택된 상품이 없습니다</td>
 				        </tr>
 				    </table>
+				    <input type="hidden" name="delivery" class="itemDelivery2"/>
 				    <input type="submit" name="btnOrder" value="주문하기">    
 				</div>
                 </form>

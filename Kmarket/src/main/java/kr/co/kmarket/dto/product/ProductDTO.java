@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ArticleDTO {
+public class ProductDTO {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 

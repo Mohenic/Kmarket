@@ -29,11 +29,13 @@ public class ProductOrderController extends HttpServlet {
 
 				String uid = req.getParameter("uid");
 				String type = req.getParameter("type");
+				String delivery =req.getParameter("delivery");
 				
 				if(type.equals("cart")) {
 					List<ProductCartDTO> list = service2.selectCarts(uid);
 					req.setAttribute("list", list);
 					req.setAttribute("type", type);
+					req.setAttribute("delivery", delivery);
 					
 					RequestDispatcher dispatcher = req.getRequestDispatcher("/product/order.jsp");
 					dispatcher.forward(req, resp);	
