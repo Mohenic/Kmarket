@@ -12,18 +12,18 @@
                         <h2>공지사항</h2>
                         <ul>
                         <c:if test="${group eq 'notice'}">
-                            <li class="${cate eq 'noticeAll' ? 'on':'off'}"><a href="/Kmarket/cs/${group}/list.do?group=${group}&cate=noticeAll">전체</a></li>
+                            <li class="${cate eq '0' ? 'on':'off'}"><a href="/Kmarket/cs/${group}/list.do?group=${group}&cate=0">전체</a></li>
                             <li class="${cate eq 'service' ? 'on':'off'}"><a href="/Kmarket/cs/${group}/list.do?group=${group}&cate=service">고객서비스</a></li>
                             <li class="${cate eq 'safe'    ? 'on':'off'}"><a href="/Kmarket/cs/${group}/list.do?group=${group}&cate=safe">안전거래</a></li>
-                            <li class="${cate eq 'product' ? 'on':'off'}"><a href="/Kmarket/cs/${group}/list.do?group=${group}&cate=product">위해상품</a></li>
-                            <li class="${cate eq 'event'   ? 'on':'off'}"><a href="/Kmarket/cs/${group}/list.do?group=${group}&cate=event">이벤트당첨</a></li>
+                            <li class="${cate eq 'product' ? 'on':'off'}"><a href="/Kmarket/cs/${group}/list.do?group=${group}&cate=danger">위해상품</a></li>
+                            <li class="${cate eq 'event'   ? 'on':'off'}"><a href="/Kmarket/cs/${group}/list.do?group=${group}&cate=jackpot">이벤트당첨</a></li>
                         </c:if>
                         </ul>
                     </aside>
                     
                   <article>
 	                    <nav>
-		                    <c:if test="${cate eq 'noticeAll'}">
+		                    <c:if test="${cate eq '0'}">
 		                            <h1>전체</h1>
 		                            <h2>공지사항 전체 내용입니다.</h2>
 		                    </c:if>

@@ -98,5 +98,9 @@ public class QnaListController extends HttpServlet {
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/qna/list.jsp");
 		dispatcher.forward(req, resp);
+		
+		
+	
+		
 	}
 }

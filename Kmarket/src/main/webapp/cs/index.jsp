@@ -8,7 +8,7 @@
                 <section class="notice">
                     <h1>
                         공지사항
-                        <a href="/Kmarket/cs/notice/list.do?group=notice&cate=noticeAll">전체보기</a>
+                        <a href="/Kmarket/cs/notice/list.do?group=notice&cate=0">전체보기</a>
                     </h1>
                     <ul>
                         <li>
