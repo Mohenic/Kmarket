@@ -354,4 +354,14 @@ public class ArticleDTO {
 		return df.format(getDiscountPrice(price, discount));
 	}
 	
+	public int getTotalprice(int price, int discount, int delivery) {
+		int Totalprice=0;
+		
+		return Totalprice=(int)(price-(price*(discount*0.01))+delivery);
+	}
+	public String getTotal(int price, int discount, int delivery) {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(getTotalprice(price, discount,delivery));
+	}
 }

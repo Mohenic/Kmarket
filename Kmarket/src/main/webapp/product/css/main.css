@@ -95,6 +95,7 @@ main > section {
 */
 #product > .list > table tr > td:nth-child(3) {
     width: 20%;
+    padding-left: 30px;
 }
 #product > .list > table .dis-price::after {
     content: "원";
@@ -208,9 +209,12 @@ main > section {
     background-repeat: no-repeat;
     text-indent: 86px;
 }
-#product h5.rating.star4 {
-    background-position: 0 -160px;
-}
+#product h5.rating.star1 {background-position: 0 -40px;}
+#product h5.rating.star2 {background-position: 0 -80px;}
+#product h5.rating.star3 {background-position: 0 -120px;}
+#product h5.rating.star4 {background-position: 0 -160px;}
+#product h5.rating.star5 {background-position: 0 -200px;}
+
 .summary .rating > a {
     color: #346aff;
     text-decoration: underline;
