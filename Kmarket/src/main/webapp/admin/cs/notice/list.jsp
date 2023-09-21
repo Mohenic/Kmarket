@@ -46,7 +46,7 @@
                     </tbody>
                 </table>
                 <a href="#" class="btnDelete">선택삭제</a>
-                <a href="#" class="btnWrite">작성하기</a>
+                <a href="/Kmarket/admin/cs/notice/write.do?group=notice" class="btnWrite">작성하기</a>
                 <div class="paging">
                 <c:if test="${pageGroupStart > 1}">
                     <span class="prev">

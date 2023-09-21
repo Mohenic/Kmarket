@@ -61,6 +61,9 @@ public class adminArticleDTO {
 	public void setType(int type) {
 		this.type = type;
 	}
+	public void setType(String type) {
+		this.type = Integer.parseInt(type);
+	}
 	public String getTitle() {
 		return title;
 	}

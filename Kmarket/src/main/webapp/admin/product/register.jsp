@@ -18,7 +18,7 @@
                 <article>
                         <!-- 상품분류 -->
 		                <form action="/Kmarket/admin/product/register.do" name="cateForm"method="post" enctype="multipart/form-data">
-		                <input type="text" name="seller" value="${sessUser.uid}">
+		                <input type="hidden" name="seller" value="${sessUser.uid}">
                         <section>
                             <h4>상품분류</h4>
                             <p>
