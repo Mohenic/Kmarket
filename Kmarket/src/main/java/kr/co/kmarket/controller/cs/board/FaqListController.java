@@ -58,7 +58,7 @@ public class FaqListController extends HttpServlet {
 		req.setAttribute("lists", lists);
 		req.setAttribute("articles", articles);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/board/faq/list.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/board/faqlist.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

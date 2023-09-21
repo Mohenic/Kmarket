@@ -8,12 +8,12 @@
                 <section class="notice">
                     <h1>
                         공지사항
-                        <a href="/Kmarket/cs/notice/list.do?group=notice&cate=0">전체보기</a>
+                        <a href="/Kmarket/cs/board/notice/list.do?group=notice&cate=0">전체보기</a>
                     </h1>
                     <ul>
                     <c:forEach var="noticeLate" items="${noticeLates}">
                         <li>
-                            <a href="#" class="title">${noticeLate.title}</a>
+                            <a href="/Kmarket/cs/board/view.do?group=notice&cate=${noticeLate.cate}&no=${noticeLate.no}" class="title">${noticeLate.title}</a>
                             <span class="date">${noticeLate.rdate}</span>
                         </li>
                     </c:forEach>
@@ -21,42 +21,42 @@
                 </section>
                 <section class="faq">
                     <h1>
-                        자주 묻는 질문
-                        <a href="/Kmarket/cs/faq/list.do?group=faq&cate=member">전체보기</a>
-                    </h1>
+                        자주 묻는 질문			
+                        <a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=member">전체보기</a>
+                    </h1>				
                     <ol>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=member">
+                            <a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=member">
                                 <span>회원</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=event">
+                            <a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=event">
                                 <span>쿠폰/이벤트</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=pay">
+                            <a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=pay">
                                 <span>주문/결제</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=delivery">
+                            <a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=delivery">
                                 <span>배송</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=cancel">
+                            <a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=cancel">
                                 <span>취소/반품/교환</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=travel">
+                            <a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=travel">
                                 <span>여행/숙박/항공</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/Kmarket/cs/faq/list.do?group=faq&cate=safe">
+                            <a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=safe">
                                 <span>안전거래</span>
                             </a>
                         </li>
@@ -64,13 +64,13 @@
                 </section>
                 <section class="qna">
                     <h1>
-                        문의하기
-                        <a href="/Kmarket/cs/qna/list.do?group=qna&cate=member">전체보기</a>
+                        문의하기			 
+                        <a href="/Kmarket/cs/board/qna/list.do?group=qna&cate=member">전체보기</a>
                     </h1>
                     <ul>
                     <c:forEach var="qanLate" items="${qnaLates}">
                         <li>
-                            <a href="/Kmarket/cs/qna/view.do?group=qna&no=${qanLate.no}" class="title">[${qanLate.typeName}] ${qanLate.title} </a>
+                            <a href="/Kmarket/cs/board/view.do?group=qna&cate=${qanLate.cate}&no=${qanLate.no}" class="title">[${qanLate.typeName}] ${qanLate.title} </a>
                             <p>
                                 <span class="uid">${qanLate.writer}</span>
                                 <span class="date">${qanLate.rdate}</span>
@@ -78,7 +78,7 @@
                         </li>
                      </c:forEach>   
                     </ul>
-                    <a href="/Kmarket/cs/qna/write.do?group=qna" class="ask">문의글 작성 ></a>
+                    <a href="/Kmarket/cs/board/qna/write.do?group=qna" class="ask">문의글 작성 ></a>
                 </section>
                 <section class="tel">
                     <h1>1:1 상담이 필요하신가요? </h1>

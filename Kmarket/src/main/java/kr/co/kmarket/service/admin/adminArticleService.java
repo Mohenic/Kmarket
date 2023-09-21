@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.co.kmarket.dao.admin.adminArticleDAO;
 import kr.co.kmarket.dto.admin.adminArticleDTO;
+import kr.co.kmarket.dto.product.ProductDTO;
 
 public enum adminArticleService {
 
@@ -28,4 +29,7 @@ public enum adminArticleService {
 		return dao.selectCountArticleTotal(group, cate);
 	}
 	
+	public ProductDTO selectArticle(String prodNo) {
+		return dao.selectArticle(prodNo);
+	}
 }

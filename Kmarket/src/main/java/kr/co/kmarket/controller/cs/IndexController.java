@@ -28,7 +28,7 @@ public class IndexController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//최신글 조회
 		List<ArticleDTO> qnaLates= service.selectArticleLatest("qna", 5);
-		List<ArticleDTO> noticeLates= service.selectNoticeArticleLatest("notice", 5);
+		List<ArticleDTO> noticeLates= service.selectArticleLatest("notice", 5);
 		logger.debug(qnaLates.toString());
 		logger.debug(noticeLates.toString());
 		

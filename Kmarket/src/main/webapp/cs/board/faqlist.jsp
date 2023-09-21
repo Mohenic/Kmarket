@@ -28,7 +28,7 @@ $(document).ready(function() {
                             <c:forEach var="article" items="${articles}">
                                 <c:if test="${list.type eq article.type}">
                                 <li>
-                                    <a href="./view.do?group=${group}&cate=${cate}&no=${article.no}">
+                                    <a href="/Kmarket/cs/board/view.do?group=${group}&cate=${cate}&no=${article.no}">
                                     <span>Q.</span>${article.title}
                                     </a>
                                 </li>

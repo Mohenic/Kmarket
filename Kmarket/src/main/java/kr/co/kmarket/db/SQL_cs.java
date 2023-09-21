@@ -38,7 +38,7 @@ public class SQL_cs {
 	//게시글 보기
 	public static final String SELECT_ARTICLE = "SELECT a.* , b.`typeName` "
 													+ "FROM `km_article`  AS a "
-													+ "JOIN `km_article_type` AS b "
+													+ "LEFT JOIN `km_article_type` AS b "
 													+ "ON a.cate = b.cate  AND a.`type` = b.`type` "
 													+ "WHERE `no` = ? ";
 	
@@ -47,7 +47,7 @@ public class SQL_cs {
 													+ "FROM `km_article` AS a "
 													+ "JOIN `km_article_type` AS b  "
 													+ "ON a.cate = b.cate  AND a.`type` = b.`type` "
-													+ "WHERE `group` = ? AND a.`cate` = ? "
+													+ "WHERE `group` = ? AND a.`cate` = ?  AND a.`parent` = 0 "
 													+ "ORDER BY `no` DESC "
 													+ "LIMIT ?,10 ";
 	
@@ -68,25 +68,19 @@ public class SQL_cs {
 	
 	
 	//notice 전체게시글 출력
-	public static final String SELECT_COUNT_NOTICE_TOTAL = "SELECT COUNT(*) FROM `km_article` WHERE `group`= ? ";
+	public static final String SELECT_COUNT_NOTICE_TOTAL = "SELECT COUNT(*) FROM `km_article` WHERE `group`= ?";
 	
 	//cate별 전체 게시글 총 갯수 출력(페이지 처리)
-	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `km_article` WHERE `group`= ? AND `cate` = ?";
+	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `km_article` WHERE `group`= ? AND `cate` = ? AND `parent` = 0";
 
 	//최신글 조회
-	public static final String SELECT_ARTICLE_LATEST = "SELECT `no`, b.`typeName`, a.`title`, a.`writer`,a.`rdate` "
+	public static final String SELECT_ARTICLE_LATEST = "SELECT `no`, a.`cate` ,b.`typeName`, a.`title`, a.`writer`,a.`rdate` "
 															+ "FROM `km_article` AS a "
-															+ "JOIN `km_article_type` AS b "
+															+ "LEFT JOIN `km_article_type` AS b "
 															+ "ON a.`cate` = b.`cate` AND b.`type` = a.`type` "
 															+ "WHERE `parent` = 0 AND a.`group` = ? "
 															+ "Order BY `no` DESC LIMIT 0, ? " ;
 	
-	//공지사항 인덱스 페이지 최신글 조회
-	public static final String SELECT_NOTICE_ARTICLE_LATEST = "SELECT `no`, `title`, `writer`,`rdate` "
-																+ "FROM `km_article` "
-																+ "WHERE `parent` = 0 AND `group` = ? "
-																+ "Order BY `no` DESC LIMIT 0, ? ";
-														
 	
 	//공지사항 전체 출력
 	public static final String SELECT_NOTICE_Article_ALL = "SELECT a.* , b.`cateName` "

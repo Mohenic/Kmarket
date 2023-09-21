@@ -20,8 +20,8 @@ public enum ArticleService {
 		dao.insertArticle(dto);
 	}
 	
-	public ArticleDTO selectArticle(String qnaNo) {
-		return dao.selectArticle(qnaNo);
+	public ArticleDTO selectArticle(String no) {
+		return dao.selectArticle(no);
 	}
 	
 	public List<ArticleDTO> selectArticles(String group ,String cate, int start){
@@ -52,7 +52,5 @@ public enum ArticleService {
 		return dao.selectNoticeArticles(group, cate, start);
 	}
 	
-	public List<ArticleDTO> selectNoticeArticleLatest(String group, int end) {
-		return dao.selectNoticeArticleLatest(group, end);
-	}
+	
 }

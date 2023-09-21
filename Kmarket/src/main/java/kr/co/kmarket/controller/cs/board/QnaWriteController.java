@@ -37,7 +37,7 @@ public class QnaWriteController extends HttpServlet {
 		logger.debug("group = " + group);
 		logger.debug("cate = " + cate);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/qna/write.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/board/qnawrite.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
@@ -73,7 +73,7 @@ public class QnaWriteController extends HttpServlet {
 		service.insertArticle(dto);
 		
 		
-		resp.sendRedirect("/Kmarket/cs/qna/list.do?group="+group+"&cate="+cate);
+		resp.sendRedirect("/Kmarket/cs/board/qna/list.do?group="+group+"&cate="+cate);
 		
 		
 		
