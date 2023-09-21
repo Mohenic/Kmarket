@@ -10,7 +10,6 @@ a {text-decoration: none; color: #111;}
 
 #admin-container {
     width: 100%;
-    
 }
 
 header{
@@ -283,8 +282,6 @@ main table tr > td:nth-child(1) {
 #admin-index > div > div > article > p > span:nth-child(2) {
     float: right;
 }
-
-
 
 
 footer {

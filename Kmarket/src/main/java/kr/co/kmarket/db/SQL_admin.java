@@ -1,6 +1,23 @@
 package kr.co.kmarket.db;
 
 public class SQL_admin {
+	
+	
+	public final static String INSERT_ARTICLE = "INSERT INTO `km_article` SET "
+											  + "`group` = ?, "
+											  + "`cate` = ?, "
+											  + "`type` = ?, "
+											  + "`title` = ?, "
+											  + "`content` = ?, "
+											  + "`writer` = ?, "
+											  + "`regip` = ?, "
+											  + "`rdate` = NOW()";
+	
+	public final static String SELECT_ARTICLE = "SELECT a.*, b.cateName "
+											  + "FROM `km_article` AS a "
+											  + "JOIN `km_article_cate` AS b "
+											  + "ON a.`cate` = b.`cate` "
+											  + "WHERE `no`=?";
 
 	public final static String SELECT_ARTICLES_ALL ="SELECT a.*, "
 												   +"b.`cateName` "

@@ -14,7 +14,7 @@
                     <table>
                         <tr>
                             <td>유형</td>
-                            <td>${article.cateName}</td>
+                            <td><input type="text" value="${article.cateName}"></td>
                         </tr>
                         <tr>
                             <td>제목</td>
