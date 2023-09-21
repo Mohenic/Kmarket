@@ -54,6 +54,7 @@ $(function(){
 
 
 
+
 </script>
 <script>
 	//상품 리뷰로 스크롤 이동    
@@ -125,8 +126,10 @@ $(function(){
         <section class="view">
 		<%@ include file="./menu.jsp" %>   
             
-            <form action="#" method="post">
+            <form action="/Kmarket/product/order.do" id="formOrder" method="get">
            	<input type="hidden" name="uid" value="${sessUser.uid}">
+           	<input type="hidden" name="type" value="order">
+           	
             <!-- View 시작 -->       
             <c:if test="${not empty view}">
             <article class="info">
@@ -203,7 +206,7 @@ $(function(){
 
                     <div class="button">
                         <input type="button" class="cart" id="btnCart" value="장바구니"/>
-                        <input type="button" class="order" id="btnOrder" value="구매하기"/>
+                        <input type="submit" class="order" id="btnOrder" value="구매하기"/>
                     </div>
                 </div>
             </article>
