@@ -80,7 +80,13 @@ public class SQL_cs {
 															+ "ON a.`cate` = b.`cate` AND b.`type` = a.`type` "
 															+ "WHERE `parent` = 0 AND a.`group` = ? "
 															+ "Order BY `no` DESC LIMIT 0, ? " ;
-
+	
+	//공지사항 인덱스 페이지 최신글 조회
+	public static final String SELECT_NOTICE_ARTICLE_LATEST = "SELECT `no`, `title`, `writer`,`rdate` "
+																+ "FROM `km_article` "
+																+ "WHERE `parent` = 0 AND `group` = ? "
+																+ "Order BY `no` DESC LIMIT 0, ? ";
+														
 	
 	//공지사항 전체 출력
 	public static final String SELECT_NOTICE_Article_ALL = "SELECT a.* , b.`cateName` "

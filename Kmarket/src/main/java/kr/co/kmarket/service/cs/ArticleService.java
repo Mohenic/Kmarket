@@ -51,4 +51,8 @@ public enum ArticleService {
 	public List<ArticleDTO> selectNoticeArticles(String group, String cate, int start) {
 		return dao.selectNoticeArticles(group, cate, start);
 	}
+	
+	public List<ArticleDTO> selectNoticeArticleLatest(String group, int end) {
+		return dao.selectNoticeArticleLatest(group, end);
+	}
 }

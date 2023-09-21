@@ -11,26 +11,12 @@
                         <a href="/Kmarket/cs/notice/list.do?group=notice&cate=0">전체보기</a>
                     </h1>
                     <ul>
+                    <c:forEach var="noticeLate" items="${noticeLates}">
                         <li>
-                            <a href="#" class="title">[안내] 해외결제 사칭 문자 주의</a>
-                            <span class="date">22.10.31</span>
+                            <a href="#" class="title">${noticeLate.title}</a>
+                            <span class="date">${noticeLate.rdate}</span>
                         </li>
-                        <li>
-                            <a href="#" class="title">[안내] 해외결제 사칭 문자 주의</a>
-                            <span class="date">22.10.31</span>
-                        </li>
-                        <li>
-                            <a href="#" class="title">[안내] 해외결제 사칭 문자 주의</a>
-                            <span class="date">22.10.31</span>
-                        </li>
-                        <li>
-                            <a href="#" class="title">[안내] 해외결제 사칭 문자 주의</a>
-                            <span class="date">22.10.31</span>
-                        </li>
-                        <li>
-                            <a href="#" class="title">[안내] 해외결제 사칭 문자 주의</a>
-                            <span class="date">22.10.31</span>
-                        </li>
+                    </c:forEach>
                     </ul>
                 </section>
                 <section class="faq">
