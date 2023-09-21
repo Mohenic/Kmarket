@@ -94,7 +94,12 @@ public class ProductCartDTO {
 			this.price = price;
 		}
 		public void setPrice(String price) {
-			this.price = Integer.parseInt(price);
+		    if (price != null && !price.isEmpty()) {
+		        this.price = Integer.parseInt(price);
+		    } else {
+		        // 기본값 설정
+		        this.price = 0; // 또는 다른 기본값을 설정할 수 있음
+		    }
 		}
 		public int getDiscount() {
 			return discount;
@@ -103,7 +108,12 @@ public class ProductCartDTO {
 			this.discount = discount;
 		}
 		public void setDiscount(String discount) {
-			this.discount =	Integer.parseInt(discount);
+		    if (discount != null && !discount.isEmpty()) {
+		        this.discount = Integer.parseInt(discount);
+		    } else {
+		        // 기본값 설정
+		        this.discount = 0; // 또는 다른 기본값을 설정할 수 있음
+		    }
 		}
 		public int getPoint() {
 			return point;
@@ -121,7 +131,12 @@ public class ProductCartDTO {
 			this.delivery = delivery;
 		}
 		public void setDelivery(String delivery) {
-			this.delivery = Integer.parseInt(delivery);
+		    if (delivery != null && !delivery.isEmpty()) {
+		        this.delivery = Integer.parseInt(delivery);
+		    } else {
+		        // 기본값 설정
+		        this.delivery = 0; // 또는 다른 기본값을 설정할 수 있음
+		    }
 		}
 		public int getTotal() {
 			return total;

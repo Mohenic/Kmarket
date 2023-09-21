@@ -7,34 +7,30 @@
     <main id="product">
     	<%@ include file="./category.jsp" %>   
         <section class="list">
-            <nav>
-                <h1>상품목록</h1>
-                <p>HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong></p>
-            </nav>
+		<%@ include file="./menu.jsp" %>   
 				<ul class="sort">
 				    <li>
-				        <c:set var="sortOption" value="selling"/>
-				        <a href="list.do?sort=selling" class="${param.sort == 'selling' ? 'on' : ''}">판매많은순</a>
+				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=selling" class="${param.sort == 'selling' ? 'on' : ''}">판매많은순</a>
 				    </li>
 				    <li>
 				        <c:set var="sortOption" value="lowprice"/>
-				        <a href="list.do?sort=lowprice" class="${param.sort == 'lowprice' ? 'on' : ''}">낮은가격순</a>
+				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=lowprice" class="${param.sort == 'lowprice' ? 'on' : ''}">낮은가격순</a>
 				    </li>
 				    <li>
 				        <c:set var="sortOption" value="highprice"/>
-				        <a href="list.do?sort=highprice" class="${param.sort == 'highprice' ? 'on' : ''}">높은가격순</a>
+				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=highprice" class="${param.sort == 'highprice' ? 'on' : ''}">높은가격순</a>
 				    </li>
 				    <li>
 				        <c:set var="sortOption" value="highrating"/>
-				        <a href="list.do?sort=highrating" class="${param.sort == 'highrating' ? 'on' : ''}">평점높은순</a>
+				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=highrating" class="${param.sort == 'highrating' ? 'on' : ''}">평점높은순</a>
 				    </li>
 				    <li>
 				        <c:set var="sortOption" value="manyreviews"/>
-				        <a href="list.do?sort=manyreviews" class="${param.sort == 'manyreviews' ? 'on' : ''}">후기많은순</a>
+				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=manyreviews" class="${param.sort == 'manyreviews' ? 'on' : ''}">후기많은순</a>
 				    </li>
 				    <li>
 				        <c:set var="sortOption" value="recent"/>
-				        <a href="list.do?sort=recent" class="${param.sort == 'recent' ? 'on' : ''}">최근등록순</a>
+				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=recent" class="${param.sort == 'recent' ? 'on' : ''}">최근등록순</a>
 				    </li>
 				</ul>
             <table border="0">
@@ -68,8 +64,7 @@
                         <td>
                             <h4 class="seller"><i class="fas fa-home"></i>${prod.seller}</h4>
                             <h5 class="badge power">${prod.seller}</h5>
-                            <h6 class="rating ${prod.score == 0 ? 'star0' : (prod.score >= 1 ? 'star1' : (prod.score >= 2 ? 'star2' : (prod.score >= 3 ? 'star3' : (prod.score >= 4 ? 'star4' : 'star5')))) }">
-                            ${prod.score}</h6> <!-- 스코어값 화면에서 어떻게 지우지 -->
+                            <h6 class="rating star${prod.score}"></h6>
                         </td>
                     </tr>
                     </c:forEach>

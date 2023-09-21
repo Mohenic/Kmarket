@@ -231,23 +231,24 @@ public class ProductDAO extends DBHelper{
 	        
 	        while (rs.next()) {
 	            ProductDTO dto = new ProductDTO();
-	            dto.setProdNo(rs.getInt(1));
-	            dto.setProdCate1(rs.getInt(2));
-	            dto.setProdCate2(rs.getInt(3));
-	            dto.setProdName(rs.getString(4));
-	            dto.setDescript(rs.getString(5));
-	            dto.setSeller(rs.getString(6));
-	            dto.setCompany(rs.getString(7));
-	            dto.setPrice(rs.getInt(8));
-	            dto.setDiscount(rs.getInt(9));
-	            dto.setSold(rs.getInt(10));
-	            dto.setHit(rs.getInt(11));
-	            dto.setScore(rs.getInt(12));
-	            dto.setReview(rs.getInt(13));
-	            dto.setThumb1(rs.getString(14));
-	            dto.setDetail(rs.getString(15));
-	            dto.setReceipt(rs.getString(16));
-	            dto.setRdate(rs.getString(17));
+	            dto.setProdNo(rs.getInt("prodNo"));
+	            dto.setProdCate1(rs.getInt("prodCate1"));
+	            dto.setProdCate2(rs.getInt("prodCate2"));
+	            dto.setProdName(rs.getString("prodName"));
+	            dto.setDescript(rs.getString("descript"));
+	            dto.setSeller(rs.getString("seller"));
+	            dto.setCompany(rs.getString("company"));
+	            dto.setPrice(rs.getInt("price"));
+	            dto.setDiscount(rs.getInt("discount"));
+	            dto.setSold(rs.getInt("sold"));
+	            dto.setDelivery(rs.getInt("delivery"));
+	            dto.setHit(rs.getInt("hit"));
+	            dto.setScore(rs.getInt("score"));
+	            dto.setReview(rs.getInt("review"));
+	            dto.setThumb1(rs.getString("thumb1"));
+	            dto.setDetail(rs.getString("detail"));
+	            dto.setReceipt(rs.getString("receipt"));
+	            dto.setRdate(rs.getString("rdate"));
 	            products.add(dto);
 	        }
 	        close();
