@@ -29,7 +29,7 @@ public enum adminArticleService {
 		return dao.selectCountArticleTotal(group, cate);
 	}
 	
-	public ProductDTO selectArticle(String prodNo) {
-		return dao.selectArticle(prodNo);
+	public ProductDTO selectProduct(String prodNo) {
+		return dao.selectProduct(prodNo);
 	}
 }

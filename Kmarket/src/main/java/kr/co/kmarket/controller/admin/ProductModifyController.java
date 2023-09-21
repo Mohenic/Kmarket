@@ -28,7 +28,7 @@ public class ProductModifyController extends HttpServlet{
 		String prodNo = req.getParameter("prodNo");
 		logger.debug("prodNo = " + prodNo);
 		
-		ProductDTO product = service.selectArticle(prodNo);
+		ProductDTO product = service.selectProduct(prodNo);
 		logger.debug(prodNo.toString());
 		
 		req.setAttribute("product", product);

@@ -192,7 +192,7 @@ public class adminArticleDAO extends DBHelper {
 		return total;
 	}
 	
-	public ProductDTO selectArticle(String prodNo) {
+	public ProductDTO selectProduct(String prodNo) {
 		ProductDTO dto = null;
 		try {
 			conn = getConnection();
