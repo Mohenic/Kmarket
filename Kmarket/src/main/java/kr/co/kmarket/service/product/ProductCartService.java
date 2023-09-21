@@ -30,4 +30,8 @@ import kr.co.kmarket.dto.product.ProductCartDTO;
 	public int deleteCart(String cartNo) {
 		return dao.deleteCart(cartNo);
 	}
+	
+	public void deleteCart2(String cartNo) {
+		 dao.deleteCart2(cartNo);
+	}
 }

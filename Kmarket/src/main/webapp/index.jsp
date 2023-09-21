@@ -120,62 +120,45 @@
         <!-- 카테고리/베스트 상품 영역 -->
         <aside>
           <!-- 카테고리 -->
-          <ul class="category">
+        <ul class="category">
             <li><i class="fa fa-bars" aria-hidden="true"></i>카테고리</li>
             <li>
-              <a href="#"
-                ><i class="fas fa-tshirt"></i>패션·의류·뷰티<i
-                  class="fas fa-angle-right"
-                ></i
-              ></a>
-              <ol>
-                <li><a href="/Kmarket/product/category.do?prodCate1=11&prodCate2=11">남성의류</a></li>
-                <li><a href="/Kmarket/product/category.do?prodCate1=11&prodCate2=10">여성의류</a></li>
-                <li><a href="/Kmarket/product/category.do?prodCate1=11&prodCate2=14">잡화</a></li>
-                <li><a href="/Kmarket/product/category.do?prodCate1=11&prodCate2=16">뷰티</a></li>
-              </ol>
+                <a href="#"><i class="fas fa-tshirt" aria-hidden="true"></i>패션·의류·뷰티</a>
+                <ol>
+					<li><a href="/Kmarket/product/list.do?prodCate1=11&prodCate2=11">남성의류</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=11&prodCate2=10">여성의류</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=11&prodCate2=14">잡화</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=11&prodCate2=16">뷰티</a></li>
+                </ol>
             </li>
             <li>
-              <a href="#"
-                ><i class="fas fa-laptop"></i>가전·디지털<i
-                  class="fas fa-angle-right"
-                ></i
-              ></a>
-              <ol>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=15&prodCate2=10">노트북</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=15&prodCate2=16">가전</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=15&prodCate2=13">휴대폰</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=15&prodCate2=12">기타</a></li>
-              </ol>
+                <a href="#"><i class="fas fa-laptop" aria-hidden="true"></i>가전·디지털</a>
+                <ol>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=15&prodCate2=10">노트북</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=15&prodCate2=16">가전</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=15&prodCate2=13">휴대폰</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=15&prodCate2=12">기타</a></li>
+                </ol>
             </li>
             <li>
-              <a href="#"
-                ><i class="fas fa-utensils"></i>식품·생필품<i
-                  class="fas fa-angle-right"
-                ></i
-              ></a>
-              <ol>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=13&prodCate2=10">신선식품</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=13&prodCate2=11">가공식품</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=13&prodCate2=12">건강식품</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=13&prodCate2=14">생필품</a></li>
-              </ol>
+                <a href="#"><i class="fas fa-utensils" aria-hidden="true"></i>식품·생필품</a>
+                <ol>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=13&prodCate2=10">신선식품</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=13&prodCate2=11">가공식품</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=13&prodCate2=12">건강식품</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=13&prodCate2=14">생필품</a></li>
+                </ol>
             </li>
             <li>
-              <a href="#"
-                ><i class="fas fa-home"></i>홈·문구·취미<i
-                  class="fas fa-angle-right"
-                ></i
-              ></a>
-              <ol>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=14&prodCate2=10">가구/DIY</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=14&prodCate2=11">침구·커튼</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=14&prodCate2=13">생활용품</a></li>
-                    <li><a href="/Kmarket/product/category.do?prodCate1=14&prodCate2=16">사무용품</a></li>
-              </ol>
+                <a href="#"><i class="fas fa-home" aria-hidden="true"></i>홈·문구·취미</a>
+                <ol>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=14&prodCate2=10">가구/DIY</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=14&prodCate2=11">침구·커튼</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=14&prodCate2=13">생활용품</a></li>
+                    <li><a href="/Kmarket/product/list.do?prodCate1=14&prodCate2=15">사무용품</a></li>
+                </ol>
             </li>
-          </ul>
-
+        </ul>
           <!-- 베스트상품 배너 -->
           <article class="best">
             <h1><i class="fas fa-crown"></i>베스트상품</h1>

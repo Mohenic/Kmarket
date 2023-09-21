@@ -49,8 +49,37 @@ public class ProductCartDAO extends DBHelper{
 		
 	}
 	
-	public ProductCartDTO selectCart(String uid) {
-		return null;
+	public ProductCartDTO selectCart(String cartNo) {
+		ProductCartDTO dto = new ProductCartDTO();
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_Cart.SELECT_CART);
+			psmt.setString(1, cartNo);
+			
+			rs=psmt.executeQuery();
+			if(rs.next()) {
+				dto.setCartNo(rs.getInt(1));
+				dto.setUid(rs.getString(2));
+				dto.setProdNo(rs.getInt(3));
+				dto.setCount(rs.getInt(4));
+				dto.setPrice(rs.getInt(5));
+				dto.setDiscount(rs.getInt(6));
+				dto.setPoint(rs.getInt(7));
+				dto.setDelivery(rs.getInt(8));
+				dto.setTotal(rs.getInt(9));
+				dto.setRdate(rs.getString(10));
+				dto.setProdName(rs.getString(11));
+				dto.setDescript(rs.getString(12));
+				dto.setSeller(rs.getString(13));
+				dto.setProdCate1(rs.getInt(14));
+				dto.setProdCate2(rs.getInt(15));
+				dto.setThumb1(rs.getString(16));
+				dto.setProdName(rs.getString(17));
+			}
+		} catch (Exception e) {
+
+		}
+		return dto;
 	}
 	
 	public List<ProductCartDTO> selectCarts(String uid) {
@@ -110,6 +139,24 @@ public class ProductCartDAO extends DBHelper{
 		}
 		return result;
 	}
+	
+	public void deleteCart2(String cartNo) {
+
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_Cart.DELETE_CART);
+			psmt.setString(1, cartNo);
+			
+			psmt.executeUpdate();
+			
+			close();
+		} catch (Exception e) {
+			logger.error("delete error : "+e.getMessage());
+		}
+
+	}
+	
+	
 	 public List<ProductCartDTO> selectCartsByUid(String uid) {
 		return null;
 	        // uid에 해당하는 사용자의 장바구니 상품 목록을 데이터베이스에서 가져오는 로직을 구현하세요.

@@ -40,52 +40,23 @@
                     <th>수량</th>
                     <th>주문금액</th>
                     </tr>
+                    <c:forEach var="comps" items="${list}">
                     <tr>
                     <td>
                         <article>
-                        <img src="https://via.placeholder.com/80x80" alt="">
+                        <img src="/Kmarket/thumb/${comps.prodCate1}/${comps.prodCate2}/${comps.thumb1}" alt="상품이미지">
                         <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
+                            <h2><a href="#">${comps.prodName}</a></h2>
+                            <p>${comps.descrips}</p>
                         </div>
                         </article>
                     </td>
-                    <td>17,000원</td>
-                    <td>1,000원</td>
-                    <td>1</td>
-                    <td>16,000원</td>
+                    <td>${comma(comps.price)}원</td>
+                    <td>${comma(comps.discount) }원</td>
+                    <td>${comma(comps.count) }개</td>
+                    <td>${comma(comps.total)}원</td>
                     </tr>
-                    <tr>
-                    <td>
-                        <article>
-                        <img src="https://via.placeholder.com/80x80" alt="">
-                        <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                        </div>
-                        </article>
-                    </td>
-                    <td>17,000원</td>
-                    <td>1,000원</td>
-                    <td>1</td>
-                    <td>16,000원</td>
-                    </tr>
-                    <tr>
-                    <td>
-                        <article>
-                        <img src="https://via.placeholder.com/80x80" alt="">
-                        <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                        </div>
-                        </article>
-                    </td>
-                    <td>17,000원</td>
-                    <td>1,000원</td>
-                    <td>1</td>
-                    <td>16,000원</td>
-                    </tr>
-                    
+                    </c:forEach>                   
                     <tr class="total">
                     <td colspan="4"></td>
                     <td>
