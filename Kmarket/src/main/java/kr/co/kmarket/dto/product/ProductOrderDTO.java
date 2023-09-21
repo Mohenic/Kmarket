@@ -171,7 +171,63 @@ public class ProductOrderDTO {
 		this.ordDiscount = Integer.parseInt(ordDiscount);
 	}
 
+	public String getPriceWithComma() {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(ordPrice);
+	}
+	
+	public String getDeliveryWithComma() {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(ordDelivery);
+	}
+	
+	public String getUsedPointWithComma() {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(usedPoint);
+	}
+	
+	public String getOrdTotPriceWithComma() {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(ordTotPrice);
+	}
+	
+	public String getOrdDiscountWithComma() {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(ordDiscount);
+	}
+	
 
+	
+	
+	public int getDiscountPrice(int price, int discount) {
+		int discountPrice=0;
+		
+		discountPrice=(int)(price-(price*(discount*0.01)));
+		
+		return discountPrice;
+	}
+	public String getDiscount(int price, int discount) {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(getDiscountPrice(price, discount));
+	}
+	
+	public int getTotalprice(int price, int discount, int delivery) {
+		int Totalprice=0;
+		
+		return Totalprice=(int)(price-(price*(discount*0.01))+delivery);
+	}
+	
+	public String getTotal(int price, int discount, int delivery) {
+		
+		DecimalFormat df = new DecimalFormat("###,###");
+		return df.format(getTotalprice(price, discount,delivery));
+	}
 	
 	
 	

@@ -10,10 +10,25 @@
 <header>
             <div class="top">
                 <div>
-                    <a href="#">로그인</a>
-                    <a href="#">회원가입</a>
-                    <a href="#">마이페이지</a>
-                    <a href="/Kmarket/product/cart.do?uid=${sessUser.uid}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;장바구니</a>
+		<c:if test="${sessUser eq null }">
+            <a href="./member/login.do">로그인</a>
+            <a href="./member/join.do">회원가입</a>
+          </c:if>
+          <c:if test="${sessUser ne null }">
+          	<c:if test="${sessUser.name ne null}">
+          		<a href="#">${sessUser.name }</a>
+          	</c:if>
+          	<c:if test="${sessUser.type == 2 }">
+          		<a href="#">${sessUser.company}</a>
+          		<a href="/Kmarket/admin/index.do">관리자</a>
+          	</c:if>
+            	<a href="#">마이페이지</a>
+            	<a href="/Kmarket/member/logout.do">로그아웃</a>
+            	<a href="/Kmarket/product/cart.do?uid=${sessUser.uid}"
+              	><i class="fa fa-shopping-cart" aria-hidden="true"></i
+              	>&nbsp;장바구니</a
+            	>
+          </c:if>  
                 </div>
             </div>
             <div class="logo">

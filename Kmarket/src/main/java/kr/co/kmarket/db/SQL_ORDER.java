@@ -32,5 +32,7 @@ public class SQL_ORDER {
 	
 	public static final String SELECT_ORDERS="SELECT MAX(`ordNo`) FROM `km_product_order`";
 
-	public static final String SELECT_ORDER="SELECT * FROM `km_product_order_item` AS a JOIN `km_product` AS b ON a. WHERE `ordno`=?";
+	public static final String SELECT_ORDER="SELECT * FROM `km_product_order_item` AS a JOIN `km_product` AS b ON a.prodno=b.prodno WHERE `ordno`=?";
+	
+	public static final String SELECT_ORDER2="SELECT * FROM `km_product_order` WHERE `ordno`=?";
 }

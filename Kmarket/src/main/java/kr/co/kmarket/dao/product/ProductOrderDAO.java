@@ -138,4 +138,44 @@ public class ProductOrderDAO extends DBHelper{
 		return list;
 	}
 	
+	public ProductOrderDTO selectOrder(int ordNo2){
+		ProductOrderDTO dto =null;
+		
+		try {
+			
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_ORDER.SELECT_ORDER2);
+			psmt.setInt(1, ordNo2);
+			
+			rs=psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto=new ProductOrderDTO();
+				dto.setOrdNo(rs.getInt(1));
+				dto.setOrdUid(rs.getString(2));
+				dto.setOrdCount(rs.getInt(3));
+				dto.setOrdPrice(rs.getInt(4));
+				dto.setOrdDiscount(rs.getInt(5));
+				dto.setOrdDelivery(rs.getInt(6));
+				dto.setSavePoint(rs.getInt(7));
+				dto.setUsedPoint(rs.getInt(8));
+				dto.setOrdTotPrice(rs.getInt(9));
+				dto.setRecipName(rs.getString(10));
+				dto.setRecipHp(rs.getString(11));
+				dto.setRecipZip(rs.getString(12));
+				dto.setRecipAddr1(rs.getString(13));
+				dto.setRecipAddr2(rs.getString(14));
+				dto.setOrdPayment(rs.getInt(15));
+
+			}
+			
+		} catch (Exception e) {
+			logger.error("select error1 : " +e.getMessage());
+		}
+		
+		
+		return dto;
+	}
+	
+	
 }

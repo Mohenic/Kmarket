@@ -32,5 +32,7 @@ public enum ProductOrderService {
     	return dao.selectOrderItems(ordNo2);
     }
  
-
+    public ProductOrderDTO selectOrder(int ordNo2) {
+    	return dao.selectOrder(ordNo2);
+    }
 }

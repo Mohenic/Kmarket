@@ -29,7 +29,12 @@ public class ProductCompleteController extends HttpServlet {
 			@Override
 			protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
+				int ordNo3=service1.selectOrderLastNum();
+				List<ProductItemDTO> list = service1.selectOrderItems(ordNo3);
+				ProductOrderDTO order =service1.selectOrder(ordNo3);
 				
+				req.setAttribute("list", list);
+				req.setAttribute("order", order);
 				
 				RequestDispatcher dispatcher = req.getRequestDispatcher("/product/complete.jsp");
 				dispatcher.forward(req, resp);
@@ -104,18 +109,9 @@ public class ProductCompleteController extends HttpServlet {
 					dto2.setDelivery(itemdelivery[i]);
 					dto2.setTotal(itemtotal[i]);
 					service1.insertItem(dto2);
-					
 				}
 				
-				int ordNo3=service1.selectOrderLastNum();
-				List<ProductItemDTO> list = service1.selectOrderItems(ordNo3);
-				
-				req.setAttribute("list", list);
-
-				
-			
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/product/complete.jsp");
-				dispatcher.forward(req, resp);	
+				resp.sendRedirect("/Kmarket/product/complete.do");
 			}
 
 

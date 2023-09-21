@@ -47,14 +47,14 @@
                         <img src="/Kmarket/thumb/${comps.prodCate1}/${comps.prodCate2}/${comps.thumb1}" alt="상품이미지">
                         <div>
                             <h2><a href="#">${comps.prodName}</a></h2>
-                            <p>${comps.descrips}</p>
+                            <p>${comps.descript}</p>
                         </div>
                         </article>
                     </td>
-                    <td>${comma(comps.price)}원</td>
-                    <td>${comma(comps.discount) }원</td>
-                    <td>${comma(comps.count) }개</td>
-                    <td>${comma(comps.total)}원</td>
+                    <td>${comps.getPriceWithComma()}원</td>
+                    <td>${comps.getDiscount2(comps.price,comps.discount)}원</td>
+                    <td>${comps.count }개</td>
+                    <td>${comps.getTotalWithComma()}원</td>
                     </tr>
                     </c:forEach>                   
                     <tr class="total">
@@ -63,19 +63,19 @@
                         <table border="0">
                         <tr>
                             <td>총 상품금액</td>
-                            <td><span>34,000</span>원</td>
+                            <td><span>${order.getPriceWithComma() }</span>원</td>
                         </tr>
                         <tr>
                             <td>총 할인금액</td>
-                            <td><span>-2,000</span>원</td>
+                            <td><span>-${order.getOrdDiscountWithComma()}</span>원</td>
                         </tr>
                         <tr>
                             <td>배송비</td>
-                            <td><span>3,000</span>원</td>
+                            <td><span>${order.getDeliveryWithComma()}</span>원</td>
                         </tr>
                         <tr>
                             <td>총 결제금액</td>
-                            <td><span>35,000</span>원</td>
+                            <td><span>${order.getOrdTotPriceWithComma()}</span>원</td>
                         </tr>
                         </table>                      
                     </td>
@@ -88,17 +88,34 @@
                 <table border="0">
                     <tr>
                     <td>주문번호</td>
-                    <td>2008101324568</td>
+                    <td>${order.ordNo }</td>
                     <td rowspan="3">총 결제금액</td>
-                    <td rowspan="3"><span>35,000</span>원</td>
+                    <td rowspan="3"><span>${order.getOrdTotPriceWithComma()}</span>원</td>
                     </tr>
                     <tr>
                     <td>결제방법</td>
-                    <td>신용카드</td>
+                    <c:if test="${order.ordPayment eq 1 }">
+                    	<td>신용카드</td>
+                    </c:if>
+                    <c:if test="${order.ordPayment eq 2 }">
+                    	<td>체크카드</td>
+                    </c:if>
+                    <c:if test="${order.ordPayment eq 3 }">
+                    	<td>실시간 계좌이체</td>
+                    </c:if>
+                    <c:if test="${order.ordPayment eq 4 }">
+                    	<td>무통장 입금</td>
+                    </c:if>
+                    <c:if test="${order.ordPayment eq 5 }">
+                    	<td>휴대폰 결제</td>
+                    </c:if>
+                    <c:if test="${order.ordPayment eq 6 }">
+                    	<td>카카오페이</td>
+                    </c:if>
                     </tr>
                     <tr>
                     <td>주문자/연락처</td>
-                    <td>홍길동/010-1234-1234</td>
+                    <td>${sessUser.name }/${sessUser.hp}</td>
                     </tr>
                 </table>
                 </article>
@@ -109,20 +126,20 @@
                 <table border="0">
                     <tr>
                     <td>수취인</td>
-                    <td>홍길동</td>                    
+                    <td>${order.recipName }</td>                    
                     <td>주문자 정보</td>
                     </tr>
                     <tr>
                     <td>연락처</td>
-                    <td>010-1234-1234</td>
+                    <td>${order.recipHp }</td>
                     <td rowspan="2">
-                        홍길동<br/>
-                        010-1234-1234
+                        ${sessUser.name }<br/>
+                        ${sessUser.hp}
                     </td>
                     </tr>
                     <tr>
                     <td>배송지 주소</td>
-                    <td>부산광역시 강남구 대연동 123 10층</td>
+                    <td>${order.recipZip} ${order.recipAddr1 } ${order.recipAddr2 }</td>
                     </tr>
                 </table>
                 </article>
