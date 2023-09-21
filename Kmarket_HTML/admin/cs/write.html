@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/admin/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
+    <script src="/admin/js/aside.js"></script>
+
+</head>
+<style>
+
+    #admin-cs-notice-write > nav:nth-child(2) {
+        margin: 0px;
+        border-bottom: 2px solid black;
+    }
+
+    #admin-cs-notice-write > .write > article table tr {
+        width: 100%;
+        height: 26px;
+    }
+
+    #admin-cs-notice-write > .write > article table td {
+        padding: 16px;
+        border-bottom: 1px solid #959595;
+        font-size: 16px;
+    }
+
+    #admin-cs-notice-write > .write > article table td:first-child {
+        width: 60px;
+        padding: 20px;
+        background-color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    #admin-cs-notice-write > .write > article table select {
+        width: 150px;
+        height: 30px;
+        font-size: 13px;
+        box-sizing: border-box;
+    }
+    #admin-cs-notice-write > .write > article table select * {
+        font-size: inherit;
+    }
+
+    #admin-cs-notice-write > .write > article table input {
+        width: 800px;
+        height: 40px;
+        font-size: 16px;
+        box-sizing: border-box;
+        text-indent: 10px;
+    }
+
+    #admin-cs-notice-write > .write > article table textarea {
+        width: 800px;
+        height: 360px;
+        resize: none;
+        font-size: 16px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    #admin-cs-notice-write > .write div {
+        width: 300px;
+        padding-top: 50px;
+        margin: auto;
+    }
+
+    #admin-cs-notice-write > .write div .btnList {
+            display: inline-block;
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(191, 191, 191);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+    }
+
+    #admin-cs-notice-write > .write div .btnSubmit {
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(142, 180, 227);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+    }
+
+
+</style>
+    <body>
+        <div id="admin-container">
+            <header>
+                <div>
+                    <a href="/Kmarket/admin/index.do" class="logo">
+                        <img src="/Kmarket/admin/images/admin_logo.png" alt="admin_logo">
+                    </a> 
+                    <p>
+                        <span>${sessUser.manager}님 반갑습니다.</span>
+                        <a href="/Kmarket/index.do">HOME |</a>
+                        <a href="/Kmarket/member/logout.do">로그아웃 |</a>
+                        <a href="/Kmarket/cs/index.do">고객센터</a>
+                    </p>
+                </div>
+            </header>
+            <main>
+                <aside>
+                    <ul id="gnb">
+                        <li>
+                            <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>환경설정</a>
+                            <ol style="display: none;">
+                                <li><a href="/Kmarket/admin/config/info.do">기본환경정보</a></li>
+                                <li><a href="/Kmarket/admin/config/banner.do">배너관리</a></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-store" aria-hidden="true"></i>상점관리</a>
+                            <ol style="display: none;">
+                                <li><a href="#">판매자현황</a></li>
+                                <li><a href="#">재고관리</a></li>
+                            </ol>
+                        </li>
+                    
+                        <li>
+                            <a href="#"><i class="fa fa-users" aria-hidden="true"></i>회원관리</a>
+                            <ol style="display: none;">
+                                <li><a href="#">회원현황</a></li>
+                                <li><a href="#">포인트관리</a></li>
+                                <li><a href="#">비회원관리</a></li>
+                                <li><a href="#">접속자관리</a></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-box-open" aria-hidden="true"></i>상품관리</a>
+                            <ol style="display: none;">
+                                <li><a href="/Kmarket/admin/product/list.do">상품현황</a></li>
+                                <li><a href="/Kmarket/admin/product/register.do">상품등록</a></li>
+                                <li><a href="#">재고관리</a></li>
+                            </ol>
+                        </li>
+                    
+                        <li>
+                            <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>주문관리</a>
+                            <ol style="display: none;">
+                                <li><a href="#">주문현황</a></li>
+                                <li><a href="#">매출현황</a></li>
+                                <li><a href="#">결제관리</a></li>
+                                <li><a href="#">배송관리</a></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>게시판관리</a>
+                            <ol style="display: none;">
+                                <li><a href="#">게시판현황</a></li>
+                                <li><a href="#">고객문의</a></li>
+                            </ol>
+                        </li>
+                    </ul>
+                </aside>
+            <section id="admin-cs-notice-write">
+                <nav>
+                    <h3>공지사항 작성<h3></h3>
+                    <p>
+                        HOME &gt; 고객센터 &gt; <strong>공지사항</strong>
+                    </p>
+                </nav>
+                <nav></nav>
+                <section class="write">
+                    <article>
+                    <form action="#">
+                        <table>
+                            <tr>
+                                <td>유형</td>
+                                <td>
+                                <select name="cate">
+                                    <option value="0">유형선택</option>
+                                    <option value="">가입</option>
+                                    <option value="">탈퇴</option>
+                                    <option value="">회원정보</option>
+                                    <option value="">로그인</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>제목</td>                  
+                                <td>
+                                <input type="text" name="title" placeholder="제목을 입력합니다."/>
+                                </td>
+                            </tr>                
+                            <tr>
+                                <td>내용</td>                  
+                                <td>
+                                <textarea name="content" placeholder="내용을 입력합니다."></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                        <div>
+                            <a href="./list.html" class="btnList">취소하기</a>
+                            <input type="submit" class="btnSubmit" value="등록하기"/>
+                        </div>
+                    </form>
+                    </article>
+                </section>
+            </section>
+            </main>
+            <footer>
+                <div>
+                    <p>Copyright ©kmarket.co.kr All rights reserved. KMARKET ADMINISTRATOR Version 5.4.1.2</p>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

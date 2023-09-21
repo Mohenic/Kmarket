@@ -183,7 +183,6 @@
 		              <td class="total">${list1.total}</td>
 					<input type="hidden" name="type" value="cart"/>
 					<input type="hidden" name="uid" value="${list1.uid}"/>
-					<input type="hidden" name="cartNo" value="${list1.cartNo}"/>
 		            </tr>
 		          	</c:forEach>
                     </tbody>

@@ -14,6 +14,59 @@ import kr.co.kmarket.dto.product.ProductDTO;
 public class adminArticleDAO extends DBHelper {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	public void insertArticle(adminArticleDTO dto) {
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_admin.INSERT_ARTICLE);
+			psmt.setString(1, dto.getGroup());
+			psmt.setString(2, dto.getCate());
+			psmt.setInt(3, dto.getType());
+			psmt.setString(4, dto.getTitle());
+			psmt.setString(5, dto.getContent());
+			psmt.setString(6, dto.getWriter());
+			psmt.setString(7, dto.getRegip());
+			psmt.executeUpdate();
+			close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public adminArticleDTO selectArticle(String no) {
+		
+		adminArticleDTO dto = new adminArticleDTO();
+		
+		try {
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLE);
+			psmt.setString(1, no);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setNo(rs.getInt(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setGroup(rs.getString(4));
+				dto.setCate(rs.getString(5));
+				dto.setType(rs.getInt(6));
+				dto.setTitle(rs.getString(7));
+				dto.setContent(rs.getString(8));
+				dto.setWriter(rs.getString(9));
+				dto.setHit(rs.getInt(10));
+				dto.setRegip(rs.getString(11));
+				dto.setRdate(rs.getString(12));
+				dto.setCateName(rs.getString(13));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
+  
 	public List<adminArticleDTO> selectArticles(String group, int start){
 		
 		List<adminArticleDTO> article = new ArrayList<>();
