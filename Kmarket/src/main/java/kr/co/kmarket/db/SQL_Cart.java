@@ -16,4 +16,7 @@ public class SQL_Cart {
 	
 	public static final String SELECT_CARTS =  "SELECT a.*,b.prodName,b.descript,b.seller,b.prodCate1,b.prodCate2,b.thumb1,b.prodname  FROM `km_product_cart` as a join km_product as b  ON a.prodNo =b.prodNo  WHERE `uid`=?;";
 	public static final String DELETE_CART="DELETE FROM `km_product_cart` WHERE `cartno`=? ";
+	public static final String SELECT_CART="SELECT a.*,b.prodName,b.descript,b.seller,b.prodCate1,b.prodCate2,b.thumb1,b.prodname  FROM `km_product_cart` as a join km_product as b  ON a.prodNo =b.prodNo  WHERE `cartNo`=?; ";
+	
+
 }

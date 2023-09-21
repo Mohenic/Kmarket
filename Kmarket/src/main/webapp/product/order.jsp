@@ -14,6 +14,8 @@
 </head>
 <script>
 	$(function(){
+
+		//계산된 값
 		let countRe=0;
 		let deliveryRe=${delivery};
 		let priceRe=0;
@@ -21,6 +23,7 @@
 		let discountRe=0;
 		let pointRe2=0;
 		
+		//항목들 map에 담기
 		let count = $(".count").map(function() {
 			  return $(this).text();
 			}).get();
@@ -35,11 +38,16 @@
 			  return $(this).text();
 			}).get();
 			console.log(addpoint)			
+				
+		let discount = $(".discount1").map(function() {
 
+			return $(this).text();
+			}).get();
+			console.log(discount);	
+		//항목들 더하기	
 		$.each(addpoint,function(index,value){
 			pointRe2 +=parseInt(value,10);
 		})
-
 
 		$.each(count,function(index,value){
 			countRe +=parseInt(value,10);
@@ -48,53 +56,67 @@
 			priceRe +=parseInt(value,10);
 		})
 
-
-
 		console.log(countRe);
+		
+		$.each(discount,function(index,value){
+				discountRe +=parseInt(value,10);
+		})
+		//더한값 표시	
+		$('.discountRe').text("-"+discountRe+"원");
 		$('.countRe').text(countRe+"건");
 		$('.priceRe').text(priceRe+"원");
 		$('.priceRe1').text(priceRe);
 		$('.priceRe2').text(priceRe);
 		$('.pointRe2').text(pointRe2);
+		$('.pointRe2').val(pointRe2);
 		
-		let discount = $(".discount1").map(function() {
+		$('.discountRe2').val(discountRe);
+		$('.countRe2').val(countRe);
+		$('.priceRe2').val(priceRe);
+		$('.priceRe1').text(priceRe);
 
-			return $(this).text();
-			}).get();
-			console.log(discount);
 		
-		$.each(discount,function(index,value){
-				discountRe +=parseInt(value,10);
-		})
-			
-		$('.discountRe').text("-"+discountRe+"원");
 		
 		var total = priceRe+deliveryRe-discountRe
 		$('.totalRe').text(total+"원")
+		$('.totalRe2').val(total)
 		
-	
+		// 포인트 사용시 적용
 		$('input[name=select]').click(function(e){
 			e.preventDefault();
 			
-			var point =$('input[name=point]').val();
-			console.log(point)
-			$('.point').text("-"+point+"원");
-			$('.point2').val(point);
-			var total = priceRe+deliveryRe-discountRe-point
-			$('.totalRe').text(total+"원")
+			const userPoint =${sessUser.point}
+			
+			if(userPoint>=5000){
+				var point =$('input[name=point]').val();
+				console.log(point)
+				$('.point').text("-"+point+"원");
+				$('.point2').val(point);
+				var total = priceRe+deliveryRe-discountRe-point
+				$('.totalRe').text(total+"원")
+				$('.totalRe2').val(total)
+			} else{
+				alert('포인트가 5000이상이 아닙니다')
+			}
 		})
 		
 		
 	})
-	
+	/*추후개발
 	$(function(){
-
+		$('input[name=btnOrder]').click(function(e){
+			
+			if($('input[type=radio]').prop('checked')==false){
+				alert('결제방법을 선택하세요!')
+				
+			}else{
+				$('#finalOrder').submit();
+			}
+			
 		
+		})
 		
-		
-	})
-		
-	
+	})*/
 	
 	
 </script>
@@ -111,7 +133,7 @@
                     HOME > 장바구니 > <strong>주문결제</strong>
                 </p>
                 </nav>
-                <form action="/Kmarket/product/order.do" method="post">
+                <form action="/Kmarket/product/complete.do" id="finalOrder" method="post">
                 <!-- 주문 상품 목록 -->                  
                 <table>
                     <thead>
@@ -136,6 +158,15 @@
 		                  </div>
                         </article>
                         </td>
+                        <input type="hidden" name="type" value="${type }"/>
+                        <input type="hidden" name="cartNo" value="${carts.cartNo}"/>
+                        <input type="hidden" name="itemprodNo" value="${carts.prodNo}"/>
+                        <input type="hidden" name="itemcount" value="${carts.count}"/>
+                        <input type="hidden" name="itemprice" value="${carts.price}"/>
+                        <input type="hidden" name="itemdiscount" value="${carts.discount}"/>
+                        <input type="hidden" name="itempoint" value="${carts.point}"/>
+                        <input type="hidden" name="itemdelivery" value="${carts.delivery}"/>
+                        <input type="hidden" name="itemtotal" value="${carts.total}"/>
                         <td class="hidden addpoint">${carts.point }</td>
                         <td class="hidden count">1</td>
                         <td class="hidden seller">${carts.seller}</td>
@@ -144,7 +175,7 @@
                         <td class="delivery1">${carts.delivery }</td>
                         <td class="total">${carts.total }</td>
                         <td class="hidden discount1">${carts.getDiscountPrice2(carts.price,carts.discount) }</td>
-
+						
                     </tr>
                     </c:forEach>
                     </c:if>
@@ -154,14 +185,14 @@
                 <div class="final">
                     <h2>최종결제 정보</h2>
                     <table border="0">
-                    <input type="hidden" name="losepoint" class="point2"/>
+                    <input type="hidden" name="losepoint" class="point2" value="0" /> 
                     <input type="hidden" name="addpoint" class="pointRe2"/>
-                    <input type="hidden" name="count" class="countRe"/>
+                    <input type="hidden" name="count" class="countRe2"/>
                     <input type="hidden" name="uid" value="${sessUser.uid}"/>
                     <input type="hidden" name="price" class="priceRe2"/>
-                    <input type="hidden" name="discount" class="discountRe"/>
-                    <input type="hidden" name="delivery" class="deliveryRe"/>                  
-                    <input type="hidden" name="total" class="totalRe"/>
+                    <input type="hidden" name="discount" class="discountRe2"/>
+                    <input type="hidden" name="delivery" value="${delivery }"/>                  
+                    <input type="hidden" name="total" class="totalRe2"/>
                     <tr>
                         <td>총</td>
                         <td class="countRe"></td>
@@ -189,7 +220,7 @@
                         <td class="totalRe">25,000</td>
                     </tr>                            
                     </table>
-                    <input type="button" name="" value="결제하기">              
+                    <input type="submit" name="btnOrder" value="결제하기">              
                 </div>
                     
                 <!-- 배송정보 -->
@@ -247,23 +278,23 @@
                     <div>
                         <span>신용카드</span>
                         <p>
-                            <label><input type="radio" name="payment" value="type1"/>신용카드 결제</label>
-                            <label><input type="radio" name="payment" value="type2"/>체크카드 결제</label>                                
+                            <label><input type="radio" name="payment" value="1"/>신용카드 결제</label>
+                            <label><input type="radio" name="payment" value="2"/>체크카드 결제</label>                                
                         </p>
                     </div>
                     <div>
                         <span>계좌이체</span>
                         <p>
-                            <label><input type="radio" name="payment" value="type3"/>실시간 계좌이체</label>
-                            <label><input type="radio" name="payment" value="type4"/>무통장 입금</label>                                
+                            <label><input type="radio" name="payment" value="3"/>실시간 계좌이체</label>
+                            <label><input type="radio" name="payment" value="4"/>무통장 입금</label>                                
                         </p>
                     </div>
                     <div>
                         <span>기타</span>
                         <p>
-                            <label><input type="radio" name="payment" value="type3"/>휴대폰결제</label>
+                            <label><input type="radio" name="payment" value="5"/>휴대폰결제</label>
                             <label>
-                                <input type="radio" name="payment" value="type4"/>카카오페이
+                                <input type="radio" name="payment" value="6"/>카카오페이
                                 <img src="./images/ico_kakaopay.gif" alt="카카오페이"/>
                             </label>                                
                         </p>
