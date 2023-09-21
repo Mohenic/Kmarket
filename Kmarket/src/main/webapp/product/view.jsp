@@ -66,58 +66,51 @@ $(function(){
         }
     });
 </script>
-<!-- 상품 개수 지정 구현중
+
 <script>
+	// 상품 수량 감소/증가 버튼
     // 초기 상품 가격, 할인 및 배송비 가져오기
     const initialPrice = ${view.price};
     const initialDiscount = ${view.discount};
     const initialDelivery = ${view.delivery};
-
     // 현재 수량 변수 초기화
     let currentQuantity = 1;
-
-    // 수량을 감소시키는 함수
-    function decreaseValue() {
+    // 수량을 감소 함수
+      function decreaseValue() {
         if (currentQuantity > 1) {
             currentQuantity--;
             updateQuantityAndTotal();
         }
+        event.preventDefault();
     }
-
-    // 수량을 증가시키는 함수
+	// 수량 증가 함수
     function increaseValue() {
         currentQuantity++;
         updateQuantityAndTotal();
+        event.preventDefault();
     }
-
-    // 수량과 총 상품금액 업데이트 함수
+    // 총 상품금액 업데이트 함수
     function updateQuantityAndTotal() {
         const numInput = document.getElementById("num");
         numInput.value = currentQuantity;
-
-        // 현재 수량을 기반으로 총 상품금액을 계산
+        //  총 상품금액을 계산
         const total = getTotalPrice(currentQuantity, initialPrice, initialDiscount, initialDelivery);
-
         // 총 상품금액 업데이트
         const totalElement = document.querySelector(".total span");
         totalElement.textContent = total;
     }
-
     // 총 상품금액 계산 함수
     function getTotalPrice(quantity, price, discount, delivery) {
         // 할인된 가격 계산
         const discountedPrice = price - (price * discount / 100);
-        
         // 총 상품금액 계산 (가격 * 수량 + 배송비)
         const totalPrice = (discountedPrice * quantity) + delivery;
-
         return totalPrice;
     }
-
     // 초기화
     updateQuantityAndTotal();
 </script>
- -->
+
 
 <script>
 	//상단 이동 버튼
@@ -130,10 +123,7 @@ $(function(){
     <main id="product">
     	<%@ include file="./category.jsp" %>   
         <section class="view">
-            <nav>
-                <h1>상품보기</h1>
-                <p>HOME > <span>패션·의류·뷰티</span> > <strong>남성의류</strong></p>
-            </nav>
+		<%@ include file="./menu.jsp" %>   
             
             <form action="#" method="post">
            	<input type="hidden" name="uid" value="${sessUser.uid}">

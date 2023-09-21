@@ -19,53 +19,66 @@ import kr.co.kmarket.service.product.ProductCartService;
 import kr.co.kmarket.service.product.ProductService;
 
 @WebServlet("/product/view.do")
-public class ProductViewController extends HttpServlet{
-	
-	private static final long serialVersionUID = 2687468093010817571L;
-	ProductService service = ProductService.INSTANCE;
-	ProductCartService service2 = ProductCartService.INSTANCE;
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-		@Override
-		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			
-			String prodNo = req.getParameter("prodNo");
-			int parseNo = Integer.parseInt(prodNo);
-			ProductDTO dto = service.selectProduct(parseNo);
-			req.setAttribute("view", dto);
-			logger.debug("Product View = " + dto);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/product/view.jsp");
-			dispatcher.forward(req, resp);	
-		}
-		
-		@Override
-		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+public class ProductViewController extends HttpServlet {
 
-			ProductCartDTO dto = new ProductCartDTO();
-			
-			String uid = req.getParameter("uid");
-			String prodNo = req.getParameter("prodNo");
-			String prodName = req.getParameter("prodName");
-			String descript = req.getParameter("descript");
-			String price = req.getParameter("price");
-			String point = req.getParameter("point");
-			String discount = req.getParameter("discount");
-			String delivery = req.getParameter("delivery");
-			String total = req.getParameter("total");
-			String count = req.getParameter("num");
-			
-			dto.setUid(uid);
-			dto.setProdNo(prodNo);
-			dto.setCount(count);
-			dto.setPrice(price);
-			dto.setDiscount(discount);
-			dto.setPoint(point);
-			dto.setDelivery(delivery);
-			dto.setTotal(total);
-			service2.insertCart(dto);
-			resp.sendRedirect("/product/cart.do");
-			
-			
-		
-		}
+    private static final long serialVersionUID = 2687468093010817571L;
+    private ProductService productService = ProductService.INSTANCE;
+    private ProductCartService productCartService = ProductCartService.INSTANCE;
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String prodNo = req.getParameter("prodNo");
+        int parseNo = Integer.parseInt(prodNo);
+        ProductDTO dto = productService.selectProduct(parseNo);
+        req.setAttribute("view", dto);
+        logger.debug("Product View = " + dto);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/product/view.jsp");
+        dispatcher.forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String uid = req.getParameter("uid");
+        String prodNo = req.getParameter("prodNo");
+        String prodName = req.getParameter("prodName");
+        String descript = req.getParameter("descript");
+        String priceStr = req.getParameter("price");
+        String pointStr = req.getParameter("point");
+        String discountStr = req.getParameter("discount");
+        String deliveryStr = req.getParameter("delivery");
+        String totalStr = req.getParameter("total");
+        String countStr = req.getParameter("num");
+
+        int price = parseInt(priceStr);
+        int point = parseInt(pointStr);
+        int discount = parseInt(discountStr);
+        int delivery = parseInt(deliveryStr);
+        int total = parseInt(totalStr);
+        int count = parseInt(countStr);
+
+        ProductCartDTO dto = new ProductCartDTO();
+        dto.setUid(uid);
+        dto.setProdNo(prodNo);
+        dto.setProdName(prodName);
+        dto.setDescript(descript);
+        dto.setPrice(price);
+        dto.setPoint(point);
+        dto.setDiscount(discount);
+        dto.setDelivery(delivery);
+        dto.setTotal(total);
+        dto.setCount(count);
+
+        productCartService.insertCart(dto);
+        resp.sendRedirect("/product/cart.do");
+    }
+
+    private int parseInt(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
 }

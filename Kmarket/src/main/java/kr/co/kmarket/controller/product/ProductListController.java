@@ -35,17 +35,25 @@ public class ProductListController extends HttpServlet {
             int category2 = Integer.parseInt(category2Param);
 
             list = service.getProductsByCategory(category1, category2);
-            logger.info("카테고리별로 상품 목록 조회");
-        } else if (sortOption != null && !sortOption.isEmpty()) {
+            logger.info("카테고리별로 상품 목록 조회"+list);
+            logger.info(category1Param);
+            logger.info(category2Param);
+        } if (sortOption != null && !sortOption.isEmpty()) {
             if ("selling".equals(sortOption)) {
                 list = service.selectProductsSelling(start);
-                logger.info("판매량 높은 순서대로 상품 목록 조회");
+                logger.info("판매량 높은 순서대로 상품 목록 조회"+list);
+                logger.info(category1Param);
+                logger.info(category2Param);
             } else if ("lowprice".equals(sortOption)) {
                 list = service.selectProductsLowprice(start);
                 logger.info("낮은 가격 순서대로 상품 목록 조회");
+                logger.info(category1Param);
+                logger.info(category2Param);
             } else if ("highprice".equals(sortOption)) {
                 list = service.selectProductsHighprice(start);
                 logger.info("높은 가격 순서대로 상품 목록 조회");
+                logger.info(category1Param);
+                logger.info(category2Param);
             } else if ("highrating".equals(sortOption)) {
                 list = service.selectProductsHighrating(start);
                 logger.info("평점 높은 순서대로 상품 목록 조회");
@@ -64,6 +72,8 @@ public class ProductListController extends HttpServlet {
             logger.info("기본 조회");
         }
 
+        req.setAttribute("prodCate1", category1Param);
+        req.setAttribute("prodCate2", category2Param);
         req.setAttribute("list", list);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/product/list.jsp");
         dispatcher.forward(req, resp);

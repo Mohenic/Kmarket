@@ -144,21 +144,21 @@ main > section {
     background-repeat: no-repeat;
 }
 #product > .list > table .rating {
-    margin-top: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 #product h6.rating {
     font-size: 11px;
     background-image: url("../images/rating_star.png");
     background-repeat: no-repeat;
-    background-position: 36px 0px;
     background-size: auto 100%;
 }
 #product h6.rating.star0 { opacity: 0; }
-#product h6.rating.star1 { width: 52px; }
-#product h6.rating.star2 { width: 64px; }
-#product h6.rating.star3 { width: 78px; }
-#product h6.rating.star4 { width: 92px; }
-#product h6.rating.star5 { width: 100%; }
+#product h6.rating.star1 { width: 18px; height: 15px; }
+#product h6.rating.star2 { width: 34px; height: 15px; }
+#product h6.rating.star3 { width: 50px; height: 15px; }
+#product h6.rating.star4 { width: 67px; height: 15px; }
+#product h6.rating.star5 { width: 100%; height: 15px; }
 
 /* View */
 .view > article {
