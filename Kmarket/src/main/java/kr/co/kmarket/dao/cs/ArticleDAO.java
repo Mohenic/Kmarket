@@ -44,7 +44,7 @@ public class ArticleDAO extends DBHelper{
 		
 	}
 	
-	public ArticleDTO selectArticle(String qnaNo) {
+	public ArticleDTO selectArticle(String no) {
 			
 		ArticleDTO dto = null;
 			
@@ -52,7 +52,7 @@ public class ArticleDAO extends DBHelper{
 				
 				conn = getConnection();
 				psmt = conn.prepareStatement(SQL_cs.SELECT_ARTICLE);
-				psmt.setString(1, qnaNo);
+				psmt.setString(1, no);
 				rs = psmt.executeQuery();
 				
 				if(rs.next()) {
@@ -271,10 +271,11 @@ public class ArticleDAO extends DBHelper{
 			while(rs.next()) {
 				ArticleDTO dto = new ArticleDTO();
 				dto.setNo(rs.getInt(1));
-				dto.setTypeName(rs.getString(2));
-				dto.setTitle(rs.getString(3));
-				dto.setMaskWriter(rs.getString(4));
-				dto.setRdateYYMMDD(rs.getString(5));
+				dto.setCate(rs.getString(2));
+				dto.setTypeName(rs.getString(3));
+				dto.setTitle(rs.getString(4));
+				dto.setMaskWriter(rs.getString(5));
+				dto.setRdateYYMMDD(rs.getString(6));
 				latest.add(dto);
 			}
 			
@@ -286,34 +287,7 @@ public class ArticleDAO extends DBHelper{
 		return latest;
 	}
 	
-	//notice 최신글 보기 
-	public List<ArticleDTO> selectNoticeArticleLatest(String group, int end) {
-		
-		List<ArticleDTO> noticeLatest = new ArrayList<>();
-		
-		try {
-			conn = getConnection();
-			psmt = conn.prepareStatement(SQL_cs.SELECT_NOTICE_ARTICLE_LATEST);
-			psmt.setString(1, group);
-			psmt.setInt(2, end);
-			rs = psmt.executeQuery();
 	
-			while(rs.next()) {
-				ArticleDTO dto = new ArticleDTO();
-				dto.setNo(rs.getInt(1));
-				dto.setTitle(rs.getString(2));
-				dto.setMaskWriter(rs.getString(3));
-				dto.setRdateYYMMDD(rs.getString(4));
-				noticeLatest.add(dto);
-			}
-			
-			close();
-			
-		} catch (Exception e) {
-			logger.error("selectArteicleLateste() error : " + e.getMessage());
-		}
-		return noticeLatest;
-	}
 	
 	
 	

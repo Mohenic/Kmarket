@@ -20,4 +20,8 @@ public class SQL_admin {
 	
 	public final static String SELECT_COUNT_ARTICLE_ALL = "SELECT COUNT(*) FROM `km_article` WHERE `group`=?";
 	public final static String SELECT_COUNT_ARTICLE_CATE = "SELECT COUNT(*) FROM `km_article` WHERE `group`=? AND `cate`=?";
+	
+	//상품선택
+	public final static String SELECT_ARTICLE = "SELECT * FROM `km_product` WHERE `prodNo` = ? ";
+	
 }

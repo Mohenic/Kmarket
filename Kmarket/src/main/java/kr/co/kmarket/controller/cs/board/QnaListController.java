@@ -96,7 +96,7 @@ public class QnaListController extends HttpServlet {
 		req.setAttribute("pageGroupEnd", pageGroupEnd);
 		req.setAttribute("pageStartNum", pageStartNum);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/board/qna/list.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/board/qnalist.jsp");
 		dispatcher.forward(req, resp);
 		
 		
