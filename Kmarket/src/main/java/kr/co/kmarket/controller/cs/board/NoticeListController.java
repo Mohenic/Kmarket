@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.cs.ArticleDTO;
 import kr.co.kmarket.service.cs.ArticleService;
-import kr.co.kmarket.service.cs.NoticeService;
 
 
 @WebServlet("/cs/board/notice/list.do")

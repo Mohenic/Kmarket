@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.cs.FaqDTO;
 import kr.co.kmarket.dto.cs.ArticleDTO;
-import kr.co.kmarket.service.cs.FaqService;
 import kr.co.kmarket.service.cs.ArticleService;
 
 @WebServlet("/cs/board/qna/write.do")
