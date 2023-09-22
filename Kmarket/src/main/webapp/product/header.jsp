@@ -33,7 +33,7 @@
             </div>
             <div class="logo">
                 <div>
-                    <a href="#"><img src="./images/header_logo.png" alt="로고"/></a>
+                    <a href="/Kmarket"><img src="./images/header_logo.png" alt="로고"/></a>
                     <form action="#">
                         <input type="text" name="search"/>
                         <button><i class="fa fa-search"></i></button>

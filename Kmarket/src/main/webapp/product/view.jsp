@@ -46,18 +46,76 @@
 			});
 			
 		});
-	})
-	</script>
-	
-	<script>
-		//상품 리뷰로 스크롤 이동    
-	    document.querySelector('a[href="#productReviews"]').addEventListener('click', function (event) {
-	        event.preventDefault();
-	
-	        const productReviewsSection = document.getElementById('productReviews');
-	        if (productReviewsSection) {
-	            productReviewsSection.scrollIntoView({ behavior: 'smooth' }); // 부드럽게 스크롤합니다.
-	        }
+	});
+})
+
+
+
+
+
+</script>
+<script>
+	//상품 리뷰로 스크롤 이동    
+    document.querySelector('a[href="#productReviews"]').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const productReviewsSection = document.getElementById('productReviews');
+        if (productReviewsSection) {
+            productReviewsSection.scrollIntoView({ behavior: 'smooth' }); // 부드럽게 스크롤합니다.
+        }
+    });
+</script>
+
+<script>
+	// 상품 수량 감소/증가 버튼
+    // 초기 상품 가격, 할인 및 배송비 가져오기
+    const initialPrice = ${view.price};
+    const initialDiscount = ${view.discount};
+    const initialDelivery = ${view.delivery};
+    // 현재 수량 변수 초기화
+    let currentQuantity = 1;
+    // 수량을 감소 함수
+      function decreaseValue() {
+        if (currentQuantity > 1) {
+            currentQuantity--;
+            updateQuantityAndTotal();
+        }
+        event.preventDefault();
+    }
+	// 수량 증가 함수
+    function increaseValue() {
+        currentQuantity++;
+        updateQuantityAndTotal();
+        event.preventDefault();
+    }
+    // 총 상품금액 업데이트 함수
+    function updateQuantityAndTotal() {
+        const numInput = document.getElementById("num");
+        numInput.value = currentQuantity;
+        //  총 상품금액을 계산
+        const total = getTotalPrice(currentQuantity, initialPrice, initialDiscount, initialDelivery);
+        // 총 상품금액 업데이트
+        const totalElement = document.querySelector(".total span");
+        totalElement.textContent = total;
+    }
+    // 총 상품금액 계산 함수
+    function getTotalPrice(quantity, price, discount, delivery) {
+        // 할인된 가격 계산
+        const discountedPrice = price - (price * discount / 100);
+        // 총 상품금액 계산 (가격 * 수량 + 배송비)
+        const totalPrice = (discountedPrice * quantity) + delivery;
+        return parseInt(totalPrice,10);
+    }
+    // 초기화
+    updateQuantityAndTotal();
+</script>
+
+
+<script>
+	//상단 이동 버튼
+	$(document).ready(function(){
+	    $("#top").click(function(){
+	        $("html, body").animate({scrollTop: 0}, "fast");
 	    });
 	</script>
 	
@@ -120,6 +178,20 @@
             <form action="/Kmarket/product/order.do" id="formOrder" method="get">
            	<input type="hidden" name="uid" value="${sessUser.uid}">
            	<input type="hidden" name="type" value="order">
+           	<input type="hidden" name="delivery" value="${view.delivery}"/>
+           	<input type="hidden" name="point" value="${view.point }"/>
+           	<input type="hidden" name="seller" value="${view.seller}"/>
+           	<input type="hidden" name="discount1" value="${view.getDiscountPrice2(view.price,view.discount) }"/>
+           	<input type="hidden" name="discount2" value="${view.discount}"/>
+           	<input type="hidden" name="price" value="${view.price}"/>
+           	<input type="hidden" name="total" value="${view.getTotalprice(view.price,view.discount,view.delivery)}"/>
+           	<input type="hidden" name="prodCate1" value="${view.prodCate1}"/>
+           	<input type="hidden" name="prodCate2" value="${view.prodCate2}"/>
+           	<input type="hidden" name="descript" value="${view.descript}"/>
+           	<input type="hidden" name="prodName" value="${view.prodName}"/>
+           	<input type="hidden" name="prodNo" value="${view.prodNo}"/>
+           	<input type="hidden" name="thumb1" value="${view.thumb1}"/>
+           	
            	
             <!-- View 시작 -->       
             <c:if test="${not empty view}">
@@ -186,7 +258,7 @@
                     
                     <div class="count">
                         <button class="decrease" onclick="decreaseValue()">-</button>
-						<input type="number" id="num" name="num" value="1" readonly/>
+						<input type="number" id="num" name="num" value="1" readonly/><!-- count -->
 						<button class="increase" onclick="increaseValue()">+</button>
                     </div>
                     

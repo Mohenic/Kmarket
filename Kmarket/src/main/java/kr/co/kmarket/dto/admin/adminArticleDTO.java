@@ -31,6 +31,9 @@ public class adminArticleDTO {
 	public void setNo(int no) {
 		this.no = no;
 	}
+	public void setNo(String no) {
+		this.no = Integer.parseInt(no);
+	}
 	public int getParent() {
 		return parent;
 	}
@@ -99,6 +102,9 @@ public class adminArticleDTO {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	public void setRdateYYMMDD(String rdate) {
+		this.rdate = rdate.substring(2, 10);
 	}
 	
 	@Override

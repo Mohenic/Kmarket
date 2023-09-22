@@ -25,13 +25,11 @@ public class ProductListDelete extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		// 제품 번호 가져오기 
-		
 		String[] chks = req.getParameterValues("chk");
-		
-		for(String prodNo : chks) {
-			pService.deleteProduct(prodNo);
-		}
+			
+			for(String prodNo : chks) {
+				pService.deleteProduct(prodNo);
+			}
 		
 		resp.sendRedirect("/Kmarket/admin/product/list.do");
 	}

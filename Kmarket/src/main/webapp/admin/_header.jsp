@@ -18,7 +18,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
     <script src="/Kmarket/admin/js/aside.js"></script>
-    <script src="/Kmarket/admin/cs/js/listEachCate.js"></script>
+    <script src="/Kmarket/admin/product/js/checkBox.js"></script>
+    <script src="/Kmarket/admin/cs/js/checkBox.js"></script>
 
 </head>
 <body>

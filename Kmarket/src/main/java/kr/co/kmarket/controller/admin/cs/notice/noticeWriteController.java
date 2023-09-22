@@ -1,4 +1,4 @@
-package kr.co.kmarket.controller.admin.cs;
+package kr.co.kmarket.controller.admin.cs.notice;
 
 import java.io.IOException;
 

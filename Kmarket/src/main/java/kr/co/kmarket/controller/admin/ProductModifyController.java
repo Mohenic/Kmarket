@@ -14,13 +14,14 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.product.ProductDTO;
 import kr.co.kmarket.service.admin.adminArticleService;
+import kr.co.kmarket.service.admin.adminProductSerivce;
 
 @WebServlet("/admin/product/modify.do")
 public class ProductModifyController extends HttpServlet{
 
 	private static final long serialVersionUID = -7461736615488292213L;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	adminArticleService service = adminArticleService.instance;
+	adminProductSerivce service = adminProductSerivce.instance;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

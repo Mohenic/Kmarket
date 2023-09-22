@@ -1,26 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "../_header.jsp" %> 
-<script>
-	$(function(){
-		
-		$('input[name=all]').change(function(){
-			const isChecked = $(this).is(':checked');
-			
-			if(isChecked){
-				// 전체선택
-				$('input[name=chk]').prop('checked', true);
-			}else{
-				// 전체해제
-				$('input[name=chk]').prop('checked', false);
-			}
-		});
-		
-		$('.productDelete').click(function(e){
-			e.preventDefault();
-			$('#formCheck').submit();
-		});
-	});
-</script>
 <%@ include file = "../_aside.jsp" %>
 
         <section id="admin-product-list">
@@ -40,8 +19,8 @@
                     </select>
                     <input type="text" name="search">
                 </div>
-                <table>
 	            <form id="formCheck" action="/Kmarket/admin/product/delete.do" method="get">
+                <table>
                     <tbody>
                         <tr>
                             <th><input type="checkbox" name="all"></th>
@@ -70,8 +49,8 @@
                             <td class="seller">${product.seller}</td>
                             <td class="hit">${product.hit}</td>
                             <td>
-                                <a href="#">[삭제]</a>
-                                <a href="/Kmarket/admin/product/modify.do?prodNo=${product.prodNo}">[수정]</a>
+                                <a href="/Kmarket/admin/product/delete.do?chk=${product.prodNo}">[삭제]</a>
+                                <a href="#">[수정]</a>
                             </td>
                         </tr>
                         </c:forEach>

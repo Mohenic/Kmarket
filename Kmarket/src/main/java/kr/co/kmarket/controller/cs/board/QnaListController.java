@@ -63,9 +63,10 @@ public class QnaListController extends HttpServlet {
 		}
 		
 		//페이지 그룹계산
-		pageGroupCurrent=(int) Math.ceil(currentPage/10.0);
-		pageGroupStart=(pageGroupCurrent-1)*10+1;
-		pageGroupEnd=pageGroupCurrent*10;
+		// 페이지 그룹 계산 (5개 단위로 나누기)
+		pageGroupCurrent = (int) Math.ceil(currentPage / 5.0); // 현재 페이지 그룹 계산
+		pageGroupStart = (pageGroupCurrent - 1) * 5 + 1; // 페이지 그룹의 시작 페이지 계산
+		pageGroupEnd = Math.min(pageGroupCurrent * 5, lastPageNum); // 페이지 그룹의 끝 페이지 계산
 		
 		if(pageGroupEnd > lastPageNum){
 			pageGroupEnd=lastPageNum;

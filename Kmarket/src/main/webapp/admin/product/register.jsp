@@ -26,7 +26,6 @@
                             </p>
                             <table>
                                 <tbody>
-                                
                                     <tr>
                                         <td>1차 분류</td>
                                         <td>

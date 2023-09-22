@@ -16,10 +16,13 @@ public class SQL_MEMBER {
 													+ "  email=?, type=?, zip=?, addr1=?, addr2=?,"
 													+ " company=?, ceo=?, bizRegNum=?, comRegNum=? ,tel=?, manager=?, managerHp=?, fax=?, "
 													+ "regip=?, rdate=NOW(),level=5";
+		public static final String INSERT_MEMBER_POINT="INSERT INTO `km_member_point` SET `uid`=?,`ordNo`=?,`point`=? ,`pointDate`=NOW()";
 
 		
 		//DELETE
 		
 		//UPDATE
+		public static final String UPDATE_MEMBER_POINT="UPDATE `km_member` SET `point`=`point`+?-? where `uid`=?";
 		
+		public static final String SELECT_MEMBER_POINT="SELECT a.`point` FROM `km_member` AS a WHERE `uid`=?";
 }

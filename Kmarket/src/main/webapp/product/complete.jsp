@@ -51,6 +51,7 @@
                         </div>
                         </article>
                     </td>
+                    <!-- 수정중 -->
                     <td>${comps.getPriceWithComma()}원</td>
                     <td>${comps.getDiscount2(comps.price,comps.discount)}원</td>
                     <td>${comps.count }개</td>

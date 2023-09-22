@@ -57,6 +57,7 @@
 		})
 
 		console.log(countRe);
+		console.log(discountRe);
 		
 		$.each(discount,function(index,value){
 				discountRe +=parseInt(value,10);
@@ -85,13 +86,14 @@
 		$('input[name=select]').click(function(e){
 			e.preventDefault();
 			
-			const userPoint =${sessUser.point}
+			const userPoint =parseInt(${memberpoint},10)
 			
 			if(userPoint>=5000){
 				var point =$('input[name=point]').val();
 				console.log(point)
 				$('.point').text("-"+point+"원");
 				$('.point2').val(point);
+				$('.point3').val(point);
 				var total = priceRe+deliveryRe-discountRe-point
 				$('.totalRe').text(total+"원")
 				$('.totalRe2').val(total)
@@ -122,7 +124,7 @@
 	
 </script>
 <script>
-	function noEvent() { // 새로 고침 방지
+	$(function noEvent() { // 새로 고침 방지
 	    if (event.keyCode == 116) {
 	        alert("새로고침을 할 수 없습니다.");
 	        event.keyCode = 2;
@@ -194,20 +196,54 @@
                     </tr>
                     </c:forEach>
                     </c:if>
+                     <c:if test="${type eq 'order'}">
+                     <tr>
+                        <td>
+                        <article>
+                            <a href="#"><img src="/Kmarket/thumb/${prodCate1}/${prodCate2}/${thumb1}" alt="thumb1"></a>
+                            <div>
+			                    <h2><a href="/Kmartek/product/list.do"></a>${prodName }</h2>
+			                    <p>${descript}</p>
+		                  </div>
+                        </article>
+                        </td>
+                        <input type="hidden" name="type" value="${type }"/>
+                        <input type="hidden" name="itemprodNo" value="${prodNo}"/>
+                        <input type="hidden" name="itemcount" value="${count}"/>
+                        <input type="hidden" name="itemprice" value="${price}"/>
+                        <input type="hidden" name="itemdiscount" value="${discount2}"/>
+                        <input type="hidden" name="itempoint" value="${point}"/>
+                        <input type="hidden" name="itemdelivery" value="${delivery}"/>
+                        <input type="hidden" name="itemtotal" value="${total}"/>
+                        <td class="hidden addpoint">${point}</td>
+                        <td class="hidden count">${count}</td>
+                        <td class="hidden seller">${seller}</td>
+                        <td >${count }</td>
+                        <td class="price">${price}</td>
+                        <td class="delivery1">${delivery }</td>
+                        <td class="total">${total }</td>
+                        <td class="hidden discount1">${discount1}</td>
+						
+                    </tr>
+                     
+                     
+                     </c:if>
                     </tbody>
                 </table>                 
                 <!-- 최종 결제 정보 -->
                 <div class="final">
                     <h2>최종결제 정보</h2>
                     <table border="0">
+                    <!-- hidden 정보 -->
                     <input type="hidden" name="losepoint" class="point2" value="0" /> 
                     <input type="hidden" name="addpoint" class="pointRe2"/>
                     <input type="hidden" name="count" class="countRe2"/>
                     <input type="hidden" name="uid" value="${sessUser.uid}"/>
                     <input type="hidden" name="price" class="priceRe2"/>
-                    <input type="hidden" name="discount" class="discountRe2"/>
+                    <input type="hidden" name="discount" class="discountRe2" />
                     <input type="hidden" name="delivery" value="${delivery }"/>                  
                     <input type="hidden" name="total" class="totalRe2"/>
+                    <input type="hidden" name="mpoint" class="point3" value="0"/>
                     <tr>
                         <td>총</td>
                         <td class="countRe"></td>
@@ -279,7 +315,7 @@
                 <article class="discount">
                     <h1>할인정보</h1>
                     <div>
-                    <p>현재 포인트 : <span>${sessUser.point}</span>점</p>
+                    <p>현재 포인트 : <span>${memberpoint}</span>점</p>
                     <label>
                         <input type="text" name="point"/>점
                         <input type="button" name="select" value="적용"/>

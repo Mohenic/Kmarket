@@ -304,7 +304,7 @@ footer > div > p {
     box-sizing: border-box;
 }
 
-/*product/list*/
+/*product list*/
 #admin-product-list >  section > div > select {
     width: 150px;
     padding: 6px;
@@ -327,48 +327,44 @@ footer > div > p {
     margin-bottom: 5px;
 }
 
-#admin-product-list > section > table tr > th {
+#formCheck > table tr > th {
     padding: 10px 0;
     background: #f6f6f6;
     border-top: 2px solid rgb(135, 152, 163);
 }
 
-
-main table tr > td:nth-child(1) {
-    width: 20px;
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
-    background: #f6f6f6;
-    padding: 10px;
-    text-align: left;
+#formCheck > table tr > td {
+    background: #fff;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-main table tr > td {
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
-    padding: 10px;
-    text-align: left;
+#formCheck > table img.thumb{
+	width: 60px;
 }
 
 
+#admin-product-list > section > table tr > td:nth-child(1) {
+	width: 20px;
+}
 
-#admin-product-list > section > table tr > td {
+#formCheck > table tr > td {
     background: rgb(255, 255, 255);
     text-align: center;
     box-sizing: border-box;
 }
 
-#admin-product-list > section > table tr > td:nth-child(1) {width: 20px;}
-#admin-product-list > section > table tr > td:nth-child(2) {width: 80px;}
-#admin-product-list > section > table tr > td:nth-child(3) {width: 80px;}
-#admin-product-list > section > table tr > td:nth-child(4) {width: auto;text-align: left;}
-#admin-product-list > section > table tr > td:nth-child(5) {width: 80px;}
-#admin-product-list > section > table tr > td:nth-child(6) {width: 80px;}
-#admin-product-list > section > table tr > td:nth-child(7) {width: 80px;}
-#admin-product-list > section > table tr > td:nth-child(8) {width: 80px;}
-#admin-product-list > section > table tr > td:nth-child(9) {width: 80px;}
-#admin-product-list > section > table tr > td:nth-child(10) {width: 80px;}
-#admin-product-list > section > table tr > td:nth-child(11) {width: 100px;}
+#formCheck > table tr > td:nth-child(1) {width: 20px;}
+#formCheck > table tr > td:nth-child(2) {width: 80px;}
+#formCheck > table tr > td:nth-child(3) {width: 80px;}
+#formCheck > table tr > td:nth-child(4) {width: auto;text-align: left;}
+#formCheck > table tr > td:nth-child(5) {width: 80px;}
+#formCheck > table tr > td:nth-child(6) {width: 80px;}
+#formCheck > table tr > td:nth-child(7) {width: 80px;}
+#formCheck > table tr > td:nth-child(8) {width: 80px;}
+#formCheck > table tr > td:nth-child(9) {width: 80px;}
+#formCheck > table tr > td:nth-child(10) {width: 80px;}
+#formCheck > table tr > td:nth-child(11) {width: 100px;}
 
 #admin-product-list > section > table img.thumb {
     width: 60px
@@ -415,7 +411,8 @@ main table tr > td {
 }
 
 /*현재 페이지 빨간색 */
-#admin-product-list .paging > .num > a.on {
+
+#admin-product-list .paging > .num > a.current {
     color: #fe434c;
     font-weight: bold;
 }
@@ -442,13 +439,14 @@ p.info {
 }
 
 
-/*register.html*/
-main table tr > td:nth-child(1) {
+/*register*/
+
+#admin-product-register table tr > td:nth-child(1) {
     width: 160px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
     background: #f6f6f6;
-    padding: 10px;
+    padding: 10px;    
     text-align: left;
 }
 

@@ -116,9 +116,9 @@
               <li><a href="#">할인상품</a></li>
             </ul>
             <ul>
-              <li><a href="/Kmarket/cs/notice/list.do?group=notice&cate=notice">공지사항</a></li>
-              <li><a href="/Kmarket/cs/faq/list.do?group=faq&cate=member">자주묻는질문</a></li>
-              <li><a href="/Kmarket/cs/qna/list.do?group=qna&cate=qna">문의하기</a></li>
+              <li><a href="/Kmarket/cs/board/notice/list.do?group=notice&cate=0">공지사항</a></li>
+              <li><a href="/Kmarket/cs/board/faq/list.do?group=faq&cate=member">자주묻는질문</a></li>
+              <li><a href="/Kmarket/cs/board/qna/list.do?group=qna&cate=member">문의하기</a></li>
               <li><a href="/Kmarket/cs/index.do">고객센터</a></li>
             </ul>
           </div>
