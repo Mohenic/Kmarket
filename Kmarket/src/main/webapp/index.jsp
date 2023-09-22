@@ -16,6 +16,14 @@
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/timeout.js"></script>
+    <script>
+	//상단 이동 버튼
+	$(document).ready(function(){
+	    $("#top").click(function(){
+	        $("html, body").animate({scrollTop: 0}, "fast");
+	    });
+	});
+	</script>
     <style>
       #bannerTop {
         display: none;

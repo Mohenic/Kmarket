@@ -36,24 +36,29 @@ public enum ProductService {
     }
     
     //상품 분류 (판매량,리뷰수 등)
-	public List<ProductDTO> selectProductsSelling(int sort) {
-		return dao.selectProductsSelling(sort);
-	}
-	public List<ProductDTO> selectProductsLowprice(int sort) {
-		return dao.selectProductsLowprice(sort);
-	}
-	public List<ProductDTO> selectProductsHighprice(int sort) {
-		return dao.selectProductsHighprice(sort);
-	}
-	public List<ProductDTO> selectProductsHighrating(int sort) {
-		return dao.selectProductsHighrating(sort);
-	}
-	public List<ProductDTO> selectProductsManyreviews(int sort) {
-		return dao.selectProductsManyreviews(sort);
-	}
-	public List<ProductDTO> selectProductsRecent(int sort) {
-		return dao.selectProductsRecent(sort);
-	}
+    public List<ProductDTO> selectProductsSelling(int sort) {
+        return dao.selectProductsSelling(sort);
+    }
+
+    public List<ProductDTO> selectProductsLowprice(int sort) {
+        return dao.selectProductsLowprice(sort);
+    }
+
+    public List<ProductDTO> selectProductsHighprice(int sort) {
+        return dao.selectProductsHighprice(sort);
+    }
+
+    public List<ProductDTO> selectProductsHighrating(int sort) {
+        return dao.selectProductsHighrating(sort);
+    }
+
+    public List<ProductDTO> selectProductsManyreviews(int sort) {
+        return dao.selectProductsManyreviews(sort);
+    }
+
+    public List<ProductDTO> selectProductsRecent(int sort) {
+        return dao.selectProductsRecent(sort);
+    }
 	
 	//category
 	public List<ProductDTO> getProductsByCategory(int category1, int category2) {

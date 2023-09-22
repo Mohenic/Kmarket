@@ -30,47 +30,49 @@ public class ProductListController extends HttpServlet {
         int start = 0;
         List<ProductDTO> list;
 
-        if (category1Param != null && category2Param != null) {
-            int category1 = Integer.parseInt(category1Param);
-            int category2 = Integer.parseInt(category2Param);
-
-            list = service.getProductsByCategory(category1, category2);
-            logger.info("카테고리별로 상품 목록 조회"+list);
-            logger.info(category1Param);
-            logger.info(category2Param);
-        } if (sortOption != null && !sortOption.isEmpty()) {
-            if ("selling".equals(sortOption)) {
+        if (sortOption != null) {
+        	switch (sortOption) {
+            case "selling":
                 list = service.selectProductsSelling(start);
-                logger.info("판매량 높은 순서대로 상품 목록 조회"+list);
-                logger.info(category1Param);
-                logger.info(category2Param);
-            } else if ("lowprice".equals(sortOption)) {
+                logger.info("판매량 높은 순서대로 상품 목록 조회" + list);
+                logger.info("sortOption: " + sortOption);
+                break;
+            case "lowprice":
                 list = service.selectProductsLowprice(start);
-                logger.info("낮은 가격 순서대로 상품 목록 조회");
-                logger.info(category1Param);
-                logger.info(category2Param);
-            } else if ("highprice".equals(sortOption)) {
+                logger.info("낮은 가격 순서대로 상품 목록 조회" + list);
+                logger.info("sortOption: " + sortOption);
+                break;
+            case "highprice":
                 list = service.selectProductsHighprice(start);
-                logger.info("높은 가격 순서대로 상품 목록 조회");
-                logger.info(category1Param);
-                logger.info(category2Param);
-            } else if ("highrating".equals(sortOption)) {
+                logger.info("높은 가격 순서대로 상품 목록 조회" + list);
+                break;
+            case "highrating":
                 list = service.selectProductsHighrating(start);
-                logger.info("평점 높은 순서대로 상품 목록 조회");
-            } else if ("manyreviews".equals(sortOption)) {
+                logger.info("평점 높은 순서대로 상품 목록 조회" + list);
+                break;
+            case "manyreviews":
                 list = service.selectProductsManyreviews(start);
-                logger.info("후기 많은 순서대로 상품 목록 조회");
-            } else if ("recent".equals(sortOption)) {
+                logger.info("후기 많은 순서대로 상품 목록 조회" + list);
+                break;
+            case "recent":
                 list = service.selectProductsRecent(start);
-                logger.info("최근 등록 순서대로 상품 목록 조회");
-            } else {
-                list = service.selectProducts(start);
-                logger.info("기본 조회");
-            }
-        } else {
-            list = service.selectProducts(start);
-            logger.info("기본 조회");
-        }
+                logger.info("최근 등록 순서대로 상품 목록 조회" + list);
+                break;
+            default:
+                    int category1 = Integer.parseInt(category1Param);
+                    int category2 = Integer.parseInt(category2Param);
+                    list = service.getProductsByCategory(category1, category2);
+                    logger.info("카테고리별로 상품 목록 조회" + list);
+
+                break;
+        	}
+        	} else {
+		    	int category1 = Integer.parseInt(category1Param);
+		        int category2 = Integer.parseInt(category2Param);
+		
+		        list = service.getProductsByCategory(category1, category2);
+		        logger.info("기본 조회2" + list);
+		    }
 
         req.setAttribute("prodCate1", category1Param);
         req.setAttribute("prodCate2", category2Param);
