@@ -124,7 +124,7 @@
 	
 </script>
 <script>
-	function noEvent() { // 새로 고침 방지
+	$(function noEvent() { // 새로 고침 방지
 	    if (event.keyCode == 116) {
 	        alert("새로고침을 할 수 없습니다.");
 	        event.keyCode = 2;
@@ -219,7 +219,7 @@
                         <td class="hidden count">${count}</td>
                         <td class="hidden seller">${seller}</td>
                         <td >${count }</td>
-                        <td class="price">${price }</td>
+                        <td class="price">${price}</td>
                         <td class="delivery1">${delivery }</td>
                         <td class="total">${total }</td>
                         <td class="hidden discount1">${discount1}</td>

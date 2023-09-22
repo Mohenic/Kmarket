@@ -106,7 +106,7 @@ $(function(){
         const discountedPrice = price - (price * discount / 100);
         // 총 상품금액 계산 (가격 * 수량 + 배송비)
         const totalPrice = (discountedPrice * quantity) + delivery;
-        return totalPrice;
+        return parseInt(totalPrice,10);
     }
     // 초기화
     updateQuantityAndTotal();
