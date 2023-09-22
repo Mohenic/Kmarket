@@ -67,7 +67,7 @@
                         </tr>
                         <tr>
                             <td>총 할인금액</td>
-                            <td><span>-${order.getOrdDiscountWithComma()}</span>원</td>
+                            <td><span>-${order.getOrdDiscountWithComma()+mpoint}</span>원</td>
                         </tr>
                         <tr>
                             <td>배송비</td>
