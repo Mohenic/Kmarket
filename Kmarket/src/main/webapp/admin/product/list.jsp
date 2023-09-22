@@ -50,7 +50,7 @@
                             <td class="hit">${product.hit}</td>
                             <td>
                                 <a href="/Kmarket/admin/product/delete.do?chk=${product.prodNo}">[삭제]</a>
-                                <a href="/Kmarket/admin/product/modify.do?prodNo=${product.prodNo}">[수정]</a>
+                                <a href="#">[수정]</a>
                             </td>
                         </tr>
                         </c:forEach>

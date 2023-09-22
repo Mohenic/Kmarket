@@ -3,7 +3,7 @@
 <%@ include file="../../_aside.jsp" %>
             <section id="admin-cs-notice-write">
                 <nav>
-                    <h3>공지사항 작성<h3></h3>
+                    <h3>공지사항 수정<h3></h3>
                     <p>
                         HOME &gt; 고객센터 &gt; <strong>공지사항</strong>
                     </p>
