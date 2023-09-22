@@ -1,4 +1,4 @@
-package kr.co.kmarket.controller.admin.cs;
+package kr.co.kmarket.controller.admin.cs.faq;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,16 +16,17 @@ import org.slf4j.LoggerFactory;
 import kr.co.kmarket.dto.admin.adminArticleDTO;
 import kr.co.kmarket.service.admin.adminArticleService;
 
-@WebServlet("/admin/cs/notice/list.do")
-public class noticeListController extends HttpServlet {
+@WebServlet("/admin/cs/faq/list.do")
+public class faqListController extends HttpServlet {
 
-	private static final long serialVersionUID = 8076023037498229732L;
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private static final long serialVersionUID = -6495265662381672507L;
 	private adminArticleService aService = adminArticleService.instance;
-
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String type = req.getParameter("type");
 		String cate = req.getParameter("cate");
 		String pg = req.getParameter("pg");
 		
@@ -49,7 +50,7 @@ public class noticeListController extends HttpServlet {
 		}
 		
 		// 전체 게시물 갯수
-		total = aService.selectCountArticleTotal("notice",cate);
+		total = aService.selectCountArticleTotal("faq",cate);
 		
 		//LIMIT 시작값계산
 		start =(currentPage -1)*10;
@@ -61,9 +62,9 @@ public class noticeListController extends HttpServlet {
 		}
 		
 		//페이지 그룹계산
-		pageGroupCurrent=(int) Math.ceil(currentPage/10.0);
-		pageGroupStart=(pageGroupCurrent-1)*10+1;
-		pageGroupEnd=pageGroupCurrent*10;
+		pageGroupCurrent=(int) Math.ceil(currentPage/5.0);
+		pageGroupStart=(pageGroupCurrent-1)*5+1;
+		pageGroupEnd=pageGroupCurrent*5;
 		
 		if(pageGroupEnd > lastPageNum){
 			pageGroupEnd=lastPageNum;
@@ -72,7 +73,7 @@ public class noticeListController extends HttpServlet {
 		//페이지 시작번호 계산
 		pageStartNum = total-start;
 		
-		List<adminArticleDTO> article = aService.selectArticles("notice", cate, start);
+		List<adminArticleDTO> article = aService.selectArticles("faq", cate, start);
 		
 		req.setAttribute("article", article);
 		req.setAttribute("cate", cate);
@@ -85,7 +86,8 @@ public class noticeListController extends HttpServlet {
 		req.setAttribute("pageGroupEnd", pageGroupEnd);
 		req.setAttribute("pageStartNum", pageStartNum);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/notice/list.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/faq/list.jsp");
 		dispatcher.forward(req, resp);
 	}
+
 }

@@ -1,4 +1,4 @@
-package kr.co.kmarket.controller.admin.cs;
+package kr.co.kmarket.controller.admin.cs.notice;
 
 import java.io.IOException;
 
@@ -15,10 +15,11 @@ import org.slf4j.LoggerFactory;
 import kr.co.kmarket.dto.admin.adminArticleDTO;
 import kr.co.kmarket.service.admin.adminArticleService;
 
-@WebServlet("/admin/cs/notice/modify.do")
-public class noticeModifyController extends HttpServlet {
+@WebServlet("/admin/cs/notice/view.do")
+public class noticeViewController extends HttpServlet {
+
+	private static final long serialVersionUID = -707406373816466644L;
 	
-	private static final long serialVersionUID = 5952818361843085900L;
 	private adminArticleService aService = adminArticleService.instance;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -40,35 +41,8 @@ public class noticeModifyController extends HttpServlet {
 		
 		req.setAttribute("article", article);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/notice/modify.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/notice/view.jsp");
 		dispatcher.forward(req, resp);
-		
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String group = req.getParameter("group");
-		String no = req.getParameter("no");
-		
-		logger.debug("no" + no);
-		
-		String cate = req.getParameter("cate");
-		String title = req.getParameter("title");
-		String content = req.getParameter("content");
-		
-		adminArticleDTO dto = new adminArticleDTO();
-		dto.setCate(cate);
-		dto.setTitle(title);
-		dto.setContent(content);
-		dto.setNo(no);
-		
-		logger.debug(dto.toString());
-				
-		aService.updateArticle(dto);
-		
-		resp.sendRedirect("/Kmarket/admin/cs/notice/view.do?group=notice+&cate="+cate+"&no="+no);
-		
 	}
 
 }
