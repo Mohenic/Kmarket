@@ -63,8 +63,8 @@
                             </ul>
                         </td>
                         <td>
-                            <h4 class="seller"><i class="fas fa-home"></i>${prod.seller}</h4>
-                            <h5 class="badge power">${prod.seller}</h5>
+                            <h4 class="seller"><i class="fas fa-home"></i>${prod.company}</h4>
+                            <h5 class="badge power">${prod.hit}</h5>
                             <h6 class="rating star${prod.score}"></h6>
                         </td>
                     </tr>

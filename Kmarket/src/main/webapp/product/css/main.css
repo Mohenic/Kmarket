@@ -134,7 +134,7 @@ main > section {
 .fa, .fas {
     font-weight: 900;
 }
-#product .badge.power {
+#product .badge.power{
     background-image: url("../images/ico_power_dealer.gif");
 }
 #product .badge {
