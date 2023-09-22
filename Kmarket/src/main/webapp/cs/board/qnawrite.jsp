@@ -129,6 +129,36 @@
  	
  	
 </script>
+
+
+<script>
+$(document).ready(function() {
+    $('form').submit(function(e) {
+        // 선택한 cate와 type 값을 가져옵니다.
+        var selectedCate = $('select[name="cate"]').val();
+        var selectedType = $('select[name="type"]').val();
+
+        // cate 또는 type이 ''인 경우 처리합니다.
+        if (selectedCate === '0' || selectedType === '') {
+            e.preventDefault(); // 양식 제출을 방지합니다.
+
+            // cate와 type에 따라 알람 메시지를 생성합니다.
+            var alertMessage = '';
+            if (selectedCate === '0') {
+                alertMessage += '1차 분류를 선택하세요.';
+            }
+            if (selectedType === '') {
+                alertMessage += '2차 분류을 선택하세요.';
+            }
+
+            alert(alertMessage); // 경고 메시지를 표시합니다.
+        }
+    });
+});
+
+</script>
+
+
                         <form action="/Kmarket/cs/board/qna/write.do" method="post">
                         <input type="hidden" name="group" value="${group}">
                         <input type="hidden" name="writer" value="${sessUser.uid}">
@@ -138,7 +168,7 @@
                                         <td>문의유형</td>
                                         <td>
                                          <select name="cate">
-                                                <option>선택</option>
+                                                <option value="0">선택</option>
                                                 <option ${cate eq 'member' ? 'selected':''} value="member">회원</option>
                                                 <option ${cate eq 'event' ? 'selected':''} value="event">쿠폰/이벤트</option>
                                                 <option ${cate eq 'pay' ? 'selected':''} value="pay">주문/결제</option>
@@ -149,7 +179,7 @@
                                             </select>
                                             
                                             <select name="type">
-                                                <option>선택</option>
+                                                <option value ="">선택</option>
                                                 <option selected value="101">가입</option>
                                                 <option value="102">탈퇴</option>
                                                 <option value="103">회원정보</option>

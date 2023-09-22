@@ -20,6 +20,7 @@
                              	${article.content}
                             </p>
                         </div>
+
                       <c:if test="${article.no == answer.parent}">
                          <div id="qna_answer">
                             <nav>☛ [답변] ${answer.title}</nav>
