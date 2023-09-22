@@ -125,7 +125,7 @@
             <c:if test="${not empty view}">
             <article class="info">
                 <div class="image">
-                    <img src="https://via.placeholder.com/460x460" alt="상품이미지"/>
+                    <img src="/thumb/${view.prodCate1}/${view.prodCate2}/${view.thumb2}" alt="상품이미지"/>
                 </div>
                 <div class="summary">
                     <nav>
@@ -209,9 +209,8 @@
                     <h1>상품정보</h1>
                 </nav>
                 <!-- 상품 이미지 -->
-                <img src="https://via.placeholder.com/860x460" alt="상세페이지1">
-                <img src="https://via.placeholder.com/860x460" alt="상세페이지2">
-                <img src="https://via.placeholder.com/860x460" alt="상세페이지3">
+                <img src="/thumb/${view.prodCate1}/${view.prodCate2}/${view.thumb3}" alt="상세페이지1">
+                <img src="/thumb/${view.prodCate1}/${view.prodCate2}/${view.detail}" alt="상세페이지2">
             </article>
 
             <!-- 상품 정보 제공 고시 내용 -->

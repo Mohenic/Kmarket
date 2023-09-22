@@ -41,7 +41,7 @@
                     <tr>
                         <td>
                             <a href="view.do?prodNo=${prod.prodNo}" class="thumb">
-                                <img src="${prod.thumb1}" alt="상품이미지">
+                                <img src="/thumb/${prod.prodCate1}/${prod.prodCate2}/${prod.thumb1}" alt="상품이미지">
                             </a>
                         </td>
                         <td>
