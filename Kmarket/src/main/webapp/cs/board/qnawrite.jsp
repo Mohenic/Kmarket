@@ -139,13 +139,13 @@
                                         <td>
                                          <select name="cate">
                                                 <option>선택</option>
-                                                <option selected value="member">회원</option>
-                                                <option value="event">쿠폰/이벤트</option>
-                                                <option value="pay">주문/결제</option>
-                                                <option value="delivery">배송</option>
-                                                <option value="cancel">취소/반품/교환</option>
-                                                <option value="travel">여행/숙박/항공</option>
-                                                <option value="safe">안전거래</option>
+                                                <option ${cate eq 'member' ? 'selected':''} value="member">회원</option>
+                                                <option ${cate eq 'event' ? 'selected':''} value="event">쿠폰/이벤트</option>
+                                                <option ${cate eq 'pay' ? 'selected':''} value="pay">주문/결제</option>
+                                                <option ${cate eq 'delivery' ? 'selected':''} value="delivery">배송</option>
+                                                <option ${cate eq 'cancel' ? 'selected':''} value="cancel">취소/반품/교환</option>
+                                                <option ${cate eq 'travel' ? 'selected':''} value="travel">여행/숙박/항공</option>
+                                                <option ${cate eq 'safe' ? 'selected':''} value="safe">안전거래</option>
                                             </select>
                                             
                                             <select name="type">
