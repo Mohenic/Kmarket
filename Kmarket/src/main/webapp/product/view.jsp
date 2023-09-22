@@ -129,6 +129,20 @@ $(function(){
             <form action="/Kmarket/product/order.do" id="formOrder" method="get">
            	<input type="hidden" name="uid" value="${sessUser.uid}">
            	<input type="hidden" name="type" value="order">
+           	<input type="hidden" name="delivery" value="${view.delivery}"/>
+           	<input type="hidden" name="point" value="${view.point }"/>
+           	<input type="hidden" name="seller" value="${view.seller}"/>
+           	<input type="hidden" name="discount1" value="${view.getDiscountPrice2(view.price,view.discount) }"/>
+           	<input type="hidden" name="discount2" value="${view.discount}"/>
+           	<input type="hidden" name="price" value="${view.price}"/>
+           	<input type="hidden" name="total" value="${view.getTotalprice(view.price,view.discount,view.delivery)}"/>
+           	<input type="hidden" name="prodCate1" value="${view.prodCate1}"/>
+           	<input type="hidden" name="prodCate2" value="${view.prodCate2}"/>
+           	<input type="hidden" name="descript" value="${view.descript}"/>
+           	<input type="hidden" name="prodName" value="${view.prodName}"/>
+           	<input type="hidden" name="prodNo" value="${view.prodNo}"/>
+           	<input type="hidden" name="thumb1" value="${view.thumb1}"/>
+           	
            	
             <!-- View 시작 -->       
             <c:if test="${not empty view}">
@@ -195,7 +209,7 @@ $(function(){
                     
                     <div class="count">
                         <button class="decrease" onclick="decreaseValue()">-</button>
-						<input type="number" id="num" name="num" value="1" readonly/>
+						<input type="number" id="num" name="num" value="1" readonly/><!-- count -->
 						<button class="increase" onclick="increaseValue()">+</button>
                     </div>
                     

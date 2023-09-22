@@ -7,6 +7,7 @@ import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_MEMBER;
 import kr.co.kmarket.db.SQL_MEMBER;
 import kr.co.kmarket.dto.member.MemberDTO;
+import kr.co.kmarket.dto.member.MemberPointDTO;
 
 public class MemberDAO extends DBHelper {
 
@@ -183,6 +184,61 @@ public class MemberDAO extends DBHelper {
 		}
 		
 		return dto;
+	}
+	
+	public void insertMemberPoint(MemberPointDTO dto) {
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_MEMBER.INSERT_MEMBER_POINT);
+			psmt.setString(1,dto.getUid());
+			psmt.setInt(2,dto.getOrdNo());
+			psmt.setInt(3,dto.getPoint());
+			
+			psmt.executeUpdate();
+			
+			close();
+			
+		} catch (Exception e) {
+			logger.error("point error : " + e.getMessage());
+		}
+		
+	}
+	
+	public void updateMemberPoint(int savepoint2, int usedpoint2,String uid) {
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_MEMBER.UPDATE_MEMBER_POINT);
+			psmt.setInt(1, savepoint2);
+			psmt.setInt(2, usedpoint2);
+			psmt.setString(3, uid);
+			
+			psmt.executeUpdate();
+			
+			close();
+		} catch (Exception e) {
+			logger.error("point2 error : " + e.getMessage());
+		}
+	}
+	
+	public int selectMemberPoint(String uid) {
+		int result=0;
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_MEMBER.SELECT_MEMBER_POINT);
+			psmt.setString(1, uid);
+			
+			rs=psmt.executeQuery();
+			
+			if(rs.next()) {
+				result=rs.getInt(1);
+			}
+			
+			close();
+		} catch (Exception e) {
+			logger.error("selectpoint error : "+e.getMessage());
+		}
+		
+		return result;
 	}
 	
 	

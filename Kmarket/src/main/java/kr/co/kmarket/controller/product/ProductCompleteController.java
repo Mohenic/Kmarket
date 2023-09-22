@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.kmarket.dto.member.MemberPointDTO;
 import kr.co.kmarket.dto.product.ProductItemDTO;
 import kr.co.kmarket.dto.product.ProductOrderDTO;
+import kr.co.kmarket.service.member.MemberService;
 import kr.co.kmarket.service.product.ProductCartService;
 import kr.co.kmarket.service.product.ProductOrderService;
 import kr.co.kmarket.service.product.ProductService;
@@ -25,7 +27,7 @@ public class ProductCompleteController extends HttpServlet {
 	private static final long serialVersionUID = -5772880320109292475L;
 	ProductOrderService service1 = ProductOrderService.INSTANCE;
 	ProductCartService service2 = ProductCartService.INSTANCE;
-
+	MemberService service3 =MemberService.INSTANCE;
 			@Override
 			protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 				
@@ -60,7 +62,9 @@ public class ProductCompleteController extends HttpServlet {
 				String payment =req.getParameter("payment");
 				String type =req.getParameter("type");
 				String cartNo[]=req.getParameterValues("cartNo");
-				
+				String point =req.getParameter("mpoint");
+				int point2=Integer.parseInt(point);
+				req.setAttribute("mpoint", point2);
 				
 				ProductOrderDTO dto = new ProductOrderDTO();
 				dto.setOrdUid(uid);
@@ -110,6 +114,16 @@ public class ProductCompleteController extends HttpServlet {
 					dto2.setTotal(itemtotal[i]);
 					service1.insertItem(dto2);
 				}
+				
+				MemberPointDTO dto3 = new MemberPointDTO();
+				dto3.setOrdNo(ordNo2);
+				dto3.setPoint(savepoint);
+				dto3.setUid(uid);
+				service3.insertMemberPoint(dto3);
+				int savepoint2=Integer.parseInt(savepoint);
+				int usedpoint2=Integer.parseInt(usedpoint);
+				
+				service3.updateMemberPoint(savepoint2,usedpoint2,uid);
 				
 				resp.sendRedirect("/Kmarket/product/complete.do");
 			}
