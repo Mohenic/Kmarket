@@ -12,8 +12,8 @@
                 <section class="write">
                     <article>
                     <form action="#" name="writeForm" method="post">
-                    <input type="text" name="writer" value="${sessUser.uid}">
-                    <input type="text" name="group" value="${group}">
+                    <input type="hidden" name="writer" value="${sessUser.uid}">
+                    <input type="hidden" name="group" value="${group}">
                         <table>
                             <tr>
                                 <td>유형</td>

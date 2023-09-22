@@ -37,6 +37,8 @@ public class SQL_admin {
 	
 	public final static String SELECT_COUNT_ARTICLE_ALL = "SELECT COUNT(*) FROM `km_article` WHERE `group`=?";
 	public final static String SELECT_COUNT_ARTICLE_CATE = "SELECT COUNT(*) FROM `km_article` WHERE `group`=? AND `cate`=?";
+	public final static String UPDATE_ARTICLE = "UPDATE `km_article` SET `cate`=?, `title`=?, `content`=? WHERE `no`=? AND `parent`= 0";
+	public final static String DELETE_ARTICLE = "DELETE FROM `km_article` WHERE `no`=?";
 	
 	//상품선택
 	public final static String SELECT_PRODUCT = "SELECT * FROM `km_product` WHERE `prodNo` = ? ";

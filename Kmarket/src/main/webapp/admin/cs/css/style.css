@@ -4,6 +4,7 @@
 #admin-cs-notice-list > section > div > select {
     width: 150px;
     padding: 6px;
+    margin-bottom: 10px;
     border: 1px solid #959595;
     font-size: 13px;
     background-color: #fefefe;
@@ -11,19 +12,11 @@
     box-sizing: border-box;
 }
 
-#admin-cs-notice-list > section > div > input {
-    width: 200px;
-    padding: 7px;
-    border: 1px solid rgb(149, 149, 149);
-    font-size: 13px;
-    background-color: rgb(254, 254, 254);
-    color: rgb(51, 51, 51);
-    vertical-align: middle;
-    box-sizing: border-box;
-    margin-bottom: 5px;
+#formChk > table tr {
+	height: 50px;
 }
 
-#admin-cs-notice-list > section > table tr > th {
+#formChk > table tr > th {
     padding: 10px 0;
     background: #f6f6f6;
     border-top: 2px solid rgb(135, 152, 163);
@@ -48,19 +41,19 @@ main table tr > td {
 
 
 
-#admin-cs-notice-list > section > table tr > td {
+#formChk > table tr > td {
     background: rgb(255, 255, 255);
     text-align: center;
     box-sizing: border-box;
 }
 
-#admin-cs-notice-list > section > table tr > td:nth-child(1) {width: 20px;}
-#admin-cs-notice-list > section > table tr > td:nth-child(2) {width: 100px;}
-#admin-cs-notice-list > section > table tr > td:nth-child(3) {width: 120px;}
-#admin-cs-notice-list > section > table tr > td:nth-child(4) {width: auto;text-align: left;}
-#admin-cs-notice-list > section > table tr > td:nth-child(5) {width: 100px;}
-#admin-cs-notice-list > section > table tr > td:nth-child(6) {width: 100px;}
-#admin-cs-notice-list > section > table tr > td:nth-child(7) {width: 100px;}
+#formChk > table tr > td:nth-child(1) {width: 20px;}
+#formChk > table tr > td:nth-child(2) {width: 100px;}
+#formChk > table tr > td:nth-child(3) {width: 120px;}
+#formChk > table tr > td:nth-child(4) {width: auto;text-align: left;}
+#formChk > table tr > td:nth-child(5) {width: 100px;}
+#formChk > table tr > td:nth-child(6) {width: 100px;}
+#formChk > table tr > td:nth-child(7) {width: 100px;}
 
 #admin-cs-notice-list > section > table img.thumb {
     width: 60px
