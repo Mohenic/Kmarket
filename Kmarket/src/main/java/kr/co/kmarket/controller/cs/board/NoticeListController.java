@@ -85,7 +85,7 @@ public class NoticeListController extends HttpServlet {
 		
 		List<ArticleDTO> articles = service.selectNoticeArticles(group, cate, 0);
 		req.setAttribute("articles", articles);
-
+		
 		req.setAttribute("start", start);
 		req.setAttribute("currentPage", currentPage);
 		req.setAttribute("total", total);

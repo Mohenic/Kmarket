@@ -215,7 +215,6 @@ public class ArticleDAO extends DBHelper{
 				dto.setRdateYYMMDD(rs.getString(12));
 				dto.setTypeName(rs.getString(13));
 				articles.add(dto);
-				articles.add(dto);
 			}
 			close();
 			
