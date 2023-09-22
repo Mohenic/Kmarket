@@ -175,6 +175,9 @@
 		                  </div>
                         </article>
                         </td>
+                        <input type="hidden" name="thumb1" value="${carts.thumb1 }"/>
+                        <input type="hidden" name="prodCate1" value="${carts.prodCate1 }"/>
+                        <input type="hidden" name="prodCate2" value="${carts.prodCate2 }"/>
                         <input type="hidden" name="type" value="${type }"/>
                         <input type="hidden" name="cartNo" value="${carts.cartNo}"/>
                         <input type="hidden" name="itemprodNo" value="${carts.prodNo}"/>
@@ -207,6 +210,8 @@
 		                  </div>
                         </article>
                         </td>
+                        <input type="hidden" name="prodCate1" value="${prodCate1 }"/>
+                        <input type="hidden" name="prodCate2" value="${prodCate2 }"/>
                         <input type="hidden" name="type" value="${type }"/>
                         <input type="hidden" name="itemprodNo" value="${prodNo}"/>
                         <input type="hidden" name="itemcount" value="${count}"/>

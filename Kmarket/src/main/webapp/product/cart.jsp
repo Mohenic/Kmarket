@@ -167,7 +167,7 @@
 		              <td><input type="checkbox" name="chk" value="${list1.cartNo}"></td>
 		              <td>
 		                <article>
-		                  <a href="/Kmartek/product/list.do"><img src="/Kmarket/thumb/${list1.prodCate1}/${list1.prodCate2}/${lsit1.thumb1}" alt="상품 썸네일 1"></a>
+		                  <a href="/Kmartek/product/list.do"><img src="/Kmarket/thumb/${list1.prodCate1}/${list1.prodCate2}/${list1.thumb1}" alt="상품 썸네일 1"></a>
 		                  <div>
 		                    <h2><a href="/Kmartek/product/list.do"></a>${list1.prodName }</h2>
 		                    <p>${list1.descript}</p>

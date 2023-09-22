@@ -43,7 +43,7 @@ public class ProductOrderController extends HttpServlet {
 				String discount2 = req.getParameter("discount2");
 				String price = req.getParameter("price");
 				String total = req.getParameter("total");
-				String prodCate1 = req.getParameter("prodCate2");
+				String prodCate1 = req.getParameter("prodCate1");
 				String prodCate2 = req.getParameter("prodCate2");
 				String descript = req.getParameter("descript");
 				String prodName = req.getParameter("prodName");
@@ -76,6 +76,9 @@ public class ProductOrderController extends HttpServlet {
 					
 					memberpoint=service3.selectMemberPoint(uid);
 					
+					
+					req.setAttribute("prodCate2", prodCate2);
+					req.setAttribute("prodCate1", prodCate1);
 					req.setAttribute("uid", uid);
 					req.setAttribute("type", type);
 					req.setAttribute("delivery", delivery);
