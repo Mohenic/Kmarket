@@ -124,7 +124,7 @@
 	
 </script>
 <script>
-	function noEvent() { // 새로 고침 방지
+	$(function noEvent() { // 새로 고침 방지
 	    if (event.keyCode == 116) {
 	        alert("새로고침을 할 수 없습니다.");
 	        event.keyCode = 2;
@@ -219,7 +219,7 @@
                         <td class="hidden count">${count}</td>
                         <td class="hidden seller">${seller}</td>
                         <td >${count }</td>
-                        <td class="price">${price }</td>
+                        <td class="price">${price}</td>
                         <td class="delivery1">${delivery }</td>
                         <td class="total">${total }</td>
                         <td class="hidden discount1">${discount1}</td>
@@ -234,12 +234,13 @@
                 <div class="final">
                     <h2>최종결제 정보</h2>
                     <table border="0">
+                    <!-- hidden 정보 -->
                     <input type="hidden" name="losepoint" class="point2" value="0" /> 
                     <input type="hidden" name="addpoint" class="pointRe2"/>
                     <input type="hidden" name="count" class="countRe2"/>
                     <input type="hidden" name="uid" value="${sessUser.uid}"/>
                     <input type="hidden" name="price" class="priceRe2"/>
-                    <input type="hidden" name="discount" class="discountRe2"/>
+                    <input type="hidden" name="discount" class="discountRe2" />
                     <input type="hidden" name="delivery" value="${delivery }"/>                  
                     <input type="hidden" name="total" class="totalRe2"/>
                     <input type="hidden" name="mpoint" class="point3" value="0"/>
