@@ -11,13 +11,14 @@
             <section id="admin-notice-list">
                 <div>
                     <select name="cate" id="cateSelect">
-                        <option value="">유형선택</option>
-                        <option value="service">고객서비스</option>
-                        <option value="safe">안전거래</option>                                   
-                        <option value="danger">위해상품</option>                                   
-                        <option value="jackpot">이벤트당첨</option>
+                        <option value="0">유형선택</option>
+                        <option value="service" ${cate == 'service' ? 'selected' : ''}>고객서비스</option>
+                        <option value="safe" ${cate == 'safe' ? 'selected' : ''}>안전거래</option>                                   
+                        <option value="danger" ${cate == 'danger' ? 'selected' : ''}>위해상품</option>                                   
+                        <option value="jackpot" ${cate == 'jackpot' ? 'selected' : ''}>이벤트당첨</option>
                     </select>
                 </div>
+                <form id="formChk" action="/Kmarket/admin/cs/notice/delete.do" method="get">
                 <table>
                     <tbody>
                         <tr>
@@ -31,20 +32,21 @@
                         </tr>
                         <c:forEach var="article" items="${article}">
                         <tr>
-                            <td class="chk" value ="${article.no}"><input type="checkbox"></td>
+                            <td class="chk"><input type="checkbox" value="${article.no}" name="chk"></td>
                             <td class="no">${article.no}</td>
                             <td class="cateName">${article.cateName}</td>
                             <td class="title"><a href="/Kmarket/admin/cs/notice/view.do?group=notice&cate=${cate}&no=${article.no}">${article.title}</a></td>
                             <td class="hit">${article.hit}</td>
                             <td class="rdate">${article.rdate}</td>
                             <td>
-                                <a href="#">[삭제]</a>
-                                <a href="#">[수정]</a>
+                                <a href="/Kmarket/admin/cs/notice/delete.do?chk=${article.no}">[삭제]</a>
+                                <a href="/Kmarket/admin/cs/notice/modify.do?group=notice&cate=${cate}&no=${article.no}">[수정]</a>
                             </td>
                         </tr>
                         </c:forEach>
                     </tbody>
                 </table>
+                </form>
                 <a href="#" class="btnDelete">선택삭제</a>
                 <a href="/Kmarket/admin/cs/notice/write.do?group=notice" class="btnWrite">작성하기</a>
                 <div class="paging">

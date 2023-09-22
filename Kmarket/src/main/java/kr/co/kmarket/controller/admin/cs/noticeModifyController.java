@@ -48,6 +48,27 @@ public class noticeModifyController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String group = req.getParameter("group");
+		String no = req.getParameter("no");
+		
+		logger.debug("no" + no);
+		
+		String cate = req.getParameter("cate");
+		String title = req.getParameter("title");
+		String content = req.getParameter("content");
+		
+		adminArticleDTO dto = new adminArticleDTO();
+		dto.setCate(cate);
+		dto.setTitle(title);
+		dto.setContent(content);
+		dto.setNo(no);
+		
+		logger.debug(dto.toString());
+				
+		aService.updateArticle(dto);
+		
+		resp.sendRedirect("/Kmarket/admin/cs/notice/view.do?group=notice+&cate="+cate+"&no="+no);
+		
 	}
 
 }
