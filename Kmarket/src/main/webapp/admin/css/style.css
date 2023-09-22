@@ -411,7 +411,8 @@ footer > div > p {
 }
 
 /*현재 페이지 빨간색 */
-#admin-product-list .paging > .num > a.on {
+
+#admin-product-list .paging > .num > a.current {
     color: #fe434c;
     font-weight: bold;
 }
