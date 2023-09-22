@@ -4,50 +4,48 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<script>
-
-$(function(){
+	<script>
 	
-	
-	
-	// 장바구니 담기 ajax
-	$('#btnCart').click(function(e){
-		e.preventDefault();
-		
-		const uid = $('input[name=uid]').val();
-		const prodNo = ${view.prodNo};
-		const price = ${view.price};
-		const point = ${view.point};
-		const discount = ${view.discount};
-		const delivery = ${view.delivery};
-		const count = $('input[name=num]').val();
-		  			
-		const jsonData = {
-			"uid": uid,
-			"prodNo": prodNo,
-			"price": price,
-			"point": point,
-			"discount": discount,
-			"delivery": delivery,
-			"count": count
+	$(function(){
+		// 장바구니 담기 ajax
+		$('#btnCart').click(function(e){
+			e.preventDefault();
 			
-		};
-		console.log(jsonData);
-		
-		$.ajax({
-			url:'/Kmarket/product/cart.do',
-			type:'POST',
-			data: jsonData,
-			dataType:'json',
-			success:function(data){
-				if(data.result >= 1){
-					alert('장바구니에 담았습니다!');			
-				}else{
-					alert('통신오류 다시 시도해주세요');
+			const uid = $('input[name=uid]').val();
+			const prodNo = ${view.prodNo};
+			const price = ${view.price};
+			const point = ${view.point};
+			const discount = ${view.discount};
+			const delivery = ${view.delivery};
+			const count = $('input[name=num]').val();
+			  			
+			const jsonData = {
+				"uid": uid,
+				"prodNo": prodNo,
+				"price": price,
+				"point": point,
+				"discount": discount,
+				"delivery": delivery,
+				"count": count
+				
+			};
+			console.log(jsonData);
+			
+			$.ajax({
+				url:'/Kmarket/product/cart.do',
+				type:'POST',
+				data: jsonData,
+				dataType:'json',
+				success:function(data){
+					if(data.result >= 1){
+						alert('장바구니에 담았습니다!');			
+					}else{
+						alert('통신오류 다시 시도해주세요');
+					}
 				}
-			}
+			});
+			
 		});
-		
 	});
 })
 
@@ -119,8 +117,59 @@ $(function(){
 	    $("#top").click(function(){
 	        $("html, body").animate({scrollTop: 0}, "fast");
 	    });
-	});
-</script>
+	</script>
+	
+	<script>
+	    // 상품 수량 감소/증가 버튼
+	    // 초기 상품 가격, 할인 및 배송비 가져오기
+	    const initialPrice = ${view.price};
+	    const initialDiscount = ${view.discount};
+	    const initialDelivery = ${view.delivery};
+	    let currentQuantity = 1;
+	    // 수량을 감소 함수
+	    function decreaseValue() {
+	        if (currentQuantity > 1) {
+	            currentQuantity--;
+	            updateQuantityAndTotal();
+	        }
+	        event.preventDefault();
+	    }
+	    // 수량 증가 함수
+	    function increaseValue() {
+	        currentQuantity++;
+	        updateQuantityAndTotal();
+	        event.preventDefault();
+	    }
+	    // 총 상품금액 업데이트 함수
+	    function updateQuantityAndTotal() {
+	        const numInput = document.getElementById("num");
+	        numInput.value = currentQuantity;
+	
+	        const total = getTotalPrice(currentQuantity, initialPrice, initialDiscount, initialDelivery);
+	
+	        const totalElement = document.querySelector(".total span");
+	        totalElement.textContent = total;
+	    }
+	    // 총 상품금액 계산 함수
+	    function getTotalPrice(quantity, price, discount, delivery) {
+	        const discountedPrice = price - (price * discount / 100);
+	        const totalPrice = (discountedPrice * quantity) + delivery;
+	        // 4자리수 "," 추가
+	        const formattedTotalPrice = Math.floor(totalPrice).toLocaleString();
+	        return formattedTotalPrice;
+	    }
+	    updateQuantityAndTotal();
+	</script>
+	
+	<script>
+		//상단 이동 버튼
+		$(document).ready(function(){
+		    $("#top").click(function(){
+		        $("html, body").animate({scrollTop: 0}, "fast");
+		    });
+		});
+	</script>
+
     <main id="product">
     	<%@ include file="./category.jsp" %>   
         <section class="view">
@@ -192,7 +241,7 @@ $(function(){
 						    const date = dt.getDate();
 						    const dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"][dt.getDay()];
 						    const arrivalDateElement = document.getElementById("arrivalDate");
-						    arrivalDateElement.innerHTML ="모레(" + dayOfWeek + ") " + month + "/" + date + " 도착예정";
+						    arrivalDateElement.innerHTML = month + "/" + date + " (" + dayOfWeek + ") "+" 도착예정";
 						</script>
 						
                         <span class="desc">본 상품은 국내배송만 가능합니다.</span>
@@ -246,31 +295,31 @@ $(function(){
                 <table border="0">
                     <tr>
                         <td>상품번호</td>
-                        <td>10110125435</td>
+                        <td>${view.prodNo}</td>
                     </tr>
                     <tr>
                         <td>상품상태</td>
-                        <td>새상품</td>
+                        <td>${view.status}</td>
                     </tr>
                     <tr>
                         <td>부가세 면세여부</td>
-                        <td>과세상품</td>
+                        <td>${view.duty}</td>
                     </tr>
                     <tr>
                         <td>영수증발행</td>
-                        <td>발행가능 - 신용카드 전표, 온라인 현금영수증</td>
+                        <td>${view.receipt}</td>
                     </tr>
                     <tr>
                         <td>사업자구분</td>
-                        <td>사업자 판매자</td>
+                        <td>${view.bizType}</td>
                     </tr>
                     <tr>
                         <td>브랜드</td>
-                        <td>블루포스</td>
+                        <td>${view.company}</td>
                     </tr>
                     <tr>
                         <td>원산지</td>
-                        <td>국내생산</td>
+                        <td>${view.origin}</td>
                     </tr>
                 </table>
                 <table border="0">
@@ -328,74 +377,41 @@ $(function(){
                 </p>
             </article>
             <!-- 상품 리뷰 내용 -->
-            <article class="review" id="productReviews">
-                <nav>
-                    <h1>상품리뷰</h1>
-                </nav>
-                <ul>
-                    <li>
-                        <div>
-                            <h5 class="rating star4">상품평</h5>
-                            <span>seo******	2018-07-10</span>
-                        </div>
-                        <h3>상품명1/BLUE/L</h3>
-                        <p>
-                            가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                            아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                            제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                        </p>
-                    </li>
-                    <li>
-                        <div>
-                            <h5 class="rating star4">상품평</h5>
-                            <span>seo******	2018-07-10</span>
-                        </div>
-                        <h3>상품명1/BLUE/L</h3>
-                        <p>
-                            가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                            아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                            제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                        </p>
-                    </li>
-                    <li>
-                        <div>
-                            <h5 class="rating star4">상품평</h5>
-                            <span>seo******	2018-07-10</span>
-                        </div>
-                        <h3>상품명1/BLUE/L</h3>
-                        <p>
-                            가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                            아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                            제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                        </p>
-                    </li>
-                    <li>
-                        <div>
-                            <h5 class="rating star4">상품평</h5>
-                            <span>seo******	2018-07-10</span>
-                        </div>
-                        <h3>상품명1/BLUE/L</h3>
-                        <p>
-                            가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                            아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                            제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                        </p>
-                    </li>
-                    <li>
-                        <div>
-                            <h5 class="rating star4">상품평</h5>
-                            <span>seo******	2018-07-10</span>
-                        </div>
-                        <h3>상품명1/BLUE/L</h3>
-                        <p>
-                            가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                            아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                            제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                        </p>
-                    </li>
-                </ul>
-            </article>
+    <article class="review" id="productReviews">
+    <nav>
+        <h1>상품리뷰</h1>
+    </nav>
+    <ul>
+        <script>
+            const sampleReviews = [
+                {
+                    rating: "star4",
+                    author: "seo******",
+                    date: "2018-07-10",
+                    productName: "상품명1/BLUE/L",
+                    content: "가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요. 아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는 제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~"
+                },
+                
+                // 나머지 샘플 리뷰 데이터를 추가할 수 있습니다.
+            ];
 
+            for (let i = 0; i < 5; i++) {
+                const review = sampleReviews[i];
+                document.write(`
+                    <li>
+                        <div>
+                            <h5 class="rating star4">상품평</h5>
+                            <span>"seo******" "2018-07-10"</span>
+                        </div>
+                        <h3>"상품명1/BLUE/L"</h3>
+                        <p>"가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요. 아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는 제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~"
+                        </p>
+                    </li>
+                `);
+            }
+        </script>
+    </ul>
+</article>
             <!-- 번호 버튼 -->
             <div class="paging">
                 <span class="prev">

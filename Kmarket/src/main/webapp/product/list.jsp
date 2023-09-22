@@ -10,6 +10,7 @@
 		<%@ include file="./menu.jsp" %>   
 				<ul class="sort">
 				    <li>
+				    	<c:set var="sortOption" value="Selling"/>
 				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=selling" class="${param.sort == 'selling' ? 'on' : ''}">판매많은순</a>
 				    </li>
 				    <li>
@@ -58,12 +59,12 @@
                                     <span class="discount">${prod.discount}%</span>
                                 </c:if>
                                 </li>
-                                <li><span class="free-delivery">${prod.delivery}</span></li>
+								<li><span class="<c:if test="${prod.delivery == 0}">free-delivery</c:if>"></span></li>
                             </ul>
                         </td>
                         <td>
-                            <h4 class="seller"><i class="fas fa-home"></i>${prod.seller}</h4>
-                            <h5 class="badge power">${prod.seller}</h5>
+                            <h4 class="seller"><i class="fas fa-home"></i>${prod.company}</h4>
+                            <h5 class="badge power">${prod.hit}</h5>
                             <h6 class="rating star${prod.score}"></h6>
                         </td>
                     </tr>
