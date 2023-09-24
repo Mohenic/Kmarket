@@ -9,9 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.gson.JsonObject;
 
 import kr.co.kmarket.dto.cs.ArticleDTO;
 import kr.co.kmarket.service.cs.ArticleService;
@@ -97,11 +100,31 @@ public class QnaListController extends HttpServlet {
 		req.setAttribute("pageGroupEnd", pageGroupEnd);
 		req.setAttribute("pageStartNum", pageStartNum);
 		
+		
+		// 세션을 가져옵니다.
+        //HttpSession session = req.getSession();
+        // 세션에서 변수를 읽어옵니다.
+        //String uid = (String)session.getAttribute("sessUser");
+        
+        //int typed = service.selectTypeMember(uid);
+
+        // JSON 형식으로 응답을 생성
+        //logger.debug("typed = " + typed);
+        
+		//json 생성
+		//JsonObject json = new JsonObject();
+		//json.addProperty("typed", typed);
+		
+	
+		//resp.getWriter().print(json);
+
+		
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/board/qnalist.jsp");
 		dispatcher.forward(req, resp);
 		
-		
 	
-		
 	}
+	
+	
 }

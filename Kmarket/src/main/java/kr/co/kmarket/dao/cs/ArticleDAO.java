@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_cs;
 import kr.co.kmarket.dto.cs.FaqDTO;
+import kr.co.kmarket.dto.member.MemberDTO;
 import kr.co.kmarket.dto.cs.ArticleDTO;
 
 public class ArticleDAO extends DBHelper{
@@ -65,7 +66,7 @@ public class ArticleDAO extends DBHelper{
 					dto.setType(rs.getInt(6));
 					dto.setTitle(rs.getString(7));
 					dto.setContent(rs.getString(8));
-					dto.setMaskWriter(rs.getString(9));
+					dto.setWriter(rs.getString(9));
 					dto.setHit(rs.getInt(10));
 					dto.setRegip(rs.getString(11));
 					dto.setRdateYYMMDD2(rs.getString(12));
@@ -288,6 +289,22 @@ public class ArticleDAO extends DBHelper{
 	
 	
 	
+	public void updateArticle(ArticleDTO dto) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_cs.UPDATE_ARTICLE);
+			psmt.setString(1, dto.getCate());
+			psmt.setInt(2, dto.getType());
+			psmt.setString(3, dto.getTitle());
+			psmt.setString(4, dto.getContent());
+			psmt.setInt(5, dto.getNo());
+			psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			logger.debug("updateArticle..." + e.getMessage());
+		}
+		
+	}
 	
 	
 	
@@ -324,6 +341,42 @@ public class ArticleDAO extends DBHelper{
 			logger.debug("selectAnswer()..." + e.getMessage());
 		}
 		return dto;
+	}
+	
+	public void deleteArticle(String no) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_cs.DELETE_ARTICLE);
+			psmt.setString(1, no);
+			psmt.setString(2, no);
+			psmt.executeUpdate();
+			close();
+			
+		} catch (Exception e) {
+			logger.debug("deleteArticle()..." + e.getMessage());
+		}
+	}
+	
+	
+	
+	//관리자가 type = 2 출력하기
+	public int selectTypeMember(String uid) {
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_cs.SELECT_TYPE_MEMBER);
+			psmt.setString(1, uid);
+			rs = psmt.executeQuery();
+			
+			close();
+			
+		} catch (Exception e) {
+			logger.debug("selectTypeMember" + e.getMessage());
+		}
+		
+		return result;
 	}
 
 
