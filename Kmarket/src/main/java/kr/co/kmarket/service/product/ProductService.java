@@ -35,34 +35,8 @@ public enum ProductService {
     	return dao.selectCountProductTotal();
     }
     
-    //상품 분류 (판매량,리뷰수 등)
-    public List<ProductDTO> selectProductsSelling(int sort) {
-        return dao.selectProductsSelling(sort);
+    //카테고리 분류
+    public List<ProductDTO> getProductsByCategory(String sort, String order, int category1, int category2, int start) {
+        return dao.selectProductsByOption(sort, order, category1, category2, start);
     }
-
-    public List<ProductDTO> selectProductsLowprice(int sort) {
-        return dao.selectProductsLowprice(sort);
-    }
-
-    public List<ProductDTO> selectProductsHighprice(int sort) {
-        return dao.selectProductsHighprice(sort);
-    }
-
-    public List<ProductDTO> selectProductsHighrating(int sort) {
-        return dao.selectProductsHighrating(sort);
-    }
-
-    public List<ProductDTO> selectProductsManyreviews(int sort) {
-        return dao.selectProductsManyreviews(sort);
-    }
-
-    public List<ProductDTO> selectProductsRecent(int sort) {
-        return dao.selectProductsRecent(sort);
-    }
-	
-	//category
-	public List<ProductDTO> getProductsByCategory(int category1, int category2) {
-	    return dao.selectProductsByCategory(category1, category2);
-	}
-
 }
