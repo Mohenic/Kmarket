@@ -47,7 +47,6 @@
 			
 		});
 	});
-})
 </script>
 
 <script>
@@ -155,16 +154,6 @@
 	    }
 	    updateQuantityAndTotal();
 	</script>
-	
-	<script>
-		//상단 이동 버튼
-		$(document).ready(function(){
-		    $("#top").click(function(){
-		        $("html, body").animate({scrollTop: 0}, "fast");
-		    });
-		});
-	</script>
-
     <main id="product">
     	<%@ include file="./category.jsp" %>   
         <section class="view">
