@@ -127,6 +127,7 @@ public class ProductOrderDAO extends DBHelper{
 				dto.setProdCate2(rs.getInt(11));
 				dto.setProdName(rs.getString(12));
 				dto.setDescript(rs.getString(13));
+				dto.setThumb1(rs.getString(25));
 				list.add(dto);
 			}
 			

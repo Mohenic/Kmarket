@@ -286,14 +286,25 @@
     box-sizing: border-box;
   }
   
+  
+  
   main > aside > .best > ol > li:first-child > a > .thumb {
     position: relative;
     float: none;
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
     margin: 0 auto;
   }
+  
+    main > aside > .best > ol > li:first-child > a > .thumb > img {
+    float: none;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
   main > aside > .best > ol > li > a > .thumb > i {
     position: absolute;
     left: 0;
@@ -310,6 +321,9 @@
     text-align: center;
     line-height: 18px;
   }
+  
+  
+  
   main > aside > .best > ol > li:first-child > a > .thumb > i {
     width: 35px;
     height: 26px;
@@ -318,6 +332,13 @@
   main > aside > .best > ol > li > a > .thumb > img {
     width: 100%;
   }
+  
+  main > aside > .best > ol > li > a > .thumb > img {
+    width: 100%;
+  }
+  
+
+  
   
   main > aside > .best > ol > li > a > article {
     float: left;

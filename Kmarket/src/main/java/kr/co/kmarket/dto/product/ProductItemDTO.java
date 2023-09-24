@@ -18,6 +18,8 @@ public class ProductItemDTO {
 	private String descript;
 	private String thumb1;
 	private int prodCate1;
+	private int prodCate2;
+	
 	public String getProdName() {
 		return prodName;
 	}
@@ -49,7 +51,7 @@ public class ProductItemDTO {
 		this.prodCate2 = prodCate2;
 	}
 
-	private int prodCate2;
+	
 	
 	
 	
