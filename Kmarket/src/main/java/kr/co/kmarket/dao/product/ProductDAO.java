@@ -219,74 +219,49 @@ public class ProductDAO extends DBHelper{
 		return total;
 	}
 	
-	//상품 분류 (판매량,리뷰수 등)
-	public List<ProductDTO> selectProductsSelling(int start) {
-	    String sqlQuery = SQL_product.SELECT_PRODUCTS_SELLING;
-	    return selectProductsByOption(sqlQuery, start);
-	}
+	public List<ProductDTO> selectProductsByOption(String sort, String order, int category1, int category2, int start) {
+        List<ProductDTO> products = new ArrayList<>();
 
-	public List<ProductDTO> selectProductsLowprice(int start) {
-	    String sqlQuery = SQL_product.SELECT_PRODUCTS_LOWPRICE;
-	    return selectProductsByOption(sqlQuery, start);
-	}
+        String productListQuery = SQL_product.productListQeury(sort, order);
 
-	public List<ProductDTO> selectProductsHighprice(int start) {
-	    String sqlQuery = SQL_product.SELECT_PRODUCTS_HIGHPRICE;
-	    return selectProductsByOption(sqlQuery, start);
-	}
+        try {
+            conn = getConnection();
+            psmt = conn.prepareStatement(productListQuery);
+            psmt.setInt(1, category1);
+            psmt.setInt(2, category2);
+            if(sort != null && order != null){
+            	psmt.setInt(3, start);
+            }
+            rs = psmt.executeQuery();
 
-	public List<ProductDTO> selectProductsHighrating(int start) {
-	    String sqlQuery = SQL_product.SELECT_PRODUCTS_HIGHRATING;
-	    return selectProductsByOption(sqlQuery, start);
-	}
-
-	public List<ProductDTO> selectProductsManyreviews(int start) {
-	    String sqlQuery = SQL_product.SELECT_PRODUCTS_MANYREVIEWS;
-	    return selectProductsByOption(sqlQuery, start);
-	}
-
-	public List<ProductDTO> selectProductsRecent(int start) {
-	    String sqlQuery = SQL_product.SELECT_PRODUCTS_RECENT;
-	    return selectProductsByOption(sqlQuery, start);
-	}
-
-	private List<ProductDTO> selectProductsByOption(String sqlQuery, int start) {
-	    List<ProductDTO> products = new ArrayList<>();
-	    
-	    try {
-	        conn = getConnection();
-	        psmt = conn.prepareStatement(sqlQuery);
-	        psmt.setInt(1, start);
-	        rs = psmt.executeQuery();
-	        
-	        while (rs.next()) {
-	            ProductDTO dto = new ProductDTO();
-	            dto.setProdNo(rs.getInt("1"));
-	            dto.setProdCate1(rs.getInt("2"));
-	            dto.setProdCate2(rs.getInt("3"));
-	            dto.setProdName(rs.getString("4"));
-	            dto.setDescript(rs.getString("5"));
-	            dto.setSeller(rs.getString("6"));
-	            dto.setCompany(rs.getString("7"));
-	            dto.setPrice(rs.getInt("8"));
-	            dto.setDiscount(rs.getInt("9"));
-	            dto.setSold(rs.getInt("10"));
-	            dto.setDelivery(rs.getInt("11"));
-	            dto.setHit(rs.getInt("12"));
-	            dto.setScore(rs.getInt("13"));
-	            dto.setReview(rs.getInt("14"));
-	            dto.setThumb1(rs.getString("15"));
-	            dto.setDetail(rs.getString("16"));
-	            dto.setReceipt(rs.getString("17"));
-	            dto.setRdate(rs.getString("18"));
+            while (rs.next()) {
+                ProductDTO dto = new ProductDTO();
+	            dto.setProdNo(rs.getInt("prodNo"));
+	            dto.setProdCate1(rs.getInt("prodCate1"));
+	            dto.setProdCate2(rs.getInt("prodCate2"));
+	            dto.setProdName(rs.getString("prodName"));
+	            dto.setDescript(rs.getString("descript"));
+	            dto.setSeller(rs.getString("seller"));
+	            dto.setCompany(rs.getString("company"));
+	            dto.setPrice(rs.getInt("price"));
+	            dto.setDiscount(rs.getInt("discount"));
+	            dto.setSold(rs.getInt("sold"));
+	            dto.setDelivery(rs.getInt("delivery"));
+	            dto.setHit(rs.getInt("hit"));
+	            dto.setScore(rs.getInt("score"));
+	            dto.setReview(rs.getInt("review"));
+	            dto.setThumb1(rs.getString("thumb1"));
+	            dto.setDetail(rs.getString("detail"));
+	            dto.setReceipt(rs.getString("receipt"));
+	            dto.setRdate(rs.getString("rdate"));
 	            products.add(dto);
-	        }
-	        close();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	    return products;
-	}
+            }
+            close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
 
 	//category
 	public List<ProductDTO> selectProductsByCategory(int category1, int category2) {

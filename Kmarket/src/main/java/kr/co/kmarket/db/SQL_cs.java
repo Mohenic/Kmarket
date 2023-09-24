@@ -34,6 +34,12 @@ public class SQL_cs {
 															+ "`writer` = ? , "
 															+ "`regip` = ? ,"
 															+ "`rdate` = NOW()";
+	//게시글 수정하기
+	public static final String UPDATE_ARTICLE = "UPDATE `km_article` SET `cate` = ? ,`type` = ? ,`title`= ? ,`content` = ? "
+												+ "WHERE `no` = ? ";
+
+	//글 지우기
+	public static final String DELETE_ARTICLE = "DELETE FROM `km_article` WHERE `no`=? OR `parent` = ?";
 	
 	//게시글 보기
 	public static final String SELECT_ARTICLE = "SELECT a.* , b.`typeName` "
@@ -81,6 +87,8 @@ public class SQL_cs {
 															+ "WHERE `parent` = 0 AND a.`group` = ? "
 															+ "Order BY `no` DESC LIMIT 0, ? " ;
 	
+
+	
 	
 	//공지사항 전체 출력
 	public static final String SELECT_NOTICE_Article_ALL = "SELECT a.* , b.`cateName` "
@@ -101,4 +109,7 @@ public class SQL_cs {
 															+ "LIMIT ?,10 ";		
 
 	public static final String SELECT_ANSWER_ARTICLE_ = "SELECT * FROM `km_article` WHERE parent = ? ";
+	
+	//관리자 뽑기
+	public static final String SELECT_TYPE_MEMBER = "SELECT `type` FROM `km_member` WHERE `uid` = ?";
 }

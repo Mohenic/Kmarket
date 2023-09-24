@@ -11,7 +11,17 @@
                             <h2 class="title"> ${article.title}</h2>
                         </c:if>     
                         	 <p>
-                                <span>${article.writer}</span>
+                                <span>  <td>
+	                                     <c:if test="${article.writer ne null}">
+									      <!-- 아이디의 앞 3자리까지 보여 주고 -->
+									      ${fn:substring(article.writer,0,3) }
+									    </c:if>
+									      <!-- 4자리부터 id의 길이만큼 *를 찍어줌 -->
+									      <c:forEach begin="4" end="${fn:length(article.writer)}" step="1">
+									        *
+									      </c:forEach>
+										</td>
+								</span>
                                 <span>${article.rdate}</span>
                             </p>
                         </nav>
@@ -30,8 +40,13 @@
                                 </p>
                             </div>
                         </div>
+                       
                        </c:if>
                         <a href="/Kmarket/cs/board/${group}/list.do?group=${group}&cate=${cate}" class="btnList">목록보기</a>
+                        <c:if test="${article.writer eq sessUser.uid}">
+                        <a href="/Kmarket/cs/board/${group}Modify.do?group=${group}&cate=${cate}&no=${article.no}" class="btnList">수정하기</a>
+                        <a href="/Kmarket/cs/board/delete.do?group=${group}&cate=${cate}&no=${article.no}" class="btnList">삭제하기</a>
+                    	</c:if>
                     </article>
                 </section>
             </div>

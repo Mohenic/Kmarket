@@ -52,5 +52,16 @@ public enum ArticleService {
 		return dao.selectNoticeArticles(group, cate, start);
 	}
 	
+	public void updateArticle(ArticleDTO dto) {
+		dao.updateArticle(dto);
+	}
 	
+	public void deleteArticle(String no) {
+		dao.deleteArticle(no);
+	}
+	
+	
+	public int selectTypeMember(String uid) {
+		return dao.selectTypeMember(uid);
+	}
 }
