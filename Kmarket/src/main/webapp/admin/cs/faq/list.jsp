@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "../../_header.jsp" %>
 <%@ include file = "../../_aside.jsp" %>
+<script src="/Kmarket/admin/cs/js/faqListCate.js"></script>
 <section id="admin-cs-faq-list">
             <nav>
                 <h3>자주묻는질문 목록</h3>
@@ -12,10 +13,13 @@
                 <div>
                     <select name="cate" id="cateSelect">
                         <option value="0">유형선택</option>
-                        <option value="service" ${cate == 'service' ? 'selected' : ''}>고객서비스</option>
-                        <option value="safe" ${cate == 'safe' ? 'selected' : ''}>안전거래</option>                                   
-                        <option value="danger" ${cate == 'danger' ? 'selected' : ''}>위해상품</option>                                   
-                        <option value="jackpot" ${cate == 'jackpot' ? 'selected' : ''}>이벤트당첨</option>
+                        <option value="member" ${cate == 'member' ? 'selected' : ''}>회원</option>
+                        <option value="event" ${cate == 'event' ? 'selected' : ''}>쿠폰/이벤트</option>                                   
+                        <option value="pay" ${cate == 'pay' ? 'selected' : ''}>주문/결제</option>                                   
+                        <option value="delivery" ${cate == 'delivery' ? 'selected' : ''}>배송</option>
+                        <option value="cancel" ${cate == 'cancel' ? 'selected' : ''}>취소/반품/교환</option>
+                        <option value="travel" ${cate == 'travel' ? 'selected' : ''}>여행/숙박/항공</option>
+                        <option value="safe" ${cate == 'safe' ? 'selected' : ''}>안전거래</option>
                     </select>
                     <select name="type" id="typeSelect">
                         <option value="0">유형선택</option>
@@ -25,7 +29,7 @@
                         <option value="jackpot">이벤트당첨</option>
                     </select>
                 </div>
-                <form id="formFaqCheck" action="/Kmarket/admin/cs/faq/delete.do" method="get">
+                <form id="formFaqChk" action="/Kmarket/admin/cs/faq/delete.do" method="get">
                 <table>
                     <tbody>
                         <tr>
@@ -43,13 +47,13 @@
                             <td class="chk"><input type="checkbox" value="${article.no}" name="chk"></td>
                             <td class="no">${article.no}</td>
                             <td class="cateName">${article.cateName}</td>
-                            <td class="type">${article.type}</td>
+                            <td class="typeName">${article.typeName}</td>
                             <td class="title"><a href="/Kmarket/admin/cs/faq/view.do?group=faq&cate=${cate}&no=${article.no}">${article.title}</a></td>
                             <td class="hit">${article.hit}</td>
                             <td class="rdate">${article.rdate}</td>
                             <td>
                                 <a href="/Kmarket/admin/cs/faq/delete.do?chk=${article.no}">[삭제]</a>
-                                <a href="/Kmarket/admin/cs/faq/modify.do?group=faq&cate=${cate}&no=${article.no}">[수정]</a>
+                                <a href="/Kmarket/admin/cs/faq/modify.do?group=faq&cate=${article.cate}&type=${article.type}&no=${article.no}">[수정]</a>
                             </td>
                         </tr>
                         </c:forEach>

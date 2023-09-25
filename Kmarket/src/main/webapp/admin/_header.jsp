@@ -20,6 +20,7 @@
     <script src="/Kmarket/admin/js/aside.js"></script>
     <script src="/Kmarket/admin/product/js/checkBox.js"></script>
     <script src="/Kmarket/admin/cs/js/checkBox.js"></script>
+    
 
 </head>
 <body>
