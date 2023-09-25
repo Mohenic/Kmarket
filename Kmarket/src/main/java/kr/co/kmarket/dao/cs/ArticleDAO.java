@@ -274,7 +274,7 @@ public class ArticleDAO extends DBHelper{
 				dto.setCate(rs.getString(2));
 				dto.setTypeName(rs.getString(3));
 				dto.setTitle(rs.getString(4));
-				dto.setMaskWriter(rs.getString(5));
+				dto.setWriter(rs.getString(5));
 				dto.setRdateYYMMDD(rs.getString(6));
 				latest.add(dto);
 			}

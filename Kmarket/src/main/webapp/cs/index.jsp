@@ -1,5 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
+<script>
+$(document).ready(function() {
+	$(".check").click(function(e){
+
+		const writer = this.classList[2];
+		const type = '${sessUser.type}'
+        const uid = '${sessUser.uid}'
+    	//debugger;
+        
+        if(type != 2 && uid != writer){
+        	e.preventDefault();
+        }
+	})
+  
+   
+});
+</script>
+
         <section id="cs">
             <div class="main">
                 <h1 class="title">
@@ -70,9 +88,17 @@
                     <ul>
                     <c:forEach var="qanLate" items="${qnaLates}">
                         <li>
-                            <a href="/Kmarket/cs/board/view.do?group=qna&cate=${qanLate.cate}&no=${qanLate.no}" class="title">[${qanLate.typeName}] ${qanLate.title} </a>
+                            <a href="/Kmarket/cs/board/view.do?group=qna&cate=${qanLate.cate}&no=${qanLate.no}" class="title check ${qanLate.writer}">[${qanLate.typeName}] ${qanLate.title} </a>
                             <p>
-                                <span class="uid">${qanLate.writer}</span>
+                                <span class="uid">   
+                                	<c:if test="${article.writer ne null}">
+								      <!-- 아이디의 앞 3자리까지 보여 주고 -->
+								      ${fn:substring(article.writer,0,3) }
+								    </c:if>
+								      <!-- 4자리부터 id의 길이만큼 *를 찍어줌 -->
+								    <c:forEach begin="4" end="${fn:length(article.writer)}" step="1">
+								        *
+								    </c:forEach></span>
                                 <span class="date">${qanLate.rdate}</span>
                             </p>
                         </li>

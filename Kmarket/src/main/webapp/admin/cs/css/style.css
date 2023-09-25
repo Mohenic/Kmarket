@@ -448,3 +448,10 @@ main table tr > td {
 	    border: 1px solid #454c5f;
 	    text-decoration: none;
 	}
+	
+	#admin-cs-notice-view .content .answerContent{
+		    width: 100%;
+		    height: 280px;
+		    resize: none;
+		    border: none;
+	}
