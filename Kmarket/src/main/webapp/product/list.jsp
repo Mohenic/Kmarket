@@ -13,14 +13,14 @@
 				    	<c:set var="sortOption" value="Selling"/>
 				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=sold&order=DESC" class="${param.sort == 'sold' ? 'on' : ''}">판매많은순</a>
 				    </li>
-				    <li>
-				        <c:set var="sortOption" value="lowprice"/>
-				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=price&order=ASC" class="${param.sort == 'price' ? 'on' : ''}">낮은가격순</a>
-				    </li>
-				    <li>
-				        <c:set var="sortOption" value="highprice"/>
-				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=price&order=DESC" class="${param.sort == 'price' ? 'on' : ''}">높은가격순</a>
-				    </li>
+					<li>
+					    <c:set var="sortOption" value="lowprice"/>
+					    <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=price&order=ASC" class="${param.sort == 'price' && param.order == 'ASC' ? 'on' : ''}">낮은가격순</a>
+					</li>
+					<li>
+					    <c:set var="sortOption" value="highprice"/>
+					    <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=price&order=DESC" class="${param.sort == 'price' && param.order == 'DESC' ? 'on' : ''}">높은가격순</a>
+					</li>
 				    <li>
 				        <c:set var="sortOption" value="highrating"/>
 				        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=score&order=DESC" class="${param.sort == 'score' ? 'on' : ''}">평점높은순</a>
@@ -66,7 +66,7 @@
                             <h4 class="seller"><i class="fas fa-home"></i>${prod.company}</h4>
                             <h5 class="badge power">${prod.hit}</h5>
                             <h6 class="rating star${prod.score}"></h6>
-                        </td>
+                        </td>	
                     </tr>
                     </c:forEach>
                 </tbody>
@@ -74,29 +74,26 @@
 
            <!-- 번호 버튼 -->
 			<div class="paging">
-			    <span class="prev">
-			        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=${param.sort}&order=${param.order}&page=${currentPage - 1}">< 이전</a>
-			    </span>
-			    <span class="num">
-			        <c:forEach begin="1" end="${totalPages}" var="pageNumber">
-			            <c:choose>
-			                <c:when test="${pageNumber == currentPage}">
-			                    <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=${param.sort}&order=${param.order}&page=${pageNumber}" class="on">${pageNumber}</a>
-			                </c:when>
-			                <c:otherwise>
-			                    <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=${param.sort}&order=${param.order}&page=${pageNumber}">${pageNumber}</a>
-			                </c:otherwise>
-			            </c:choose>
-			        </c:forEach>
-			    </span>
-			    <span class="next">
-			        <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=${param.sort}&order=${param.order}&page=${currentPage + 1}">다음 ></a>
-			    </span>
+			    <c:if test="${pageGroupStart > 1}">
+			        <span class="prev">
+			            <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=${param.sort}&order=${param.order}&pg=${pageGroupStart - 1}">&lt;&nbsp;이전</a>
+			        </span>
+			    </c:if>
+			    <c:forEach var="i" begin="${pageGroupStart}" end="${pageGroupEnd}">
+			        <span class="num">
+			            <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=${param.sort}&order=${param.order}&pg=${i}" class="num ${currentPage !=i ? 'current' : 'on' }">${i}</a>
+			        </span>
+			    </c:forEach>
+			    <c:if test="${pageGroupEnd < lastPageNum}">
+			        <span class="next">
+			            <a href="list.do?prodCate1=${prodCate1}&prodCate2=${prodCate2}&sort=${param.sort}&order=${param.order}&pg=${pageGroupEnd + 1}">다음&nbsp;&gt;</a>
+			        </span>
+			    </c:if>
 			</div>
-			            <!-- 상단 이동 버튼 -->
+			<!-- 상단 이동 버튼 -->
             <button type="button" id="top">상단이동</button>
         </section>
     </main>
 <%@ include file="./footer.jsp" %>
 </body>
-</html>
+</html>	
