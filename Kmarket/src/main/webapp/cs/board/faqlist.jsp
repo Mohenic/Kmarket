@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../_header.jsp" %>
 <c:import url="./aside.jsp" />
 
@@ -34,9 +35,16 @@ $(document).ready(function() {
                                 </li>
                                 </c:if>
                           </c:forEach>
+                          <c:if test="${fn:length(articles)eq 0}">
+                                <li class="more">
+                                    <a class="list_btn" href="#">게시글이 없습니다.</a>
+                                </li>
+                          </c:if>
+                           <c:if test="${fn:length(articles)ne 0}">
                                 <li class="more">
                                     <a class="list_btn" href="#">더보기</a>
                                 </li>
+                          </c:if>        
                             </ul>
                          </c:forEach>  
                         </div>

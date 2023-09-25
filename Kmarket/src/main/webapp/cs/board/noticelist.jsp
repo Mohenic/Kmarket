@@ -6,8 +6,13 @@
                             <tbody>
                             <c:forEach var="article" items="${articles}">
                                 <tr>
+                                <c:if test="${fn:length(articles)ne 0}">
                                     <td><a href="/Kmarket/cs/board/view.do?group=${group}&cate=${cate}&no=${article.no}">${article.title}</a></td>
                                     <td>${article.rdate}</td>
+                                </c:if>
+                                  <c:if test="${fn:length(articles)eq 0}">
+                                	<td>게시글이 없습니다.</td>
+                                </c:if>
                                 </tr>
                             </c:forEach>
                             </tbody>
