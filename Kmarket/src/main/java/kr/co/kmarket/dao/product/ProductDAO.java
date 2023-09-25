@@ -304,4 +304,21 @@ public class ProductDAO extends DBHelper{
 	}
 		return products;
 }
+	public void updateProductHit(String prodNo) {
+		
+		try {
+			conn=getConnection();
+			psmt=conn.prepareStatement(SQL_product.UPDATE_PRODUCT_HIT);
+			psmt.setString(1, prodNo);
+			psmt.executeUpdate();
+			
+			close();
+			
+		} catch (Exception e) {
+			logger.error("hit error : "+e.getMessage());
+		}
+		
+	}
+	
+	
 }

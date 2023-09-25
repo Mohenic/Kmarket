@@ -28,8 +28,12 @@ public class ProductViewController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String prodNo = req.getParameter("prodNo");
+        
+    	
+    	String prodNo = req.getParameter("prodNo");
         int parseNo = Integer.parseInt(prodNo);
+       
+        productService.updateProductHit(prodNo);
         ProductDTO dto = productService.selectProduct(parseNo);
         req.setAttribute("view", dto);
         logger.debug("Product View = " + dto);

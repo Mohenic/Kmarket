@@ -19,6 +19,13 @@ public enum adminArticleService {
 	public adminArticleDTO selectArticle(String no) {
 		return dao.selectArticle(no);
 	}
+	public adminArticleDTO selectArticleType(String no) {
+		return dao.selectArticleType(no);
+	}
+	
+	public List<adminArticleDTO> selectArticles(String group, String cate, String type, int start){
+		return dao.selectArticles(group, cate, type, start);
+	}
 	
 	public List<adminArticleDTO> selectArticles(String group, String cate, int start){
 		return dao.selectArticles(group, cate, start);
@@ -30,6 +37,9 @@ public enum adminArticleService {
 	
 	public void updateArticle(adminArticleDTO dto) {
 		dao.updateArticle(dto);
+	}
+	public void updateArticleType(adminArticleDTO dto) {
+		dao.updateArticleType(dto);
 	}
 	
 	public void deleteArticle(String no) {

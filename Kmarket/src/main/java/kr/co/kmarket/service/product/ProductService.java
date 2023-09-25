@@ -35,6 +35,10 @@ public enum ProductService {
     	return dao.selectCountProductTotal();
     }
     
+    public void updateProductHit(String prodNo) {
+    	dao.updateProductHit(prodNo);
+    }
+    
     //카테고리 분류
     public List<ProductDTO> getProductsByCategory(String sort, String order, int category1, int category2, int start) {
         return dao.selectProductsByOption(sort, order, category1, category2, start);

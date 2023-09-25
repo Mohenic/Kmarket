@@ -29,7 +29,8 @@ public class MemberLoginController extends HttpServlet {
 	private Logger logger =LoggerFactory.getLogger(this.getClass());
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		String success = req.getParameter("success");
+		req.setAttribute("success", success);
 
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/member/login.jsp");
 		dispatcher.forward(req, resp);
