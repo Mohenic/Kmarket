@@ -16,8 +16,15 @@ public class adminArticleDTO {
 	private String rdate;
 	
 	private String cateName;
+	private String typeName;
 	
 	
+	public String getTypeName() {
+		return typeName;
+	}
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
 	public String getCateName() {
 		return cateName;
 	}

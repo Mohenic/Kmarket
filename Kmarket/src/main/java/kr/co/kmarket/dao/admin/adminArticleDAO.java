@@ -66,17 +66,60 @@ public class adminArticleDAO extends DBHelper {
 		}
 		return dto;
 	}
+	
+	public adminArticleDTO selectArticleType(String no) {
+		
+		adminArticleDTO dto = new adminArticleDTO();
+		
+		try {
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLE_TYPE);
+			psmt.setString(1, no);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setNo(rs.getInt(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setGroup(rs.getString(4));
+				dto.setCate(rs.getString(5));
+				dto.setType(rs.getInt(6));
+				dto.setTitle(rs.getString(7));
+				dto.setContent(rs.getString(8));
+				dto.setWriter(rs.getString(9));
+				dto.setHit(rs.getInt(10));
+				dto.setRegip(rs.getString(11));
+				dto.setRdate(rs.getString(12));
+				dto.setCateName(rs.getString(13));
+				dto.setTypeName(rs.getString(14));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
   
-	public List<adminArticleDTO> selectArticles(String group, int start){
+	public List<adminArticleDTO> selectArticles(String group, String cate, int start){
 		
 		List<adminArticleDTO> article = new ArrayList<>();
 		
 		try {
 			
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_ALL);
-			psmt.setString(1, group);
-			psmt.setInt(2, start);
+			
+			if(cate.equals("0")){
+				psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_ALL);
+				psmt.setString(1, group);
+				psmt.setInt(2, start);
+			} else {
+				psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_CATE);
+				psmt.setString(1, group);
+				psmt.setString(2, cate);
+				psmt.setInt(3, start);
+			}
+			
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
@@ -103,7 +146,7 @@ public class adminArticleDAO extends DBHelper {
 		return article;
 	}
 	
-	public List<adminArticleDTO> selectArticles(String group,String cate, int start){
+	public List<adminArticleDTO> selectArticles(String group,String cate, String type, int start){
 		
 		List<adminArticleDTO> article = new ArrayList<>();
 		
@@ -111,16 +154,19 @@ public class adminArticleDAO extends DBHelper {
 			
 			conn = getConnection();
 			
-			if(cate.equals("0")) {
-				psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_ALL);
+			if(cate.equals("0") && type.equals("0")) {
+				psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_TYPE_ALL);
 				psmt.setString(1, group);
 				psmt.setInt(2, start);
-			}else {
-				psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_CATE);
+				
+			} else {
+				psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_TYPE);
 				psmt.setString(1, group);
 				psmt.setString(2, cate);
-				psmt.setInt(3, start);
+				psmt.setString(3, type);
+				psmt.setInt(4, start);
 			}
+			
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
@@ -138,6 +184,7 @@ public class adminArticleDAO extends DBHelper {
 				dto.setRegip(rs.getString(11));
 				dto.setRdateYYMMDD(rs.getString(12));
 				dto.setCateName(rs.getString(13));
+				dto.setTypeName(rs.getString(14));
 				article.add(dto);
 			}
 			close();
@@ -202,6 +249,25 @@ public class adminArticleDAO extends DBHelper {
 			psmt.setString(2, dto.getTitle());
 			psmt.setString(3, dto.getContent());
 			psmt.setInt(4, dto.getNo());
+			psmt.executeUpdate();
+			close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateArticleType(adminArticleDTO dto) {
+		
+		try {
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_admin.UPDATE_ARTICLE_TYPE);
+			psmt.setString(1, dto.getCate());
+			psmt.setInt(2, dto.getType());
+			psmt.setString(3, dto.getTitle());
+			psmt.setString(4, dto.getContent());
+			psmt.setInt(5, dto.getNo());
 			psmt.executeUpdate();
 			close();
 			

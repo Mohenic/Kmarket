@@ -34,6 +34,10 @@ public class faqListController extends HttpServlet {
 			cate = "0";
 		}
 		
+		if(type == null) {
+			type = "0";
+		}
+		
 		//페이지 관련 변수
 		int start=0;
 		int currentPage =1;
@@ -73,10 +77,11 @@ public class faqListController extends HttpServlet {
 		//페이지 시작번호 계산
 		pageStartNum = total-start;
 		
-		List<adminArticleDTO> article = aService.selectArticles("faq", cate, start);
+		List<adminArticleDTO> article = aService.selectArticles("faq", cate, type, start);
 		
 		req.setAttribute("article", article);
 		req.setAttribute("cate", cate);
+		req.setAttribute("type", type);
 		req.setAttribute("start", start);
 		req.setAttribute("currentPage", currentPage);
 		req.setAttribute("total", total);
