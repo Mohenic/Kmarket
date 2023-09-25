@@ -42,11 +42,13 @@ public class SQL_cs {
 	public static final String DELETE_ARTICLE = "DELETE FROM `km_article` WHERE `no`=? OR `parent` = ?";
 	
 	//게시글 보기
-	public static final String SELECT_ARTICLE = "SELECT a.* , b.`typeName` "
-													+ "FROM `km_article`  AS a "
-													+ "LEFT JOIN `km_article_type` AS b "
-													+ "ON a.cate = b.cate  AND a.`type` = b.`type` "
-													+ "WHERE `no` = ? ";
+	public static final String SELECT_ARTICLE = "SELECT a.* , b.`typeName`, c.`cateName` "
+												+ "FROM `km_article`  AS a "
+												+ "LEFT JOIN `km_article_type` AS b "
+												+ "ON a.cate = b.cate  AND a.`type` = b.`type` "
+												+ "LEFT JOIN `km_article_cate` AS c "
+												+ "ON a.cate = c.cate "
+												+ "WHERE `no` = ? ";
 	
 	//게시글 출력하기(1차...진행중(페이지 처리할 때 부분 수정이 필요할 거 같음.)) 
 	public static final String SELECT_ARTICLES = "SELECT a.* , b.`typeName` "
@@ -112,4 +114,13 @@ public class SQL_cs {
 	
 	//관리자 뽑기
 	public static final String SELECT_TYPE_MEMBER = "SELECT `type` FROM `km_member` WHERE `uid` = ?";
+	
+	
+	public final static String INSERT_COMMENT = "INSERT INTO `Article` SET "
+														+ "`parent`=?, "
+														+ "`content`=?,"
+														+ "`writer`=?,"
+														+ "`regip`=?,"
+														+ "`rdate`=NOW()";
+												
 }

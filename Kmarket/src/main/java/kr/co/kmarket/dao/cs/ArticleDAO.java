@@ -71,6 +71,7 @@ public class ArticleDAO extends DBHelper{
 					dto.setRegip(rs.getString(11));
 					dto.setRdateYYMMDD2(rs.getString(12));
 					dto.setTypeName(rs.getString(13));
+					dto.setCateName(rs.getString(14));
 				}
 				close();
 			} catch (Exception e) {

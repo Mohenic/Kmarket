@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.co.kmarket.dao.admin.adminArticleDAO;
 import kr.co.kmarket.dto.admin.adminArticleDTO;
+import kr.co.kmarket.dto.cs.ArticleDTO;
 
 public enum adminArticleService {
 
@@ -14,6 +15,10 @@ public enum adminArticleService {
 	
 	public void insertArticle(adminArticleDTO dto) {
 		dao.insertArticle(dto);
+	}
+	
+	public void insertAnswer(ArticleDTO dto) {
+		dao.insertAnswer(dto);
 	}
 	
 	public adminArticleDTO selectArticle(String no) {

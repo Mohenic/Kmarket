@@ -8,7 +8,6 @@
                     HOME &gt; 고객센터 &gt; <strong>공지사항</strong>
                 </p>
             </nav>
-            <nav></nav>
             <article>
                 <div class="content">
                     <table>

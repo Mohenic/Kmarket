@@ -157,7 +157,7 @@ window.addEventListener('load', function() {
                             <td class="chk"><input type="checkbox" value="${article.no}" name="chk"></td>
                             <td class="no">${article.no}</td>
                             <td class="cateName">${article.cateName}</td>
-                            <td class="type">${article.type}</td>
+                            <td class="type">${article.typeName}</td>
                             <td class="title"><a href="/Kmarket/admin/cs/qna/view.do?group=qna&cate=${cate}&no=${article.no}">${article.title}</a></td>
                             <td class="hit">${article.writer}</td>
                             <td class="rdate">${article.rdate}</td>
