@@ -22,32 +22,17 @@
     
 <script>
 $(document).ready(function() {
-    $("table").on("click", "a", function(e) {
-        e.preventDefault(); // 기본 동작 막기
-
-        var group = ;
-        var cate = ;
-        var no = ;
-
-        // AJAX 요청		<*--사용자 그룹 함수를 이용해서 group, cate, no값을 넘겨줘야 하는데... 어떻게 넘기지?? -->
-        $.ajax({
-            type: "GET", 	
-            url: "/Kmarket/cs/board/qna/list.do",
-            success: function(response) {
-                console.log(response);
-                if (response.typed === 2) {
-                    // type 값이 2(관리자)인 경우에만 링크 활성화
-                    window.location.href = "/Kmarket/cs/board/view.do?group=" + group + "&cate=" + cate + "&no=" + no;
-                } else {
-                    // type 값이 2가 아닌 경우 링크 비활성화
-                    alert("링크를 클릭할 수 없습니다.");
-                }
-            },
-            error: function() {
-                alert("요청 중 오류가 발생했습니다.");
-            }
-        });
-    });
+	$(".check").click(function(e){
+		const writer = this.classList[1];
+		const type = '${sessUser.type}'
+        const uid = '${sessUser.uid}'
+        
+        if(type != 2 && uid != writer){
+        	e.preventDefault();
+        }
+	})
+  
+   
 });
 </script>
     
@@ -58,7 +43,7 @@ $(document).ready(function() {
                             <c:forEach var="article" items="${articles}">
                             <c:if test="${article.parent eq 0}"> <%--답변은 보이지 않게 하기 --%>
                                 <tr>										 
-                                    <td><a href="/Kmarket/cs/board/view.do?group=${group}&cate=${article.cate}&no=${article.no}" >[${article.typeName}] ${article.title}</a></td>                                    
+                                    <td><a class="check ${article.writer}" href="/Kmarket/cs/board/view.do?group=${group}&cate=${article.cate}&no=${article.no}" >[${article.typeName}] ${article.title}</a></td>                                    
                                      <c:if test="${article.comment eq 1}">
                                      <td class="status">답변완료</td>
                                      </c:if>

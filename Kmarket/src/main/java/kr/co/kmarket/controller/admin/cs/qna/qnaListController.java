@@ -1,4 +1,4 @@
-package kr.co.kmarket.controller.admin.cs.faq;
+package kr.co.kmarket.controller.admin.cs.qna;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,26 +14,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.admin.adminArticleDTO;
-import kr.co.kmarket.dto.cs.ArticleDTO;
 import kr.co.kmarket.service.admin.adminArticleService;
-import kr.co.kmarket.service.cs.ArticleService;
 
-@WebServlet("/admin/cs/faq/list.do")
-public class faqListController extends HttpServlet {
+@WebServlet("/admin/cs/qna/list.do")
+public class qnaListController extends HttpServlet {
 
 	private static final long serialVersionUID = -6495265662381672507L;
+	private adminArticleService aService = adminArticleService.instance;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	private ArticleService service = ArticleService.INSTANCE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String group = req.getParameter("group");
+		String type = req.getParameter("type");
 		String cate = req.getParameter("cate");
-		String no = req.getParameter("no");
+		String pg = req.getParameter("pg");
 		
-		if(type == null) {
-			type = "0";
+		if(cate == null) {
+			cate = "0";
 		}
 		
 		//페이지 관련 변수
@@ -52,7 +50,7 @@ public class faqListController extends HttpServlet {
 		}
 		
 		// 전체 게시물 갯수
-		total = aService.selectCountArticleTotal("faq",cate);
+		total = aService.selectCountArticleTotal("qna",cate);
 		
 		//LIMIT 시작값계산
 		start =(currentPage -1)*10;
@@ -75,11 +73,10 @@ public class faqListController extends HttpServlet {
 		//페이지 시작번호 계산
 		pageStartNum = total-start;
 		
-		List<adminArticleDTO> article = aService.selectArticles("faq", cate, type, start);
+		List<adminArticleDTO> article = aService.selectArticles("qna", cate, start);
 		
 		req.setAttribute("article", article);
 		req.setAttribute("cate", cate);
-		req.setAttribute("type", type);
 		req.setAttribute("start", start);
 		req.setAttribute("currentPage", currentPage);
 		req.setAttribute("total", total);
@@ -89,7 +86,7 @@ public class faqListController extends HttpServlet {
 		req.setAttribute("pageGroupEnd", pageGroupEnd);
 		req.setAttribute("pageStartNum", pageStartNum);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/faq/list.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/qna/list.jsp");
 		dispatcher.forward(req, resp);
 	}
 

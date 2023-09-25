@@ -449,6 +449,13 @@ main table tr > td {
 	    text-decoration: none;
 	}
 	
+	#admin-cs-notice-view .content .answerContent{
+		    width: 100%;
+		    height: 280px;
+		    resize: none;
+		    border: none;
+	}
+
 	/* faq view */
 
 #admin-cs-faq-view .content {
@@ -530,4 +537,3 @@ main table tr > td {
     text-align: center;
     box-sizing: border-box;
 }
-
