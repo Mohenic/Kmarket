@@ -26,9 +26,20 @@ public class ProductCartDAO extends DBHelper{
 	// 기본 CRUD
 	public int insertCart(ProductCartDTO dto) {
 		int result=0;
+		int result2=0;
 
 		try {
 			conn = getConnection();
+			psmt1=conn.prepareStatement(SQL_Cart.SELECT_COUNT_CART);
+			psmt1.setInt(1, dto.getProdNo());
+			psmt1.setString(2, dto.getUid());
+			
+			rs=psmt1.executeQuery();
+			
+			if(rs.next()) {
+				result2=rs.getInt(1);
+			}
+			if(result2 == 0) {
 			psmt = conn.prepareStatement(SQL_Cart.INSERT_PRODUCT_CART);
 			psmt.setString(1, dto.getUid());
 			psmt.setInt(2, dto.getProdNo());
@@ -39,7 +50,14 @@ public class ProductCartDAO extends DBHelper{
 			psmt.setInt(7, dto.getDelivery());
 			
 			result =psmt.executeUpdate();
-			
+			}else {
+				psmt=conn.prepareStatement(SQL_Cart.SELECT_CART_PLUS);
+				psmt.setInt(1,dto.getCount());
+				psmt.setInt(2, dto.getProdNo());
+				psmt.setString(3, dto.getUid());
+				
+			result=psmt.executeUpdate();
+			}
 			close();
 		} catch (SQLException e) {
 			logger.error("insertERROR : "+e.getMessage());
@@ -76,6 +94,8 @@ public class ProductCartDAO extends DBHelper{
 				dto.setThumb1(rs.getString(16));
 				dto.setProdName(rs.getString(17));
 			}
+			
+			close();
 		} catch (Exception e) {
 
 		}

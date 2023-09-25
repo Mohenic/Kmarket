@@ -43,7 +43,15 @@
 
 			return $(this).text();
 			}).get();
-			console.log(discount);	
+			console.log(discount);
+
+			let total = $(".total").map(function() {
+
+				return $(this).text();
+				}).get();
+				console.log(total);
+
+			
 		//항목들 더하기	
 		$.each(addpoint,function(index,value){
 			pointRe2 +=parseInt(value,10);
@@ -62,6 +70,9 @@
 		$.each(discount,function(index,value){
 				discountRe +=parseInt(value,10);
 		})
+		$.each(total,function(index,value){
+				totalRe +=parseInt(value,10);
+		})
 		//더한값 표시	
 		$('.discountRe').text("-"+discountRe+"원");
 		$('.countRe').text(countRe+"건");
@@ -78,65 +89,60 @@
 
 		
 		
-		var total = priceRe+deliveryRe-discountRe
+		//var total = priceRe+deliveryRe-discountRe
+		//$('.totalRe').text(total+"원")
+		//console.log("total : "+total);
+		$('.totalRe2').val(totalRe)
 		$('.totalRe').text(total+"원")
-		$('.totalRe2').val(total)
-		
 		// 포인트 사용시 적용
 		$('input[name=select]').click(function(e){
 			e.preventDefault();
 			
-			const userPoint =parseInt(${memberpoint},10)
+			var userpoint =$('input[name=point]').val();
+			const memberPoint =parseInt(${memberpoint},10)
 			
-			if(userPoint>=5000){
-				var point =$('input[name=point]').val();
-				console.log(point)
-				$('.point').text("-"+point+"원");
-				$('.point2').val(point);
-				$('.point3').val(point);
-				var total = priceRe+deliveryRe-discountRe-point
-				$('.totalRe').text(total+"원")
-				$('.totalRe2').val(total)
+			
+			if(memberPoint>=5000){
+				if(userpoint>=5000){
+				
+					console.log(userpoint)
+					$('.point').text("-"+userpoint+"원");
+					$('.point2').val(userpoint);
+					$('.point3').val(userpoint);
+					var totaldiscount = totalRe-userpoint;
+					$('.totalRe').text(totaldiscount+"원")
+					$('.totalRe2').val(totaldiscount)
+				}else{
+					alert('사용하실려고 하시는 포인트가 5000이상이 아닙니다')
+				}
 			} else{
-				alert('포인트가 5000이상이 아닙니다')
+				alert('적립 포인트가 5000이상이 아닙니다')
 			}
 		})
 		
 		
 	})
-	/*추후개발
+
 	$(function(){
 		$('input[name=btnOrder]').click(function(e){
+			e.preventDefault();
 			
 			if($('input[type=radio]').prop('checked')==false){
 				alert('결제방법을 선택하세요!')
 				
-			}else{
-				$('#finalOrder').submit();
+			}else {
+				if(confirm('결제하시겠습니까?')){
+					$('#finalOrder').submit();
+				}
 			}
-			
-		
 		})
 		
-	})*/
+	})
 	
 
 	
 </script>
-<script>
-	$(function noEvent() { // 새로 고침 방지
-	    if (event.keyCode == 116) {
-	        alert("새로고침을 할 수 없습니다.");
-	        event.keyCode = 2;
-	        return false;
-	    } else if (event.ctrlKey
-	            && (event.keyCode == 78 || event.keyCode == 82)) {
-	        return false;
-	    }
-	}
-	document.onkeydown = noEvent;
 
-</script>
 <body>
     <div id="container">
         <main id="product">
@@ -193,7 +199,7 @@
                         <td >${carts.count }</td>
                         <td class="price">${carts.price }</td>
                         <td class="delivery1">${carts.delivery }</td>
-                        <td class="total">${carts.total }</td>
+                        <td class="total">${carts.total}</td>
                         <td class="hidden discount1">${carts.getDiscountPrice2(carts.price,carts.discount) }</td>
 						
                     </tr>
@@ -226,7 +232,7 @@
                         <td >${count }</td>
                         <td class="price">${price}</td>
                         <td class="delivery1">${delivery }</td>
-                        <td class="total">${total }</td>
+                        <td class="total">${total * count }</td>
                         <td class="hidden discount1">${discount1}</td>
 						
                     </tr>
@@ -334,7 +340,7 @@
                     <div>
                         <span>신용카드</span>
                         <p>
-                            <label><input type="radio" name="payment" value="1"/>신용카드 결제</label>
+                            <label><input type="radio" name="payment" value="1" checked/>신용카드 결제</label>
                             <label><input type="radio" name="payment" value="2"/>체크카드 결제</label>                                
                         </p>
                     </div>
