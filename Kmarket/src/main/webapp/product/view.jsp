@@ -18,7 +18,11 @@
 			const discount = ${view.discount};
 			const delivery = ${view.delivery};
 			const count = $('input[name=num]').val();
-			  			
+			  
+			
+		if(uid == ''){
+			alert('로그인후 이용해주세요!')
+		}else{
 			const jsonData = {
 				"uid": uid,
 				"prodNo": prodNo,
@@ -44,9 +48,22 @@
 					}
 				}
 			});
-			
+			}
 		});
 	});
+	
+	$(function(){
+		$('#btnOrder').click(function(e){
+			e.preventDefault();
+			
+			if(confirm('상품을 구매하시겠습니까?')){
+				$('#formOrder').submit();
+			}
+			
+		})	
+		
+	});
+	
 </script>
 
 <script>
@@ -200,6 +217,7 @@
                             <span>${view.discount}%</span>
                         </div>
                         </c:if>
+                        
                         <div class="dis_price">
                         	<ins>${view.getDiscount(view.price,view.discount)}</ins>
                         </div>

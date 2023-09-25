@@ -25,7 +25,7 @@
 
        //새로고침 하거나 로그아웃 처리 
 		if(confirm('일정시간동안 동작이 없어 로그아웃 합니다')){ //확인시 로그아웃 취소시 무반응                   
-			location.href ='/Farmstory2/user/logout.do';
+			location.href ='/Kmarket/member/logout.do?success=101';
 		}
 
        //window.location.reload();//생각해보니 이게 새로고침한다고 로그아웃되는 프로세스가 아님; 

@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file ="./_header.jsp" %>
+<script>
+	$(function(){
+		
+		var success =${success}
+		
+		if(success==100){
+			alert('아이디와 비밀번호가 일치하지않습니다 다시한번 확인해주세요!')
+		}else if(success==101){
+			alert('로그인후 이용해주세요')
+		}else if(success==102){
+			alert('관리자로 로그인후 이용해 주세요')
+		}
+	
+	
+	});
+	
+</script>
 
         <main id ="member">
             <div class="login">

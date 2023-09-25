@@ -252,7 +252,12 @@
                 </div>
                 <div class="dis_price">
                   <ins>${product1.getDiscount(product1.price,product1.discount) }</ins>
+                  <c:if test="${product1.delivery eq 0}">
                   <span class="free">무료배송</span>
+                  </c:if>
+                  <c:if test="${product1.delivery != '0'}">
+                  	<span> 배송비 : ${product1.delivery}</span>
+                  </c:if>
                 </div>
               </a>
             </article>
@@ -281,7 +286,12 @@
                 </div>
                 <div class="dis_price">
                   <ins>${product2.getDiscount(product2.price,product2.discount) }</ins>
-                  <span class="free">${product2.getDeliveryWithComma()}</span>
+                  <c:if test="${product2.delivery eq 0}">
+                  		<span class="free">무료배송</span>
+                  </c:if>
+                  <c:if test="${product2.delivery ne 0}">
+                  	<span> 배송비 : ${product2.getDeliveryWithComma()}</span>
+                  </c:if>
                 </div>
               </a>
             </article>
@@ -310,7 +320,12 @@
                 </div>
                 <div class="dis_price">
                   <ins>${product3.getDiscount(product3.price,product3.discount) }</ins>
-                  <span class="free">${product3.getDeliveryWithComma()}</span>
+                 <c:if test="${product3.delivery eq 0}">
+                  	<span class="free">무료배송</span>
+                  </c:if>
+                  <c:if test="${product3.delivery ne 0}">
+                  	<span> 배송비 : ${product3.getDeliveryWithComma()}</span>
+                  </c:if>
                 </div>
               </a>
             </article>
@@ -338,7 +353,12 @@
                 </div>
                 <div class="dis_price">
                   <ins>${product4.getDiscount(product4.price,product4.discount) }</ins>
-                  <span class="free">${product4.getDeliveryWithComma()}</span>
+                 <c:if test="${product4.delivery eq '0'}">
+                  <span class="free">무료배송</span>
+                  </c:if>
+                  <c:if test="${product4.delivery ne 0}">
+                  	<span > 배송비 : ${product4.getDeliveryWithComma()}</span>
+                  </c:if>
                 </div>
               </a>
             </article>

@@ -5,6 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+//상단 이동 버튼
+$(document).ready(function(){
+    $("#top").click(function(){
+        $("html, body").animate({scrollTop: 0}, "fast");
+    });
+})
+
+</script>
 </head>
 <body>
 <header>
