@@ -29,9 +29,9 @@ public class QnaViewController extends HttpServlet {
 		String cate = req.getParameter("cate");
 		String no = req.getParameter("no");
 		
-		logger.debug("group" + group);
-		logger.debug("cate" + cate);
-		logger.debug("no" + no);
+		logger.debug("group = " + group);
+		logger.debug("cate = " + cate);
+		logger.debug("no = " + no);
 		
 		ArticleDTO article = service.selectArticle(no);
 		logger.debug(article.toString());

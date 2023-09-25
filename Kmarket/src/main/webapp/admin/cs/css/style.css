@@ -449,11 +449,20 @@ main table tr > td {
 	    text-decoration: none;
 	}
 	
-	#admin-cs-notice-view .content .answerContent{
+	/* qna 답변 달기 view 추가 */
+	#admin-cs-notice-view #adminAnswer tr > td > textarea{
 		    width: 100%;
-		    height: 280px;
+		    height: 220px;
 		    resize: none;
 		    border: none;
+	}
+	
+	#admin-cs-notice-view #adminAnswer tr > td > input{
+			width: 100%;
+		    height: 40px;
+		    resize: none;
+		    border: none;
+	
 	}
 
 	/* faq view */
@@ -532,6 +541,21 @@ main table tr > td {
     border: 1px solid #ccc;
     font-size: 15px;
     background-color: rgb(142, 180, 227);
+    color: #ffffff;
+    line-height: 53px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#admin-cs-notice-view > article .btnWrite {
+	float: right;
+    width: 110px;
+    height: 55px;
+    margin: 40px auto 0;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: rgb(191, 191, 191);
     color: #ffffff;
     line-height: 53px;
     text-align: center;

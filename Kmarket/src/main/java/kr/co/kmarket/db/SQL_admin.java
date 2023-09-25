@@ -13,11 +13,26 @@ public class SQL_admin {
 											  + "`regip` = ?, "
 											  + "`rdate` = NOW()";
 	
-	public final static String SELECT_ARTICLE = "SELECT a.*, b.cateName "
-											  + "FROM `km_article` AS a "
-											  + "JOIN `km_article_cate` AS b "
-											  + "ON a.`cate` = b.`cate` "
-											  + "WHERE `no`=?";
+	//Qna답변
+	public final static String INSERT_ANSWER = "INSERT INTO `km_article` SET "
+										+ "`parent`= ? , "
+										+ "`group` = ? , "
+										+ "`cate` = ? , "
+										+ "`type` = ? , "
+										+ "`title` = ? , "
+										+ "`content`= ? , "
+										+ "`writer`= ? , "
+										+ "`regip`= ? , "
+										+ "`rdate`=NOW()";
+	
+	
+	public final static String SELECT_ARTICLE = "SELECT a.*, b.cateName, c.typeName "
+											+ "FROM `km_article` AS a "
+											+ "JOIN `km_article_cate` AS b "
+											+ "ON a.`cate` = b.`cate`\r\n"
+											+ "JOIN `km_article_type` AS c "
+											+ "ON a.`cate`=b.cate "
+											+ "WHERE `no`= ? ";
 	
 	public final static String SELECT_ARTICLE_TYPE = "SELECT a.*, b.`cateName`, c.`typeName` "
 													+ "FROM `km_article` AS a "
@@ -25,16 +40,19 @@ public class SQL_admin {
 													+ "JOIN `km_article_type` AS c ON a.`type` = c.`type` "
 													+ "WHERE `no`=?";
 
-	public final static String SELECT_ARTICLES_ALL = "SELECT a.*, b.`cateName` "
-										           + "FROM `km_article` AS a "
-										           + "JOIN `km_article_cate` AS b ON a.`cate` = b.`cate` "
-										           + "WHERE `group`= ? "
-										           + "ORDER BY `no` DESC LIMIT ?, 10";
+	public final static String SELECT_ARTICLES_ALL = "SELECT a.*, b.`cateName`, c.`typeName` "
+												+ "FROM `km_article` AS a "
+												+ "JOIN `km_article_cate` AS b "
+												+ "ON a.`cate` = b.`cate` "
+												+ "JOIN `km_article_type` AS c "
+												+ "ON a.`type` = c.`type` "
+												+ "WHERE `group`= ? AND parent = 0 " 
+												+ "ORDER BY `no` DESC LIMIT ?, 10";
 	
 	public final static String SELECT_ARTICLES_CATE = "SELECT a.*, b.`cateName`"
 													+ "FROM `km_article` AS a "
 													+ "JOIN `km_article_cate` AS b ON a.`cate` = b.`cate` "
-												    +"WHERE `group`= ? AND a.`cate`= ?"
+												    +"WHERE `group`= ? AND a.`cate`= ? AND parent = 0 "
 												    +"ORDER BY `no` DESC LIMIT ?, 10";
 	
 	

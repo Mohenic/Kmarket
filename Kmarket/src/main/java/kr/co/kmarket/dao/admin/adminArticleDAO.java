@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import kr.co.kmarket.db.DBHelper;
 import kr.co.kmarket.db.SQL_admin;
 import kr.co.kmarket.dto.admin.adminArticleDTO;
+import kr.co.kmarket.dto.cs.ArticleDTO;
 import kr.co.kmarket.dto.product.ProductDTO;
 
 public class adminArticleDAO extends DBHelper {
@@ -33,6 +34,29 @@ public class adminArticleDAO extends DBHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	//qna 답변
+	public void insertAnswer(ArticleDTO dto) {
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_admin.INSERT_ANSWER);
+			psmt.setInt(1, dto.getParent());
+			psmt.setString(2, dto.getGroup());
+			psmt.setInt(3, dto.getType());
+			psmt.setString(4, dto.getTitle());
+			psmt.setString(5, dto.getContent());
+			psmt.setString(6, dto.getWriter());
+			psmt.setString(7, dto.getRegip());
+			psmt.setString(8, dto.getRegip());
+			close();
+		} catch (Exception e) {
+			logger.debug("insertAnswer..." + e.getMessage());
+		}
+		
+	}
+	
+	
 	
 	public adminArticleDTO selectArticle(String no) {
 		
@@ -59,6 +83,7 @@ public class adminArticleDAO extends DBHelper {
 				dto.setRegip(rs.getString(11));
 				dto.setRdate(rs.getString(12));
 				dto.setCateName(rs.getString(13));
+				dto.setTypeName(rs.getString(14));
 			}
 			
 		} catch (Exception e) {
@@ -137,6 +162,7 @@ public class adminArticleDAO extends DBHelper {
 				dto.setRegip(rs.getString(11));
 				dto.setRdate(rs.getString(12));
 				dto.setCateName(rs.getString(13));
+				dto.setTypeName(rs.getString(14));
 				article.add(dto);
 			}
 			close();

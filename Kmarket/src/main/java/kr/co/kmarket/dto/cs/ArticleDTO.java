@@ -19,6 +19,8 @@ public class ArticleDTO {
 	
 	//추가필드
 	private String typeName;
+	private String cateName;
+	
 	private List<ArticleDTO> articles;
 	
 	public List<ArticleDTO> getArticles() {
@@ -144,6 +146,15 @@ public class ArticleDTO {
 
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
+	}
+	
+
+	public String getCateName() {
+		return cateName;
+	}
+
+	public void setCateName(String cateName) {
+		this.cateName = cateName;
 	}
 
 	//날짜 재설정
