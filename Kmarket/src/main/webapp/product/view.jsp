@@ -176,12 +176,11 @@
            	<input type="hidden" name="prodNo" value="${view.prodNo}"/>
            	<input type="hidden" name="thumb1" value="${view.thumb1}"/>
            	
-           	
             <!-- View 시작 -->       
             <c:if test="${not empty view}">
             <article class="info">
                 <div class="image">
-                    <img src="/Kmarket/thumb/${view.prodCate1}/${view.prodCate2}/${view.thumb2}" alt="상품이미지" style="max-width: 100%"/>
+                    <img src="/Kmarket/thumb/${view.prodCate1}/${view.prodCate2}/${view.thumb2}" alt="상품이미지" style="width: 460px; height: 460px;"/>
                 </div>
                 <div class="summary">
                     <nav>

@@ -27,16 +27,48 @@ public class ProductListController extends HttpServlet {
         String orderOption = req.getParameter("order");
         String category1Param = req.getParameter("prodCate1");
         String category2Param = req.getParameter("prodCate2");
-
-        int currentPage = 1;
-        int itemsPerPage = 5;
-
-        if (req.getParameter("page") != null) {
-            currentPage = Integer.parseInt(req.getParameter("page"));
-        }
-
-        int start = (currentPage - 1) * itemsPerPage;
+		String pg = req.getParameter("pg");
+		//페이지 관련 변수
+		int start=0;
+		int currentPage =1;
+		int total=0;
+		int lastPageNum=0;
+		int pageGroupCurrent=1;
+		int pageGroupStart=1;
+		int pageGroupEnd=0;
+		int pageStartNum=0;
+		
+		if (pg != null && !pg.isEmpty()) {
+			try {
+				currentPage = Integer.parseInt(pg);
+			} catch (NumberFormatException e) {
+				// "pg" 매개변수가 숫자로 변환할 수 없는 경우, 기본 페이지를 유지합니다.
+			}
+		}
         
+		//LIMIT 시작값계산
+		start =(currentPage -1)*5;
+
+		//전체상품 갯수조회 
+		total=service.selectCountProductTotal();
+		
+		if(total%5 == 0){
+			lastPageNum =(total/5);
+		}else{
+			lastPageNum =(total/5)+1;
+		}
+		
+		//페이지 그룹계산
+		pageGroupCurrent = (int) Math.ceil(currentPage / 5.0);
+		pageGroupStart = ((currentPage - 1) / 5) * 5 + 1; // 수정된 부분
+		pageGroupEnd = pageGroupCurrent * 5;
+		
+		if(pageGroupEnd > lastPageNum){
+			pageGroupEnd=lastPageNum;
+		}
+		
+		//페이지 시작번호 계산
+		pageStartNum =total-start;
         List<ProductDTO> list;
         list = service.getProductsByCategory(sortOption, orderOption, Integer.parseInt(category1Param), Integer.parseInt(category2Param), start);
 
@@ -45,12 +77,15 @@ public class ProductListController extends HttpServlet {
         req.setAttribute("sortOption", sortOption);
         req.setAttribute("orderOption", orderOption);
         req.setAttribute("list", list);
+		req.setAttribute("total", total);
+		req.setAttribute("currentPage", currentPage);
+		req.setAttribute("lastPageNum", lastPageNum);
+		req.setAttribute("pageGroupCurrent", pageGroupCurrent);
+		req.setAttribute("pageGroupStart", pageGroupStart);
+		req.setAttribute("pageGroupEnd", pageGroupEnd);
+		req.setAttribute("pageStartNum", pageStartNum);
+		req.setAttribute("pg", pg);
 
-        int totalItems = service.selectCountProductTotal();
-        int totalPages = (int) Math.ceil((double) totalItems / itemsPerPage);
-
-        req.setAttribute("totalPages", totalPages);
-        req.setAttribute("currentPage", currentPage);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/product/list.jsp");
         dispatcher.forward(req, resp);

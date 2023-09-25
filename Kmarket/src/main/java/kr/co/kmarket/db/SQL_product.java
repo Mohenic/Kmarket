@@ -37,7 +37,7 @@ public class SQL_product {
 
 
 	public final static String SELECT_PRODUCT = "SELECT * FROM `km_product` WHERE `prodNo`=?";
-	public final static String SELECT_PRODUCTS = "SELECT * FROM `km_product` LIMIT ?,10";
+	public final static String SELECT_PRODUCTS = "SELECT * FROM `km_product` LIMIT ?,5";
 	public final static String SELECT_COUNT_PRODUCT_TOTAL = "SELECT COUNT(*) FROM `km_product`";
 	
 	// category
