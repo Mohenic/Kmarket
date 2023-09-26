@@ -159,9 +159,10 @@ $(document).ready(function() {
 </script>
 
 
-                        <form action="/Kmarket/cs/board/qna/write.do" method="post">
-                        <input type="hidden" name="group" value="${group}">
-                        <input type="hidden" name="writer" value="${sessUser.uid}">
+                        <form action="/Kmarket/cs/board/qnaModify.do" method="post">
+                        <input type="text" name="no" value="${no}">
+                        <input type="text" name="group" value="${group}">
+                        <input type="text" name="writer" value="${sessUser.uid}">
                             <table>
                                 <tbody>
                                     <tr>

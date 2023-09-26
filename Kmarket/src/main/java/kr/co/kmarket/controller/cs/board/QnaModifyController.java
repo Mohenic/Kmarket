@@ -28,10 +28,12 @@ public class QnaModifyController extends HttpServlet{
 		
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
+		String type = req.getParameter("type");
 		String no = req.getParameter("no");
 		
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);
+		req.setAttribute("no", no);
 		req.setAttribute("index", "write");
 		
 		
@@ -70,6 +72,7 @@ public class QnaModifyController extends HttpServlet{
 		logger.debug("regip = " + regip);
 		
 		ArticleDTO dto = new ArticleDTO();
+		dto.setNo(no);
 		dto.setGroup(group);
 		dto.setCate(cate);
 		dto.setType(type);

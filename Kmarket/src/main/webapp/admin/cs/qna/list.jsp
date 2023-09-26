@@ -113,6 +113,25 @@ window.addEventListener('load', function() {
 });
 
 </script>
+
+<script>
+        $(document).ready(function() {
+            // "status" 클래스를 가진 모든 셀을 찾아서 처리
+            $('.status').each(function() {
+                // 현재 셀의 텍스트 가져오기
+                var text = $(this).text();
+
+                // 텍스트에 따라 스타일 변경
+                if (text === '검토중') {
+                    $(this).css("color","black");
+                } else if (text === '답변완료') {
+                    $(this).css("color","blue");
+                }
+            });
+        });
+    </script>
+    
+
 <section id="admin-cs-qna-list">
             <nav>
                 <h3>문의사항 목록</h3>
@@ -162,12 +181,11 @@ window.addEventListener('load', function() {
                             <td class="title"><a href="/Kmarket/admin/cs/qna/view.do?group=qna&cate=${cate}&no=${article.no}">${article.title}</a></td>
                             <td class="writer">${article.writer}</td>
                             <td class="rdate">${article.rdate}</td>
-                            <td>
                             <c:if test="${article.comment ne 1}">
-                            	검토중
+                            	<td class="status">검토중</td>	
                             </c:if>
                              <c:if test="${article.comment eq 1}">
-                            	답변완료
+                            	<td class="status">답변완료</td>
                             </c:if>	
                             </td>
                         </tr>

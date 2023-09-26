@@ -43,7 +43,7 @@ $(document).ready(function() {
                             <c:forEach var="article" items="${articles}">
                             <c:if test="${article.parent eq 0}"> <%--답변은 보이지 않게 하기 --%>
                                 <tr>									
-                                 <c:if test="${fn:length(articles)ne 0}">	 
+                                 <c:if test="${fn:length(articles) ne 0}">	 
                                     <td><a class="check ${article.writer}" href="/Kmarket/cs/board/view.do?group=${group}&cate=${article.cate}&no=${article.no}" >[${article.typeName}] ${article.title}</a></td>                                    
                                      <c:if test="${article.comment eq 1}">
                                      <td class="status">답변완료</td>
@@ -63,7 +63,7 @@ $(document).ready(function() {
 									</td>
                                     <td>${article.rdate}</td>
                                  </c:if>  
-								 <c:if test="${fn:length(articles)eq 0}">
+								 <c:if test="${fn:length(articles) eq 0}">
 								 	<td>게시글이 없습니다</td>
 								 </c:if>
 

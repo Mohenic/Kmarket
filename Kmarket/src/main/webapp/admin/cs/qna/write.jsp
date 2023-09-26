@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../../_header.jsp"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!-- 상단에 작성해줍니다. -->
+<%
+	pageContext.setAttribute("LF", "\n");
+	pageContext.setAttribute("BR", "<br/>");
+%>
+ <section id="cs">
 <%@ include file="../../_aside.jsp" %>
         <section id="admin-cs-qna-view">
             <nav>
@@ -22,7 +29,7 @@
                         </tr>
                         <tr>
                             <td>내용</td>
-                            <td>${article.content}</td>
+                            <td><c:out value="${fn:replace(article.content, LF, BR)}" escapeXml="false"/></td>
                         </tr>
                   </table>
                   <form action="/Kmarket/admin/cs/qna/write.do" method="POST">
