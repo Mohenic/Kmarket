@@ -31,14 +31,19 @@ public class ProductViewController extends HttpServlet {
         
     	
     	String prodNo = req.getParameter("prodNo");
+    	String prodCate1 = req.getParameter("prodCate1");
+    	String prodCate2 = req.getParameter("prodCate2");
         int parseNo = Integer.parseInt(prodNo);
        
         productService.updateProductHit(prodNo);
         ProductDTO dto = productService.selectProduct(parseNo);
         req.setAttribute("view", dto);
+        req.setAttribute("prodCate1", prodCate1);
+        req.setAttribute("prodCate2", prodCate2);
         logger.debug("Product View = " + dto);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/product/view.jsp");
         dispatcher.forward(req, resp);
+        
     }
 
     @Override

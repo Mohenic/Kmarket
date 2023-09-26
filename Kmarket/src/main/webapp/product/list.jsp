@@ -40,12 +40,12 @@
                     <c:forEach var="prod" items="${list}">
                     <tr>
                         <td>
-                            <a href="view.do?prodNo=${prod.prodNo}" class="thumb">
+                            <a href="view.do?prodNo=${prod.prodNo}&prodCate1=${prod.prodCate1}&prodCate2=${prod.prodCate2}" class="thumb">
                                 <img src="/Kmarket/thumb/${prod.prodCate1}/${prod.prodCate2}/${prod.thumb1}" alt="상품이미지">
                             </a>
                         </td>
                         <td>
-                        <a href="view.do?prodNo=${prod.prodNo}">
+                        <a href="view.do?prodNo=${prod.prodNo}&prodCate1=${prod.prodCate1}&prodCate2=${prod.prodCate2}">
                         	<h3 class="name">${prod.prodName}</h3>
                         	</a>
                             <p class="desc">${prod.descript}</p>
