@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../../_header.jsp"%>
 <%@ include file="../../_aside.jsp" %>
-        <section id="admin-cs-notice-view">
+        <section id="admin-cs-qna-view">
             <nav>
                 <h3>문의사항 보기</h3>
                 <p>

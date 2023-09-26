@@ -59,21 +59,21 @@ public class SQL_admin {
 														+ "FROM `km_article` AS a "
 														+ "JOIN `km_article_cate` AS b ON a.`cate` = b.`cate` "
 														+ "JOIN `km_article_type` AS c ON a.`type` = c.`type` "
-														+"WHERE `group`= ? "
+														+"WHERE `group`= ? AND parent = 0 "
 														+"ORDER BY `no` DESC LIMIT ?, 10";
 	
 	public final static String SELECT_ARTICLES_TYPE = "SELECT a.*, b.`cateName`, c.`typeName` "
 													+ "FROM `km_article` AS a "
 													+ "JOIN `km_article_cate` AS b ON a.`cate` = b.`cate` "
 													+ "JOIN `km_article_type` AS c ON a.`type` = c.`type` "
-													+ "WHERE `group` = ? AND a.`cate` = ? AND a.`type` = ? "
+													+ "WHERE `group` = ? AND a.`cate` = ? AND a.`type` = ? AND parent = 0 "
 													+ "ORDER BY `no` DESC "
 													+ "LIMIT ?, 10;";
 	public final static String SELECT_ARTICLES_GROUP_ALL = "SELECT a.*, b.`cateName`, c.`typeName` "
 			+ "FROM `km_article` AS a "
 			+ "JOIN `km_article_cate` AS b ON a.`cate` = b.`cate` "
 			+ "JOIN `km_article_type` AS c ON a.`type` = c.`type` "
-			+ "WHERE `group` = ? AND a.`cate` = ?  "
+			+ "WHERE `group` = ? AND a.`cate` = ? AND parent = 0 "
 			+ "ORDER BY `no` DESC "
 			+ "LIMIT ?, 10;";
 	

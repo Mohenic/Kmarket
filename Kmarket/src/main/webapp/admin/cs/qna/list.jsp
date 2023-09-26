@@ -113,14 +113,14 @@ window.addEventListener('load', function() {
 });
 
 </script>
-<section id="admin-cs-faq-list">
+<section id="admin-cs-qna-list">
             <nav>
                 <h3>문의사항 목록</h3>
                 <p>
                     HOME &gt; 고객센터 &gt; <strong>문의사항</strong>
                 </p>
             </nav>
-            <section id="admin-faq-list">
+            <section id="admin-qna-list">
                 <div>
                     <select name="cate" id="cateSelect">
                         <option value="0">유형선택</option>
@@ -140,7 +140,7 @@ window.addEventListener('load', function() {
                         <option value="jackpot">이벤트당첨</option>
                     </select>
                 </div>
-                <form id="formFaqCheck" action="/Kmarket/admin/cs/qna/delete.do" method="get">
+                <form id="formQnaCheck" action="/Kmarket/admin/cs/qna/delete.do" method="get">
                 <table>
                     <tbody>
                         <tr>
@@ -149,7 +149,7 @@ window.addEventListener('load', function() {
                             <th>1차유형</th>
                             <th>2차유형</th>
                             <th>제목</th>
-                            <th>조회</th>
+                            <th>작성자</th>
                             <th>날짜</th>
                             <th>관리</th>
                         </tr>
@@ -160,7 +160,7 @@ window.addEventListener('load', function() {
                             <td class="cateName">${article.cateName}</td>
                             <td class="type">${article.typeName}</td>
                             <td class="title"><a href="/Kmarket/admin/cs/qna/view.do?group=qna&cate=${cate}&no=${article.no}">${article.title}</a></td>
-                            <td class="hit">${article.writer}</td>
+                            <td class="writer">${article.writer}</td>
                             <td class="rdate">${article.rdate}</td>
                             <td>
                             <c:if test="${article.comment ne 1}">
