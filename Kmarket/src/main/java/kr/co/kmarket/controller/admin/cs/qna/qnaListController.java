@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.gson.JsonObject;
+
 import kr.co.kmarket.dto.admin.adminArticleDTO;
 import kr.co.kmarket.service.admin.adminArticleService;
 

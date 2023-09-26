@@ -64,4 +64,14 @@ public enum ArticleService {
 	public int selectTypeMember(String uid) {
 		return dao.selectTypeMember(uid);
 	}
+	
+	
+	public void updateCommentPlus(String no) {
+		dao.updateCommentPlus(no);
+	}
+	
+	public void updateCommentMinus(String no) {
+		dao.updateCommentMinus(no);
+	}
+	
 }

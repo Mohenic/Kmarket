@@ -25,17 +25,17 @@
                         </tr>
                         <tr>
                         	<td>답변제목</td>
-                        	<td>답변제목</td>
+                        	<td>${answer.title}</td>
                         </tr>
                         <tr>
                         	<td>답변내용</td>
-                        	<td>답변내용</td>
+                        	<td>${answer.content }</td>
                         </tr>
                   </table>
                 </div>
                 <a href="/Kmarket/admin/cs/qna/list.do" class="btnList">목록</a>
                 <a href="/Kmarket/admin/cs/qna/write.do?group=qna&cate=${article.cate}&type=${article.type}&no=${article.no}" class="btnModify">답변등록</a>
-                <a href="/Kmarket/admin/cs/qna/delete.do" class="btnDelete">삭제</a>
+                <a href="/Kmarket/admin/cs/qna/delete.do?group=qna&cate=${article.cate}&type=${article.type}&no=${article.no}" class="btnModify">삭제</a>
             </article>
         </section>
     </div>

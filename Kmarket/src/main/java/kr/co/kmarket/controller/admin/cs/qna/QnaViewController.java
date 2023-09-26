@@ -14,12 +14,14 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.cs.FaqDTO;
 import kr.co.kmarket.dto.cs.ArticleDTO;
+import kr.co.kmarket.service.admin.adminArticleService;
 import kr.co.kmarket.service.cs.ArticleService;
 @WebServlet("/admin/cs/qna/view.do")
 public class QnaViewController extends HttpServlet {
 
 	private static final long serialVersionUID = 8562356067027527812L;
 	private ArticleService service = ArticleService.INSTANCE;
+	private adminArticleService adService = adminArticleService.instance;
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
@@ -33,11 +35,13 @@ public class QnaViewController extends HttpServlet {
 		logger.debug("cate = " + cate);
 		logger.debug("no = " + no);
 		
+		ArticleDTO answer = adService.selectAnswer(no);
 		ArticleDTO article = service.selectArticle(no);
 		logger.debug(article.toString());
 		
 		req.setAttribute("article", article);
-		
+		req.setAttribute("answer", answer);
+	
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/qna/view.jsp");
 		dispatcher.forward(req, resp);

@@ -1,4 +1,4 @@
-package kr.co.kmarket.controller.cs.board;
+package kr.co.kmarket.controller.admin.cs.qna;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.service.cs.ArticleService;
 
-@WebServlet("/cs/board/delete.do")
+@WebServlet("/admin/cs/qna/delete.do")
 public class DeleteController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -22,15 +22,20 @@ public class DeleteController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String no = req.getParameter("no");
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
-
+		String type = req.getParameter("type");
 		
-		//글 + 댓글 삭제
+		logger.debug("group = " + group);
+		logger.debug("cate = " + cate);
+		logger.debug("no = " + no);
+		
+		//답변이랑 게시글 삭제
 		service.deleteArticle(no);
-
+		
 		//리다이렉트
-		resp.sendRedirect("/Kmarket/cs/board/qna/list.do?group="+group+"&cate="+cate+"&pg=1");
+		resp.sendRedirect("/Kmarket/admin/cs/qna/list.do?group="+group+"&pg=1");
 	}
 }

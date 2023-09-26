@@ -26,11 +26,11 @@
                         </tr>
                   </table>
                   <form action="/Kmarket/admin/cs/qna/write.do" method="POST">
-                  <input type="text" name="writer" value="${sessUser.uid}">
-                  <input type="text" name="group" value="qna">
-                  <input type="text" name="cate" value="${cate}">
-                  <input type="text" name="type" value="${type}">
-                  <input type="text" name="no" value="${no}">
+                  <input type="hidden" name="writer" value="${sessUser.uid}">
+                  <input type="hidden" name="group" value="qna">
+                  <input type="hidden" name="cate" value="${cate}">
+                  <input type="hidden" name="type" value="${type}">
+                  <input type="hidden" name="no" value="${no}">
 	                  <table id="adminAnswer">
 	                      <tr>
 	                         <td>문의제목</td>
