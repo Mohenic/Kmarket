@@ -43,17 +43,50 @@ public class adminArticleDAO extends DBHelper {
 			psmt = conn.prepareStatement(SQL_admin.INSERT_ANSWER);
 			psmt.setInt(1, dto.getParent());
 			psmt.setString(2, dto.getGroup());
-			psmt.setInt(3, dto.getType());
-			psmt.setString(4, dto.getTitle());
-			psmt.setString(5, dto.getContent());
-			psmt.setString(6, dto.getWriter());
-			psmt.setString(7, dto.getRegip());
+			psmt.setString(3, dto.getCate());
+			psmt.setInt(4, dto.getType());
+			psmt.setString(5, dto.getTitle());
+			psmt.setString(6, dto.getContent());
+			psmt.setString(7, dto.getWriter());
 			psmt.setString(8, dto.getRegip());
+			psmt.executeUpdate();
 			close();
 		} catch (Exception e) {
 			logger.debug("insertAnswer..." + e.getMessage());
 		}
 		
+	}
+	
+	//qna답 출력
+	public ArticleDTO selectAnswer(String no) {
+		ArticleDTO dto = null;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL_admin.SELECT_ANSWER);
+			psmt.setString(1, no);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new ArticleDTO();
+				dto.setNo(rs.getString(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setGroup(rs.getString(4));
+				dto.setCate(rs.getString(5));
+				dto.setType(rs.getInt(6));
+				dto.setTitle(rs.getString(7));
+				dto.setContent(rs.getString(8));
+				dto.setWriter(rs.getString(9));
+				dto.setHit(rs.getInt(10));
+				dto.setRegip(rs.getString(11));
+				dto.setRdate(rs.getString(12));
+			}
+			close();
+		} catch (Exception e) {
+			logger.debug("selectAnswer" + e.getMessage());
+		}
+		return dto;
 	}
 	
 	
@@ -185,6 +218,11 @@ public class adminArticleDAO extends DBHelper {
 				psmt.setString(1, group);
 				psmt.setInt(2, start);
 				
+			} else if (type.equals("0")) {
+				psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_GROUP_ALL);
+				psmt.setString(1, group);
+				psmt.setString(2, cate);
+				psmt.setInt(3, start);
 			} else {
 				psmt = conn.prepareStatement(SQL_admin.SELECT_ARTICLES_TYPE);
 				psmt.setString(1, group);

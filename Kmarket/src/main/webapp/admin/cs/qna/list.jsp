@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "../../_header.jsp" %>
 <%@ include file = "../../_aside.jsp" %>
+
 <script>
 //1차 카테고리 선택시 2차 불러오게하는 스크립트
 window.addEventListener('load', function() {
@@ -162,8 +163,12 @@ window.addEventListener('load', function() {
                             <td class="hit">${article.writer}</td>
                             <td class="rdate">${article.rdate}</td>
                             <td>
-                                <a href="/Kmarket/admin/cs/qna/delete.do?chk=${article.no}">[삭제]</a>
-                                <a href="/Kmarket/admin/cs/qna/modify.do?group=qna&cate=${cate}&no=${article.no}">[수정]</a>
+                            <c:if test="${article.comment ne 1}">
+                            	검토중
+                            </c:if>
+                             <c:if test="${article.comment eq 1}">
+                            	답변완료
+                            </c:if>	
                             </td>
                         </tr>
                         </c:forEach>
@@ -171,7 +176,6 @@ window.addEventListener('load', function() {
                 </table>
                 </form>
  				<a href="#" class="btnDelete">선택삭제</a>
-                <a href="/Kmarket/admin/cs/qna/write.do?group=qna" class="btnWrite">작성하기</a>
                 <div class="paging">
                 <c:if test="${pageGroupStart > 1}">
                     <span class="prev">

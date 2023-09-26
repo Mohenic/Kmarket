@@ -50,4 +50,8 @@ public enum adminArticleService {
 	public void deleteArticle(String no) {
 		dao.deleteArticle(no);
 	}
+	
+	public ArticleDTO selectAnswer(String no) {
+		return dao.selectAnswer(no);
+	}
 }

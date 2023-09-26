@@ -379,6 +379,42 @@ public class ArticleDAO extends DBHelper{
 		
 		return result;
 	}
+	
+	//답변 comment 증가 
+	public void updateCommentPlus(String no) {
+			
+			
+			try {
+				conn = getConnection();
+				psmt = conn.prepareStatement(SQL_cs.UPDATE_COMMENT_PLUS);
+				psmt.setString(1, no);
+				psmt.executeUpdate();
+				close();
+				
+		
+			}catch(Exception e) {
+				logger.debug("updateCommentPlus" + e.getMessage());
+			}
+		
+		}
+	
+	//답변 comment 감소
+	public void updateCommentMinus(String no) {
+			
+			
+			try {
+				conn = getConnection();
+				psmt = conn.prepareStatement(SQL_cs.UPDATE_COMMENT_MINUS);
+				psmt.setString(1, no);
+				psmt.executeUpdate();
+				close();
+				
+		
+			}catch(Exception e) {
+				logger.debug("updateCommentMinus" + e.getMessage());
+			}
+		
+		}
 
 
 }

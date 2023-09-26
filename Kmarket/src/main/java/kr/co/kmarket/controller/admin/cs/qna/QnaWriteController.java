@@ -23,6 +23,7 @@ public class QnaWriteController extends HttpServlet {
 
 	private static final long serialVersionUID = 8562356067027527812L;
 	adminArticleService service = adminArticleService.instance;
+	ArticleService Aservice = ArticleService.INSTANCE; 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
@@ -43,6 +44,7 @@ public class QnaWriteController extends HttpServlet {
 		logger.debug("no = " + no);
 		
 		adminArticleDTO article =  service.selectArticle(no);
+
 		
 		req.setAttribute("article", article);
 		
@@ -69,6 +71,7 @@ public class QnaWriteController extends HttpServlet {
 		logger.debug("group = " + group);
 		logger.debug("no = " + no);
 		logger.debug("type = " + type);
+		logger.debug("title = " + title);
 		logger.debug("content = " + content);
 		logger.debug("regip = " + regip);
 		
@@ -85,6 +88,7 @@ public class QnaWriteController extends HttpServlet {
 		logger.debug(dto.toString());
 		
 		service.insertAnswer(dto);
+		Aservice.updateCommentPlus(no);
 		
 		logger.debug("dto = " + dto.toString());
 		

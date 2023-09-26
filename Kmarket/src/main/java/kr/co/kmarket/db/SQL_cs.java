@@ -122,5 +122,9 @@ public class SQL_cs {
 														+ "`writer`=?,"
 														+ "`regip`=?,"
 														+ "`rdate`=NOW()";
-												
+	
+	//답변이 달리면 comment 1이 증가
+	public final static String UPDATE_COMMENT_PLUS = "UPDATE `km_article` SET `comment` = `comment` + 1 WHERE `no` = ? ";
+	public final static String UPDATE_COMMENT_MINUS = "UPDATE `km_article` SET `comment` = `comment` - 1 WHERE `no` = ? ";
+	
 }
