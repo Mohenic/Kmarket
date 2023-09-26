@@ -12,7 +12,7 @@
                 <nav></nav>
                 <section class="write">
                     <article>
-                    <form action="#" name="modifyForm" method="post">
+                    <form action="/Kmarket/admin/cs/faq/modify.do" name="modifyForm" method="post">
                     <input type="hidden" name="no" value="${article.no}">
                     <input type="hidden" name="group" value="${article.group}">
                         <table>

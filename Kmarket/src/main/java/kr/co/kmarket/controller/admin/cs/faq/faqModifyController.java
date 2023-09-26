@@ -30,6 +30,8 @@ public class faqModifyController extends HttpServlet {
 		String type = req.getParameter("type");
 		String no = req.getParameter("no");
 		
+	
+		
 		
 		adminArticleDTO article = aService.selectArticle(no);
 
@@ -61,6 +63,7 @@ public class faqModifyController extends HttpServlet {
 		String content = req.getParameter("content");
 		
 		logger.debug("cate" + cate);
+		logger.debug("type" + type);
 		
 		adminArticleDTO dto = new adminArticleDTO();
 		dto.setCate(cate);
