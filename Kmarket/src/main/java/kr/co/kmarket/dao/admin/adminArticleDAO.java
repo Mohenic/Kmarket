@@ -195,7 +195,6 @@ public class adminArticleDAO extends DBHelper {
 				dto.setRegip(rs.getString(11));
 				dto.setRdate(rs.getString(12));
 				dto.setCateName(rs.getString(13));
-				dto.setTypeName(rs.getString(14));
 				article.add(dto);
 			}
 			close();
@@ -205,7 +204,7 @@ public class adminArticleDAO extends DBHelper {
 		return article;
 	}
 	
-	public List<adminArticleDTO> selectArticles(String group,String cate, String type, int start){
+	public List<adminArticleDTO> selectArticlesType(String group,String cate, String type, int start){
 		
 		List<adminArticleDTO> article = new ArrayList<>();
 		
