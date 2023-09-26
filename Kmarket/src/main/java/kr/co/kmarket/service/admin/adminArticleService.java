@@ -28,8 +28,8 @@ public enum adminArticleService {
 		return dao.selectArticleType(no);
 	}
 	
-	public List<adminArticleDTO> selectArticles(String group, String cate, String type, int start){
-		return dao.selectArticles(group, cate, type, start);
+	public List<adminArticleDTO> selectArticlesType(String group, String cate, String type, int start){
+		return dao.selectArticlesType(group, cate, type, start);
 	}
 	
 	public List<adminArticleDTO> selectArticles(String group, String cate, int start){

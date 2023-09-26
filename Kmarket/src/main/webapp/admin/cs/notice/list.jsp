@@ -75,7 +75,7 @@ window.onload = function(){
                     </span>
                 </c:if>
                 </div>
-            </section> <!--table end-->
-        </section><!--admin-product-list end-->
+            </section>
+        </section>
     </main>
 <%@include file ="../../_footer.jsp" %> 

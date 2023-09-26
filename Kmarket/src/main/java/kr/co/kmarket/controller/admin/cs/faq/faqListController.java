@@ -14,23 +14,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket.dto.admin.adminArticleDTO;
-import kr.co.kmarket.dto.cs.ArticleDTO;
 import kr.co.kmarket.service.admin.adminArticleService;
-import kr.co.kmarket.service.cs.ArticleService;
 
 @WebServlet("/admin/cs/faq/list.do")
 public class faqListController extends HttpServlet {
 
 	private static final long serialVersionUID = -6495265662381672507L;
+	private adminArticleService aService = adminArticleService.instance;
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	private ArticleService service = ArticleService.INSTANCE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String group = req.getParameter("group");
+		String type = req.getParameter("type");
 		String cate = req.getParameter("cate");
-		String no = req.getParameter("no");
+		String pg = req.getParameter("pg");
+		
+		if(cate == null) {
+			cate = "0";
+		}
 		
 		if(type == null) {
 			type = "0";
@@ -75,7 +77,7 @@ public class faqListController extends HttpServlet {
 		//페이지 시작번호 계산
 		pageStartNum = total-start;
 		
-		List<adminArticleDTO> article = aService.selectArticles("faq", cate, type, start);
+		List<adminArticleDTO> article = aService.selectArticlesType("faq", cate, type, start);
 		
 		req.setAttribute("article", article);
 		req.setAttribute("cate", cate);
