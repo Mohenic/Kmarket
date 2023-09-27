@@ -127,6 +127,20 @@ main table tr > td {
 
 /* notice list button */
 
+.btndelete {
+            display: inline-block;
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(191, 191, 191);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
 .btnDelete {
             display: inline-block;
             width: 110px;
@@ -195,6 +209,21 @@ main table tr > td {
 
 
 #admin-cs-notice-view > article .btnDelete {
+            float: right;
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(191, 191, 191);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+#admin-cs-notice-view > article .btndelete {
             float: right;
             width: 110px;
             height: 55px;
@@ -518,6 +547,21 @@ main table tr > td {
 	            box-sizing: border-box;
 	        }
 	
+	#admin-cs-faq-view > article .btndelete {
+	            float: right;
+	            width: 110px;
+	            height: 55px;
+	            margin: 40px auto 0;
+	            margin-right: 10px;
+	            border: 1px solid #ccc;
+	            font-size: 15px;
+	            background-color: rgb(191, 191, 191);
+	            color: #ffffff;
+	            line-height: 53px;
+	            text-align: center;
+	            box-sizing: border-box;
+	        }
+	
 	#admin-cs-faq-view > article .btnModify {
 	            float: right;
 	            width: 110px;
@@ -812,6 +856,21 @@ main table tr > td {
 
 
 #admin-cs-qna-view > article .btnDelete {
+            float: right;
+            width: 110px;
+            height: 55px;
+            margin: 40px auto 0;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background-color: rgb(191, 191, 191);
+            color: #ffffff;
+            line-height: 53px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+#admin-cs-qna-view > article .btndelete {
             float: right;
             width: 110px;
             height: 55px;
