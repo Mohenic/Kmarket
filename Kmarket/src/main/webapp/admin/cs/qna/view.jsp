@@ -45,7 +45,7 @@
                 </div>
                 <a href="/Kmarket/admin/cs/qna/list.do" class="btnList">목록</a>
                 <a href="/Kmarket/admin/cs/qna/write.do?group=qna&cate=${article.cate}&type=${article.type}&no=${article.no}" class="btnModify">답변등록</a>
-                <a href="/Kmarket/admin/cs/qna/delete.do?group=qna&cate=${article.cate}&type=${article.type}&no=${article.no}" class="btndelete">삭제</a>
+                <a href="/Kmarket/admin/cs/qna/delete.do?group=qna&chk=${article.no}" class="btndelete">삭제</a>
             </article>
         </section>
     </div>
