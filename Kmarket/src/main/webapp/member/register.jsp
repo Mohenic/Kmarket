@@ -26,7 +26,7 @@
                                 <td>
                                     <input type="text" name="uid" placeholder="아이디를 입력해 주세요" required>
                                      <button type="button" id="btnCheckUid"><img src="/Kmarket/member/images/chk_id.gif" alt="중복확인"></button>
-                                    <span class="mId">영문, 숫자로 4~12자까지 설정해 주세요.</span>
+                                    <span class="resultUid">영문, 숫자로 4~12자까지 설정해 주세요.</span>
                                 </td>
                             </tr>
                             <tr>
@@ -47,13 +47,12 @@
                                 </th>
                                 <td>
                                     <input type="password" name="pass2" placeholder="비밀번호 재입력" required>
-                                    <span class="mPass">비밀번호 재입력.</span>
+                                    <span class="resultPass">비밀번호 재입력.</span>
                                 </td>
                             </tr>
 
                         </table>
-                        <span class ="resultUid"></span>
-  	        			<span class ="resultPass"></span>
+
                     </section>
                     <section>
                         <table>
@@ -65,7 +64,7 @@
                                 </th>
                                 <td>
                                     <input type="text" name="name" placeholder="이름을 입력해주세요" required>
-                                    <span></span>
+                                    <span class ="resultName"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -91,6 +90,7 @@
                                 </th>
                                 <td>
                                     <input type="email" name="email" placeholder="이메일 입력" required>
+                                    <span id ="resultEmail"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -100,7 +100,7 @@
                                 </th>
                                 <td>
                                     <input type="text" name="hp" placeholder="휴대폰 번호 입력" required>
-                                    <span class="mHp"> -포함 13자리를 입력하세요</span>
+                                    <span class="mHp" id ="resultHp"> -포함 13자리를 입력하세요</span>
                                 </td>
                             </tr>
                             <tr class="addr">
@@ -120,9 +120,7 @@
                             </tr>
                   
                         </table>
-                                    <span class ="resultName"></span>
-                    	        	<span id ="resultEmail"></span>
-                    	        	<span id ="resultHp"></span>   
+
                     </section>
                     <div>
                         <input type="submit" class="join" value="회원가입">

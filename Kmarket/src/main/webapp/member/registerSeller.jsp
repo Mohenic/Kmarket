@@ -75,6 +75,7 @@
                                 </th>
                                 <td>
                                         <input type="text" name="ceo" placeholder="대표자 입력" required>
+                                        <span class ="resultCeo"></span>
 
                                 </td>
                             </tr>
@@ -105,7 +106,8 @@
                                 </th>
                                 <td>
                                     <input type="text" name="tel" placeholder="휴대폰 번호 입력" required>
-                                    <span class="mTel">  표시 포함, 지역번호 포함, 예) 02-234-1234</span>
+                                    <span class="mTel"> -표시 포함, 지역번호 포함, 예) 02-234-1234</span>
+                                    <span class ="resultTel"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -116,6 +118,7 @@
                                 <td>
                                     <input type="text" name="fax" placeholder="팩스 번호 입력" required>
                                     <span class="mFax"> - 표시 포함, 지역번호 포함, 예) 02-234-1234</span>
+                                    <span class ="resultFax"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -125,6 +128,7 @@
                                 </th>
                                 <td>
                                     <input type="email" name="email" placeholder="이메일 입력" required>
+                                    <span id ="resultEmail"></span>
                                 </td>
                             </tr>
                             <tr class="addr">
@@ -143,10 +147,10 @@
                                 </td>
                             </tr>                           
                         </table>
-						<span class ="resultCeo"></span><br>
-						<span class ="resultTel"></span><br>
-						<span class ="resultFax"></span><br>
-						<span id ="resultEmail"></span>
+						
+						
+						
+						
                     </section>
                     <section>
                         <table>
@@ -158,6 +162,7 @@
                                 </th>
                                 <td>
                                     <input type="text" name="name" placeholder="이름 입력" required>
+                                	<span class ="resultName"></span><br>
                                 </td>
                             </tr>
                             <tr>
@@ -168,11 +173,12 @@
                                 <td>
                                     <input type="text" name="hp" placeholder="전화번호 입력" required>
                                     <span class="mHp">- 포함 13자리를 입력하세요.  </span>
+                                    <span id ="resultHp"></span>
                                 </td>
                             </tr>
                         </table>
-                        <span class ="resultName"></span><br>
-                    	<span id ="resultHp"></span>
+                        
+                    	
 
                     </section>
                     <div>
