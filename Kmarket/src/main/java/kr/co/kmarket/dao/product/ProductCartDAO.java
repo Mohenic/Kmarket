@@ -53,8 +53,9 @@ public class ProductCartDAO extends DBHelper{
 			}else {
 				psmt=conn.prepareStatement(SQL_Cart.SELECT_CART_PLUS);
 				psmt.setInt(1,dto.getCount());
-				psmt.setInt(2, dto.getProdNo());
-				psmt.setString(3, dto.getUid());
+				psmt.setInt(2, dto.getPoint());
+				psmt.setInt(3, dto.getProdNo());
+				psmt.setString(4, dto.getUid());
 				
 			result=psmt.executeUpdate();
 			}
