@@ -242,7 +242,7 @@ public class adminArticleDAO extends DBHelper {
 				dto.setType(rs.getInt(6));
 				dto.setTitle(rs.getString(7));
 				dto.setContent(rs.getString(8));
-				dto.setWriter(rs.getString(9));
+				dto.setMaskWriter(rs.getString(9));
 				dto.setHit(rs.getInt(10));
 				dto.setRegip(rs.getString(11));
 				dto.setRdateYYMMDD(rs.getString(12));

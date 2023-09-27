@@ -63,7 +63,7 @@ public class QnaWriteController extends HttpServlet {
 		dto.setCate(cate);
 		dto.setType(type);
 		dto.setTitle(title);
-		dto.setContent(content);
+		dto.setContent(content.replace("\n", "<br>"));
 		dto.setWriter(writer);
 		dto.setRegip(regip);
 		

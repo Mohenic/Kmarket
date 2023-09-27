@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../../_header.jsp"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!-- 상단에 작성해줍니다. -->
+<%
+	pageContext.setAttribute("LF", "\n");
+	pageContext.setAttribute("BR", "<br/>");
+%>
+
+
+
+ <section id="cs">
 <%@ include file="../../_aside.jsp" %>
         <section id="admin-cs-qna-view">
             <nav>
@@ -21,7 +31,7 @@
                         </tr>
                         <tr>
                             <td>내용</td>
-                            <td>${article.content}</td>
+                            <td><c:out value="${fn:replace(article.content, LF, BR)}" escapeXml="false"/></td>
                         </tr>
                         <tr>
                         	<td>답변제목</td>
@@ -29,13 +39,13 @@
                         </tr>
                         <tr>
                         	<td>답변내용</td>
-                        	<td>${answer.content }</td>
+                        	<td><c:out value="${fn:replace(answer.content, LF, BR)}" escapeXml="false"/></td>
                         </tr>
                   </table>
                 </div>
                 <a href="/Kmarket/admin/cs/qna/list.do" class="btnList">목록</a>
                 <a href="/Kmarket/admin/cs/qna/write.do?group=qna&cate=${article.cate}&type=${article.type}&no=${article.no}" class="btnModify">답변등록</a>
-                <a href="/Kmarket/admin/cs/qna/delete.do?group=qna&cate=${article.cate}&type=${article.type}&no=${article.no}" class="btnDelete">삭제</a>
+                <a href="/Kmarket/admin/cs/qna/delete.do?group=qna&cate=${article.cate}&type=${article.type}&no=${article.no}" class="btndelete">삭제</a>
             </article>
         </section>
     </div>

@@ -854,4 +854,17 @@ main table tr > td {
     text-align: center;
     box-sizing: border-box;
 }
-    
+#admin-cs-qna-view > article .btndelete{
+    float: right;
+    width: 110px;
+    height: 55px;
+    margin: 40px auto 0;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: rgb(191, 191, 191);
+    color: #ffffff;
+    line-height: 53px;
+    text-align: center;
+    box-sizing: border-box;
+} 

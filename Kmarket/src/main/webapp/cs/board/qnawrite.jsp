@@ -6,6 +6,13 @@
 	
  -->
 <%@ include file="../_header.jsp" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!-- 상단에 작성해줍니다. -->
+<%
+	pageContext.setAttribute("LF", "\n");
+	pageContext.setAttribute("BR", "<br/>");
+%>
+ <section id="cs">
 <c:import url="./aside.jsp" />
  <script>
  	window.addEventListener('load', function() {

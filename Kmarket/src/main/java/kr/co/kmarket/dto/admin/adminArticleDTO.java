@@ -114,6 +114,14 @@ public class adminArticleDTO {
 		this.rdate = rdate.substring(2, 10);
 	}
 	
+	//아이디 마스킹 처리
+	public void setMaskWriter(String writer) {
+        if (writer!= null && writer.length() > 2) {
+            String maskedUserId = writer.substring(0, 2) + "***";
+            this.writer = maskedUserId;
+        } 
+    }
+	
 	@Override
 	public String toString() {
 		return "adminArticleDTO [no=" + no + ", parent=" + parent + ", comment=" + comment + ", group=" + group

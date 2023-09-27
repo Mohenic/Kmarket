@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!-- 상단에 작성해줍니다. -->
+<%
+	pageContext.setAttribute("LF", "\n");
+	pageContext.setAttribute("BR", "<br/>");
+%>
  <section id="cs">
 <c:import url="./aside.jsp" />
 						
@@ -27,7 +33,7 @@
                         </nav>
                         <div class="content">
                             <p>
-                             	${article.content}
+                            	<c:out value="${fn:replace(article.content, LF, BR)}" escapeXml="false"/>
                             </p>
                         </div>
 
@@ -36,16 +42,18 @@
                             <nav>☛ [답변] ${answer.title}</nav>
                             <div>
                                 <p>
-                                    ${answer.content}<br>
+                                    ${answer.content}
                                 </p>
                             </div>
                         </div>
-                       
+                      
                        </c:if>
                         <a href="/Kmarket/cs/board/${group}/list.do?group=${group}&cate=${cate}" class="btnList">목록보기</a>
                         <c:if test="${article.writer eq sessUser.uid}">
-                        <a href="/Kmarket/cs/board/${group}Modify.do?group=${group}&cate=${cate}&no=${article.no}" class="btnList">수정하기</a>
+                        <c:if test="${group eq 'qna'}">
+                        <a href="/Kmarket/cs/board/${group}Modify.do?group=${group}&cate=${cate}&type=${article.type}&no=${article.no}" class="btnList">수정하기</a>
                         <a href="/Kmarket/cs/board/delete.do?group=${group}&cate=${cate}&no=${article.no}" class="btnList">삭제하기</a>
+                    	</c:if>
                     	</c:if>
                     </article>
                 </section>
