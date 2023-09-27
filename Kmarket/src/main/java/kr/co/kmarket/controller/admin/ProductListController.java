@@ -47,11 +47,12 @@ public class ProductListController extends HttpServlet{
 			
 		}
 		
+		//전체상품 갯수조회 
+		total=pService.selectCountProductTotal();
+		
 		//LIMIT 시작값계산
 		start =(currentPage -1)*10;
 
-		//전체상품 갯수조회 
-		total=pService.selectCountProductTotal();
 		
 		if(total%10 == 0){
 			lastPageNum =(total/10);
@@ -69,7 +70,7 @@ public class ProductListController extends HttpServlet{
 		}
 		
 		//페이지 시작번호 계산
-		pageStartNum =total-start;
+		pageStartNum = total-start;
 		
 		List<ProductDTO> products = pService.selectProducts(start);
 		

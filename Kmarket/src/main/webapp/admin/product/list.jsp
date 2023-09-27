@@ -71,7 +71,7 @@
                 </c:forEach>
                 <c:if test="${pageGroupEnd < lastPageNum}">
                     <span class="next">
-                        <a href="/Kmarket/admin/product/list.do?pg=${pageGrouEnd + 1}">다음&nbsp;&gt;</a>
+                        <a href="/Kmarket/admin/product/list.do?pg=${pageGroupEnd + 1}">다음&nbsp;&gt;</a>
                     </span>
                 </c:if>
                     </div>
